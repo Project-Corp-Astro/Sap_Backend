@@ -1,0 +1,128 @@
+import express from 'express';
+import type { Request, Response, NextFunction } from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import helmet from 'helmet';
+import userRoutes from './routes/user.routes';
+import monitoringRoutes from './routes/monitoring.routes';
+import logger, { requestLogger, errorLogger } from './utils/logger';
+import { performanceMiddleware } from './utils/performance';
+
+// Initialize Express app
+const app = express();
+const PORT = process.env.PORT || 3002;
+
+// Middleware
+app.use(cors());
+app.use(helmet());
+app.use(express.json());
+
+// Performance monitoring middleware
+// @ts-ignore - Ignoring type error for middleware compatibility
+app.use(performanceMiddleware);
+
+// Request logging middleware
+// @ts-ignore - Ignoring type error for requestLogger compatibility
+app.use(requestLogger({
+  skip: (req: Request) => req.originalUrl === '/health' || req.originalUrl === '/api/health',
+  format: ':method :url :status :response-time ms - :res[content-length]'
+}));
+
+// MongoDB Connection
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/sap-users';
+
+// Set strictQuery to false to suppress the deprecation warning
+mongoose.set('strictQuery', false);
+
+const mongooseOptions: mongoose.ConnectOptions = {
+  serverSelectionTimeoutMS: 5000,
+  retryWrites: true,
+};
+
+mongoose.connect(MONGO_URI, mongooseOptions)
+  .then(() => {
+    logger.info('MongoDB Connected');
+  })
+  .catch((err: Error) => {
+    logger.error('MongoDB connection error:', { error: err.message, stack: err.stack });
+    process.exit(1);
+  });
+
+// Routes
+app.use('/api/users', userRoutes);
+
+// Monitoring routes
+app.use('/api/monitoring', monitoringRoutes);
+
+// Health check route - maintain backward compatibility
+// @ts-ignore - Ignoring type error for route handler compatibility
+app.get('/health', (req: Request, res: Response) => {
+  const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
+  
+  res.status(200).json({ 
+    status: 'ok', 
+    service: 'user-service',
+    timestamp: new Date().toISOString(),
+    database: {
+      status: dbStatus,
+      name: mongoose.connection.name,
+      host: mongoose.connection.host,
+      port: mongoose.connection.port,
+    },
+    uptime: process.uptime(),
+  });
+});
+
+// Error logging middleware
+app.use(errorLogger());
+
+// Error handling middleware
+// @ts-ignore - Ignoring type error for error middleware compatibility
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  logger.error('Unhandled error:', { error: err.message, stack: err.stack, path: req.path });
+  
+  res.status(500).json({
+    success: false,
+    message: 'Internal Server Error',
+    error: process.env.NODE_ENV === 'development' ? err.message : undefined
+  });
+});
+
+// Start server
+const server = app.listen(PORT, () => {
+  logger.info(`User Service running on port ${PORT}`);
+  logger.info(`Health check available at http://localhost:${PORT}/health`);
+});
+
+// Handle graceful shutdown
+const gracefulShutdown = (signal: string) => {
+  logger.info(`${signal} signal received: closing HTTP server`);
+
+  server.close(() => {
+    logger.info('HTTP server closed');
+
+    // Close MongoDB connection
+    mongoose.connection.close(false, () => {
+      logger.info('MongoDB connection closed');
+      process.exit(0);
+    });
+  });
+};
+
+// Handle signals for graceful shutdown
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
+  logger.error('Unhandled Rejection at:', { promise, reason });
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (error: Error) => {
+  logger.error('Uncaught Exception:', { error });
+  // Consider whether to exit the process here
+  // process.exit(1);
+});
+
+export default app; // Export for testing

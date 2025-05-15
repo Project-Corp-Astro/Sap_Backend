@@ -1,0 +1,1 @@
+{"error":"Connection is closed.","level":"error","message":"Error closing Redis connections","service":"redis-client","timestamp":"2025-05-15T04:17:17.543Z"}

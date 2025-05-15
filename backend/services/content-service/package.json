@@ -1,0 +1,50 @@
+{
+  "name": "sap-content-service",
+  "version": "1.0.0",
+  "description": "Content Management Service for Super Administration Panel",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "test": "jest",
+    "build": "tsc",
+    "init-db": "ts-node scripts/init-db.ts",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "docs": "typedoc --options typedoc.json"
+  },
+  "dependencies": {
+    "@sap/logger": "file:../../shared/logger",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.4.0",
+    "helmet": "^5.0.2",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^6.2.9",
+    "morgan": "^1.10.0",
+    "winston": "^3.6.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/mongoose": "^5.11.97",
+    "@types/supertest": "^6.0.2",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.10",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "typedoc": "^0.24.8",
+    "typedoc-plugin-markdown": "^3.15.3"
+  }
+}

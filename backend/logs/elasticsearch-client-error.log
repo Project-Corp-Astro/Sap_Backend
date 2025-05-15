@@ -1,0 +1,14 @@
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-14T09:12:56.677Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-14T10:33:42.809Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-14T10:45:56.364Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-14T10:59:03.448Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-14T11:01:45.336Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-14T11:05:32.377Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-14T11:39:59.622Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-14T11:40:33.718Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-14T12:50:24.743Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-15T02:23:37.514Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-15T02:25:36.956Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-15T02:41:35.310Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-15T05:14:41.436Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-15T07:35:24.280Z"}

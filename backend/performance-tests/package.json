@@ -1,0 +1,28 @@
+{
+  "name": "sap-performance-tests",
+  "version": "1.0.0",
+  "description": "Performance tests for SAP Project TypeScript services",
+  "main": "index.ts",
+  "scripts": {
+    "test:auth": "k6 run --out json=results/auth-results.json dist/auth-service.js",
+    "test:user": "k6 run --out json=results/user-results.json dist/user-service.js",
+    "test:content": "k6 run --out json=results/content-results.json dist/content-service.js",
+    "test:gateway": "k6 run --out json=results/gateway-results.json dist/api-gateway.js",
+    "test:all": "npm run test:auth && npm run test:user && npm run test:content && npm run test:gateway",
+    "build": "webpack",
+    "pretest": "npm run build"
+  },
+  "dependencies": {
+    "k6": "^0.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@types/k6": "^0.45.0",
+    "babel-loader": "^9.1.2",
+    "typescript": "^5.0.4",
+    "webpack": "^5.80.0",
+    "webpack-cli": "^5.0.2"
+  }
+}

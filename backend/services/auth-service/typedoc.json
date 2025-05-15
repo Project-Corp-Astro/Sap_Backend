@@ -1,0 +1,23 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "../../../docs/api/auth-service",
+  "name": "Auth Service API Documentation",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeExternals": true,
+  "excludeInternal": true,
+  "readme": "README.md",
+  "plugin": ["typedoc-plugin-markdown"],
+  "theme": "markdown",
+  "categorizeByGroup": true,
+  "categoryOrder": [
+    "Models",
+    "Controllers",
+    "Services",
+    "Middleware",
+    "Routes",
+    "Interfaces",
+    "Utils",
+    "*"
+  ]
+}

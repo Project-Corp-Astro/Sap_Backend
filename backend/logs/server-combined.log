@@ -1,0 +1,119 @@
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-14T09:12:56.168Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-14T09:12:56.174Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-14T09:12:56.174Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-14T09:12:56.176Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-14T10:33:16.291Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-14T10:33:16.315Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-14T10:33:42.650Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-14T10:33:42.660Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-14T10:33:42.663Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-14T10:33:42.664Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-14T10:45:41.044Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-14T10:45:56.147Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-14T10:45:56.152Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-14T10:45:56.153Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-14T10:45:56.153Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-14T10:57:28.413Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-14T10:59:03.131Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-14T10:59:03.135Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-14T10:59:03.135Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-14T10:59:03.136Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-14T11:01:32.383Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-14T11:01:44.681Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-14T11:01:44.687Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-14T11:01:44.687Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-14T11:01:44.688Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-14T11:05:19.156Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-14T11:05:31.515Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-14T11:05:31.519Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-14T11:05:31.524Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-14T11:05:31.525Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-14T11:39:59.865Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-14T11:39:59.876Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-14T11:39:59.877Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-14T11:39:59.877Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-14T11:40:33.151Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-14T11:40:33.154Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-14T11:40:33.155Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-14T11:40:33.156Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-14T12:50:07.111Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-14T12:50:24.845Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-14T12:50:24.851Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-14T12:50:24.851Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-14T12:50:24.852Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T02:23:36.507Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T02:23:36.515Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T02:23:36.516Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T02:23:36.517Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-15T02:25:05.680Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-15T02:25:05.690Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T02:25:35.855Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T02:25:35.859Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T02:25:35.860Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T02:25:35.860Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-15T02:41:20.787Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-15T02:41:20.790Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T02:41:34.587Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T02:41:34.592Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T02:41:34.593Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T02:41:34.593Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-15T04:17:17.159Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-15T04:17:17.186Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T04:17:33.386Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T04:17:33.394Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T04:17:33.395Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T04:17:33.396Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T04:18:55.833Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T04:18:55.839Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T04:18:55.841Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T04:18:55.842Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T04:44:38.433Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T04:44:38.439Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T04:44:38.440Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T04:44:38.440Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-15T05:14:25.043Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-15T05:14:25.062Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T05:14:40.925Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T05:14:40.933Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T05:14:40.935Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T05:14:40.935Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-15T05:34:38.642Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-15T05:34:38.644Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T05:34:50.808Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T05:34:50.815Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T05:34:50.816Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T05:34:50.816Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-15T05:38:18.195Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-15T05:38:18.200Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T05:38:28.600Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T05:38:28.603Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T05:38:28.604Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T05:38:28.605Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T05:49:05.665Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T05:49:05.671Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T05:49:05.671Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T05:49:05.672Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T05:49:29.110Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T05:49:29.115Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T05:49:29.116Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T05:49:29.116Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T05:51:50.382Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T05:51:50.386Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T05:51:50.388Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T05:51:50.389Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T06:07:48.788Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T06:07:48.797Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T06:07:48.798Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T06:07:48.799Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T07:35:23.867Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T07:35:23.879Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T07:35:23.880Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T07:35:23.880Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-15T07:40:01.030Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-15T07:40:01.037Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-15T07:40:14.245Z"}
+{"level":"info","message":"Server running on port 5000","service":"server","timestamp":"2025-05-15T07:40:14.252Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-15T07:40:14.253Z"}
+{"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T07:40:14.254Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-15T07:45:30.951Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-15T07:45:30.957Z"}

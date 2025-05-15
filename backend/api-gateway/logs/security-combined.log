@@ -1,0 +1,10 @@
+{"level":"info","message":"Security middleware applied","service":"security","timestamp":"2025-05-05T19:40:25.911Z"}
+{"level":"info","message":"Security middleware applied","service":"security","timestamp":"2025-05-05T19:41:41.478Z"}
+{"level":"info","message":"Security middleware applied","service":"security","timestamp":"2025-05-05T21:24:06.968Z"}
+{"level":"info","message":"Security middleware applied","service":"security","timestamp":"2025-05-06T06:43:11.883Z"}
+{"level":"info","message":"Security middleware applied","service":"security","timestamp":"2025-05-06T21:05:41.941Z"}
+{"level":"info","message":"Security middleware applied","service":"security","timestamp":"2025-05-06T21:09:30.545Z"}
+{"level":"info","message":"Security middleware applied","service":"security","timestamp":"2025-05-06T21:10:20.633Z"}
+{"ip":"::1","level":"info","message":"GET /","params":{},"query":{},"service":"security","timestamp":"2025-05-06T21:10:49.889Z","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"}
+{"level":"info","message":"Security middleware applied","service":"security","timestamp":"2025-05-06T21:11:24.754Z"}
+{"level":"info","message":"Security middleware applied","service":"security","timestamp":"2025-05-07T16:52:01.801Z"}

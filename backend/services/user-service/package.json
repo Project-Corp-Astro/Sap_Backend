@@ -1,0 +1,37 @@
+{
+  "name": "sap-user-service",
+  "version": "1.0.0",
+  "description": "User Management Service for Super Administration Panel",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "build": "tsc",
+    "test": "jest",
+    "docs": "typedoc --options typedoc.json"
+  },
+  "dependencies": {
+    "@corp-astro/shared-types": "file:../../../shared/types",
+    "@sap/logger": "file:../../shared/logger",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^6.2.9",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.12",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.10",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "typedoc": "^0.24.8",
+    "typedoc-plugin-markdown": "^3.15.3"
+  }
+}
