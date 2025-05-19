@@ -63,6 +63,10 @@
 - [Support](#support)
   - [Issue Tracking](#issue-tracking)
   - [Contact](#contact)
+- [Security](#security)
+  - [Vulnerability Reporting](#vulnerability-reporting)
+  - [Security Best Practices](#security-best-practices)
+  - [Security Audits](#security-audits)
 - [License](#license)
 
 ## Project Overview
@@ -1657,6 +1661,30 @@ Please use the [GitHub Issues](https://github.com/Project-Corp-Astro/Sap_Backend
 ### Documentation
 
 Additional documentation can be found in the [/docs](./docs) directory of this repository.
+
+## Security
+
+Security is a top priority for the Corp Astro Super Admin Panel. We take all security vulnerabilities seriously and strive to address them promptly.
+
+### Vulnerability Reporting
+
+If you discover a security vulnerability within the Corp Astro Super Admin Panel, please send an email to [security@corpastro.com](mailto:security@corpastro.com). All security vulnerabilities will be promptly addressed.
+
+### Security Best Practices
+
+The project follows these security best practices:
+
+1. **Regular Dependency Updates**: We regularly update dependencies to patch known vulnerabilities
+2. **Code Scanning**: We use GitHub's code scanning and Dependabot to identify vulnerabilities
+3. **Authentication Security**: Implementation of JWT with proper expiration, refresh tokens, and secure storage
+4. **Input Validation**: All user inputs are validated and sanitized to prevent injection attacks
+5. **Rate Limiting**: API endpoints are protected against brute force attacks with rate limiting
+6. **HTTPS Only**: All communications use HTTPS to ensure data is encrypted in transit
+7. **Secure Headers**: Implementation of security headers to prevent common web vulnerabilities
+
+### Security Audits
+
+The codebase undergoes regular security audits to identify and address potential vulnerabilities. The last security audit was conducted on May 15, 2025.
 
 ## License
 
