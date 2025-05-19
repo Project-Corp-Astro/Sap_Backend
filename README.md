@@ -1,5 +1,70 @@
 # Corp Astro Super Admin Panel (SAP) - Backend Services
 
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/Project-Corp-Astro/Sap_Backend)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/Project-Corp-Astro/Sap_Backend)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Project-Corp-Astro/Sap_Backend/LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18.x-green.svg)](https://nodejs.org/)
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+  - [Key Components in the Corp Astro Ecosystem](#key-components-in-the-corp-astro-ecosystem)
+  - [System Flow](#system-flow)
+- [Quick Start](#quick-start)
+- [Latest Updates](#latest-updates)
+  - [Performance Monitoring and Logging System](#performance-monitoring-and-logging-system)
+  - [TypeScript Migration Complete](#typescript-migration-complete)
+- [Architecture Overview](#architecture-overview)
+  - [Microservices Architecture](#microservices-architecture)
+  - [Hybrid Database Architecture](#hybrid-database-architecture)
+- [Directory Structure](#directory-structure)
+  - [Project Structure Overview](#project-structure-overview)
+  - [Key Directories and Files](#key-directories-and-files)
+- [Key Components](#key-components)
+  - [Core Components and Data Flow](#core-components-and-data-flow)
+  - [Database Connection Manager](#database-connection-manager)
+  - [Authentication System](#authentication-system)
+- [Setup and Configuration](#setup-and-configuration)
+  - [Prerequisites](#prerequisites)
+  - [Environment Variables](#environment-variables)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [API Endpoints](#api-endpoints)
+  - [API Structure](#api-structure)
+  - [Authentication Endpoints](#authentication-endpoints)
+  - [User Management Endpoints](#user-management-endpoints)
+- [Scripts and Utilities](#scripts-and-utilities)
+  - [Development Scripts](#development-scripts)
+  - [Service Scripts](#service-scripts)
+  - [Database Scripts](#database-scripts)
+- [Development](#development)
+  - [Development Workflow](#development-workflow)
+  - [Adding a New Entity](#adding-a-new-entity)
+  - [Adding a New API Endpoint](#adding-a-new-api-endpoint)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues Flowchart](#common-issues-flowchart)
+  - [Database Connection Issues](#database-connection-issues)
+- [Architecture Deep Dive](#architecture-deep-dive)
+  - [Overall Architecture](#overall-architecture)
+  - [API Gateway](#api-gateway)
+  - [Services](#services)
+  - [Models](#models)
+- [Source Code Deep Dive](#source-code-deep-dive)
+  - [Source Code Structure](#source-code-structure)
+  - [Service Structure in Detail](#service-structure-in-detail)
+  - [Database Architecture](#database-architecture-1)
+  - [ORM Implementation](#orm-implementation)
+  - [Testing with Jest](#testing-with-jest)
+  - [Component Communication and Technology Stack](#component-communication-and-technology-stack)
+- [Contributing](#contributing)
+  - [Contribution Guidelines](#contribution-guidelines)
+  - [Development Setup](#development-setup)
+- [Support](#support)
+  - [Issue Tracking](#issue-tracking)
+  - [Contact](#contact)
+- [License](#license)
+
 ## Project Overview
 
 The Corp Astro Super Admin Panel (SAP) is a web-based administration interface for managing the Corp Astro ecosystem. It serves as the central control panel for administering users, content, and services across the Corp Astro platform, which includes mobile applications focused on corporate astrology.
@@ -26,6 +91,30 @@ graph TD
     G[Admin] -->|Manages| H[SAP Backend]
     H -->|Administers| C
 ```
+
+## Quick Start
+
+Get up and running with Corp Astro SAP in minutes:
+
+```bash
+# Clone the repository
+git clone https://github.com/Project-Corp-Astro/Sap_Backend.git
+cd Sap_Backend
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+
+# Start development server
+npm run dev
+```
+
+Access the API at: http://localhost:5000/api
+
+For more detailed setup instructions, see the [Setup and Configuration](#setup-and-configuration) section.
 
 ## Latest Updates
 
@@ -107,7 +196,88 @@ graph TD
         Mongo[(MongoDB)]
         Redis[(Redis)]
         ES[(Elasticsearch)]
+        Postgres[(PostgreSQL)]
     end
+    
+    subgraph Communication
+        MQ[RabbitMQ]
+        WS[WebSockets]
+    end
+    
+    Auth -->|Publishes Events| MQ
+    User -->|Publishes Events| MQ
+    Content -->|Publishes Events| MQ
+    
+    MQ -->|Consumes Events| Auth
+    MQ -->|Consumes Events| User
+    MQ -->|Consumes Events| Content
+    
+    Gateway -->|Real-time Updates| WS
+    WS -->|Notifications| Client
+```
+
+#### High-Level System Architecture
+
+```mermaid
+flowchart TB
+    subgraph "Client Layer"
+        MobileApp[Mobile Applications]
+        WebApp[Web Applications]
+        AdminPanel[Admin Panel]
+    end
+    
+    subgraph "API Layer"
+        APIGateway[API Gateway]
+        LoadBalancer[Load Balancer]
+        APICache[API Cache]
+    end
+    
+    subgraph "Service Layer"
+        AuthService[Auth Service]
+        UserService[User Service]
+        ContentService[Content Service]
+        AstroEngine[Astro Engine]
+        AstroRatan[Astro Ratan AI]
+    end
+    
+    subgraph "Data Layer"
+        MongoDB[(MongoDB)]
+        Redis[(Redis)]
+        Elasticsearch[(Elasticsearch)]
+        PostgreSQL[(PostgreSQL)]
+    end
+    
+    subgraph "Infrastructure Layer"
+        Monitoring[Monitoring & Logging]
+        CI/CD[CI/CD Pipeline]
+        Backups[Backup System]
+    end
+    
+    MobileApp --> APIGateway
+    WebApp --> APIGateway
+    AdminPanel --> APIGateway
+    
+    APIGateway --> LoadBalancer
+    LoadBalancer --> AuthService
+    LoadBalancer --> UserService
+    LoadBalancer --> ContentService
+    LoadBalancer --> AstroEngine
+    LoadBalancer --> AstroRatan
+    
+    AuthService --> MongoDB
+    AuthService --> Redis
+    UserService --> MongoDB
+    UserService --> PostgreSQL
+    ContentService --> MongoDB
+    ContentService --> Elasticsearch
+    AstroEngine --> MongoDB
+    AstroRatan --> MongoDB
+    
+    AuthService --> Monitoring
+    UserService --> Monitoring
+    ContentService --> Monitoring
+    AstroEngine --> Monitoring
+    AstroRatan --> Monitoring
 ```
 
 #### Key Components
@@ -1438,6 +1608,55 @@ Use these tools to help diagnose issues:
    - Create a collection of API requests for testing
    - Save environment variables for tokens and endpoints
    - Use pre-request scripts to handle authentication
+
+## Contributing
+
+We welcome contributions to the Corp Astro Super Admin Panel! Here's how you can contribute:
+
+### Contribution Guidelines
+
+1. **Fork the Repository**: Start by forking the repository to your GitHub account.
+
+2. **Create a Branch**: Create a feature branch for your contribution.
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Follow Coding Standards**:
+   - Use TypeScript for all new code
+   - Follow the existing code style and patterns
+   - Write unit tests for your code
+   - Ensure all tests pass before submitting a pull request
+
+4. **Commit Guidelines**:
+   - Use conventional commit messages (feat, fix, docs, style, refactor, test, chore)
+   - Keep commits focused and atomic
+   - Reference issue numbers in commit messages when applicable
+
+5. **Submit a Pull Request**: Push your changes to your fork and submit a pull request to the main repository.
+
+6. **Code Review**: Wait for code review and address any feedback.
+
+### Development Setup
+
+Follow the [Setup and Configuration](#setup-and-configuration) section to set up your development environment.
+
+## Support
+
+If you encounter any issues or have questions about the Corp Astro Super Admin Panel, here are some ways to get support:
+
+### Issue Tracking
+
+Please use the [GitHub Issues](https://github.com/Project-Corp-Astro/Sap_Backend/issues) page to report bugs or request features.
+
+### Contact
+
+- **Project Maintainer**: [Project Lead Name](mailto:lead@corpastro.com)
+- **Development Team**: [Dev Team Email](mailto:dev@corpastro.com)
+
+### Documentation
+
+Additional documentation can be found in the [/docs](./docs) directory of this repository.
 
 ## License
 
