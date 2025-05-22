@@ -7,7 +7,7 @@
 import mongoose from 'mongoose';
 import { createServiceLogger } from '../../shared/utils/logger';
 import mongoDbConnection from '../../shared/utils/database';
-// import pgClient from '../../shared/utils/postgres';
+import pgClient from '../../shared/utils/postgres';
 import redisClient from '../../shared/utils/redis';
 import esClient from '../../shared/utils/elasticsearch';
 import typeORMManager from '../../shared/utils/typeorm';
@@ -22,7 +22,7 @@ const logger = createServiceLogger('database-manager');
 
 export class DatabaseManager {
   private mongoConnected: boolean = false;
-  // private pgConnected: boolean = false;
+  private pgConnected: boolean = false;
   private redisConnected: boolean = false;
   private esConnected: boolean = false;
   private typeORMInitialized: boolean = false;
@@ -47,14 +47,14 @@ export class DatabaseManager {
     }
     
     // PostgreSQL connection (optional in development)
-    // try {
-    //   // Connect to PostgreSQL
-    //   await this.connectPostgres();
-    // } catch (error) {
-    //   // PostgreSQL errors are already handled in connectPostgres method
-    //   hasErrors = true;
-    //   // Continue with other connections
-    // }
+    try {
+      // Connect to PostgreSQL
+      await this.connectPostgres();
+    } catch (error) {
+      // PostgreSQL errors are already handled in connectPostgres method
+      hasErrors = true;
+      // Continue with other connections
+    }
     
     // Redis connection (optional)
     try {
@@ -95,24 +95,24 @@ export class DatabaseManager {
     }
     
     // TypeORM initialization (depends on PostgreSQL)
-    // if (this.pgConnected) {
-    //   try {
-    //     // Initialize TypeORM
-    //     await this.initializeTypeORM();
-    //   } catch (error) {
-    //     logger.error('Error initializing TypeORM', { error: (error as Error).message });
-    //     hasErrors = true;
-    //   }
-    // } else {
-    //   logger.warn('Skipping TypeORM initialization as PostgreSQL is not connected');
-    //   hasErrors = true;
-    // }
+    if (this.pgConnected) {
+      try {
+        // Initialize TypeORM
+        await this.initializeTypeORM();
+      } catch (error) {
+        logger.error('Error initializing TypeORM', { error: (error as Error).message });
+        hasErrors = true;
+      }
+    } else {
+      logger.warn('Skipping TypeORM initialization as PostgreSQL is not connected');
+      hasErrors = true;
+    }
     
-    // if (hasErrors) {
-    //   logger.warn('Some database connections failed to initialize. Application will continue with limited functionality.');
-    // } else {
-    //   logger.info('All database connections initialized successfully');
-    // }
+    if (hasErrors) {
+      logger.warn('Some database connections failed to initialize. Application will continue with limited functionality.');
+    } else {
+      logger.info('All database connections initialized successfully');
+    }
   }
 
   /**
@@ -151,51 +151,51 @@ export class DatabaseManager {
   /**
    * Connect to PostgreSQL
    */
-  // async connectPostgres(): Promise<void> {
-  //   try {
-  //     if (this.pgConnected) {
-  //       logger.info('PostgreSQL already connected');
-  //       return;
-  //     }
+  async connectPostgres(): Promise<void> {
+    try {
+      if (this.pgConnected) {
+        logger.info('PostgreSQL already connected');
+        return;
+      }
       
-  //     logger.info('Connecting to PostgreSQL');
+      logger.info('Connecting to PostgreSQL');
       
-  //     // Test connection by executing a simple query
-  //     await pgClient.query('SELECT NOW()');
-  //     this.pgConnected = true;
+      // Test connection by executing a simple query
+      await pgClient.query('SELECT NOW()');
+      this.pgConnected = true;
       
-  //     logger.info('Connected to PostgreSQL successfully');
-  //   } catch (error) {
-  //     // Log the error but don't throw it - allow the application to continue
-  //     logger.error('Error connecting to PostgreSQL', { 
-  //       error: (error as Error).message,
-  //       code: (error as any).code,
-  //       detail: (error as any).detail
-  //     });
+      logger.info('Connected to PostgreSQL successfully');
+    } catch (error) {
+      // Log the error but don't throw it - allow the application to continue
+      logger.error('Error connecting to PostgreSQL', { 
+        error: (error as Error).message,
+        code: (error as any).code,
+        detail: (error as any).detail
+      });
       
       // For authentication errors, provide more helpful message
-  //     if ((error as any).code === '28P01' || (error as any).code === '28000') {
-  //       logger.error('PostgreSQL authentication failed. Please check your credentials in the configuration.');
-  //     }
+      if ((error as any).code === '28P01' || (error as any).code === '28000') {
+        logger.error('PostgreSQL authentication failed. Please check your credentials in the configuration.');
+      }
       
-  //     if (this.useMockDatabases) {
-  //       logger.warn('Using mock PostgreSQL implementation');
-  //       try {
-  //         await mockPgClient.connect();
-  //         this.pgConnected = true;
-  //         return;
-  //       } catch (mockError) {
-  //         logger.error('Error connecting to mock PostgreSQL', { error: (mockError as Error).message });
-  //       }
-  //     }
+      if (this.useMockDatabases) {
+        logger.warn('Using mock PostgreSQL implementation');
+        try {
+          await mockPgClient.connect();
+          this.pgConnected = true;
+          return;
+        } catch (mockError) {
+          logger.error('Error connecting to mock PostgreSQL', { error: (mockError as Error).message });
+        }
+      }
       
-  //     // Set connection status to false but don't throw the error
-  //     this.pgConnected = false;
+      // Set connection status to false but don't throw the error
+      this.pgConnected = false;
       
-  //     // Log warning that application will continue without PostgreSQL
-  //     logger.warn('Application will continue without PostgreSQL connection');
-  //   }
-  // }
+      // Log warning that application will continue without PostgreSQL
+      logger.warn('Application will continue without PostgreSQL connection');
+    }
+  }
 
   /**
    * Connect to Redis
@@ -248,7 +248,10 @@ export class DatabaseManager {
       
       logger.info('Connecting to Elasticsearch');
       
-      // Check connection
+      // Force a connection check to make sure we're connected to the real instance
+      await esClient.checkConnection();
+      
+      // Check connection status after the check
       const status = esClient.getStatus();
       
       if (!status.isConnected) {
@@ -312,12 +315,12 @@ export class DatabaseManager {
   /**
    * Get PostgreSQL connection status
    */
-  // getPgStatus(): any {
-  //   return {
-  //     isConnected: this.pgConnected,
-  //     details: pgClient.getStatus()
-  //   };
-  // }
+  getPgStatus(): any {
+    return {
+      isConnected: this.pgConnected,
+      details: pgClient.getStatus()
+    };
+  }
 
   /**
    * Get Redis connection status
@@ -349,9 +352,9 @@ export class DatabaseManager {
   getAllStatuses(): any {
     return {
       mongo: this.getMongoStatus(),
-      // postgres: this.getPgStatus(),
+      postgres: this.getPgStatus(),
       redis: this.getRedisStatus(),
-      // elasticsearch: this.getEsStatus(),
+      elasticsearch: this.getEsStatus(),
       typeorm: this.getTypeORMStatus()
     };
   }
@@ -371,11 +374,11 @@ export class DatabaseManager {
       }
       
       // Close PostgreSQL
-      // if (this.pgConnected) {
-      //   await pgClient.end();
-      //   this.pgConnected = false;
-      //   logger.info('PostgreSQL connection closed');
-      // }
+      if (this.pgConnected) {
+        await pgClient.end();
+        this.pgConnected = false;
+        logger.info('PostgreSQL connection closed');
+      }
       
       // Close Redis
       if (this.redisConnected) {

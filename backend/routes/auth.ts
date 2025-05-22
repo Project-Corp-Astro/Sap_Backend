@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { UserDocument } from '../services/auth-service/src/interfaces/auth.interfaces';
+import { UserDocument } from '../shared/interfaces/user.interface';
 
 const router = express.Router();
 
@@ -17,7 +17,7 @@ const User = {
  * Register route
  * Creates a new user account
  */
-router.post('/register', async (req: Request, res: Response) => {
+router.post('/register', (req: Request, res: Response): void => {
   // In a real app, you would validate input and create a user in the database
   // For this example, we'll just return a success message
   res.status(201).json({ message: 'User registered successfully' });
@@ -27,7 +27,7 @@ router.post('/register', async (req: Request, res: Response) => {
  * Login route
  * Authenticates a user and returns a JWT token
  */
-router.post('/login', async (req: Request, res: Response) => {
+router.post('/login', (req: Request, res: Response): void => {
   const { email, password, rememberMe } = req.body;
   
   const user = User.findByEmail(email);
@@ -49,7 +49,7 @@ router.post('/login', async (req: Request, res: Response) => {
  * Forgot password route
  * Sends a password reset email to the user
  */
-router.post('/forgot-password', async (req: Request, res: Response) => {
+router.post('/forgot-password', (req: Request, res: Response): void => {
   const { email } = req.body;
   
   const user = User.findByEmail(email);

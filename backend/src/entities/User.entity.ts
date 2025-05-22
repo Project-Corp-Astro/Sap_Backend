@@ -63,7 +63,7 @@ export class User {
   loginAttempts: number;
 
   @Column({ nullable: true })
-  lockUntil: Date;
+  lockUntil: Date | null;
 
   @ManyToOne(() => Role, role => role.users)
   @JoinColumn({ name: 'roleId' })

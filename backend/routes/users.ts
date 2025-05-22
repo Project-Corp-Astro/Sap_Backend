@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { authMiddleware } from '../middleware/authMiddleware';
-import { UserDocument } from '../services/user-service/src/interfaces/user.interfaces';
+import { UserDocument } from '../shared/interfaces/user.interface';
 
 const router = express.Router();
 
@@ -40,15 +40,17 @@ router.get('/', authMiddleware, (req: Request, res: Response) => {
 /**
  * Create new user (protected route)
  */
-router.post('/', authMiddleware, (req: Request, res: Response) => {
+router.post('/', authMiddleware, (req: Request, res: Response): void => {
   const { username, email, password } = req.body;
   if (!username || !email || !password) {
-    return res.status(400).json({ message: 'Username, email and password are required' });
+    res.status(400).json({ message: 'Username, email and password are required' });
+    return;
   }
   
   const existingUser = User.findByEmail(email);
   if (existingUser) {
-    return res.status(400).json({ message: 'User already exists' });
+    res.status(400).json({ message: 'User already exists' });
+    return;
   }
 
   const newUser = User.create({ username, email, password });
@@ -58,17 +60,19 @@ router.post('/', authMiddleware, (req: Request, res: Response) => {
 /**
  * Update user (protected route)
  */
-router.put('/:id', authMiddleware, (req: Request, res: Response) => {
+router.put('/:id', authMiddleware, (req: Request, res: Response): void => {
   const { username, email } = req.body;
   const id = req.params.id;
   
   if (!username && !email) {
-    return res.status(400).json({ message: 'Username or email is required' });
+    res.status(400).json({ message: 'Username or email is required' });
+    return;
   }
 
   const updatedUser = User.update(id, { username, email });
   if (!updatedUser) {
-    return res.status(404).json({ message: 'User not found' });
+    res.status(404).json({ message: 'User not found' });
+    return;
   }
   
   res.json(updatedUser);
@@ -77,12 +81,13 @@ router.put('/:id', authMiddleware, (req: Request, res: Response) => {
 /**
  * Delete user (protected route)
  */
-router.delete('/:id', authMiddleware, (req: Request, res: Response) => {
+router.delete('/:id', authMiddleware, (req: Request, res: Response): void => {
   const id = req.params.id;
   
   const deletedUser = User.delete(id);
   if (!deletedUser) {
-    return res.status(404).json({ message: 'User not found' });
+    res.status(404).json({ message: 'User not found' });
+    return;
   }
   
   res.json({ message: 'User deleted successfully', user: deletedUser });

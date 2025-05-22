@@ -12,6 +12,11 @@ import cookieParser from 'cookie-parser';
 import { createServiceLogger } from '../shared/utils/logger';
 import dbManager from './utils/DatabaseManager';
 import healthRoutes from './routes/health.routes';
+// Import route modules with explicit path resolution
+// Use explicit .ts extension in imports to ensure TypeScript files are used
+import authRoutes from '../routes/auth.ts';
+import userRoutes from '../routes/users.ts';
+import contentRoutes from '../routes/content.ts';
 
 // Create logger
 const logger = createServiceLogger('app');
@@ -39,6 +44,16 @@ app.use(morgan('combined'));
 
 // Routes
 app.use('/health', healthRoutes);
+
+// Use TypeScript route implementations
+try {
+  app.use('/api/auth', authRoutes);
+  app.use('/api/users', userRoutes);
+  app.use('/api/content', contentRoutes);
+  logger.info('Using TypeScript route implementations');
+} catch (error) {
+  logger.error('Error loading TypeScript routes', { error: (error as Error).message });
+}
 
 // Root route
 app.get('/', (req: Request, res: Response) => {

@@ -83,7 +83,7 @@ export class HealthController {
       
       // Determine overall status
       const isMongoConnected = dbStatuses.mongo.isConnected;
-      const isPgConnected = dbStatuses.postgres.isConnected;
+      const isPgConnected = dbStatuses.postgres?.isConnected || false; // Handle case where postgres is not available
       const isRedisConnected = redisStatus.isConnected;
       
       // MongoDB and Redis are required, PostgreSQL and Elasticsearch are optional
@@ -101,7 +101,7 @@ export class HealthController {
           },
           postgresql: {
             status: isPgConnected ? 'connected' : 'disconnected',
-            details: dbStatuses.postgres
+            details: dbStatuses.postgres || { isConnected: false, message: 'PostgreSQL support is disabled' }
           },
           redis: {
             status: isRedisConnected ? 'connected' : 'disconnected',
