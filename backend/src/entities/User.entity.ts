@@ -62,8 +62,8 @@ export class User {
   @Column({ default: 0 })
   loginAttempts: number;
 
-  @Column({ nullable: true })
-  lockUntil: Date | null;
+  @Column({ nullable: true, type: 'timestamp' })
+  lockUntil: Date;
 
   @ManyToOne(() => Role, role => role.users)
   @JoinColumn({ name: 'roleId' })
@@ -124,7 +124,8 @@ export class User {
     // If we have a previous lock that has expired, reset the count
     if (this.lockUntil && this.lockUntil < new Date()) {
       this.loginAttempts = 1;
-      this.lockUntil = null;
+      // Use a far past date instead of null to indicate no lock
+      this.lockUntil = new Date(0);
     } else {
       // Otherwise increment
       this.loginAttempts += 1;
@@ -144,7 +145,8 @@ export class User {
    */
   resetLoginAttempts(): void {
     this.loginAttempts = 0;
-    this.lockUntil = null;
+    // Use a far past date instead of null to indicate no lock
+    this.lockUntil = new Date(0);
   }
 
   /**

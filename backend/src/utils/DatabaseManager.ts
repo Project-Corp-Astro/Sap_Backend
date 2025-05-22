@@ -14,9 +14,9 @@ import typeORMManager from '../../shared/utils/typeorm';
 import config from '../../shared/config/index';
 import { mockMongoClient, mockPgClient, mockRedisClient, mockElasticsearchClient } from '../../shared/utils/mock-database';
 
-// Determine if we should use mock databases
-const USE_MOCK_DATABASES = process.env.USE_MOCK_DATABASES === 'true' || process.env.NODE_ENV === 'development';
-const USE_MOCK_AS_FALLBACK = true; // Use mock databases as fallback when real ones fail
+// Determine if we should use mock databases - respect the .env setting
+const USE_MOCK_DATABASES = process.env.USE_MOCK_DATABASES === 'true';
+const USE_MOCK_AS_FALLBACK = process.env.USE_MOCK_AS_FALLBACK === 'true'; // Use mock databases as fallback when real ones fail
 
 const logger = createServiceLogger('database-manager');
 
@@ -27,6 +27,12 @@ export class DatabaseManager {
   private esConnected: boolean = false;
   private typeORMInitialized: boolean = false;
   private useMockDatabases: boolean = USE_MOCK_DATABASES;
+  
+  // Track which databases are using mock implementations
+  private mongoUsingMock: boolean = false;
+  private pgUsingMock: boolean = false;
+  private redisUsingMock: boolean = false;
+  private esUsingMock: boolean = false;
 
   /**
    * Initialize all database connections
@@ -137,6 +143,7 @@ export class DatabaseManager {
         try {
           await mockMongoClient.connect();
           this.mongoConnected = true;
+          this.mongoUsingMock = true;
           return;
         } catch (mockError) {
           logger.error('Error connecting to mock MongoDB', { error: (mockError as Error).message });
@@ -183,6 +190,7 @@ export class DatabaseManager {
         try {
           await mockPgClient.connect();
           this.pgConnected = true;
+          this.pgUsingMock = true;
           return;
         } catch (mockError) {
           logger.error('Error connecting to mock PostgreSQL', { error: (mockError as Error).message });
@@ -226,6 +234,7 @@ export class DatabaseManager {
         try {
           await mockRedisClient.connect();
           this.redisConnected = true;
+          this.redisUsingMock = true;
           return;
         } catch (mockError) {
           logger.error('Error connecting to mock Redis', { error: (mockError as Error).message });
@@ -268,6 +277,7 @@ export class DatabaseManager {
         try {
           await mockElasticsearchClient.ping();
           this.esConnected = true;
+          this.esUsingMock = true;
           return;
         } catch (mockError) {
           logger.error('Error connecting to mock Elasticsearch', { error: (mockError as Error).message });
@@ -307,6 +317,7 @@ export class DatabaseManager {
   getMongoStatus(): any {
     return {
       isConnected: this.mongoConnected,
+      usingMock: this.mongoUsingMock,
       connectionState: mongoose.connection.readyState,
       details: mongoDbConnection.getStatus()
     };
@@ -318,6 +329,7 @@ export class DatabaseManager {
   getPgStatus(): any {
     return {
       isConnected: this.pgConnected,
+      usingMock: this.pgUsingMock,
       details: pgClient.getStatus()
     };
   }
@@ -325,8 +337,11 @@ export class DatabaseManager {
   /**
    * Get Redis connection status
    */
-  getRedisStatus(): boolean {
-    return this.redisConnected;
+  getRedisStatus(): any {
+    return {
+      isConnected: this.redisConnected,
+      usingMock: this.redisUsingMock
+    };
   }
 
   /**
@@ -335,6 +350,7 @@ export class DatabaseManager {
   getEsStatus(): any {
     return {
       isConnected: this.esConnected,
+      usingMock: this.esUsingMock,
       details: esClient.getStatus()
     };
   }

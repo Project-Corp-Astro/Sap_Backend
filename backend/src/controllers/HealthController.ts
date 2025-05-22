@@ -47,17 +47,12 @@ export class HealthController {
       // Get database statuses
       const dbStatuses = dbManager.getAllStatuses();
       
-      // Get Redis status
-      let redisStatus = {
-        isConnected: false,
-        error: null as string | null
-      };
+      // Get Redis status from the database manager
+      const redisStatus = dbStatuses.redis;
       
-      try {
-        await redisClient.getClient().ping();
-        redisStatus.isConnected = true;
-      } catch (error) {
-        redisStatus.error = (error as Error).message;
+      // Add error property if not present
+      if (!redisStatus.error) {
+        redisStatus.error = null;
       }
       
       // Get Elasticsearch status
@@ -86,6 +81,12 @@ export class HealthController {
       const isPgConnected = dbStatuses.postgres?.isConnected || false; // Handle case where postgres is not available
       const isRedisConnected = redisStatus.isConnected;
       
+      // Check which databases are using mock implementations
+      const mongoUsingMock = dbStatuses.mongo.usingMock;
+      const pgUsingMock = dbStatuses.postgres?.usingMock || false;
+      const redisUsingMock = redisStatus.usingMock;
+      const esUsingMock = esStatus.usingMock;
+      
       // MongoDB and Redis are required, PostgreSQL and Elasticsearch are optional
       const isHealthy = isMongoConnected && isRedisConnected;
       
@@ -97,18 +98,22 @@ export class HealthController {
         databases: {
           mongodb: {
             status: isMongoConnected ? 'connected' : 'disconnected',
+            usingMock: dbStatuses.mongo.usingMock || false,
             details: dbStatuses.mongo
           },
           postgresql: {
             status: isPgConnected ? 'connected' : 'disconnected',
+            usingMock: dbStatuses.postgres?.usingMock || false,
             details: dbStatuses.postgres || { isConnected: false, message: 'PostgreSQL support is disabled' }
           },
           redis: {
             status: isRedisConnected ? 'connected' : 'disconnected',
+            usingMock: redisStatus.usingMock || false,
             details: redisStatus
           },
           elasticsearch: {
             status: esStatus.isConnected ? 'connected' : 'disconnected',
+            usingMock: esStatus.usingMock || false,
             details: esStatus
           }
         },

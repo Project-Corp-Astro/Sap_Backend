@@ -8,8 +8,8 @@ import { Client } from '@elastic/elasticsearch';
 import { createServiceLogger } from './logger';
 import config from '../config/index';
 
-// Determine if we should use mock databases
-const USE_MOCK_DATABASES = process.env.USE_MOCK_DATABASES === 'true' || process.env.NODE_ENV === 'development';
+// Determine if we should use mock databases - respect the .env setting
+const USE_MOCK_DATABASES = process.env.USE_MOCK_DATABASES === 'true';
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
 
 // Initialize logger
@@ -61,6 +61,7 @@ interface SlowSearchInfo {
 
 interface ElasticsearchStatus {
   isConnected: boolean;
+  usingMock?: boolean;
   lastError: Error | null;
   lastConnectTime: Date | null;
   searchStats: SearchStats;
@@ -107,6 +108,7 @@ class ElasticsearchClient {
       
       this.status = {
         isConnected: true, // Pretend we're connected
+        usingMock: true,   // Flag that we're using a mock implementation
         lastError: null,
         lastConnectTime: new Date(),
         searchStats: {
