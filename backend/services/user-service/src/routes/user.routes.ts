@@ -1,8 +1,7 @@
 import express, { Request, Response, NextFunction, Router } from 'express';
-import { check } from 'express-validator';
 import * as userController from '../controllers/user.controller';
 import { authMiddleware, roleAuthorization } from '../middlewares/auth.middleware';
-import { UserRole } from '../interfaces/user.interfaces';
+import  { Permission, UserRole } from '@corp-astro/shared-types';
 
 // Export controllers for testing purposes
 export { userController };
@@ -30,7 +29,7 @@ const router: Router = express.Router();
  */
 router.get('/', 
   asRequestHandler(authMiddleware), 
-  asRequestHandler(roleAuthorization([UserRole.ADMIN, UserRole.CONTENT_MANAGER])), 
+  asRequestHandler(roleAuthorization([UserRole.ADMIN])),  // Removed CONTENT_MANAGER as it doesn't exist 
   wrapController(userController.getUsers)
 );
 
@@ -48,7 +47,7 @@ router.post('/',
 /**
  * @route GET /api/users/:userId
  * @desc Get user by ID
- * @access Private (Admin, Content Manager, or Self)
+ * @access Private (Admin or Self)
  */
 router.get('/:userId', asRequestHandler(authMiddleware), wrapController(userController.getUserById));
 
@@ -88,11 +87,6 @@ router.patch('/:userId/status',
  */
 router.put('/profile', 
   asRequestHandler(authMiddleware),
-  [
-    check('firstName', 'First name is required').optional().notEmpty(),
-    check('lastName', 'Last name is required').optional().notEmpty(),
-    check('phoneNumber', 'Phone number must be valid').optional().isMobilePhone('any')
-  ],
   wrapController(userController.updateProfile)
 );
 
@@ -103,10 +97,6 @@ router.put('/profile',
  */
 router.put('/password', 
   asRequestHandler(authMiddleware),
-  [
-    check('currentPassword', 'Current password is required').notEmpty(),
-    check('newPassword', 'Password must be at least 8 characters').isLength({ min: 8 })
-  ],
   wrapController(userController.changePassword)
 );
 

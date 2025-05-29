@@ -3,9 +3,8 @@ import * as authService from '../services/auth.service';
 import User from '../models/User';
 
 // Define interface for request with user
-export interface AuthenticatedRequest extends Request {
-  user?: any;
-}
+// Import the consistent AuthenticatedRequest interface
+import { AuthenticatedRequest } from '../controllers/auth.controller';
 
 /**
  * Authentication middleware to protect routes
@@ -50,7 +49,7 @@ const authMiddleware = async (req: Request, res: Response, next: NextFunction): 
     }
     
     // Attach user to request
-    (req as AuthenticatedRequest).user = user;
+    (req as AuthenticatedRequest).user = user as any;
     
     next();
   } catch (error) {

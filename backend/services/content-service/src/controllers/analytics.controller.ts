@@ -4,9 +4,9 @@
  */
 
 import { Request, Response, NextFunction } from 'express';
-import Content from '../models/Content.js';
-import { createServiceLogger } from '../utils/sharedLogger.js';
-import { AppError, ErrorTypes } from '../utils/errorHandler.js';
+import Content from '../models/Content';
+import { createServiceLogger } from '../utils/sharedLogger';
+import { AppError, ErrorTypes } from '../utils/errorHandler';
 import {
   ContentMetrics,
   TimeSeriesDataPoint,
@@ -14,7 +14,7 @@ import {
   TopContentItem,
   AuthorPerformance,
   TimeGroup
-} from '../interfaces/analytics.interfaces.js';
+} from '../interfaces/analytics.interfaces';
 
 // Create a logger for this controller
 const logger = createServiceLogger('content-analytics-controller');

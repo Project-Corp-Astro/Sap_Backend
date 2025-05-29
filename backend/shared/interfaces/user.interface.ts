@@ -177,6 +177,7 @@ export interface AstrologySubscription {
  * This is the common interface that should be used across all services
  */
 export interface IUser {
+  _id: any;
   username: string;
   email: string;
   password?: string;
@@ -209,9 +210,46 @@ export interface IUser {
 /**
  * User document interface for use with Mongoose
  */
-export interface UserDocument extends Document, IUser {
+// Only extend Document and don't extend IUser to avoid conflicts with required properties
+export interface UserDocument extends Document {
+  // Explicitly define required properties
   _id: string; // Explicitly define _id from Document
   comparePassword?(candidatePassword: string): Promise<boolean>;
+  
+  // Add IUser properties as optional
+  username?: string;
+  email?: string;
+  password?: string;
+  firstName?: string;
+  lastName?: string;
+  phoneNumber?: string;
+  role?: UserRole;
+  permissions?: string[];
+  isActive?: boolean;
+  isEmailVerified?: boolean;
+  lastLogin?: Date;
+  avatar?: string;
+  address?: UserAddress;
+  metadata?: Record<string, any>;
+  preferences?: UserPreferences;
+  securityPreferences?: SecurityPreferences;
+  devices?: UserDevice[];
+  
+  // Astrology-specific properties
+  astrologyProfile?: AstrologyUserProfile;
+  businessProfiles?: BusinessProfile[];
+  astrologyPreferences?: AstrologyPreferences;
+  astrologySubscription?: AstrologySubscription;
+  subscriptionId?: string;
+  
+  // Additional properties for MFA and security
+  mfaSecret?: string;
+  mfaEnabled?: boolean;
+  mfaRecoveryCodes?: string[];
+  failedLoginAttempts?: number;
+  lockUntil?: Date;
+  passwordChangedAt?: Date;
+  passwordLastChanged?: Date;
 }
 
 /**

@@ -17,7 +17,8 @@ import {
 } from '../interfaces/auth.interfaces';
 
 // Define the schema
-const userSchema = new Schema<UserDocument>({
+// Use a type assertion to avoid TypeScript errors with schema properties
+const userSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -223,10 +224,12 @@ userSchema.pre('save', async function(next) {
   
   try {
     const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password as string, salt);
+    // Use type assertion to access the password property
+    const userDoc = this as unknown as UserDocument;
+    userDoc.password = await bcrypt.hash(userDoc.password, salt);
     
     // Update password change date
-    this.passwordLastChanged = new Date();
+    userDoc.passwordLastChanged = new Date();
     
     next();
   } catch (error) {
@@ -237,7 +240,9 @@ userSchema.pre('save', async function(next) {
 // Method to compare passwords
 userSchema.methods.comparePassword = async function(candidatePassword: string): Promise<boolean> {
   try {
-    return await bcrypt.compare(candidatePassword, this.password as string);
+    // Use type assertion to access the password property
+    const userDoc = this as unknown as UserDocument;
+    return await bcrypt.compare(candidatePassword, userDoc.password);
   } catch (error) {
     throw error;
   }
@@ -278,6 +283,7 @@ userSchema.methods.shouldChangePassword = function(): boolean {
 userSchema.plugin(encryptionPlugin);
 
 // Create and export the User model
-const User = mongoose.model<UserDocument>('User', userSchema);
+// Use type assertion to avoid TypeScript errors
+const User = mongoose.model('User', userSchema) as Model<UserDocument>;
 
 export default User;

@@ -1,0 +1,16 @@
+{"command":"run","dbType":"all","level":"info","message":"Starting migration management","name":"","service":"manage-migrations","timestamp":"2025-05-23T11:08:42.393Z"}
+{"level":"info","message":"Running PostgreSQL migrations...","service":"manage-migrations","timestamp":"2025-05-23T11:08:42.394Z"}
+{"level":"info","message":"PostgreSQL migrations completed successfully. Ran 0 migrations.","service":"manage-migrations","timestamp":"2025-05-23T11:08:44.415Z"}
+{"level":"info","message":"Creating Elasticsearch indices...","service":"manage-migrations","timestamp":"2025-05-23T11:08:44.419Z"}
+{"level":"info","message":"Elasticsearch indices created successfully","service":"manage-migrations","timestamp":"2025-05-23T11:08:44.431Z"}
+{"level":"info","message":"Updating MongoDB schema...","service":"manage-migrations","timestamp":"2025-05-23T11:08:44.432Z"}
+{"level":"info","message":"MongoDB schema updated successfully","service":"manage-migrations","timestamp":"2025-05-23T11:08:44.584Z"}
+{"level":"info","message":"Migration management completed successfully","service":"manage-migrations","timestamp":"2025-05-23T11:08:44.594Z"}
+{"command":"run","dbType":"all","level":"info","message":"Starting migration management","name":"","service":"manage-migrations","timestamp":"2025-05-23T11:09:26.234Z"}
+{"level":"info","message":"Running PostgreSQL migrations...","service":"manage-migrations","timestamp":"2025-05-23T11:09:26.235Z"}
+{"level":"info","message":"PostgreSQL migrations completed successfully. Ran 0 migrations.","service":"manage-migrations","timestamp":"2025-05-23T11:09:28.029Z"}
+{"level":"info","message":"Creating Elasticsearch indices...","service":"manage-migrations","timestamp":"2025-05-23T11:09:28.038Z"}
+{"level":"info","message":"Elasticsearch indices created successfully","service":"manage-migrations","timestamp":"2025-05-23T11:09:28.091Z"}
+{"level":"info","message":"Updating MongoDB schema...","service":"manage-migrations","timestamp":"2025-05-23T11:09:28.094Z"}
+{"level":"info","message":"MongoDB schema updated successfully","service":"manage-migrations","timestamp":"2025-05-23T11:09:28.267Z"}
+{"level":"info","message":"Migration management completed successfully","service":"manage-migrations","timestamp":"2025-05-23T11:09:28.284Z"}

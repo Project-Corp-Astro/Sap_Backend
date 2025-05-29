@@ -1,6 +1,6 @@
 import mongoose, { Schema, model } from 'mongoose';
-import { MediaDocument, MediaType, VideoProvider } from '../interfaces/media.interfaces.js';
-import { ContentStatus } from '../interfaces/content.interfaces.js';
+import { MediaDocument, MediaType, VideoProvider } from '../interfaces/media.interfaces';
+import { ContentStatus } from '../interfaces/content.interfaces';
 
 const mediaSchema = new Schema({
   title: {

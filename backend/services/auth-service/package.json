@@ -5,17 +5,20 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev:auth": "nodemon --exec ts-node -r tsconfig-paths/register services/auth-service/src/index.ts"
+,
     "build": "tsc",
     "test": "jest",
     "docs": "typedoc --options typedoc.json"
   },
   "dependencies": {
     "@sap/logger": "file:../../shared/logger",
+    "@types/express-validator": "^3.0.0",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-validator": "^6.15.0",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^6.2.9",
@@ -34,8 +37,8 @@
     "supertest": "^6.3.4",
     "ts-jest": "^29.3.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3",
     "typedoc": "^0.24.8",
-    "typedoc-plugin-markdown": "^3.15.3"
+    "typedoc-plugin-markdown": "^3.15.3",
+    "typescript": "^5.3.3"
   }
 }

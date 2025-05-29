@@ -418,6 +418,48 @@ class ContentController {
       return next(error);
     }
   }
+  
+  /**
+   * Get all articles
+   * @param req - Express request object
+   * @param res - Express response object
+   * @param next - Express next middleware function
+   */
+  async getArticles(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+    try {
+      logger.info('Fetching all articles');
+      
+      // Create a filter for articles only
+      const filter: ContentFilter = {
+        contentType: ContentType.ARTICLE,
+        status: ContentStatus.PUBLISHED // Only return published articles
+      };
+      
+      // Get pagination parameters from query string
+      const page = parseInt(req.query.page as string) || 1;
+      const limit = parseInt(req.query.limit as string) || 10;
+      
+      // Get articles with pagination
+      const result = await contentService.getAllContent(filter, page, limit);
+      
+      return res.status(200).json({
+        success: true,
+        data: result.items,
+        pagination: {
+          total: result.totalItems,
+          page: result.currentPage,
+          limit: result.itemsPerPage,
+          pages: result.totalPages
+        }
+      });
+    } catch (error) {
+      logger.error('Error fetching articles', {
+        error: (error as Error).message,
+        stack: (error as Error).stack
+      });
+      return next(error);
+    }
+  }
 
   /**
    * Create category
@@ -484,5 +526,6 @@ export const {
   deleteContent, 
   updateContentStatus,
   getAllCategories,
-  createCategory
+  createCategory,
+  getArticles
 } = new ContentController();

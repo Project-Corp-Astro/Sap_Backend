@@ -3,11 +3,14 @@
  * This module provides centralized security features across all microservices
  */
 
-import { Request, Response, NextFunction, Application } from 'express';
+import { Request, Response, NextFunction } from 'express';
+import { Application } from 'express-serve-static-core';
 import jwt from 'jsonwebtoken';
 import helmet from 'helmet';
 import rateLimit, { RateLimitRequestHandler } from 'express-rate-limit';
+// @ts-ignore - no type definitions available
 import xss from 'xss-clean';
+// @ts-ignore - no type definitions available
 import hpp from 'hpp';
 import cors from 'cors';
 import config from '../config';
@@ -120,7 +123,7 @@ const roleAuthorization = (roles: string[]) => {
  * @returns Express middleware
  */
 const rateLimiter = (options: RateLimitOptions = {}): RateLimitRequestHandler => {
-  const defaultOptions = config.get('rateLimit');
+  const defaultOptions = config.get('rateLimit') as RateLimitOptions;
   
   return rateLimit({
     windowMs: options.windowMs || defaultOptions.windowMs,
@@ -148,7 +151,7 @@ const rateLimiter = (options: RateLimitOptions = {}): RateLimitRequestHandler =>
  * @returns Express middleware
  */
 const corsMiddleware = (options: CorsOptions = {}) => {
-  const defaultOptions = config.get('cors');
+  const defaultOptions = config.get('cors') as CorsOptions;
   
   return cors({
     origin: options.origin || defaultOptions.origin,
@@ -211,7 +214,7 @@ const requestLogger = () => {
  * @param app - Express app
  * @param options - Security options
  */
-const applySecurityMiddleware = (app: Application, options: SecurityOptions = {}) => {
+const applySecurityMiddleware = (app: any, options: SecurityOptions = {}) => {
   // Apply helmet middleware
   app.use(helmetMiddleware(options.helmet));
   

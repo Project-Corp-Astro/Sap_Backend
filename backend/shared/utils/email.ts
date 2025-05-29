@@ -4,8 +4,8 @@
  */
 
 import nodemailer from 'nodemailer';
-import { createServiceLogger } from './logger.js';
-import config from '../config/index.js';
+import { createServiceLogger } from './logger';
+import config from '../config/index';
 
 // Initialize logger
 const logger = createServiceLogger('email-service');
@@ -61,20 +61,42 @@ class EmailService {
   constructor(options: Partial<EmailConfig> = {}) {
     this.config = { ...defaultConfig, ...options };
     
-    // Create transporter
-    this.transporter = nodemailer.createTransport({
-      host: this.config.host,
-      port: this.config.port,
-      secure: this.config.secure,
-      auth: {
-        user: this.config.auth.user,
-        pass: this.config.auth.pass
+    // Use mock transport in development mode if SMTP settings are defaults
+    if (process.env.NODE_ENV === 'development' && 
+        this.config.host === 'smtp.example.com') {
+      logger.info('Using mock email transport in development mode');
+      this.transporter = nodemailer.createTransport({
+        name: 'mock',
+        version: '1.0.0',
+        send: (mail, callback) => {
+          const info = {
+            messageId: `mock-email-${Date.now()}`,
+            envelope: mail.message.getEnvelope(),
+            accepted: [mail.data.to],
+            rejected: [],
+            pending: [],
+            response: 'Mock email sent successfully'
+          };
+          logger.info('Mock email sent', { to: mail.data.to, subject: mail.data.subject });
+          callback(null, info);
+        }
+      } as any);
+    } else {
+      // Create real transporter
+      this.transporter = nodemailer.createTransport({
+        host: this.config.host,
+        port: this.config.port,
+        secure: this.config.secure,
+        auth: {
+          user: this.config.auth.user,
+          pass: this.config.auth.pass
+        }
+      });
+      
+      // Verify connection
+      if (process.env.NODE_ENV !== 'test') {
+        this.verifyConnection();
       }
-    });
-    
-    // Verify connection
-    if (process.env.NODE_ENV !== 'test') {
-      this.verifyConnection();
     }
   }
 

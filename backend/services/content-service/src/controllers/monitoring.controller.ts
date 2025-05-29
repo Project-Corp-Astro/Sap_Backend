@@ -6,8 +6,8 @@
  */
 
 import { Request, Response } from 'express';
-import performanceMonitor from '../utils/performance.js';
-import { cacheService } from '../utils/cache.js';
+import performanceMonitor from '../utils/performance';
+import { cacheService } from '../utils/cache';
 import os from 'os';
 
 class MonitoringController {

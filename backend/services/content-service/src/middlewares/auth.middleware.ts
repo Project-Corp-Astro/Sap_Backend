@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 import 'dotenv/config';
-import { createServiceLogger } from '../utils/sharedLogger.js';
+import { createServiceLogger } from '../utils/sharedLogger';
 
 // Initialize logger
 const logger = createServiceLogger('auth-middleware');
@@ -11,6 +11,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
 // Define interfaces
 interface JwtPayload {
+  firstName: string;
   userId: string;
   email: string;
   role: string;
@@ -26,6 +27,7 @@ declare global {
         userId: string;
         email: string;
         role: string;
+        firstName: string;
       };
     }
   }
@@ -65,6 +67,7 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
       userId: decoded.userId,
       email: decoded.email,
       role: decoded.role,
+      firstName: decoded.firstName,
     };
 
     return next();

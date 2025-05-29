@@ -30,3 +30,1036 @@
 {"level":"info","message":"Elasticsearch client closed","service":"elasticsearch-client","timestamp":"2025-05-15T07:40:01.108Z"}
 {"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-15T07:40:14.315Z"}
 {"level":"info","message":"Elasticsearch client closed","service":"elasticsearch-client","timestamp":"2025-05-15T07:45:31.037Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:37:12.814Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:37:13.028Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:41:43.731Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:42:42.786Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:43:32.996Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:45:12.171Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:49:23.671Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:56:48.546Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:58:15.891Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T10:59:17.807Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:00:58.341Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:01:46.700Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:03:28.199Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:08:42.456Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:08:44.429Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:09:26.315Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:09:28.086Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:17:09.150Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:17:56.074Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:18:51.740Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:24:11.050Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:26:54.989Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:28:56.793Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:30:25.858Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:32:12.602Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:33:38.061Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-23T11:34:31.088Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:55:53.618Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:55:54.697Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:55:54.987Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:55:54.954Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:55:55.426Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:55:55.991Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:56:05.940Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:57:36.104Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:57:38.045Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:57:38.568Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:57:39.644Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:57:41.035Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:57:40.999Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:57:48.315Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T10:58:21.507Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:02:15.239Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:02:17.298Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:02:18.413Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:02:19.701Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:02:20.072Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:02:20.558Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:02:23.001Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:04:13.093Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:04:13.128Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:04:13.254Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:04:13.573Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:04:13.868Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:04:15.107Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:04:15.203Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:04:19.857Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:05:08.877Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:09:35.594Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:09:35.716Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:09:35.785Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:09:35.956Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:09:36.586Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:09:35.979Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:09:36.591Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:09:35.963Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:09:37.500Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:12:57.114Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:13:00.181Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:13:02.401Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:13:04.445Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:13:05.340Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:13:09.023Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:13:15.537Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:13:23.415Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:13:23.481Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:14:15.856Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:19:39.028Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:19:39.620Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:19:50.978Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:19:54.093Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:19:54.532Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:19:58.314Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:19:58.723Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:20:00.066Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:20:04.553Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:20:10.979Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:21:17.838Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:32.879Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:34.884Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:37.028Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:37.263Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:38.682Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:39.442Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:38.733Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:44.684Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:56.573Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:25:59.691Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:26:46.121Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:03.029Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:03.098Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:03.564Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:03.943Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:03.473Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:04.718Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:05.602Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:05.830Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:06.300Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:10.148Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:32:18.866Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:33:40.961Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:42.692Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:44.924Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:44.298Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:46.130Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:51.000Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:55.153Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:56.817Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:58.125Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:59.411Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:36:58.715Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:37:04.360Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T11:37:09.010Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:13:15.635Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:16:15.899Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:19:34.962Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:20:26.535Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:20:29.548Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:20:29.560Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:20:29.590Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:20:49.950Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:20:52.680Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:20:52.680Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:20:52.701Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:30.672Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:30.682Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:34.504Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:34.505Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:34.515Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:30.898Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:30.908Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:35.702Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:35.715Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:35.763Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:51.366Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:51.372Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:53.649Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:53.650Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:21:53.659Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:24:55.872Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:24:55.921Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:03.055Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:03.055Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:03.101Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:24:56.123Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:24:56.193Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:03.823Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:03.824Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:03.865Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:24:56.572Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:24:56.580Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:04.007Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:04.008Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:04.015Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:24:56.762Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:24:56.905Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:06.094Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:06.152Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:06.740Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:26.089Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:26.117Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:29.745Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:29.745Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:25:29.752Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:32.195Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:32.203Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:42.556Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:42.557Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:42.733Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:43.758Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:43.779Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:43.779Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:43.786Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:43.848Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:43.852Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:43.853Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:43.859Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:34.449Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:34.024Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:34.458Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:44.205Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:44.205Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:34.049Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:44.249Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:44.250Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:44.462Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:44.377Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:34.992Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:35.010Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.409Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.410Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.577Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.684Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.689Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.690Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.695Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.753Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.758Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.758Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:45.766Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.492Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.500Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.518Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.519Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.519Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.519Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.524Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.528Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.679Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.687Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.687Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:46.698Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:47.105Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:47.112Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:47.112Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:47.118Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:43.972Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:44.074Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:55.261Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:55.264Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:55.892Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:56.500Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:56.580Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:56.592Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:56.710Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:56.858Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:56.897Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:56.906Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:26:56.923Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:10.931Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:10.938Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.068Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.069Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.090Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.219Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.229Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.229Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.247Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.405Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.413Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.413Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:27:14.420Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:03.823Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:03.832Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:19.701Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:19.757Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:04.149Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:04.163Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:19.931Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:19.931Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:05.486Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:05.606Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:20.941Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:20.941Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:06.478Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:06.487Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:21.422Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:21.424Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:06.831Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:06.843Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:21.477Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:21.477Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:24.947Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:24.991Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:25.131Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:25.135Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:25.141Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:25.144Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:25.459Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:25.549Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:25.628Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:25.876Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:25.994Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:26.615Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:26.652Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.369Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.369Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.376Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.556Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.568Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.569Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.556Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.563Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.592Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.592Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.631Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.632Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.631Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.637Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.640Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.640Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.645Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.726Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.749Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.750Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.755Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.818Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.819Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:27.825Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:28.216Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:28.228Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:28.234Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:28.235Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:28.237Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:28.237Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:28.240Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:28.273Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:11.934Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:12.293Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:30.035Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:30.168Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:30.510Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:32.217Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:32.399Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:32.456Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:32.509Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:33.057Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:33.063Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:33.064Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:29:33.069Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:52.672Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:52.695Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:04.707Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:04.707Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:05.014Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:05.015Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:05.015Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:51.472Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:51.532Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:05.678Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:05.679Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:52.971Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.244Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.260Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.260Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.264Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.264Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.265Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.319Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.324Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.324Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.329Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.331Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.331Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:53.085Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:05.599Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:05.600Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.218Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.219Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.219Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.443Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.663Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:06.853Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:07.037Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:07.220Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:07.220Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:07.228Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:07.229Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:07.229Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:54.030Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:54.110Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:07.727Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:07.728Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.019Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.035Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.035Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.063Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.348Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.429Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.548Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.874Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.875Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.880Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.881Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.881Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:55.210Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:55.244Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.990Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.991Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.170Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.174Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.174Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.181Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.181Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.182Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.237Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.238Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.238Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:56.105Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:30:56.114Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.746Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.746Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:08.949Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.163Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:09.278Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.047Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.048Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.048Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.215Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.227Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.228Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.235Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.235Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.236Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.498Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.504Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.505Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.510Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.511Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.511Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.845Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.851Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.851Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.855Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.855Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:10.855Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.265Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.308Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.309Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.315Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.315Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.316Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.411Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.421Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.421Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.425Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.426Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:11.426Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:15.426Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:15.440Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:15.440Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:15.488Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:15.489Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:31:15.489Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:12.263Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:12.274Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.521Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.521Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.525Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.527Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.611Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.611Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.611Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.619Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.619Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.621Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.621Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.627Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.627Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.627Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.648Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.649Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:32:17.649Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:04.221Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:04.231Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:23.024Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:23.025Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:05.909Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:05.917Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:23.853Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:23.863Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:24.375Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:24.375Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:24.375Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:05.723Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:05.818Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:24.447Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:24.448Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:24.690Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:24.691Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:24.691Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:25.422Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:25.422Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:25.423Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.334Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.348Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.351Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.353Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.351Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.355Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.355Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.355Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.516Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.521Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.521Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.525Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.682Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.682Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.686Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.687Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.690Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.690Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.690Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:09.298Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:09.515Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:28.429Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:28.430Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:28.570Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:28.570Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:28.571Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:10.463Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:10.547Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.269Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.270Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.482Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.482Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.483Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:06.440Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:06.769Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.316Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.384Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:05.491Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:05.544Z"}
+{"error":"Request timed out","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.489Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.489Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.644Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.644Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.644Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:29.992Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.011Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.011Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.014Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.014Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.014Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.248Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.265Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.270Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.743Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.748Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.748Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.753Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.753Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:30.753Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.284Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.532Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.538Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.859Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.880Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.884Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.896Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.921Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.923Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.951Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:31.970Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:32.010Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.706Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.707Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.794Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.526Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:27.526Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.391Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.393Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.407Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.407Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.414Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.414Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.415Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.425Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.425Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.430Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.430Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.431Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.784Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.919Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.945Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.945Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.952Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.953Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.958Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.958Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:36.959Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:37.011Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:37.012Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:37.012Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.074Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.125Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.137Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.138Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.141Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.142Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.142Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.219Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.221Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.238Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.240Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:34:39.241Z"}
+{"level":"warn","message":"No Elasticsearch authentication credentials provided","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:02.865Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:02.874Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.303Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.303Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.484Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.485Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.485Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.952Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.953Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.959Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.962Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.967Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.967Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.975Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.975Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.976Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.991Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.992Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:35:10.992Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:12.411Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:12.414Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:12.421Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:28.390Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:28.390Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:04.994Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:04.997Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:05.002Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:28.681Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:28.681Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:04.816Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:04.819Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:05.092Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:28.849Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:28.850Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:09.619Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:09.622Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:09.628Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:28.571Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:28.571Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:06.764Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:06.766Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:07.166Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:29.093Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:29.093Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:06.157Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:06.171Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:06.189Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:29.741Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:29.741Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:11.766Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:11.770Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:11.788Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:29.962Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:29.964Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:32.435Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:33.553Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:33.784Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:34.833Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:34.833Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:34.834Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:34.873Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:34.923Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:34.923Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:34.924Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:34.936Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:34.936Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.412Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.429Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.430Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.435Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.436Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.436Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.500Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.519Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.520Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.524Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.524Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:36.524Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:37.014Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:37.020Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:37.020Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:37.029Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:37.029Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:37.029Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.008Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.008Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.008Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.025Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.027Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.040Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.041Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.046Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.048Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.048Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.059Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.059Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.649Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.659Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.659Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.659Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.667Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.668Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.670Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.670Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.673Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.673Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.674Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.686Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.686Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.686Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.188Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.192Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.208Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.208Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.215Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.216Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.217Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.197Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.198Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.198Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.209Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.209Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.216Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.217Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.217Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.540Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.550Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.550Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.551Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.559Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.559Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.592Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.592Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.599Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.599Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.600Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.613Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.613Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.629Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.630Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.630Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.834Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.836Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.837Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:14.429Z","useElasticsearch":"true","username":"not set"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.874Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.876Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.891Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.892Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.896Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.897Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.897Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.912Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.913Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.917Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.918Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.918Z"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:14.566Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:14.748Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.015Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:39.074Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:41.569Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:41.569Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:41.811Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:44.042Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.060Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.064Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.064Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.077Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.078Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.079Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.189Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.190Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.197Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.198Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:45.198Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.064Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.064Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:38:38.064Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:39.335Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:39.338Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:39.344Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.509Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.509Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.516Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.516Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.516Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.966Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.969Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.973Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.973Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.975Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.976Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.981Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.981Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.981Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.992Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.992Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:39:46.992Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:25.679Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:25.682Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:25.832Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.205Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.206Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.589Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.590Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.590Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:25.960Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:25.963Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:26.137Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.356Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.357Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.701Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.701Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:45.701Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:26.777Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:26.780Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:26.798Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:46.122Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:46.123Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:47.057Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:47.057Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:47.057Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:47.962Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.004Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.005Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.011Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.011Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.011Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.110Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.140Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.140Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.144Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.144Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.145Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.752Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.757Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.757Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.762Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.821Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.834Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.834Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.839Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.840Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.840Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.928Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.932Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.932Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.936Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.013Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.017Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.018Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.022Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:29.770Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:29.774Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:29.781Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.638Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.639Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.764Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.765Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.765Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:25.743Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:25.747Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:25.752Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.708Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.708Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.953Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.954Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.954Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.937Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.937Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:29.973Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:29.976Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:29.981Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.532Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.533Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.743Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.744Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.744Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.774Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.788Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.788Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.792Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.793Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.793Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.886Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.890Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.890Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.900Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:30.954Z","useElasticsearch":"true","username":"not set"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.762Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:48.762Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.023Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:49.023Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.392Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.418Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.419Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.423Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.424Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.425Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.485Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.491Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.491Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.496Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.497Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.497Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.900Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:50.900Z"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:30.960Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:30.973Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.273Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.322Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.809Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.810Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:51.810Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.437Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.485Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.955Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.957Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.962Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.963Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:31.971Z","useElasticsearch":"true","username":"not set"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.995Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.995Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.995Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:54.013Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:54.014Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:54.015Z"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:31.975Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:31.984Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.855Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:53.855Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:54.439Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:54.440Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:54.440Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.089Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.096Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.111Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.112Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.114Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.115Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.118Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.119Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.119Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.131Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.132Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:55.134Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:56.773Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:56.790Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:56.790Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:56.794Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:56.794Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:56.795Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:59.847Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:59.854Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:59.855Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:59.859Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:59.859Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:59.859Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:33.877Z","useElasticsearch":"true","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:34.083Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:42:34.184Z"}
+{"error":"Elasticsearch connection timeout","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:03.866Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:04.085Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:04.346Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:04.574Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:04.662Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:09.421Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:09.721Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:09.723Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:09.731Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:09.732Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:09.732Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:16.373Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:16.383Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:16.383Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:16.393Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:16.394Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T12:43:16.394Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"not set","password":"not set","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:14.858Z","useElasticsearch":"not set","username":"not set"}
+{"level":"warn","message":"Using Elasticsearch without authentication","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:14.866Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://127.0.0.1:9200","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:14.875Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:18.776Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:18.829Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:18.855Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:18.857Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:18.861Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://127.0.0.1:9200","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.188Z"}
+{"auth":"not provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://127.0.0.1:9200","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.193Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.206Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.207Z"}
+{"error":"Response Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.211Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.212Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.220Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.221Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.222Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.241Z"}
+{"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.243Z"}
+{"level":"info","message":"Expected credentials format: ELASTICSEARCH_USERNAME=username, ELASTICSEARCH_PASSWORD=password","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.244Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-05-25T14:16:25.273Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-05-25T14:16:25.276Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T14:16:25.286Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-25T14:16:29.209Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T14:16:29.437Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-25T14:16:29.445Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-25T14:16:29.454Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-25T14:16:29.481Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-05-26T05:02:35.251Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-05-26T05:02:35.255Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-26T05:02:35.284Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-26T05:02:44.140Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-26T05:02:44.143Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-26T05:02:46.134Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-26T05:02:46.146Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-26T05:02:46.154Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-05-28T04:39:19.926Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-05-28T04:39:19.928Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-28T04:39:19.933Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-28T04:39:23.833Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-28T04:39:23.863Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-28T04:39:24.490Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-28T04:39:24.502Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-28T04:39:24.504Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-05-28T11:31:43.531Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-05-28T11:31:43.533Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-28T11:31:43.536Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-28T11:31:46.373Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-28T11:31:46.387Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-28T11:31:46.897Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-28T11:31:46.905Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-28T11:31:46.907Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-05-28T12:08:16.967Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-05-28T12:08:16.977Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-28T12:08:16.984Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-28T12:08:21.475Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-05-28T12:08:21.656Z"}
+{"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-28T12:08:21.715Z"}

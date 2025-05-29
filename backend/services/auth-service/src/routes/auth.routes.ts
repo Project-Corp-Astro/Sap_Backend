@@ -1,6 +1,7 @@
 import express from 'express';
 import passport from 'passport';
-import { body } from 'express-validator';
+// Custom validation middleware instead of express-validator
+import { validateRequest, validators } from '../middlewares/validation.middleware';
 import * as authController from '../controllers/auth.controller';
 import authMiddleware from '../middlewares/auth.middleware';
 import { validateMFA } from '../middlewares/mfa.middleware';
@@ -12,32 +13,80 @@ const router = express.Router();
  * @desc Register a new user
  * @access Public
  */
-router.post('/register', [
-  body('email').isEmail().withMessage('Please provide a valid email'),
-  body('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters'),
-  body('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters'),
-  body('firstName').notEmpty().withMessage('First name is required'),
-  body('lastName').notEmpty().withMessage('Last name is required')
-], authController.register);
+router.post('/register', validateRequest([
+  {
+    field: 'email',
+    validations: [{
+      validator: validators.isEmail,
+      message: 'Please provide a valid email'
+    }]
+  },
+  {
+    field: 'password',
+    validations: [{
+      validator: validators.isLength(8),
+      message: 'Password must be at least 8 characters'
+    }]
+  },
+  {
+    field: 'username',
+    validations: [{
+      validator: validators.isLength(3),
+      message: 'Username must be at least 3 characters'
+    }]
+  },
+  {
+    field: 'firstName',
+    validations: [{
+      validator: validators.notEmpty,
+      message: 'First name is required'
+    }]
+  },
+  {
+    field: 'lastName',
+    validations: [{
+      validator: validators.notEmpty,
+      message: 'Last name is required'
+    }]
+  }
+]), authController.register);
 
 /**
  * @route POST /api/auth/login
  * @desc Authenticate user and get tokens
  * @access Public
  */
-router.post('/login', [
-  body('email').isEmail().withMessage('Please provide a valid email'),
-  body('password').notEmpty().withMessage('Password is required')
-], authController.login);
+router.post('/login', validateRequest([
+  {
+    field: 'email',
+    validations: [{
+      validator: validators.isEmail,
+      message: 'Please provide a valid email'
+    }]
+  },
+  {
+    field: 'password',
+    validations: [{
+      validator: validators.notEmpty,
+      message: 'Password is required'
+    }]
+  }
+]), authController.login);
 
 /**
  * @route POST /api/auth/refresh-token
  * @desc Refresh access token
  * @access Public
  */
-router.post('/refresh-token', [
-  body('refreshToken').notEmpty().withMessage('Refresh token is required')
-], authController.refreshToken);
+router.post('/refresh-token', validateRequest([
+  {
+    field: 'refreshToken',
+    validations: [{
+      validator: validators.notEmpty,
+      message: 'Refresh token is required'
+    }]
+  }
+]), authController.refreshToken);
 
 /**
  * @route GET /api/auth/profile
@@ -99,10 +148,22 @@ router.post('/mfa/setup', authMiddleware, authController.setupMFA);
  * @desc Verify MFA token
  * @access Public
  */
-router.post('/mfa/verify', [
-  body('userId').notEmpty().withMessage('User ID is required'),
-  body('token').isLength({ min: 6, max: 6 }).withMessage('Token must be 6 digits')
-], authController.verifyMFA);
+router.post('/mfa/verify', validateRequest([
+  {
+    field: 'userId',
+    validations: [{
+      validator: validators.notEmpty,
+      message: 'User ID is required'
+    }]
+  },
+  {
+    field: 'token',
+    validations: [{
+      validator: (value) => validators.isLength(6, 6)(value),
+      message: 'Token must be 6 digits'
+    }]
+  }
+]), authController.verifyMFA);
 
 /**
  * @route POST /api/auth/mfa/recovery-codes
@@ -116,18 +177,36 @@ router.post('/mfa/recovery-codes', authMiddleware, validateMFA, authController.g
  * @desc Request password reset
  * @access Public
  */
-router.post('/password-reset/request', [
-  body('email').isEmail().withMessage('Please provide a valid email')
-], authController.requestPasswordReset);
+router.post('/password-reset/request', validateRequest([
+  {
+    field: 'email',
+    validations: [{
+      validator: validators.isEmail,
+      message: 'Please provide a valid email'
+    }]
+  }
+]), authController.requestPasswordReset);
 
 /**
  * @route POST /api/auth/password-reset
  * @desc Reset password with token
  * @access Public
  */
-router.post('/password-reset', [
-  body('token').notEmpty().withMessage('Token is required'),
-  body('newPassword').isLength({ min: 8 }).withMessage('Password must be at least 8 characters')
-], authController.resetPassword);
+router.post('/password-reset', validateRequest([
+  {
+    field: 'token',
+    validations: [{
+      validator: validators.notEmpty,
+      message: 'Token is required'
+    }]
+  },
+  {
+    field: 'newPassword',
+    validations: [{
+      validator: validators.isLength(8),
+      message: 'Password must be at least 8 characters'
+    }]
+  }
+]), authController.resetPassword);
 
 export default router;

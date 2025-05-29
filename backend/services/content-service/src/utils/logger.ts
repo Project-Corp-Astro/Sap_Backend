@@ -2,35 +2,45 @@
  * Content Service Logger
  * 
  * This file initializes the shared logger for the Content Service.
- * It uses the @sap/logger package to provide consistent logging across all services.
+ * It uses Winston for logging and provides middleware for Express.
  */
 
-import { initializeLogger } from '@sap/logger';
-import config from '../config/index.js';
+import winston from 'winston';
+import { Request, Response, NextFunction } from 'express';
+import { createServiceLogger } from './sharedLogger';
 
-// Define logging configuration
-if (!('logging' in config)) {
-  (config as any).logging = {
-    level: 'info',
-    maxSize: '20m',
-    maxFiles: '14d'
+// Create the logger instance
+const logger = createServiceLogger('content-service');
+
+// Request logging middleware
+export const requestLogger = (options: {
+  skip?: (req: Request) => boolean;
+  format?: string;
+} = {}) => {
+  return (req: Request, res: Response, next: NextFunction) => {
+    // Skip logging if the skip function returns true
+    if (options.skip && options.skip(req)) {
+      return next();
+    }
+    
+    const start = Date.now();
+    
+    res.on('finish', () => {
+      const duration = Date.now() - start;
+      logger.info(`${req.method} ${req.originalUrl} ${res.statusCode} ${duration}ms`);
+    });
+    
+    next();
   };
-}
+};
 
-// Initialize the logger with Content Service configuration
-const { logger, requestLogger, errorLogger } = initializeLogger({
-  serviceName: 'content-service',
-  level: (config as any).logging?.level || 'info',
-  maxSize: (config as any).logging?.maxSize || '20m',
-  maxFiles: (config as any).logging?.maxFiles || '14d',
-  logsDir: 'logs',
-  consoleLog: process.env.NODE_ENV !== 'production',
-  httpLogging: true,
-  timestamps: true,
-  timestampFormat: 'YYYY-MM-DD HH:mm:ss',
-  includeMetadata: true
-});
+// Error logging middleware
+export const errorLogger = () => {
+  return (err: Error, req: Request, res: Response, next: NextFunction) => {
+    logger.error(`Error processing ${req.method} ${req.originalUrl}:`, err);
+    next(err);
+  };
+};
 
-// Export the logger and middleware functions
-export { requestLogger, errorLogger };
+// Export the logger
 export default logger;

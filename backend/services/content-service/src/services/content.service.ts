@@ -8,9 +8,9 @@ import {
   ICategory
 } from '../interfaces/shared-types';
 import { ContentStatus, ContentType } from '@corp-astro/shared-types';
-import { createServiceLogger } from '../utils/sharedLogger.js';
-import Content from '../models/Content.js';
-import Category from '../models/Category.js';
+import { createServiceLogger } from '../utils/sharedLogger';
+import Content from '../models/Content';
+import Category from '../models/Category';
 
 // Initialize logger
 const logger = createServiceLogger('content-service');
@@ -38,6 +38,16 @@ class ContentService {
       // Set default status if not provided
       if (!contentData.status) {
         contentData.status = ContentStatus.DRAFT;
+      }
+
+      // Generate slug from title if not provided
+      if (!contentData.slug && contentData.title) {
+        contentData.slug = contentData.title
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, '') // Remove non-word chars
+          .replace(/\s+/g, '-')     // Replace spaces with hyphens
+          .replace(/-+/g, '-')      // Replace multiple hyphens with single hyphen
+          .trim();
       }
 
       // Create content

@@ -1,14 +1,21 @@
-import jwt from 'jsonwebtoken';
+import jwt, { Secret, SignOptions } from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import { authenticator } from 'otplib';
 import QRCode from 'qrcode';
-import User, { IUser } from '../models/User';
+import User from '../models/User';
 import redisClient from '../../../../shared/utils/redis';
 import emailService from '../../../../shared/utils/email';
 import logger from '../../../../shared/utils/logger';
-import encryptionService from '../../../../shared/utils/encryption';
+import { IUser, UserDocument } from '../../../../shared/interfaces/user.interface';
+// Import type assertion helpers
+import { asIUser, anyToIUser } from '../utils/type-assertions';
 
+// Import type extensions
+import '../types/mongoose-extensions';
+
+// Use the extended UserDocument interface from our type extensions
+import * as encryptionService from '../../../../shared/utils/encryption';
 // JWT secret key - should be stored in environment variables in production
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '1h';
@@ -159,15 +166,15 @@ export const generateTokens = (user: IUser): AuthTokens => {
     // Generate access token
     const accessToken = jwt.sign(
       payload,
-      JWT_SECRET,
-      { expiresIn: JWT_EXPIRES_IN }
+      JWT_SECRET as Secret,
+      { expiresIn: JWT_EXPIRES_IN } as SignOptions
     );
     
     // Generate refresh token
     const refreshToken = jwt.sign(
       { userId: user._id.toString() },
-      JWT_REFRESH_SECRET,
-      { expiresIn: JWT_REFRESH_EXPIRES_IN }
+      JWT_REFRESH_SECRET as Secret,
+      { expiresIn: JWT_REFRESH_EXPIRES_IN } as SignOptions
     );
     
     return {
@@ -205,8 +212,8 @@ export const refreshToken = async (refreshToken: string): Promise<{ accessToken:
     
     const accessToken = jwt.sign(
       payload,
-      JWT_SECRET,
-      { expiresIn: JWT_EXPIRES_IN }
+      JWT_SECRET as Secret,
+      { expiresIn: JWT_EXPIRES_IN } as SignOptions
     );
     
     return { accessToken };
@@ -357,7 +364,8 @@ export const enableMFA = async (userId: string): Promise<IUser> => {
     delete userObject.password;
     delete userObject.mfaSecret;
     
-    return userObject;
+    // Use type assertion to fix TypeScript error
+    return anyToIUser(userObject);
   } catch (error) {
     throw error;
   }
@@ -427,9 +435,12 @@ export const trackLoginAttempt = async (userId: string, ip: string, success: boo
     
     // If login was successful, reset failed attempts
     if (success) {
-      user.failedLoginAttempts = 0;
+      // Reset login attempts tracking
+      if (user.loginAttempts) {
+        user.loginAttempts = user.loginAttempts.filter(attempt => attempt.successful);
+      }
       user.accountLocked = false;
-      user.lockUntil = undefined;
+      user.accountLockedUntil = undefined;
       
       // Update last login
       user.lastLogin = new Date();
@@ -442,12 +453,26 @@ export const trackLoginAttempt = async (userId: string, ip: string, success: boo
     }
     
     // Increment failed attempts
-    user.failedLoginAttempts += 1;
+    // Use loginAttempts array to track failed attempts
+    if (!user.loginAttempts) {
+      user.loginAttempts = [];
+    }
+    
+    // Add a failed login attempt
+    user.loginAttempts.push({
+      timestamp: new Date(),
+      ipAddress: ip,
+      userAgent: 'Unknown',
+      successful: false
+    });
+    
+    // Count failed attempts
+    const failedAttempts = user.loginAttempts.filter(attempt => !attempt.successful).length;
     
     // Lock account if too many failed attempts
-    if (user.failedLoginAttempts >= MAX_FAILED_ATTEMPTS) {
+    if (failedAttempts >= MAX_FAILED_ATTEMPTS) {
       user.accountLocked = true;
-      user.lockUntil = new Date(Date.now() + ACCOUNT_LOCK_TIME * 1000);
+      user.accountLockedUntil = new Date(Date.now() + ACCOUNT_LOCK_TIME * 1000);
       
       // Log account lock
       logger.warn(`Account locked for user ${userId} due to too many failed login attempts`);
@@ -486,7 +511,6 @@ export const requestPasswordReset = async (email: string): Promise<void> => {
     await redisClient.set(
       `password_reset:${user._id}`,
       hashedToken,
-      'EX',
       PASSWORD_RESET_EXPIRES
     );
     
@@ -538,7 +562,7 @@ export const resetPassword = async (token: string, newPassword: string): Promise
     
     // Update password
     user.password = newPassword;
-    user.passwordChangedAt = new Date();
+    user.passwordLastChanged = new Date();
     await user.save();
     
     // Delete token

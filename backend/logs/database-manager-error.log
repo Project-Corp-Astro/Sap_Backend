@@ -91,3 +91,138 @@
 {"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-15T07:35:23.860Z"}
 {"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-15T07:35:23.863Z"}
 {"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-15T07:40:14.241Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-23T10:37:13.029Z"}
+{"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-23T10:37:13.205Z"}
+{"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-23T10:41:44.063Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-23T11:08:44.429Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-23T11:09:28.087Z"}
+{"error":"Command timed out","level":"error","message":"Error connecting to Redis","service":"database-manager","timestamp":"2025-05-25T11:25:46.292Z"}
+{"error":"Command timed out","level":"error","message":"Error connecting to Redis","service":"database-manager","timestamp":"2025-05-25T11:25:46.292Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:13.322Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:13.964Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:14.323Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:14.446Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:14.753Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:14.926Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:14.962Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:15.684Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:15.846Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:16.606Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:16.758Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:17.252Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:17.386Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:17.425Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:17.667Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:17.712Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:19.700Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:20.839Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:21.630Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:21.742Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:29.247Z"}
+{"error":"Redis connection timeout","level":"error","message":"Error connecting to Redis","service":"database-manager","timestamp":"2025-05-25T11:32:42.188Z"}
+{"error":"Command timed out","level":"error","message":"Error connecting to Redis","service":"database-manager","timestamp":"2025-05-25T11:32:42.291Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:32:42.317Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:36:54.309Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:37:08.230Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:37:09.355Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T11:37:14.461Z"}
+{"error":"Called end on pool more than once","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-25T12:15:57.647Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:43.786Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:43.860Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:45.695Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:45.767Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:46.525Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:46.544Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:46.698Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:47.119Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:56.714Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:26:56.927Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:27:14.247Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:27:14.420Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:27.376Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:27.564Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:27.638Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:27.645Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:27.727Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:27.755Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:27.764Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:27.825Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:28.241Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:28.273Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:32.547Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:29:33.070Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:06.265Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:06.332Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:07.229Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:08.882Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:09.182Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:09.491Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:10.236Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:10.512Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:10.855Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:11.316Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:11.426Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:31:15.489Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:32:17.627Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:32:17.650Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:27.356Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:27.526Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:27.691Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:27.794Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:30.015Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:31.211Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:31.899Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:32.030Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:36.415Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:36.431Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:36.959Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:37.014Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:39.143Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:34:39.241Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:35:10.976Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:35:10.993Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:36.436Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:36.525Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:37.030Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:38.049Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:38.065Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:38.674Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:38.687Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:39.217Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:39.217Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:39.600Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:39.631Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:39.837Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:39.897Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:39.918Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:45.080Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:38:45.199Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:39:46.982Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:39:46.993Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:48.012Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:48.145Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:48.841Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:50.509Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:50.793Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:51.373Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:51.374Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:51.425Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:51.498Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:51.592Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:53.996Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:54.272Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:55.120Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:55.134Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:56.795Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:42:59.859Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:43:09.733Z"}
+{"error":"Connection terminated due to connection timeout","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-25T12:43:16.366Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T12:43:16.395Z"}
+{"error":"Connection is closed.","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-25T12:43:22.452Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T14:14:19.223Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-25T14:14:19.248Z"}
+{"error":"Called end on pool more than once","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-25T14:16:06.894Z"}
+{"error":"Called end on pool more than once","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-25T14:18:58.877Z"}
+{"error":"Called end on pool more than once","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-26T05:04:26.536Z"}
+{"error":"Called end on pool more than once","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-28T05:15:20.639Z"}
+{"error":"Called end on pool more than once","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-28T12:13:31.070Z"}

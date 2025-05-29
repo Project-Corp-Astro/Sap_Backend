@@ -7,60 +7,64 @@ import userRoutes from './routes/user.routes';
 import monitoringRoutes from './routes/monitoring.routes';
 import logger, { requestLogger, errorLogger } from './utils/logger';
 import { performanceMiddleware } from './utils/performance';
+import detectPort from 'detect-port';
 
 // Initialize Express app
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PREFERRED_PORT = parseInt(process.env.USER_SERVICE_PORT || '3002', 10);
 
 // Middleware
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
-
-// Performance monitoring middleware
-// @ts-ignore - Ignoring type error for middleware compatibility
-app.use(performanceMiddleware);
-
-// Request logging middleware
-// @ts-ignore - Ignoring type error for requestLogger compatibility
-app.use(requestLogger({
-  skip: (req: Request) => req.originalUrl === '/health' || req.originalUrl === '/api/health',
-  format: ':method :url :status :response-time ms - :res[content-length]'
-}));
+app.use(performanceMiddleware); // @ts-ignore
+app.use(requestLogger);
 
 // MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/sap-users';
-
-// Set strictQuery to false to suppress the deprecation warning
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/sap-users';
 mongoose.set('strictQuery', false);
 
 const mongooseOptions: mongoose.ConnectOptions = {
   serverSelectionTimeoutMS: 5000,
   retryWrites: true,
+  connectTimeoutMS: 10000,
+  socketTimeoutMS: 45000,
+  family: 4,
 };
 
-mongoose.connect(MONGO_URI, mongooseOptions)
-  .then(() => {
-    logger.info('MongoDB Connected');
-  })
-  .catch((err: Error) => {
+// Connect to MongoDB
+async function connectToDatabase() {
+  try {
+    await mongoose.connect(MONGO_URI, mongooseOptions);
+    logger.info(`MongoDB Connected to ${MONGO_URI}`);
+
+    mongoose.connection.on('error', (err) => {
+      logger.error('MongoDB connection error after initial connection:', { error: err.message });
+    });
+
+    mongoose.connection.on('disconnected', () => {
+      logger.warn('MongoDB disconnected, attempting to reconnect...');
+    });
+
+    mongoose.connection.on('reconnected', () => {
+      logger.info('MongoDB reconnected');
+    });
+
+  } catch (err: any) {
     logger.error('MongoDB connection error:', { error: err.message, stack: err.stack });
-    process.exit(1);
-  });
+    logger.warn('Running with limited functionality. Some features may not work without MongoDB.');
+  }
+}
+connectToDatabase();
 
 // Routes
 app.use('/api/users', userRoutes);
-
-// Monitoring routes
 app.use('/api/monitoring', monitoringRoutes);
 
-// Health check route - maintain backward compatibility
-// @ts-ignore - Ignoring type error for route handler compatibility
 app.get('/health', (req: Request, res: Response) => {
   const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
-  
-  res.status(200).json({ 
-    status: 'ok', 
+  res.status(200).json({
+    status: 'ok',
     service: 'user-service',
     timestamp: new Date().toISOString(),
     database: {
@@ -73,56 +77,72 @@ app.get('/health', (req: Request, res: Response) => {
   });
 });
 
-// Error logging middleware
-app.use(errorLogger());
-
-// Error handling middleware
-// @ts-ignore - Ignoring type error for error middleware compatibility
+// Error Logging
+app.use(errorLogger);
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   logger.error('Unhandled error:', { error: err.message, stack: err.stack, path: req.path });
-  
   res.status(500).json({
     success: false,
     message: 'Internal Server Error',
-    error: process.env.NODE_ENV === 'development' ? err.message : undefined
+    error: process.env.NODE_ENV === 'development' ? err.message : undefined,
   });
 });
 
-// Start server
-const server = app.listen(PORT, () => {
-  logger.info(`User Service running on port ${PORT}`);
-  logger.info(`Health check available at http://localhost:${PORT}/health`);
-});
+// Start Server
+let server: any;
+const startServer = async () => {
+  try {
+    const availablePort = await detectPort(PREFERRED_PORT);
 
-// Handle graceful shutdown
+    if (availablePort !== PREFERRED_PORT) {
+      logger.warn(`Preferred port ${PREFERRED_PORT} is in use, using available port ${availablePort}`);
+    }
+
+    server = app.listen(availablePort, '127.0.0.1', () => {
+      logger.info(`User Service running on port ${availablePort}`);
+      logger.info(`Health check available at http://localhost:${availablePort}/health`);
+    });
+
+  } catch (error: any) {
+    logger.error('Failed to start server:', { error: error.message, stack: error.stack });
+    process.exit(1);
+  }
+};
+
+startServer();
+
+// Graceful Shutdown
 const gracefulShutdown = (signal: string) => {
   logger.info(`${signal} signal received: closing HTTP server`);
 
   server.close(() => {
     logger.info('HTTP server closed');
 
-    // Close MongoDB connection
-    mongoose.connection.close(false, () => {
-      logger.info('MongoDB connection closed');
+    if (mongoose.connection.readyState !== 0) {
+      mongoose.connection.close(false, () => {
+        logger.info('MongoDB connection closed');
+        process.exit(0);
+      });
+    } else {
       process.exit(0);
-    });
+    }
   });
 };
 
-// Handle signals for graceful shutdown
 process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 
-// Handle unhandled promise rejections
 process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
   logger.error('Unhandled Rejection at:', { promise, reason });
 });
 
-// Handle uncaught exceptions
 process.on('uncaughtException', (error: Error) => {
-  logger.error('Uncaught Exception:', { error });
-  // Consider whether to exit the process here
-  // process.exit(1);
+  if ((error as any).code === 'EADDRINUSE') {
+    logger.error(`Port ${PREFERRED_PORT} is already in use. Please use a different port or stop the process using this port.`, { error: error.message });
+    setTimeout(() => process.exit(1), 1000);
+  } else {
+    logger.error('Uncaught Exception:', { error: error.message, stack: error.stack });
+  }
 });
 
-export default app; // Export for testing
+export default app;

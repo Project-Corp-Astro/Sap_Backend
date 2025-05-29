@@ -12,3 +12,5 @@
 {"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM data source","service":"typeorm","timestamp":"2025-05-14T11:05:31.622Z"}
 {"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM data source","service":"typeorm","timestamp":"2025-05-14T11:39:59.857Z"}
 {"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM data source","service":"typeorm","timestamp":"2025-05-14T11:39:59.890Z"}
+{"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM data source","service":"typeorm","timestamp":"2025-05-23T10:37:13.204Z"}
+{"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM data source","service":"typeorm","timestamp":"2025-05-23T10:41:44.063Z"}

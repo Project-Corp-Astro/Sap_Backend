@@ -17,7 +17,7 @@ const User = {
  * Register route
  * Creates a new user account
  */
-router.post('/register', (req: Request, res: Response): void => {
+router.post('/register', (req: Request, res: Response) => {
   // In a real app, you would validate input and create a user in the database
   // For this example, we'll just return a success message
   res.status(201).json({ message: 'User registered successfully' });
@@ -27,7 +27,7 @@ router.post('/register', (req: Request, res: Response): void => {
  * Login route
  * Authenticates a user and returns a JWT token
  */
-router.post('/login', (req: Request, res: Response): void => {
+router.post('/login', (req: Request, res: Response) => {
   const { email, password, rememberMe } = req.body;
   
   const user = User.findByEmail(email);

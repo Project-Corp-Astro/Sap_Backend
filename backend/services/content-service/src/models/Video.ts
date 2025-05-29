@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { VideoDocument, IVideo } from '../interfaces/video.interfaces.js';
+import { VideoDocument, IVideo } from '../interfaces/video.interfaces';
 // Import slugify directly using ESM import with type assertion
 import slugifyPkg from 'slugify';
 // Handle both ESM and CommonJS module formats

@@ -6,8 +6,8 @@
  */
 
 import { Request, Response, NextFunction } from 'express';
-import performanceMonitor from '../utils/performance.js';
-import logger from '../utils/logger.js';
+import performanceMonitor from '../utils/performance';
+import logger from '../utils/logger';
 
 /**
  * Middleware to track response time for all API requests

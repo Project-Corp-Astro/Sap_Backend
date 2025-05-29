@@ -1,0 +1,5 @@
+{"error":"Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)","level":"error","message":"Error synchronizing all users","service":"data-sync-service","timestamp":"2025-05-23T10:45:12.861Z"}
+{"error":"Schema hasn't been registered for model \"User\".\nUse mongoose.model(name, schema)","level":"error","message":"Error synchronizing all users","service":"data-sync-service","timestamp":"2025-05-23T10:49:24.209Z"}
+{"error":"Cannot read properties of undefined (reading 'queryStats')","level":"error","message":"Error synchronizing all users","service":"data-sync-service","timestamp":"2025-05-23T10:56:49.419Z"}
+{"error":"Cannot read properties of undefined (reading 'queryStats')","level":"error","message":"Error synchronizing all users","service":"data-sync-service","timestamp":"2025-05-23T10:58:16.774Z"}
+{"error":"Schema hasn't been registered for model \"Content\".\nUse mongoose.model(name, schema)","level":"error","message":"Error synchronizing all content","service":"data-sync-service","timestamp":"2025-05-23T10:59:19.029Z"}

@@ -491,7 +491,7 @@ class RequestTracker {
  * @returns Express middleware
  */
 const requestTrackerMiddleware = (tracker: RequestTracker) => {
-  return (req: ExtendedRequest, res: ExtendedResponse, next: NextFunction): void => {
+  return (req: ExtendedRequest, res: ExtendedResponse, next: NextFunction): any => {
     // Generate request ID or use existing one from headers
     const requestId = (req.headers['x-request-id'] as string) || `req-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     req.requestId = requestId;

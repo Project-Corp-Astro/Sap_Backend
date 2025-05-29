@@ -1,1 +1,51 @@
 {"error":"Connection is closed.","level":"error","message":"Error closing Redis connections","service":"redis-client","timestamp":"2025-05-15T04:17:17.543Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T08:42:32.229Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T08:42:32.310Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T08:42:32.415Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T08:42:32.573Z"}
+{"error":"Connection is closed.","level":"error","message":"Error setting cache key refresh_token:6831623d7850535b9685a12b","service":"redis-client","timestamp":"2025-05-25T08:42:32.584Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T08:44:13.655Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T08:44:13.723Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T08:44:13.840Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T08:44:14.023Z"}
+{"error":"Connection is closed.","level":"error","message":"Error setting cache key refresh_token:6831623d7850535b9685a12b","service":"redis-client","timestamp":"2025-05-25T08:44:14.040Z"}
+{"error":"Command timed out","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T11:32:42.296Z"}
+{"error":"Connection is closed.","level":"error","message":"Error closing Redis connections","service":"redis-client","timestamp":"2025-05-25T12:43:22.450Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:06.745Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:07.570Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:07.628Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:07.859Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:07.773Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:08.043Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:07.918Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:07.989Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:08.153Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:08.147Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:08.221Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:08.548Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:08.921Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.065Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.066Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.136Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.222Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.289Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.290Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.436Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.451Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.558Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.602Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.666Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.724Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.515Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.741Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.670Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.840Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.908Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.988Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:09.988Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:10.064Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:10.079Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:10.144Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:10.146Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:10.306Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-25T15:27:10.377Z"}

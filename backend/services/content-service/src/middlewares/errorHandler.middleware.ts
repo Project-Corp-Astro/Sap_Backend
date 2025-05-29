@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ContentServiceError, InternalServerError } from '../utils/errorTypes.js';
+import { ContentServiceError, InternalServerError } from '../utils/errorTypes';
 
 /**
  * Global error handling middleware for the Content Service

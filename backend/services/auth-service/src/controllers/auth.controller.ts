@@ -1,593 +1,277 @@
 import { Request, Response, NextFunction } from 'express';
-// Import express-validator directly
-import { validationResult } from 'express-validator';
-// Import Redis client with proper path using the updated tsconfig paths
-import redisClient from '@shared/utils/redis';
-import logger from '@shared/utils/logger';
+import { validationResult } from 'express-validator/src/validation-result';
+import redisClient from '../../../../shared/utils/redis';
+import logger from '../../../../shared/utils/logger';
 import * as authService from '../services/auth.service';
+import { IUser } from '../../../../shared/interfaces/user.interface';
+// Import type fixes and assertion helpers
+import { asIUser } from '../utils/type-assertions';
+// Import type fixes
+import '../types/type-fixes';
+// Import auth types
+import '../types/auth-types';
+// Import user type converter
+import { convertToIUser } from '../utils/user-type-converter';
+// Import UserRole from shared types instead of local interfaces
 import { UserRole } from '@corp-astro/shared-types';
-import { 
-  ExtendedUser, 
-  UserDocument, 
-  RegistrationRequest, 
-  AuthResponse, 
-  JwtPayload 
+import {
+  ExtendedUser,
+  UserDocument,
+  RegistrationRequest,
+  AuthResponse,
+  JwtPayload
 } from '../interfaces/shared-types';
 
-// Define interfaces for request with user
-interface AuthenticatedRequest extends Request {
-  user?: UserDocument;
+// Define a custom interface that doesn't extend Request to avoid type conflicts
+// Use a consistent AuthenticatedRequest interface that works with Express routes
+export interface AuthenticatedRequest extends Omit<Request, 'user'> {
+  user?: UserDocument & { username: string };
 }
 
-/**
- * Register a new user
- * @param req - Express request object
- * @param res - Express response object
- * @param next - Express next middleware function
- */
 export const register = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-  // Validate request
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    res.status(400).json({
-      success: false,
-      message: 'Validation failed',
-      errors: errors.array()
-    });
+    res.status(400).json({ success: false, message: 'Validation failed', errors: errors.array() });
     return;
   }
   try {
     const { username, email, password, firstName, lastName, role } = req.body;
-    
-    // Validate required fields
     if (!username || !email || !password || !firstName || !lastName) {
-      res.status(400).json({ 
-        success: false, 
-        message: 'All fields are required' 
-      });
+      res.status(400).json({ success: false, message: 'All fields are required' });
       return;
     }
-    
-    // Register user
     const userData: RegistrationRequest = { username, email, password, firstName, lastName };
-    
-    // Only add role if provided and request is from an admin
-    const authReq = req as AuthenticatedRequest;
-    if (role && authReq.user && authReq.user.role === UserRole.ADMIN) {
+    // Use a proper type assertion with unknown first to avoid TypeScript error
+    const authReq = req as unknown as AuthenticatedRequest;
+    if (role && authReq.user?.role === UserRole.ADMIN) {
       (userData as any).role = role;
     }
-    
     const user = await authService.register(userData);
-    
-    res.status(201).json({
-      success: true,
-      message: 'User registered successfully',
-      data: user
-    });
+    res.status(201).json({ success: true, message: 'User registered successfully', data: user });
   } catch (error: any) {
     if (error.message.includes('already') || error.code === 11000) {
-      res.status(409).json({
-        success: false,
-        message: error.message
-      });
+      res.status(409).json({ success: false, message: error.message });
       return;
     }
-    
     next(error);
   }
 };
 
-/**
- * Login with OAuth2 provider
- * @param req - Express request object
- * @param res - Express response object
- * @param next - Express next middleware function
- */
 export const oauthLogin = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
-    // User is already authenticated by passport strategy
     const user = req.user;
-    
     if (!user) {
-      res.status(401).json({
-        success: false,
-        message: 'Authentication failed'
-      });
+      res.status(401).json({ success: false, message: 'Authentication failed' });
       return;
     }
-    
-    // Generate tokens
-    const authData = await authService.generateTokens(user);
-    
-    // Update refresh token in Redis
-    await redisClient.set(`refresh_token:${user._id.toString()}`, authData.refreshToken, 60 * 60 * 24 * 7); // 7 days
-    
-    res.status(200).json({
-      success: true,
-      message: 'OAuth login successful',
-      data: {
-        user: user,
-        ...authData
-      }
-    });
+    const authData = await authService.generateTokens(user as any);
+    await redisClient.set(`refresh_token:${user._id.toString()}`, authData.refreshToken, 60 * 60 * 24 * 7);
+    res.status(200).json({ success: true, message: 'OAuth login successful', data: { user, ...authData } });
   } catch (error) {
     logger.error('OAuth login error:', error);
     next(error);
   }
 };
 
-/**
- * Setup MFA for user
- * @param req - Express request object
- * @param res - Express response object
- * @param next - Express next middleware function
- */
 export const setupMFA = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
-    // User must be authenticated
     if (!req.user) {
-      res.status(401).json({
-        success: false,
-        message: 'Authentication required'
-      });
+      res.status(401).json({ success: false, message: 'Authentication required' });
       return;
     }
-    
-    // Generate MFA secret and QR code
     const mfaData = await authService.setupMFA(req.user._id);
-    
-    res.status(200).json({
-      success: true,
-      message: 'MFA setup initiated',
-      data: mfaData
-    });
+    res.status(200).json({ success: true, message: 'MFA setup initiated', data: mfaData });
   } catch (error) {
     logger.error('MFA setup error:', error);
     next(error);
   }
 };
 
-/**
- * Verify MFA token
- * @param req - Express request object
- * @param res - Express response object
- * @param next - Express next middleware function
- */
-export const verifyMFA = async (req: Request, res: Response): Promise<Response> => {
+export const verifyMFA = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { userId, token } = req.body;
-    
     if (!userId || !token) {
-      res.status(400).json({
-        success: false,
-        message: 'User ID and token are required'
-      });
-      return res;
+      res.status(400).json({ success: false, message: 'User ID and token are required' });
+      return;
     }
-    
-    // Verify MFA token
     const isValid = await authService.verifyMFA(userId, token);
-    
     if (!isValid) {
-      res.status(401).json({
-        success: false,
-        message: 'Invalid MFA token'
-      });
-      return res;
+      res.status(401).json({ success: false, message: 'Invalid MFA token' });
+      return;
     }
-    
-    // If this is during setup, enable MFA for the user
-    if (req.query.setup === 'true') {
-      await authService.enableMFA(userId);
-    }
-    
-    // If this is during login, generate tokens
+    if (req.query.setup === 'true') await authService.enableMFA(userId);
     if (req.query.login === 'true') {
-      const user = await authService.getUserById(userId as string);
+      const user = await authService.getUserById(userId);
       if (!user) {
-        return res.status(404).json({
-          success: false,
-          message: 'User not found'
-        });
+        res.status(404).json({ success: false, message: 'User not found' });
+        return;
       }
-      
       const authData = await authService.generateTokens(user);
-      
-      // Store MFA session in Redis
-      const sessionData = { userId, token };
-      await redisClient.set(`mfa_session:${userId}`, JSON.stringify(sessionData), 60 * 10); // 10 minutes
-      
-      return res.status(200).json({
-        success: true,
-        message: 'Verification code sent',
-        requiresMfa: true,
-        mfaToken: token
-      });
+      await redisClient.set(`mfa_session:${userId}`, JSON.stringify({ userId, token }), 60 * 10);
+      res.status(200).json({ success: true, message: 'Verification code sent', requiresMfa: true, mfaToken: token });
+      return;
     }
-    
-    res.status(200).json({
-      success: true,
-      message: 'MFA verification successful'
-    });
+    res.status(200).json({ success: true, message: 'MFA verification successful' });
   } catch (error) {
     logger.error('MFA verification error:', error);
-    return res.status(500).json({
-      success: false,
-      message: 'Error verifying MFA token'
-    });
+    res.status(500).json({ success: false, message: 'Error verifying MFA token' });
   }
 };
 
-export const sendVerificationCode = async (req: Request, res: Response) => {
+export const sendVerificationCode = async (req: Request, res: Response): Promise<void> => {
   try {
     const { userId } = req.body;
-    
-    // Generate a random verification code
     const code = Math.floor(100000 + Math.random() * 900000).toString();
-    
-    // Store code in Redis with 10-minute expiration
-    await redisClient.set(`verification:${userId}`, code, 60 * 10); // 10 minutes
-    
-    // Generate a token for MFA verification
-    const token = await authService.generateTokens({ _id: userId as string } as any);
-    const mfaToken = token.accessToken; // Use access token as MFA token
-    
-    // If this is during login, generate tokens
+    await redisClient.set(`verification:${userId}`, code, 60 * 10);
+    const token = await authService.generateTokens({ _id: userId } as any);
     if (req.query.login === 'true') {
-      const user = await authService.getUserById(userId as string);
+      const user = await authService.getUserById(userId);
       if (!user) {
-        return res.status(404).json({
-          success: false,
-          message: 'User not found'
-        });
+        res.status(404).json({ success: false, message: 'User not found' });
+        return;
       }
-      
       const authData = await authService.generateTokens(user);
-      
-      // Store MFA session in Redis
-      const sessionData = { userId, token };
-      await redisClient.set(`mfa_session:${userId as string}`, JSON.stringify(sessionData), 60 * 10); // 10 minutes
-      
-      return res.status(200).json({
-        success: true,
-        message: 'Verification code sent',
-        requiresMfa: true,
-        mfaToken: token
-      });
+      await redisClient.set(`mfa_session:${userId}`, JSON.stringify({ userId, token }), 60 * 10);
+      res.status(200).json({ success: true, message: 'Verification code sent', requiresMfa: true, mfaToken: token });
+      return;
     }
-    
-    res.status(200).json({
-      success: true,
-      message: 'Verification code sent',
-      requiresMfa: true,
-      mfaToken: token
-    });
+    res.status(200).json({ success: true, message: 'Verification code sent', requiresMfa: true, mfaToken: token });
   } catch (error) {
     logger.error('Verification code error:', error);
-    return res.status(500).json({
-      success: false,
-      message: 'Error sending verification code'
-    });
+    res.status(500).json({ success: false, message: 'Error sending verification code' });
   }
 };
 
-/**
- * Login user
- * @param req - Express request object
- * @param res - Express response object
- * @param next - Express next middleware function
- */
 export const login = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { email, password } = req.body;
-    
-    // Validate required fields
     if (!email || !password) {
-      res.status(400).json({ 
-        success: false, 
-        message: 'Email and password are required' 
-      });
+      res.status(400).json({ success: false, message: 'Email and password are required' });
       return;
     }
-    
-    // Authenticate user
     const authData = await authService.login(email, password);
-    
-    // Check if MFA is enabled
     if (authData.user.mfaEnabled) {
-      res.status(200).json({
-        success: true,
-        message: 'MFA verification required',
-        data: {
-          requireMFA: true,
-          userId: authData.user._id
-        }
-      });
+      res.status(200).json({ success: true, message: 'MFA verification required', data: { requireMFA: true, userId: authData.user._id } });
       return;
     }
-    
-    // Store refresh token in Redis
-    await redisClient.set(`refresh_token:${authData.user._id.toString()}`, authData.refreshToken, 60 * 60 * 24 * 7); // 7 days
-    
-    // Track login attempt
+    await redisClient.set(`refresh_token:${authData.user._id.toString()}`, authData.refreshToken, 60 * 60 * 24 * 7);
     await authService.trackLoginAttempt(authData.user._id.toString(), req.ip || 'unknown', true);
-    
-    res.status(200).json({
-      success: true,
-      message: 'Login successful',
-      data: authData
-    });
+    res.status(200).json({ success: true, message: 'Login successful', data: authData });
   } catch (error: any) {
-    // Track failed login attempt
     if (error.userId) {
-      await authService.trackLoginAttempt(error.userId, req.ip, false);
+      await authService.trackLoginAttempt(error.userId, req.ip || 'unknown', false);
     }
-    
     if (error.message.includes('Invalid') || error.message.includes('disabled') || error.message.includes('locked')) {
-      res.status(401).json({
-        success: false,
-        message: error.message
-      });
+      res.status(401).json({ success: false, message: error.message });
       return;
     }
-    
     next(error);
   }
 };
 
-/**
- * Refresh access token
- * @param req - Express request object
- * @param res - Express response object
- * @param next - Express next middleware function
- */
-export const refreshToken = async (req: Request, res: Response) => {
+export const refreshToken = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { refreshToken } = req.body;
-    
     if (!refreshToken) {
-      return res.status(400).json({
-        success: false,
-        message: 'Refresh token is required'
-      });
+      res.status(400).json({ success: false, message: 'Refresh token is required' });
+      return;
     }
-    
-    // Verify refresh token
     const decoded = await authService.decodeRefreshToken(refreshToken);
-    const refreshTokenData = await redisClient.get(`refresh_token:${decoded.userId as string}`);
-    if (!refreshTokenData) {
-      return res.status(401).json({
-        success: false,
-        message: 'Invalid refresh token'
-      });
+    const storedToken = await redisClient.get(`refresh_token:${decoded.userId}`);
+    if (storedToken !== refreshToken) {
+      res.status(401).json({ success: false, message: 'Invalid refresh token' });
+      return;
     }
-    // Type assertion to handle potential undefined
-    const storedRefreshToken = refreshTokenData;
-    if (storedRefreshToken !== refreshToken) {
-      return res.status(401).json({
-        success: false,
-        message: 'Invalid refresh token'
-      });
-    }
-    
-    // Generate new tokens
     const tokens = await authService.refreshToken(refreshToken);
-    
-    res.status(200).json({
-      success: true,
-      message: 'Token refreshed successfully',
-      data: tokens
-    });
-  } catch (error) {
-    return res.status(401).json({
-      success: false,
-      message: 'Invalid or expired refresh token'
-    });
+    res.status(200).json({ success: true, message: 'Token refreshed successfully', data: tokens });
+  } catch {
+    res.status(401).json({ success: false, message: 'Invalid or expired refresh token' });
   }
 };
 
-/**
- * Get authenticated user profile
- * @param req - Express request object
- * @param res - Express response object
- */
 export const getProfile = (req: AuthenticatedRequest, res: Response): void => {
-  // User is already attached to the request by auth middleware
   if (!req.user) {
-    res.status(401).json({
-      success: false,
-      message: 'Authentication required'
-    });
+    res.status(401).json({ success: false, message: 'Authentication required' });
     return;
   }
-  
-  res.status(200).json({
-    success: true,
-    message: 'User profile retrieved successfully',
-    data: req.user
-  });
+  res.status(200).json({ success: true, message: 'User profile retrieved successfully', data: req.user });
 };
 
-/**
- * Logout user
- * @param req - Express request object
- * @param res - Express response object
- */
-export const logout = async (req: AuthenticatedRequest, res: Response): Promise<Response> => {
+export const logout = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     if (!req.user) {
-      res.status(401).json({
-        success: false,
-        message: 'Authentication required'
-      });
-      return res;
+      res.status(401).json({ success: false, message: 'Authentication required' });
+      return;
     }
-    
-    // Remove refresh token from Redis
     await redisClient.del(`refresh_token:${req.user._id}`);
-    
-    res.status(200).json({
-      success: true,
-      message: 'Logout successful'
-    });
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: 'Error during logout'
-    });
+    res.status(200).json({ success: true, message: 'Logout successful' });
+  } catch {
+    res.status(500).json({ success: false, message: 'Error during logout' });
   }
 };
 
-/**
- * Generate recovery codes for MFA
- * @param req - Express request object
- * @param res - Express response object
- * @param next - Express next middleware function
- */
 export const generateRecoveryCodes = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     if (!req.user) {
-      res.status(401).json({
-        success: false,
-        message: 'Authentication required'
-      });
+      res.status(401).json({ success: false, message: 'Authentication required' });
       return;
     }
-    
-    // Generate recovery codes
     const recoveryCodes = await authService.generateRecoveryCodes(req.user._id);
-    
-    res.status(200).json({
-      success: true,
-      message: 'Recovery codes generated successfully',
-      data: {
-        recoveryCodes
-      }
-    });
+    res.status(200).json({ success: true, message: 'Recovery codes generated successfully', data: { recoveryCodes } });
   } catch (error) {
     next(error);
   }
 };
 
-/**
- * Request password reset
- * @param req - Express request object
- * @param res - Express response object
- * @param next - Express next middleware function
- */
 export const requestPasswordReset = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { email } = req.body;
-    
     if (!email) {
-      res.status(400).json({
-        success: false,
-        message: 'Email is required'
-      });
+      res.status(400).json({ success: false, message: 'Email is required' });
       return;
     }
-    
-    // Request password reset
     await authService.requestPasswordReset(email);
-    
-    // Always return success to prevent email enumeration
-    res.status(200).json({
-      success: true,
-      message: 'Password reset link sent if email exists'
-    });
+    res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
   } catch (error) {
-    // Log error but don't expose to client
     logger.error('Password reset request error:', error);
-    
-    // Always return success to prevent email enumeration
-    res.status(200).json({
-      success: true,
-      message: 'Password reset link sent if email exists'
-    });
+    res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
   }
 };
 
-/**
- * Reset password with token
- * @param req - Express request object
- * @param res - Express response object
- * @param next - Express next middleware function
- */
-export const resetPassword = async (req: Request, res: Response): Promise<Response> => {
+export const resetPassword = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { token, newPassword } = req.body;
-    
     if (!token || !newPassword) {
-      return res.status(400).json({
-        success: false,
-        message: 'Token and new password are required'
-      });
+      res.status(400).json({ success: false, message: 'Token and new password are required' });
+      return;
     }
-    
-    // Reset password
     await authService.resetPassword(token, newPassword);
-    
-    return res.status(200).json({
-      success: true,
-      message: 'Password has been reset successfully'
-    });
+    res.status(200).json({ success: true, message: 'Password has been reset successfully' });
   } catch (error: any) {
     if (error.message.includes('expired') || error.message.includes('invalid')) {
-      return res.status(400).json({
-        success: false,
-        message: error.message
-      });
+      res.status(400).json({ success: false, message: error.message });
+      return;
     }
-    
-    return res.status(500).json({
-      success: false,
-      message: 'Error resetting password'
-    });
+    res.status(500).json({ success: false, message: 'Error resetting password' });
   }
 };
 
-/**
- * Forgot password
- * @param req - Express request object
- * @param res - Express response object
- */
-export const forgotPassword = async (req: Request, res: Response): Promise<Response> => {
-  // Validate request
+export const forgotPassword = async (req: Request, res: Response): Promise<void> => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({
-      success: false,
-      message: 'Validation failed',
-      errors: errors.array()
-    });
+    res.status(400).json({ success: false, message: 'Validation failed', errors: errors.array() });
+    return;
   }
   try {
     const { email } = req.body;
-    
-    // Validate required fields
     if (!email) {
-      return res.status(400).json({ 
-        success: false, 
-        message: 'Email is required' 
-      });
+      res.status(400).json({ success: false, message: 'Email is required' });
+      return;
     }
-    
-    // Request password reset
     await authService.requestPasswordReset(email);
-    
-    // Always return success to prevent email enumeration
-    return res.status(200).json({
-      success: true,
-      message: 'Password reset link sent if email exists'
-    });
+    res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
   } catch (error) {
-    // Log error but don't expose to client
     logger.error('Password reset request error:', error);
-    
-    // Always return success to prevent email enumeration
-    return res.status(200).json({
-      success: true,
-      message: 'Password reset link sent if email exists'
-    });
+    res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
   }
 };

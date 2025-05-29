@@ -161,3 +161,923 @@
 {"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-15T07:40:13.645Z"}
 {"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-15T07:40:14.211Z"}
 {"level":"info","message":"Mock Elasticsearch connected","service":"mock-database","timestamp":"2025-05-15T07:40:14.244Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T10:37:11.566Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T10:37:11.569Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T10:37:11.570Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T10:37:11.572Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T10:37:12.523Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T10:41:42.664Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T10:41:42.667Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T10:41:42.668Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T10:41:42.669Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T10:41:43.596Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T10:42:41.782Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T10:42:41.784Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T10:42:41.784Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T10:42:41.785Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T10:42:42.638Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T10:43:31.815Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T10:43:31.817Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T10:43:31.817Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T10:43:31.818Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T10:43:32.994Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T10:45:11.148Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T10:45:11.151Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T10:45:11.152Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T10:45:11.153Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T10:45:12.053Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T10:49:22.430Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T10:49:22.433Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T10:49:22.434Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T10:49:22.437Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T10:49:23.470Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T10:56:47.317Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T10:56:47.320Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T10:56:47.321Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T10:56:47.322Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T10:56:48.418Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T10:58:14.691Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T10:58:14.693Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T10:58:14.694Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T10:58:14.695Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T10:58:15.776Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T10:59:16.389Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T10:59:16.393Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T10:59:16.394Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T10:59:16.395Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T10:59:17.805Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:00:57.025Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:00:57.026Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:00:57.027Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:00:57.028Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:00:58.230Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:01:45.432Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:01:45.434Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:01:45.435Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:01:45.435Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:01:46.593Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:03:26.875Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:03:26.877Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:03:26.878Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:03:26.880Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:03:28.194Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:08:41.688Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:08:41.690Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:08:41.691Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:08:41.692Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:08:42.405Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:09:25.520Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:09:25.522Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:09:25.523Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:09:25.525Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:09:26.255Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:17:08.263Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:17:08.266Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:17:08.267Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:17:08.268Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:17:08.742Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:17:55.601Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:17:55.604Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:17:55.605Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:17:55.607Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:17:55.945Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:18:51.223Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:18:51.224Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:18:51.226Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:18:51.228Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:18:51.704Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:24:10.710Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:24:10.711Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:24:10.713Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:24:10.714Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:24:10.991Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:26:54.287Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:26:54.289Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:26:54.289Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:26:54.290Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:26:54.941Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:28:56.009Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:28:56.012Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:28:56.013Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:28:56.015Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:28:56.735Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:30:24.977Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:30:24.980Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:30:24.981Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:30:24.982Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:30:25.856Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:32:11.996Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:32:11.999Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:32:12.000Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:32:12.001Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:32:12.564Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:33:37.222Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:33:37.225Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:33:37.226Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:33:37.228Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:33:38.013Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-23T11:34:30.008Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-23T11:34:30.011Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-23T11:34:30.012Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-23T11:34:30.013Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-23T11:34:31.045Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.243Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.479Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.605Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.606Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:55:53.621Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.506Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.509Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.511Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.675Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:55:54.700Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.746Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.426Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.429Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.430Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.431Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:55:54.964Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.748Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.749Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:55:40.750Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:55:55.019Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:55:42.234Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:55:42.236Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:55:42.238Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:55:42.239Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:55:55.453Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:55:41.738Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:55:41.740Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:55:41.742Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:55:41.743Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:55:55.996Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:55:50.385Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:55:50.388Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:55:50.389Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:55:50.390Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:56:05.943Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:57:25.009Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:57:25.012Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:57:25.036Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:57:25.037Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:57:36.149Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:57:25.447Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:57:25.453Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:57:25.454Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:57:25.455Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:57:38.063Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:57:26.051Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:57:26.053Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:57:26.054Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:57:26.055Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:57:38.571Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:57:26.171Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:57:26.174Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:57:26.175Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:57:26.176Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:57:39.652Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:57:27.798Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:57:27.880Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:57:27.883Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:57:27.886Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:57:27.887Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:57:41.006Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:57:27.801Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:57:27.802Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:57:27.803Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:57:41.196Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:57:32.876Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:57:32.958Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:57:33.014Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:57:33.142Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:57:48.319Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T10:58:18.617Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T10:58:18.620Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T10:58:18.621Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T10:58:18.622Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T10:58:21.506Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:01:59.705Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:01:59.716Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:01:59.717Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:01:59.719Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:02:15.489Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:02:00.306Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:02:00.512Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:02:00.513Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:02:00.514Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:02:17.302Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:01:59.786Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:01:59.790Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:01:59.794Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:01:59.796Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:02:18.418Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:02:01.682Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:02:01.685Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:02:01.686Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:02:01.687Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:02:19.703Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:02:04.024Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:02:04.031Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:02:04.032Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:02:04.033Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:02:20.075Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:02:03.698Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:02:03.700Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:02:03.701Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:02:03.702Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:02:20.564Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:02:07.423Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:02:07.700Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:02:07.701Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:02:07.702Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:02:23.005Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.196Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.236Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.237Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.239Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:04:13.096Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:03:57.626Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:03:58.256Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:03:58.259Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:03:58.260Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:03:58.264Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:04:13.258Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:03:57.632Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:03:57.634Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:03:57.635Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:04:13.309Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:03:59.399Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:03:59.402Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:03:59.403Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:03:59.405Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:04:13.577Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:03:58.585Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:03:58.588Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:03:58.589Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:03:58.590Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:04:13.874Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.219Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.221Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.222Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.223Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:04:15.111Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.588Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.590Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.592Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.593Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:04:15.207Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.465Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.469Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.470Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:04:00.472Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:04:20.176Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:05:05.213Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:05:05.215Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:05:05.216Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:05:05.217Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:05:08.876Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:09:19.195Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.542Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.795Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.798Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.800Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.802Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:09:35.816Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.545Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.546Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.548Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:09:35.719Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:09:19.199Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:09:19.200Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:09:19.203Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:09:35.599Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.553Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.387Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:09:19.066Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.759Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.761Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.762Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.763Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:09:35.970Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.828Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.394Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.395Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.397Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:09:35.963Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.556Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.557Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.558Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:09:36.590Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.831Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.832Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.833Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:09:35.985Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:09:19.069Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:09:19.072Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:09:19.075Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:09:36.594Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.671Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.675Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.823Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:09:18.824Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:09:37.503Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:12:36.969Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:12:36.973Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:12:36.974Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:12:36.975Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:12:57.117Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:12:39.496Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:12:39.711Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:12:39.713Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:12:39.714Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:13:00.204Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:12:41.318Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:12:41.322Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:12:41.323Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:12:41.324Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:13:02.404Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:12:44.772Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:12:44.775Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:12:44.776Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:12:44.777Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:13:04.448Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:12:45.053Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:12:45.056Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:12:45.058Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:12:45.059Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:13:05.346Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:12:50.382Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:12:50.385Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:12:50.386Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:12:50.387Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:13:09.030Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:12:50.981Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:12:50.984Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:12:50.985Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:12:50.986Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:13:15.545Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:12:54.933Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:12:54.935Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:12:54.936Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:12:54.937Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:13:23.419Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:13:00.292Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:13:00.448Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:13:00.838Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:13:00.841Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:13:23.487Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:14:11.908Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:14:11.910Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:14:11.911Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:14:11.913Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:14:15.855Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:20.420Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:20.423Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:20.426Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:20.427Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:19:39.031Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:20.154Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:20.423Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:20.426Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:20.427Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:19:39.625Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:28.609Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:28.612Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:28.614Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:28.615Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:19:50.983Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:30.648Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:30.651Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:30.653Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:30.655Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:19:54.097Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:30.787Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:30.791Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:30.792Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:30.793Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:19:54.540Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:36.253Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:36.257Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:36.258Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:36.259Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:19:58.319Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:35.132Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:35.136Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:35.137Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:35.138Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:19:58.964Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:33.132Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:33.139Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:33.141Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:33.142Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:20:00.070Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:34.034Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:34.280Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:34.288Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:34.290Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:20:04.555Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:19:36.377Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:19:36.381Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:19:36.383Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:19:36.384Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:20:10.982Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:21:11.432Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:21:11.435Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:21:11.436Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:21:11.438Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:21:17.839Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:05.777Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:05.781Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:05.783Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:05.784Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:32.882Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:06.400Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:06.405Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:06.621Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:06.623Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:34.890Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:08.024Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:08.029Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:08.030Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:08.031Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:37.032Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:06.523Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:06.527Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:06.529Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:06.530Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:37.268Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:07.486Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:07.562Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:07.563Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:07.565Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:38.686Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:08.356Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:08.361Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:08.363Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:08.364Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:39.446Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:10.862Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:10.865Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:10.866Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:10.867Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:38.745Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:16.292Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:16.295Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:16.296Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:16.297Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:44.691Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:25.180Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:25.186Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:25.188Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:25.190Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:56.577Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:25:21.218Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:25:21.221Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:25:21.223Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:25:21.224Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:25:59.703Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:26:42.209Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:26:42.217Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:26:42.218Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:26:42.219Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:26:46.122Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:40.126Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:39.871Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:40.129Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:40.133Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:40.134Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:03.199Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:39.874Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:39.877Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:39.878Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:03.101Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:38.792Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:38.800Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:38.802Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:38.803Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:03.567Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:39.721Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:42.308Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:39.981Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:39.982Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:39.983Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:03.946Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:42.312Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:42.313Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:42.316Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:03.477Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:41.337Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:41.340Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:41.342Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:41.343Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:04.722Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:43.626Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:43.630Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:43.634Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:43.637Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:05.633Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:46.112Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:46.133Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:46.143Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:46.144Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:05.833Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:42.423Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:42.426Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:42.427Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:42.730Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:06.335Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:43.956Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:44.476Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:44.482Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:44.486Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:10.150Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:31:55.451Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:31:55.456Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:31:55.457Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:31:55.458Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:32:18.869Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:33:35.664Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:33:35.669Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:33:35.670Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:33:35.671Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:33:40.962Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:23.558Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:23.561Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:23.562Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:23.564Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:42.697Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:24.507Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:24.510Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:24.511Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:24.512Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:44.929Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:23.338Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:23.349Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:23.512Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:23.513Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:44.327Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:27.375Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:27.378Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:27.379Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:27.380Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:46.132Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:29.888Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:29.905Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:29.909Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:29.911Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:51.003Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:30.765Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:30.768Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:30.769Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:30.770Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:55.250Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:34.611Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:34.614Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:34.615Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:34.616Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:56.824Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.671Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.674Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.675Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.676Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:58.129Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.701Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.488Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.491Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.492Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.493Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:58.719Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.705Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.960Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:36.961Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:36:59.423Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:40.538Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:40.542Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:40.543Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:40.545Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:37:04.542Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T11:36:34.989Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T11:36:34.992Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T11:36:34.993Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T11:36:34.994Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T11:37:09.015Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:13:14.008Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:13:14.010Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:13:14.011Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:13:14.012Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:13:15.633Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:16:14.258Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:16:14.261Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:16:14.262Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:16:14.263Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:16:15.898Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:19:33.407Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:19:33.408Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:19:33.409Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:19:33.410Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:19:34.961Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:20:27.382Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:20:27.384Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:20:27.385Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:20:27.386Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:20:29.274Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:20:50.804Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:20:50.805Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:20:50.805Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:20:50.806Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:20:52.553Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:21:31.667Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:21:31.668Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:21:31.670Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:21:31.671Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:21:34.401Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:21:32.189Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:21:32.224Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:21:32.232Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:21:32.234Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:21:35.246Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:21:52.189Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:21:52.190Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:21:52.191Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:21:52.191Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:21:53.523Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:24:57.853Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:24:57.856Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:24:57.857Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:24:57.859Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:25:02.902Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:24:58.159Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:24:58.163Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:24:58.164Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:24:58.166Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:25:03.681Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:24:58.904Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:24:58.905Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:24:58.906Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:24:58.907Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:25:03.794Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:24:59.402Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:24:59.475Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:24:59.551Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:24:59.635Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:25:06.024Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:25:27.588Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:25:27.589Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:25:27.590Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:25:27.592Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:25:29.649Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:26:36.025Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:26:36.026Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:26:36.028Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:26:36.029Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:26:42.554Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:26:37.783Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:26:37.144Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:26:37.784Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:26:37.785Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:26:37.785Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:26:44.204Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:26:37.145Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:26:37.146Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:26:37.147Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:26:44.245Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:26:38.356Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:26:38.357Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:26:38.358Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:26:38.360Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:26:45.408Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:26:48.626Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:26:48.705Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:26:48.743Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:26:48.791Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:26:55.257Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:27:11.930Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:27:11.931Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:27:11.932Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:27:11.933Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:27:13.884Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:29:08.647Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:29:08.648Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:29:08.714Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:29:08.717Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:29:19.700Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:29:08.737Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:29:08.738Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:29:08.740Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:29:08.743Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:29:19.928Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:29:10.277Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:29:10.279Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:29:10.282Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:29:10.284Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:29:20.939Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:29:11.253Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:29:11.255Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:29:11.256Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:29:11.257Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:29:21.421Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:29:11.736Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:29:11.737Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:29:11.737Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:29:11.738Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:29:21.476Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:29:17.789Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:29:17.850Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:29:17.858Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:29:17.866Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:29:29.909Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:30:56.672Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:30:56.674Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:30:56.674Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:30:56.675Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:31:04.704Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:30:55.667Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:30:55.709Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:30:55.806Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:30:55.884Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:31:05.673Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:30:57.101Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:30:57.102Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:30:57.103Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:30:57.104Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:31:05.596Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:30:58.756Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:30:58.757Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:30:58.814Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:30:58.816Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:31:07.724Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:30:59.556Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:30:59.557Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:30:59.558Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:30:59.559Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:31:08.985Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:31:00.861Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:31:00.868Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:31:00.884Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:31:00.888Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:31:09.742Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:32:13.853Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:32:13.855Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:32:13.855Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:32:13.856Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:32:17.053Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:34:10.609Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:34:10.611Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:34:10.612Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:34:10.613Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:34:22.996Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.287Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.288Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.289Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.290Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:34:23.513Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.164Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.165Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.166Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.167Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:34:24.444Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:34:15.025Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:34:15.026Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:34:15.027Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:34:15.033Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:34:28.426Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:34:16.597Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:34:16.598Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:34:16.599Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:34:16.600Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:34:29.266Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:34:13.502Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:34:13.700Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:34:13.854Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:34:13.945Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:34:29.221Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.368Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.369Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.370Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:34:12.378Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:34:29.441Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:35:04.292Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:35:04.293Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:35:04.294Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:35:04.297Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:35:09.784Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:38:20.076Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:38:20.077Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:38:20.078Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:38:20.079Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:38:28.389Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.631Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.632Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.633Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.634Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:38:28.680Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.405Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.405Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.406Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.407Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:38:28.848Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:38:14.746Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:38:14.747Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:38:14.887Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:38:14.888Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:38:28.569Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.959Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.960Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.961Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.962Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:38:29.092Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.617Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.618Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.619Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:38:12.619Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:38:29.740Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:38:18.388Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:38:18.389Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:38:18.390Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:38:18.390Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:38:29.961Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:38:28.889Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:38:29.042Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:38:29.209Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:38:29.417Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:38:38.929Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:39:41.146Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:39:41.146Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:39:41.152Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:39:41.152Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:39:46.107Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.216Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.217Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.218Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.219Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:42:45.204Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.293Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.293Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.295Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.295Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:42:45.355Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.513Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.514Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.516Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.516Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:42:46.122Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:42:34.575Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:42:34.576Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:42:34.578Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:42:34.579Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:42:49.637Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.117Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.118Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.120Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:42:31.123Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:42:49.707Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:42:34.464Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:42:34.601Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:42:34.604Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:42:34.608Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:42:50.531Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:42:37.550Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:42:37.551Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:42:37.559Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:42:37.563Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:42:51.271Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:42:39.881Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:42:39.883Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:42:39.891Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:42:39.891Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:42:53.854Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T12:42:42.802Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T12:42:42.921Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T12:42:43.138Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T12:42:43.337Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T12:43:03.663Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T14:14:16.221Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T14:14:16.222Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T14:14:16.227Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T14:14:16.228Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T14:14:18.553Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-25T14:16:26.592Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-25T14:16:26.594Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-25T14:16:26.597Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-25T14:16:26.598Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-25T14:16:28.925Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-26T05:02:37.542Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-26T05:02:37.544Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-26T05:02:37.550Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-26T05:02:37.552Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-26T05:02:42.409Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-28T04:39:21.012Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-28T04:39:21.013Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-28T04:39:21.015Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-28T04:39:21.016Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-28T04:39:23.262Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-28T11:31:44.517Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-28T11:31:44.518Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-28T11:31:44.519Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-28T11:31:44.519Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-28T11:31:45.955Z"}
+{"level":"info","message":"Initializing Mock MongoDB Client","service":"mock-database","timestamp":"2025-05-28T12:08:18.087Z"}
+{"level":"info","message":"Initializing Mock PostgreSQL Client","service":"mock-database","timestamp":"2025-05-28T12:08:18.088Z"}
+{"level":"info","message":"Initializing Mock Redis Client","service":"mock-database","timestamp":"2025-05-28T12:08:18.089Z"}
+{"level":"info","message":"Initializing Mock Elasticsearch Client","service":"mock-database","timestamp":"2025-05-28T12:08:18.090Z"}
+{"level":"info","message":"Mock Redis connected","service":"mock-database","timestamp":"2025-05-28T12:08:20.671Z"}

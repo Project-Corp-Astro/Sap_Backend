@@ -149,7 +149,13 @@ class DatabaseConnection {
       };
       
       // Connect to MongoDB
-      this.connection = await mongoose.connect(connectionUri, ipv4Options as any);
+      // Ensure we don't use serverApi to avoid serverStatus command issues
+      const finalOptions = { ...ipv4Options };
+      if (finalOptions.serverApi) {
+        delete finalOptions.serverApi;
+      }
+      
+      this.connection = await mongoose.connect(connectionUri, finalOptions as any);
 
       // Update status
       this.status.isConnected = true;
@@ -492,14 +498,19 @@ class DatabaseConnection {
   getStatus(): Record<string, any> {
     const status: Record<string, any> = {};
     
-    for (const [name, connection] of this.connections.entries()) {
-      status[name] = {
-        readyState: connection.readyState,
-        connected: connection.readyState === 1,
-        host: connection.host,
-        port: connection.port,
-        name: connection.name,
-      };
+    try {
+      // Avoid using serverStatus command which requires API Version 1
+      for (const [name, connection] of this.connections.entries()) {
+        status[name] = {
+          readyState: connection.readyState,
+          connected: connection.readyState === 1,
+          host: connection.host,
+          port: connection.port,
+          name: connection.name,
+        };
+      }
+    } catch (error) {
+      logger.error('Error getting server status', { error });
     }
     
     return status;

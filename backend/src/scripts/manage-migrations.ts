@@ -12,6 +12,7 @@
 import { createServiceLogger } from '../../shared/utils/logger';
 import dbManager from '../utils/DatabaseManager';
 import { SchemaService } from '../services/SchemaService';
+import typeORMManager from '../../shared/utils/typeorm';
 import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
@@ -103,21 +104,22 @@ async function runPgMigrations(): Promise<void> {
     logger.info('Running PostgreSQL migrations...');
     
     // Initialize database connection
-    await dbManager.initializePg();
+    await dbManager.connectPostgres();
+    await dbManager.initializeTypeORM();
     
-    // Get TypeORM connection
-    const pgClient = dbManager.getPgClient();
+    // Get TypeORM data source
+    const dataSource = typeORMManager.getDataSource();
     
     // Run migrations
-    await pgClient.runMigrations();
+    const migrations = await dataSource.runMigrations();
     
-    logger.info('PostgreSQL migrations completed successfully');
+    logger.info(`PostgreSQL migrations completed successfully. Ran ${migrations.length} migrations.`);
   } catch (error) {
     logger.error('Error running PostgreSQL migrations', { error: (error as Error).message });
     process.exit(1);
   } finally {
     // Close database connection
-    await dbManager.closePg();
+    await dbManager.closeAll();
   }
 }
 
@@ -129,13 +131,14 @@ async function revertPgMigration(): Promise<void> {
     logger.info('Reverting last PostgreSQL migration...');
     
     // Initialize database connection
-    await dbManager.initializePg();
+    await dbManager.connectPostgres();
+    await dbManager.initializeTypeORM();
     
-    // Get TypeORM connection
-    const pgClient = dbManager.getPgClient();
+    // Get TypeORM data source
+    const dataSource = typeORMManager.getDataSource();
     
     // Revert last migration
-    await pgClient.undoLastMigration();
+    await dataSource.undoLastMigration();
     
     logger.info('PostgreSQL migration reverted successfully');
   } catch (error) {
@@ -143,7 +146,7 @@ async function revertPgMigration(): Promise<void> {
     process.exit(1);
   } finally {
     // Close database connection
-    await dbManager.closePg();
+    await dbManager.closeAll();
   }
 }
 
@@ -155,21 +158,41 @@ async function listPgMigrations(): Promise<void> {
     logger.info('Listing PostgreSQL migrations...');
     
     // Initialize database connection
-    await dbManager.initializePg();
+    await dbManager.connectPostgres();
+    await dbManager.initializeTypeORM();
     
-    // Get TypeORM connection
-    const pgClient = dbManager.getPgClient();
+    // Get TypeORM data source
+    const dataSource = typeORMManager.getDataSource();
     
     // Get all migrations
-    const migrations = await pgClient.showMigrations();
+    const pendingMigrations = await dataSource.showMigrations();
+    const executedMigrations = await dataSource.query('SELECT * FROM migrations ORDER BY id DESC');
     
-    logger.info('PostgreSQL migrations:', { migrations });
+    console.log('\nPostgreSQL Migrations:');
+    console.log('-----------------------');
+    console.log('\nExecuted Migrations:');
+    if (executedMigrations.length === 0) {
+      console.log('No executed migrations found.');
+    } else {
+      executedMigrations.forEach((migration: any, index: number) => {
+        console.log(`${index + 1}. ${migration.name} - Applied at ${new Date(migration.timestamp).toLocaleString()}`);
+      });
+    }
+    
+    console.log('\nPending Migrations:');
+    if (!pendingMigrations) {
+      console.log('No pending migrations found.');
+    } else {
+      console.log(`${pendingMigrations ? 'Yes, pending migrations exist.' : 'No pending migrations.'}`);
+    }
+    
+    logger.info('PostgreSQL migrations listed successfully');
   } catch (error) {
     logger.error('Error listing PostgreSQL migrations', { error: (error as Error).message });
     process.exit(1);
   } finally {
     // Close database connection
-    await dbManager.closePg();
+    await dbManager.closeAll();
   }
 }
 
@@ -181,22 +204,20 @@ async function createEsIndices(): Promise<void> {
     logger.info('Creating Elasticsearch indices...');
     
     // Initialize database connection
-    await dbManager.initializeEs();
-    
-    // Get Elasticsearch client
-    const esClient = dbManager.getEsClient();
+    await dbManager.connectElasticsearch();
     
     // Create indices
     const schemaService = new SchemaService();
-    await schemaService.createEsIndices(esClient);
+    await schemaService.createEsIndices();
     
     logger.info('Elasticsearch indices created successfully');
   } catch (error) {
     logger.error('Error creating Elasticsearch indices', { error: (error as Error).message });
-    process.exit(1);
+    logger.warn('Skipping Elasticsearch indices creation as Elasticsearch is disabled');
+    // Don't exit, just continue
   } finally {
     // Close database connection
-    await dbManager.closeEs();
+    await dbManager.closeAll();
   }
 }
 
@@ -208,14 +229,11 @@ async function updateMongoSchema(): Promise<void> {
     logger.info('Updating MongoDB schema...');
     
     // Initialize database connection
-    await dbManager.initializeMongo();
-    
-    // Get MongoDB client
-    const mongoClient = dbManager.getMongoClient();
+    await dbManager.connectMongo();
     
     // Update schema
     const schemaService = new SchemaService();
-    await schemaService.updateMongoSchema(mongoClient);
+    await schemaService.syncMongoSchemas();
     
     logger.info('MongoDB schema updated successfully');
   } catch (error) {
@@ -223,7 +241,7 @@ async function updateMongoSchema(): Promise<void> {
     process.exit(1);
   } finally {
     // Close database connection
-    await dbManager.closeMongo();
+    await dbManager.closeAll();
   }
 }
 
