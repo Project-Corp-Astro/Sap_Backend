@@ -1,6 +1,6 @@
-import express, { Router } from 'express';
-import { authMiddleware, roleAuthorization } from '../middlewares/auth.middleware.js';
-import * as contentController from '../controllers/content.controller.js';
+import express, { Router, RequestHandler } from 'express';
+import { authMiddleware, roleAuthorization } from '../middlewares/auth.middleware';
+import * as contentController from '../controllers/content.controller';
 
 const router: Router = express.Router();
 
@@ -9,7 +9,7 @@ const router: Router = express.Router();
  * @desc Get all content with pagination and filtering
  * @access Public
  */
-router.get('/', contentController.getAllContent);
+router.get('/', contentController.getAllContent as RequestHandler);
 
 /**
  * @route POST /api/content
@@ -18,24 +18,38 @@ router.get('/', contentController.getAllContent);
  */
 router.post(
   '/',
-  authMiddleware,
-  roleAuthorization(['admin', 'content_manager']),
-  contentController.createContent,
+  authMiddleware as RequestHandler,
+  roleAuthorization(['admin', 'content_manager']) as RequestHandler,
+  contentController.createContent as RequestHandler,
 );
 
 /**
- * @route GET /api/content/:contentId
- * @desc Get content by ID
+ * @route GET /api/content/articles
+ * @desc Get all articles
  * @access Public
  */
-router.get('/:contentId', contentController.getContentById);
+router.get('/articles', contentController.getArticles as RequestHandler);
+
+/**
+ * @route GET /api/content/categories
+ * @desc Get all categories
+ * @access Public
+ */
+router.get('/categories', contentController.getAllCategories as RequestHandler);
 
 /**
  * @route GET /api/content/slug/:slug
  * @desc Get content by slug
  * @access Public
  */
-router.get('/slug/:slug', contentController.getContentBySlug);
+router.get('/slug/:slug', contentController.getContentBySlug as RequestHandler);
+
+/**
+ * @route GET /api/content/:contentId
+ * @desc Get content by ID
+ * @access Public
+ */
+router.get('/:contentId', contentController.getContentById as RequestHandler);
 
 /**
  * @route PUT /api/content/:contentId
@@ -44,9 +58,9 @@ router.get('/slug/:slug', contentController.getContentBySlug);
  */
 router.put(
   '/:contentId',
-  authMiddleware,
-  roleAuthorization(['admin', 'content_manager']),
-  contentController.updateContent,
+  authMiddleware as RequestHandler,
+  roleAuthorization(['admin', 'content_manager']) as RequestHandler,
+  contentController.updateContent as RequestHandler,
 );
 
 /**
@@ -56,9 +70,9 @@ router.put(
  */
 router.delete(
   '/:contentId',
-  authMiddleware,
-  roleAuthorization(['admin', 'content_manager']),
-  contentController.deleteContent,
+  authMiddleware as RequestHandler,
+  roleAuthorization(['admin', 'content_manager']) as RequestHandler,
+  contentController.deleteContent as RequestHandler,
 );
 
 /**
@@ -68,17 +82,10 @@ router.delete(
  */
 router.patch(
   '/:contentId/status',
-  authMiddleware,
-  roleAuthorization(['admin', 'content_manager']),
-  contentController.updateContentStatus,
+  authMiddleware as RequestHandler,
+  roleAuthorization(['admin', 'content_manager']) as RequestHandler,
+  contentController.updateContentStatus as RequestHandler,
 );
-
-/**
- * @route GET /api/content/categories
- * @desc Get all categories
- * @access Public
- */
-router.get('/categories', contentController.getAllCategories);
 
 /**
  * @route POST /api/content/categories
@@ -87,9 +94,9 @@ router.get('/categories', contentController.getAllCategories);
  */
 router.post(
   '/categories',
-  authMiddleware,
-  roleAuthorization(['admin', 'content_manager']),
-  contentController.createCategory,
+  authMiddleware as RequestHandler,
+  roleAuthorization(['admin', 'content_manager']) as RequestHandler,
+  contentController.createCategory as RequestHandler,
 );
 
 export default router;

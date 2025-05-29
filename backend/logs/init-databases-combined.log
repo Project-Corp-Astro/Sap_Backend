@@ -1,0 +1,54 @@
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T10:37:12.483Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T10:37:13.206Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T10:41:43.559Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T10:41:44.064Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T10:42:42.593Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T10:42:43.507Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T10:43:32.956Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T10:43:33.756Z"}
+{"level":"info","message":"Initializing database schemas...","service":"init-databases","timestamp":"2025-05-23T10:43:33.756Z"}
+{"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/users]","level":"error","message":"Error during database initialization","service":"init-databases","timestamp":"2025-05-23T10:43:34.168Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T10:45:12.011Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T10:45:12.845Z"}
+{"level":"info","message":"Initializing database schemas...","service":"init-databases","timestamp":"2025-05-23T10:45:12.845Z"}
+{"level":"info","message":"Database schemas initialized","result":{"elasticsearch":{"count":0,"indices":[],"skipped":true,"success":true},"mongodb":{"count":0,"models":[],"success":true},"postgres":{"count":0,"migrations":[],"success":true},"success":true},"service":"init-databases","timestamp":"2025-05-23T10:45:12.860Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T10:49:23.395Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T10:49:24.174Z"}
+{"level":"info","message":"Initializing database schemas...","service":"init-databases","timestamp":"2025-05-23T10:49:24.174Z"}
+{"level":"info","message":"Database schemas initialized","result":{"elasticsearch":{"count":0,"indices":[],"skipped":true,"success":true},"mongodb":{"count":0,"models":[],"success":true},"postgres":{"count":0,"migrations":[],"success":true},"success":true},"service":"init-databases","timestamp":"2025-05-23T10:49:24.203Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T10:56:48.369Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T10:56:49.379Z"}
+{"level":"info","message":"Initializing database schemas...","service":"init-databases","timestamp":"2025-05-23T10:56:49.379Z"}
+{"level":"info","message":"Database schemas initialized","result":{"elasticsearch":{"count":0,"indices":[],"skipped":true,"success":true},"mongodb":{"count":1,"models":[{"collection":"users","indexes":2,"model":"User"}],"success":true},"postgres":{"count":0,"migrations":[],"success":true},"success":true},"service":"init-databases","timestamp":"2025-05-23T10:56:49.406Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T10:58:15.744Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T10:58:16.642Z"}
+{"level":"info","message":"Initializing database schemas...","service":"init-databases","timestamp":"2025-05-23T10:58:16.643Z"}
+{"level":"info","message":"Database schemas initialized","result":{"elasticsearch":{"count":0,"indices":[],"skipped":true,"success":true},"mongodb":{"count":1,"models":[{"collection":"users","indexes":2,"model":"User"}],"success":true},"postgres":{"count":0,"migrations":[],"success":true},"success":true},"service":"init-databases","timestamp":"2025-05-23T10:58:16.673Z"}
+{"level":"info","message":"Synchronizing data between databases...","service":"init-databases","timestamp":"2025-05-23T10:58:16.674Z"}
+{"error":"Cannot read properties of undefined (reading 'queryStats')","level":"error","message":"Error during database initialization","service":"init-databases","timestamp":"2025-05-23T10:58:16.775Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T10:59:17.754Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T10:59:18.996Z"}
+{"level":"info","message":"Initializing database schemas...","service":"init-databases","timestamp":"2025-05-23T10:59:18.996Z"}
+{"level":"info","message":"Database schemas initialized","result":{"elasticsearch":{"count":0,"indices":[],"skipped":true,"success":true},"mongodb":{"count":1,"models":[{"collection":"users","indexes":2,"model":"User"}],"success":true},"postgres":{"count":0,"migrations":[],"success":true},"success":true},"service":"init-databases","timestamp":"2025-05-23T10:59:19.027Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T11:00:58.198Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T11:00:58.996Z"}
+{"level":"info","message":"Initializing database schemas...","service":"init-databases","timestamp":"2025-05-23T11:00:58.996Z"}
+{"error":"Error in specification { background: true, name: \"title_text_body_text_summary_text\", key: { title: \"text\", body: \"text\", summary: \"text\" } } :: caused by :: text indexes cannot be created with apiStrict: true","level":"error","message":"Error during database initialization","service":"init-databases","timestamp":"2025-05-23T11:00:59.080Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T11:01:46.557Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T11:01:47.235Z"}
+{"level":"info","message":"Initializing database schemas...","service":"init-databases","timestamp":"2025-05-23T11:01:47.235Z"}
+{"level":"info","message":"Database schemas initialized","result":{"elasticsearch":{"count":0,"indices":[],"skipped":true,"success":true},"mongodb":{"count":2,"models":[{"collection":"users","indexes":2,"model":"User"},{"collection":"contents","indexes":7,"model":"Content"}],"success":true},"postgres":{"count":0,"migrations":[],"success":true},"success":true},"service":"init-databases","timestamp":"2025-05-23T11:01:47.279Z"}
+{"level":"info","message":"Synchronizing data between databases...","service":"init-databases","timestamp":"2025-05-23T11:01:47.279Z"}
+{"level":"info","message":"Synchronized 0 users","service":"init-databases","timestamp":"2025-05-23T11:01:47.280Z"}
+{"level":"info","message":"Synchronized 0 content items","service":"init-databases","timestamp":"2025-05-23T11:01:47.281Z"}
+{"level":"info","message":"Database initialization completed successfully","service":"init-databases","timestamp":"2025-05-23T11:01:47.282Z"}
+{"level":"info","message":"Database connections closed","service":"init-databases","timestamp":"2025-05-23T11:01:47.370Z"}
+{"level":"info","message":"Starting database initialization...","service":"init-databases","timestamp":"2025-05-23T11:03:28.126Z"}
+{"level":"info","message":"Database connections initialized","service":"init-databases","timestamp":"2025-05-23T11:03:28.930Z"}
+{"level":"info","message":"Initializing database schemas...","service":"init-databases","timestamp":"2025-05-23T11:03:28.930Z"}
+{"level":"info","message":"Database schemas initialized","result":{"elasticsearch":{"count":0,"indices":[],"skipped":true,"success":true},"mongodb":{"count":2,"models":[{"collection":"users","indexes":2,"model":"User"},{"collection":"contents","indexes":7,"model":"Content"}],"success":true},"postgres":{"count":0,"migrations":[],"success":true},"success":true},"service":"init-databases","timestamp":"2025-05-23T11:03:28.988Z"}
+{"level":"info","message":"Synchronizing data between databases...","service":"init-databases","timestamp":"2025-05-23T11:03:28.989Z"}
+{"level":"info","message":"Synchronized 0 users","service":"init-databases","timestamp":"2025-05-23T11:03:28.992Z"}
+{"level":"info","message":"Synchronized 0 content items","service":"init-databases","timestamp":"2025-05-23T11:03:28.994Z"}
+{"level":"info","message":"Database initialization completed successfully","service":"init-databases","timestamp":"2025-05-23T11:03:28.995Z"}
+{"level":"info","message":"Database connections closed","service":"init-databases","timestamp":"2025-05-23T11:03:29.074Z"}

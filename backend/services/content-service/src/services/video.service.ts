@@ -1,13 +1,13 @@
-import Video from '../models/Video.js';
+import Video from '../models/Video';
 import { 
   VideoDocument, 
   CreateVideoInput, 
   UpdateVideoInput, 
   VideoFilterOptions, 
   VideoPaginationOptions 
-} from '../interfaces/video.interfaces.js';
+} from '../interfaces/video.interfaces';
 import { Error } from 'mongoose';
-import { cacheService } from '../utils/cache.js';
+import { cacheService } from '../utils/cache';
 // Import slugify directly using ESM import with type assertion
 import slugifyPkg from 'slugify';
 // Handle both ESM and CommonJS module formats
@@ -22,7 +22,8 @@ class VideoService {
    * @param videoData Video data to create
    * @returns Created video document
    */
-  async createVideo(videoData: CreateVideoInput): Promise<VideoDocument> {
+  async createVideo(videoData: CreateVideoInput): Promise<VideoDocument>
+ {
     try {
       // Generate slug from title
       const slug = slugify(videoData.title, { lower: true, strict: true });

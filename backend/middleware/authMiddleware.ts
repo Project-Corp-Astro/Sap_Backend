@@ -15,12 +15,13 @@ declare global {
  * Authentication middleware
  * Verifies JWT token and attaches user to request
  */
-const authMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<void | Response> => {
+const authMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     // Get token from Authorization header
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ error: 'Authentication required' });
+      res.status(401).json({ error: 'Authentication required' });
+      return next();
     }
 
     const token = authHeader.split(' ')[1];
@@ -32,16 +33,19 @@ const authMiddleware = async (req: Request, res: Response, next: NextFunction): 
     const User = require('../models/User');
     const user = await User.findById(decoded.userId);
     if (!user) {
-      return res.status(401).json({ error: 'User not found' });
+      res.status(401).json({ error: 'User not found' });
+      return next();
     }
 
     req.user = user;
     next();
   } catch (err: any) {
     if (err.name === 'JsonWebTokenError') {
-      return res.status(401).json({ error: 'Invalid token' });
+      res.status(401).json({ error: 'Invalid token' });
+    } else {
+      res.status(500).json({ error: err.message });
     }
-    return res.status(500).json({ error: err.message });
+    return next();
   }
 };
 

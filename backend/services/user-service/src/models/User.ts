@@ -1,6 +1,22 @@
 import mongoose, { Schema, model } from 'mongoose';
 import { UserDocument, ThemePreference } from '../interfaces/shared-types';
-import { UserRole } from '@corp-astro/shared-types';
+
+// Try to import UserRole from shared types, but provide a fallback if it fails
+let UserRole;
+try {
+  // Attempt to import from shared types
+  UserRole = require('@corp-astro/shared-types').UserRole;
+} catch (error) {
+  // Fallback definition if import fails
+  UserRole = {
+    SUPER_ADMIN: 'super_admin',
+    ADMIN: 'admin',
+    MANAGER: 'manager',
+    EDITOR: 'editor',
+    USER: 'user',
+    GUEST: 'guest'
+  };
+}
 
 const userSchema = new Schema({
   username: {
@@ -28,8 +44,8 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: Object.values(UserRole),
-    default: UserRole.USER
+    enum: Object.values(UserRole || {}),
+    default: UserRole ? UserRole.USER : 'user'
   },
   permissions: [{
     type: String

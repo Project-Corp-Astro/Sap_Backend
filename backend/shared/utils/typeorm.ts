@@ -33,7 +33,7 @@ const defaultConfig: TypeORMConfig = {
   host: config.get('postgres.host', 'localhost'),
   port: parseInt(config.get('postgres.port', '5432')),
   username: config.get('postgres.user', 'postgres'),
-  password: config.get('postgres.password', 'postgres'),
+  password: config.get('postgres.password', '12345'),
   database: config.get('postgres.database', 'sap_db'),
   entities: [
     process.env.NODE_ENV === 'production'

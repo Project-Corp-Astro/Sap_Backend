@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response, NextFunction, Express } from 'express';
 import { createProxyMiddleware, Options as ProxyOptions } from 'http-proxy-middleware';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -25,7 +25,7 @@ const requestTracker = new RequestTracker(logger);
 
 // Initialize Express app
 const app = express();
-const PORT = config.get('port', 5001);
+const PORT = config.get('port', 5100);
 const SERVICE_NAME = 'api-gateway';
 
 /**
@@ -66,13 +66,13 @@ serviceHealth.registerService(SERVICE_NAME, {
 });
 
 // Apply security middleware (CORS, Helmet, XSS protection, etc.)
-applySecurityMiddleware(app);
+applySecurityMiddleware(app as any);
 
 // Additional middleware
 app.use(express.json({ limit: '50mb' })); // Increased limit for astrological chart data
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-app.use(compression()); // Compress responses
-app.use(requestTrackerMiddleware(requestTracker)); // Track requests for monitoring
+app.use(compression() as any); // Compress responses
+app.use(requestTrackerMiddleware(requestTracker) as any); // Track requests for monitoring
 
 // Configure proxy middleware for Auth Service
 app.use('/api/auth', createProxyMiddleware({
@@ -173,8 +173,9 @@ if (SERVICES.ASTRO_RATAN_SERVICE) {
 }
 
 // Setup Swagger documentation
-setupSwagger(app, {
+setupSwagger(app as any, {
   definition: {
+    openapi: '3.0.0',
     info: {
       title: 'SAP API Gateway',
       version: '1.0.0',
@@ -269,35 +270,67 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // Error handling middleware
-app.use(errorMiddleware(logger));
+app.use(errorMiddleware(logger) as any);
 
-// Start server
-const server = app.listen(PORT, () => {
-  logger.info(`API Gateway running on port ${PORT}`);
-  logger.info(`Auth Service proxy: ${SERVICES.AUTH_SERVICE}`);
-  logger.info(`User Service proxy: ${SERVICES.USER_SERVICE}`);
-  logger.info(`Content Service proxy: ${SERVICES.CONTENT_SERVICE}`);
-  
-  // Log optional services
-  if (SERVICES.ASTRO_ENGINE_SERVICE) {
-    logger.info(`Astro Engine Service proxy: ${SERVICES.ASTRO_ENGINE_SERVICE}`);
-  }
-  
-  if (SERVICES.ASTRO_RATAN_SERVICE) {
-    logger.info(`Astro Ratan AI Service proxy: ${SERVICES.ASTRO_RATAN_SERVICE}`);
-  }
-});
-
-/**
- * Handle graceful shutdown
- * Ensures all connections are properly closed before shutting down
- */
-process.on('SIGTERM', () => {
-  logger.info('SIGTERM signal received: closing HTTP server');
-  server.close(() => {
-    logger.info('HTTP server closed');
+// Function to find an available port
+const findAvailablePort = (startPort: number): Promise<number> => {
+  return new Promise((resolve, reject) => {
+    const server = require('net').createServer();
+    server.unref();
+    server.on('error', (err: any) => {
+      if (err.code === 'EADDRINUSE') {
+        // Port is in use, try the next one
+        findAvailablePort(startPort + 1)
+          .then(resolve)
+          .catch(reject);
+      } else {
+        reject(err);
+      }
+    });
+    
+    server.listen(startPort, () => {
+      const { port } = server.address() as { port: number };
+      server.close(() => {
+        resolve(port);
+      });
+    });
   });
-});
+};
+
+// Start server with dynamic port finding
+findAvailablePort(PORT)
+  .then(availablePort => {
+    const server = app.listen(availablePort, () => {
+      logger.info(`API Gateway running on port ${availablePort}`);
+      logger.info(`Auth Service proxy: ${SERVICES.AUTH_SERVICE}`);
+      logger.info(`User Service proxy: ${SERVICES.USER_SERVICE}`);
+      logger.info(`Content Service proxy: ${SERVICES.CONTENT_SERVICE}`);
+      
+      // Log optional services
+      if (SERVICES.ASTRO_ENGINE_SERVICE) {
+        logger.info(`Astro Engine Service proxy: ${SERVICES.ASTRO_ENGINE_SERVICE}`);
+      }
+      
+      if (SERVICES.ASTRO_RATAN_SERVICE) {
+        logger.info(`Astro Ratan AI Service proxy: ${SERVICES.ASTRO_RATAN_SERVICE}`);
+      }
+      
+      // Update config with the actual port being used
+      config.set('port', availablePort);
+    });
+    
+    // Handle graceful shutdown
+    process.on('SIGTERM', () => {
+      logger.info('SIGTERM signal received: closing HTTP server');
+      server.close(() => {
+        logger.info('HTTP server closed');
+      });
+    });
+  })
+  .catch(err => {
+    logger.error(`Failed to find available port: ${err.message}`);
+    process.exit(1);
+  });
 
 // Export for testing
 export default app;

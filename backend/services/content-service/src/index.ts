@@ -6,31 +6,22 @@ import compression from 'compression';
 import mongoose from 'mongoose';
 import http from 'http';
 import { Server as SocketServer } from 'socket.io';
-import logger, { requestLogger, errorLogger } from './utils/logger.js';
-import { trackResponseTime, trackDatabasePerformance } from './middlewares/performance.middleware.js';
+import logger, { requestLogger, errorLogger } from './utils/logger';
+import { trackResponseTime, trackDatabasePerformance } from './middlewares/performance.middleware';
+import config from './config';
 
-// Simple config implementation for development
-const config = {
-  port: process.env.PORT ? parseInt(process.env.PORT) : 3002,
-  env: process.env.NODE_ENV || 'development',
-  mongodb: {
-    uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/sap-content'
-  },
-  jwtSecret: process.env.JWT_SECRET || 'your-secret-key',
-  jwtExpiration: process.env.JWT_EXPIRATION || '1d'
-};
 
-// Logger is imported from ./utils/logger.js
+// Logger is imported from ./utils/logger
 
 // Import routes
-import contentRoutes from './routes/content.routes.js';
-import mediaRoutes from './routes/media.routes.js';
-import videoRoutes from './routes/video.routes.js';
-import analyticsRoutes from './routes/analytics.routes.js';
-import monitoringRoutes from './routes/monitoring.routes.js';
+import contentRoutes from './routes/content.routes';
+import mediaRoutes from './routes/media.routes';
+import videoRoutes from './routes/video.routes';
+import analyticsRoutes from './routes/analytics.routes';
+import monitoringRoutes from './routes/monitoring.routes';
 
 // Import error handling middleware
-import { errorHandler, notFoundHandler } from './middlewares/errorHandler.middleware.js';
+import { errorHandler, notFoundHandler } from './middlewares/errorHandler.middleware';
 
 const app = express();
 
@@ -60,6 +51,22 @@ app.use('/api/videos', videoRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/monitoring', monitoringRoutes);
 
+// Root path handler
+app.get('/', (req, res) => {
+  res.status(200).json({
+    service: 'Content Service',
+    version: '1.0.0',
+    status: 'running',
+    endpoints: [
+      '/api/content',
+      '/api/media',
+      '/api/videos',
+      '/api/analytics',
+      '/api/monitoring'
+    ]
+  });
+});
+
 // Health check endpoint (shortcut for monitoring/health)
 app.get('/health', (req, res) => {
   res.redirect('/api/monitoring/health');
@@ -74,54 +81,98 @@ app.use(errorLogger());
 // Global error handling middleware
 app.use(errorHandler);
 
-// Create HTTP server
-const server = http.createServer(app);
-
-// Socket.io setup
-const io = new SocketServer(server, {
-  cors: {
-    origin: '*',
-    methods: ['GET', 'POST']
-  }
-});
-
-// Socket.io connection handling
-io.on('connection', (socket) => {
-  logger.info('New client connected');
-  
-  socket.on('disconnect', () => {
-    logger.info('Client disconnected');
-  });
-});
-
 // Set strictQuery to false to suppress the deprecation warning
 mongoose.set('strictQuery', false);
 
+// Connect to MongoDB with additional options
+const mongooseOptions = {
+  ...config.mongodb.options,
+  serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds instead of 30 seconds
+  socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+  family: 4 // Use IPv4, skip trying IPv6
+};
+
+// Store active server instance
+let activeServer: http.Server | null = null;
+
+// Function to create and start server with port fallback
+const createAndStartServer = (port: number) => {
+  // Create HTTP server for this port attempt
+  const server = http.createServer(app);
+  
+  // Initialize Socket.io
+  const io = new SocketServer(server, {
+    cors: {
+      origin: '*',
+      methods: ['GET', 'POST']
+    }
+  });
+  
+  // Socket.io connection handler
+  io.on('connection', (socket) => {
+    logger.info('New client connected');
+    
+    // Handle client disconnection
+    socket.on('disconnect', () => {
+      logger.info('Client disconnected');
+    });
+  });
+  
+  // Try to start the server on the given port
+  server.on('error', (err: any) => {
+    if (err.code === 'EADDRINUSE') {
+      logger.warn(`Port ${port} is already in use, trying port ${port + 1}`);
+      server.close();
+      createAndStartServer(port + 1);
+    } else {
+      logger.error('Error starting server:', err);
+    }
+  });
+  
+  server.on('listening', () => {
+    logger.info(`Content Service running on port ${port} in ${config.env} mode`);
+  });
+  
+  server.listen(port, '127.0.0.1');
+
+  
+  // Store the active server instance
+  activeServer = server;
+  
+  return server;
+};
+
 // Connect to MongoDB
-mongoose.connect(config.mongodb.uri)
+mongoose.connect(config.mongodb.uri, mongooseOptions)
   .then(() => {
     logger.info('Connected to MongoDB');
     
-    // Start server
-    server.listen(config.port, () => {
-      logger.info(`Content Service running on port ${config.port} in ${config.env} mode`);
-    });
+    // Start server with initial port
+    createAndStartServer(config.port);
   })
   .catch((err) => {
     logger.error('MongoDB connection error:', err);
-    process.exit(1);
+    logger.info('Please ensure MongoDB is running and accessible at the configured URI');
+    logger.info(`Current MongoDB URI: ${config.mongodb.uri}`);
+    
+    // In development mode, don't exit the process to allow for hot reloading
+    if (config.env === 'production') {
+      process.exit(1);
+    }
   });
 
 // Handle graceful shutdown
 const gracefulShutdown = async (signal: string) => {
   logger.info(`${signal} signal received: closing HTTP server`);
 
-  await new Promise<void>((resolve) => {
-    server.close(() => {
-      logger.info('HTTP server closed');
-      resolve();
+  if (activeServer) {
+    await new Promise<void>((resolve) => {
+      activeServer.close(() => {
+        logger.info('HTTP server closed');
+        resolve();
+      });
     });
-  });
+  }
 
   await mongoose.connection.close();
   logger.info('MongoDB connection closed');

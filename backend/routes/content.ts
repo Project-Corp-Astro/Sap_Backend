@@ -37,7 +37,7 @@ const Content = {
 /**
  * Get all posts (protected route)
  */
-router.get('/', authMiddleware, (req: Request, res: Response): void => {
+router.get('/', authMiddleware, (req: Request, res: Response) => {
   const posts = Content.getAll();
   res.json(posts);
 });
@@ -45,7 +45,7 @@ router.get('/', authMiddleware, (req: Request, res: Response): void => {
 /**
  * Create new post (protected route)
  */
-router.post('/', authMiddleware, (req: Request, res: Response): void => {
+router.post('/', authMiddleware, (req: Request, res: Response) => {
   const { title, content } = req.body;
   if (!title || !content) {
     res.status(400).json({ message: 'Title and content are required' });
@@ -59,7 +59,7 @@ router.post('/', authMiddleware, (req: Request, res: Response): void => {
 /**
  * Update post (protected route)
  */
-router.put('/:id', authMiddleware, (req: Request, res: Response): void => {
+router.put('/:id', authMiddleware, (req: Request, res: Response) => {
   const { title, content } = req.body;
   const id = req.params.id;
   
@@ -80,7 +80,7 @@ router.put('/:id', authMiddleware, (req: Request, res: Response): void => {
 /**
  * Delete post (protected route)
  */
-router.delete('/:id', authMiddleware, (req: Request, res: Response): void => {
+router.delete('/:id', authMiddleware, (req: Request, res: Response) => {
   const id = req.params.id;
   
   const deletedPost = Content.delete(id);

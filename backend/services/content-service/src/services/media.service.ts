@@ -5,11 +5,11 @@ const logger = {
   warn: (...args: any[]) => console.warn('[Media Service]', ...args),
   debug: (...args: any[]) => console.debug('[Media Service]', ...args),
 };
-import Media from '../models/Media.js';
-import { MediaDocument, MediaFilter, MediaPaginationResult, MediaType } from '../interfaces/media.interfaces.js';
-import { ContentStatus } from '../interfaces/content.interfaces.js';
-import { cacheService } from '../utils/cache.js';
-import { NotFoundError, ConflictError, handleMongoError } from '../utils/errorTypes.js';
+import Media from '../models/Media';
+import { MediaDocument, MediaFilter, MediaPaginationResult, MediaType } from '../interfaces/media.interfaces';
+import { ContentStatus } from '../interfaces/content.interfaces';
+import { cacheService } from '../utils/cache';
+import { NotFoundError, ConflictError, handleMongoError } from '../utils/errorTypes';
 
 // Logger already initialized at the top of the file
 

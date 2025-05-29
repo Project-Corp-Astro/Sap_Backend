@@ -4,7 +4,7 @@
 import { Request, Response, NextFunction } from 'express';
 import User from '../models/User';
 import logger from '../../../../shared/utils/logger';
-import { AuthenticatedRequest } from './auth.middleware';
+import { AuthenticatedRequest } from '../controllers/auth.controller';
 
 // Interface for session with MFA verification
 interface MFASession extends Request {

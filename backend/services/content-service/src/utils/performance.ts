@@ -9,7 +9,7 @@
  * - Memory usage
  */
 
-import logger from './logger.js';
+import logger from './logger';
 
 /**
  * Performance metrics interface

@@ -29,7 +29,8 @@ export const mongoConfig = {
     minPoolSize: 2, // Reduced min pool size
     autoIndex: !isProduction,
     family: 4, // Force IPv4
-    serverApi: { version: '1', strict: false, deprecationErrors: true }
+    // Removed serverApi configuration to avoid issues with serverStatus command
+  // This prevents the 'Provided apiStrict:true' error
   }
 };
 
@@ -39,7 +40,7 @@ export const postgresConfig = {
   port: parseInt(process.env.POSTGRES_PORT || '5432'),
   database: process.env.POSTGRES_DB || 'sap_db',
   user: process.env.POSTGRES_USER || 'postgres',
-  password: process.env.POSTGRES_PASSWORD || '12345',  // Using the password from .env
+  password: process.env.POSTGRES_PASSWORD || '12345',  // Set fixed password for development
   max: parseInt(process.env.POSTGRES_MAX_CONNECTIONS || '10'), // Reduced connections
   idleTimeoutMillis: 10000, // Reduced idle timeout
   connectionTimeoutMillis: 3000, // Reduced connection timeout

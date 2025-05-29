@@ -4,8 +4,8 @@
  * and integrates with performance monitoring
  */
 
-import logger from './logger.js';
-import performanceMonitor from './performance.js';
+import logger from './logger';
+import performanceMonitor from './performance';
 
 class CacheService {
   private cache: Map<string, { data: any; expiry: number }>;
@@ -173,17 +173,34 @@ class CacheService {
    * Get cache statistics
    */
   getStats() {
-    const totalOps = this.hitCount + this.missCount;
-    const hitRate = totalOps > 0 ? (this.hitCount / totalOps) * 100 : 0;
-    
     return {
       size: this.cache.size,
-      maxSize: this.maxSize,
+      hitRate: this.getHitRate(),
+      missRate: this.getMissRate(),
       hitCount: this.hitCount,
-      missCount: this.missCount,
-      hitRate: hitRate,
-      utilization: (this.cache.size / this.maxSize) * 100
+      missCount: this.missCount
     };
+  }
+
+  // Get all cache keys
+  keys(): string[] {
+    return Array.from(this.cache.keys());
+  }
+
+  /**
+   * Get cache hit rate
+   */
+  getHitRate() {
+    const totalOps = this.hitCount + this.missCount;
+    return totalOps > 0 ? (this.hitCount / totalOps) * 100 : 0;
+  }
+
+  /**
+   * Get cache miss rate
+   */
+  getMissRate() {
+    const totalOps = this.hitCount + this.missCount;
+    return totalOps > 0 ? (this.missCount / totalOps) * 100 : 0;
   }
 }
 

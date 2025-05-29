@@ -8,6 +8,7 @@ interface MongoDBConfig {
   options: {
     useNewUrlParser: boolean;
     useUnifiedTopology: boolean;
+    family?: number; // Added for IPv4/IPv6 specification
   };
 }
 
@@ -45,12 +46,13 @@ interface ServiceConfig {
  */
 const config: ServiceConfig = {
   env: process.env.NODE_ENV || 'development',
-  port: parseInt(process.env.CONTENT_SERVICE_PORT || '3003', 10),
+  port: parseInt(process.env.CONTENT_SERVICE_PORT || '3005', 10), // Changed to 3005 to match .env configuration
   mongodb: {
-    uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/content-service',
+    uri: process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/sap-db',
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      family: 4 // Force IPv4 to avoid connection issues
     },
   },
   jwt: {

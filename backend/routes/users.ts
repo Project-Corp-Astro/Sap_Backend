@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import { authMiddleware } from '../middleware/authMiddleware';
 import { UserDocument } from '../shared/interfaces/user.interface';
 
@@ -40,7 +40,7 @@ router.get('/', authMiddleware, (req: Request, res: Response) => {
 /**
  * Create new user (protected route)
  */
-router.post('/', authMiddleware, (req: Request, res: Response): void => {
+router.post('/', authMiddleware, (req: Request, res: Response) => {
   const { username, email, password } = req.body;
   if (!username || !email || !password) {
     res.status(400).json({ message: 'Username, email and password are required' });
@@ -60,7 +60,7 @@ router.post('/', authMiddleware, (req: Request, res: Response): void => {
 /**
  * Update user (protected route)
  */
-router.put('/:id', authMiddleware, (req: Request, res: Response): void => {
+router.put('/:id', authMiddleware, (req: Request, res: Response) => {
   const { username, email } = req.body;
   const id = req.params.id;
   
@@ -81,7 +81,7 @@ router.put('/:id', authMiddleware, (req: Request, res: Response): void => {
 /**
  * Delete user (protected route)
  */
-router.delete('/:id', authMiddleware, (req: Request, res: Response): void => {
+router.delete('/:id', authMiddleware, (req: Request, res: Response) => {
   const id = req.params.id;
   
   const deletedUser = User.delete(id);

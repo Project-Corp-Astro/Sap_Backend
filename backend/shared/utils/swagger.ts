@@ -5,7 +5,8 @@
 
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import { Express, Request, Response } from 'express';
+import { Request, Response } from 'express';
+import { Express } from 'express-serve-static-core';
 import config from '../config';
 
 // Define interfaces for Swagger options
@@ -111,8 +112,27 @@ const generateSwaggerSpec = (options: SwaggerOptions = {}): object => {
     ...defaultOptions,
     ...options,
     definition: {
-      ...(defaultOptions.definition || {}),
-      ...(options.definition || {}),
+      openapi: (options.definition?.openapi || defaultOptions.definition?.openapi || '3.0.0'),
+      info: {
+        title: options.definition?.info?.title || defaultOptions.definition?.info?.title || 'API Documentation',
+        version: options.definition?.info?.version || defaultOptions.definition?.info?.version || '1.0.0',
+        description: options.definition?.info?.description || defaultOptions.definition?.info?.description || 'API Documentation',
+        ...(options.definition?.info?.license || defaultOptions.definition?.info?.license ? {
+          license: options.definition?.info?.license || defaultOptions.definition?.info?.license
+        } : {}),
+        ...(options.definition?.info?.contact || defaultOptions.definition?.info?.contact ? {
+          contact: options.definition?.info?.contact || defaultOptions.definition?.info?.contact
+        } : {}),
+      },
+      ...(options.definition?.servers || defaultOptions.definition?.servers ? {
+        servers: options.definition?.servers || defaultOptions.definition?.servers
+      } : {}),
+      ...(options.definition?.components || defaultOptions.definition?.components ? {
+        components: options.definition?.components || defaultOptions.definition?.components
+      } : {}),
+      ...(options.definition?.security || defaultOptions.definition?.security ? {
+        security: options.definition?.security || defaultOptions.definition?.security
+      } : {}),
     },
   };
 
@@ -125,7 +145,7 @@ const generateSwaggerSpec = (options: SwaggerOptions = {}): object => {
  * @param options - Swagger options
  * @param path - Path to serve Swagger UI (default: /api-docs)
  */
-const setupSwagger = (app: Express, options: SwaggerOptions = {}, path = '/api-docs'): void => {
+const setupSwagger = (app: any, options: SwaggerOptions = {}, path = '/api-docs'): void => {
   const swaggerSpec = generateSwaggerSpec(options);
 
   // Serve Swagger UI

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import videoService from '../services/video.service.js';
-import { CreateVideoInput, UpdateVideoInput, VideoFilterOptions, VideoPaginationOptions } from '../interfaces/video.interfaces.js';
+import videoService from '../services/video.service';
+import { CreateVideoInput, UpdateVideoInput, VideoFilterOptions, VideoPaginationOptions } from '../interfaces/video.interfaces';
 
 /**
  * Video Controller - Handles HTTP requests for video operations
@@ -13,7 +13,7 @@ class VideoController {
   async createVideo(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const videoData: CreateVideoInput = req.body;
-      
+  
       // Validate required fields
       if (!videoData.title || !videoData.description || !videoData.url) {
         return res.status(400).json({
@@ -22,10 +22,25 @@ class VideoController {
           error: 'ValidationError'
         });
       }
-      
+  
+      // Extract user info from token (attached by auth middleware)
+      const user = req.user as {
+        firstName: string;
+        userId: string;
+        email: string;
+        role: string;
+      };
+  
+      // Attach user info to videoData
+      videoData.author = {
+        id: user.userId,
+        name: 'goutham',
+        email: user.email
+      };
+  
       // Create video
-      const video = await videoService.createVideo(videoData);
-      
+      const video = await videoService.createVideo(videoData); // ⛔️ Don't pass `user` here unless needed
+  
       return res.status(201).json({
         success: true,
         message: 'Video created successfully',
@@ -33,7 +48,7 @@ class VideoController {
       });
     } catch (error) {
       console.error('Error creating video:', error);
-      
+  
       if (error instanceof Error && error.message.includes('Validation Error')) {
         return res.status(400).json({
           success: false,
@@ -41,10 +56,12 @@ class VideoController {
           error: 'ValidationError'
         });
       }
-      
+  
       next(error);
     }
   }
+  
+  
   
   /**
    * Get all videos with filtering and pagination

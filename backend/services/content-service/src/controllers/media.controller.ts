@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
-import mediaService from '../services/media.service.js';
-import { ContentStatus } from '../interfaces/content.interfaces.js';
-import { MediaType } from '../interfaces/media.interfaces.js';
-import { ValidationError } from '../utils/errorTypes.js';
+import mediaService from '../services/media.service';
+import { ContentStatus } from '../interfaces/content.interfaces';
+import { MediaType } from '../interfaces/media.interfaces';
+import { ValidationError } from '../utils/errorTypes';
 
 // Initialize logger
 const logger = {

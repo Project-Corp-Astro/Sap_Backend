@@ -5,8 +5,8 @@
  * They are primarily used for monitoring, debugging, and performance optimization.
  */
 
-import { Router } from 'express';
-import monitoringController from '../controllers/monitoring.controller.js';
+import { Router, RequestHandler } from 'express';
+import monitoringController from '../controllers/monitoring.controller';
 
 const router = Router();
 
@@ -15,7 +15,7 @@ const router = Router();
  * @description Get performance metrics including cache hit rates, response times, and memory usage
  * @access Private - Admin only
  */
-router.get('/metrics', monitoringController.getMetrics);
+router.get('/metrics', monitoringController.getMetrics as RequestHandler);
 
 /**
  * @route POST /api/monitoring/metrics/reset

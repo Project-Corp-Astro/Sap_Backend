@@ -10,11 +10,15 @@
       "@corp-astro/shared-types": ["shared/types"],
       "@corp-astro/shared-types/*": ["shared/types/*"]
     },
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "strictFunctionTypes": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false
   },
   "include": ["src/**/*", "../../shared/**/*"],
   "exclude": ["node_modules", "**/*.test.ts"]

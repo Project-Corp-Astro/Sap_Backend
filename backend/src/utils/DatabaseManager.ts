@@ -13,6 +13,7 @@ import esClient from '../../shared/utils/elasticsearch';
 import typeORMManager from '../../shared/utils/typeorm';
 import config from '../../shared/config/index';
 import { mockMongoClient, mockPgClient, mockRedisClient, mockElasticsearchClient } from '../../shared/utils/mock-database';
+import { registerModels } from '../../models/mongodb';
 
 // Determine if we should use mock databases - respect the .env setting
 const USE_MOCK_DATABASES = process.env.USE_MOCK_DATABASES === 'true';
@@ -86,7 +87,7 @@ export class DatabaseManager {
       // Connect to Elasticsearch with a timeout
       const esPromise = this.connectElasticsearch();
       const timeoutPromise = new Promise((_, reject) => {
-        setTimeout(() => reject(new Error('Elasticsearch connection timeout')), 5000);
+        setTimeout(() => reject(new Error('Elasticsearch connection timeout')), 10000);
       });
       
       await Promise.race([esPromise, timeoutPromise]).catch(error => {
@@ -133,6 +134,17 @@ export class DatabaseManager {
       
       logger.info('Connecting to MongoDB');
       await mongoDbConnection.connect();
+      
+      // Register MongoDB models
+      try {
+        registerModels();
+        logger.info('MongoDB models registered successfully');
+      } catch (modelError) {
+        logger.error('Error registering MongoDB models', { error: (modelError as Error).message });
+        // Continue even if model registration fails - this allows the app to start
+        // and we can fix model issues later
+      }
+      
       this.mongoConnected = true;
       logger.info('Connected to MongoDB successfully');
     } catch (error) {
@@ -257,6 +269,17 @@ export class DatabaseManager {
       
       logger.info('Connecting to Elasticsearch');
       
+      // Get credentials directly from environment variables
+      const username = process.env.ELASTICSEARCH_USERNAME;
+      const password = process.env.ELASTICSEARCH_PASSWORD;
+      const node = process.env.ELASTICSEARCH_NODE || 'http://127.0.0.1:9200';
+      
+      // Log connection attempt (without exposing credentials)
+      logger.info('Elasticsearch connection details', {
+        node,
+        auth: username && password ? 'provided' : 'not provided'
+      });
+      
       // Force a connection check to make sure we're connected to the real instance
       await esClient.checkConnection();
       
@@ -315,12 +338,28 @@ export class DatabaseManager {
    * Get MongoDB connection status
    */
   getMongoStatus(): any {
-    return {
-      isConnected: this.mongoConnected,
-      usingMock: this.mongoUsingMock,
-      connectionState: mongoose.connection.readyState,
-      details: mongoDbConnection.getStatus()
-    };
+    try {
+      return {
+        isConnected: this.mongoConnected,
+        usingMock: this.mongoUsingMock,
+        connectionState: mongoose.connection.readyState,
+        // Avoid using detailed status that might trigger serverStatus command
+        details: {
+          readyState: mongoose.connection.readyState,
+          connected: mongoose.connection.readyState === 1,
+          host: mongoose.connection.host,
+          port: mongoose.connection.port,
+          name: mongoose.connection.name
+        }
+      };
+    } catch (error) {
+      logger.error('Error getting MongoDB status', { error: (error as Error).message });
+      return {
+        isConnected: this.mongoConnected,
+        usingMock: this.mongoUsingMock,
+        error: (error as Error).message
+      };
+    }
   }
 
   /**

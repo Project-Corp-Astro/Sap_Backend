@@ -3,8 +3,8 @@
  * Provides routes for content analytics and metrics
  */
 
-import express, { Router } from 'express';
-import * as analyticsController from '../controllers/analytics.controller.js';
+import express, { Router, RequestHandler } from 'express';
+import * as analyticsController from '../controllers/analytics.controller';
 
 const router: Router = express.Router();
 // Authentication and authorization middleware will be added when needed
@@ -61,7 +61,7 @@ const router: Router = express.Router();
  *       500:
  *         description: Server error
  */
-router.get('/metrics', analyticsController.getContentMetrics);
+router.get('/metrics', analyticsController.getContentMetrics as RequestHandler);
 
 /**
  * @swagger
@@ -95,7 +95,7 @@ router.get('/metrics', analyticsController.getContentMetrics);
  *       500:
  *         description: Server error
  */
-router.get('/timeseries', analyticsController.getTimeSeriesData);
+router.get('/timeseries', analyticsController.getTimeSeriesData as RequestHandler);
 
 /**
  * @swagger
@@ -123,7 +123,7 @@ router.get('/timeseries', analyticsController.getTimeSeriesData);
  *       500:
  *         description: Server error
  */
-router.get('/categories', analyticsController.getCategoryDistribution);
+router.get('/categories', analyticsController.getCategoryDistribution as RequestHandler);
 
 /**
  * @swagger
@@ -164,7 +164,7 @@ router.get('/categories', analyticsController.getCategoryDistribution);
  *       500:
  *         description: Server error
  */
-router.get('/top', analyticsController.getTopContent);
+router.get('/top', analyticsController.getTopContent as RequestHandler);
 
 /**
  * @swagger
@@ -192,6 +192,6 @@ router.get('/top', analyticsController.getTopContent);
  *       500:
  *         description: Server error
  */
-router.get('/authors', analyticsController.getAuthorPerformance);
+router.get('/authors', analyticsController.getAuthorPerformance as RequestHandler);
 
 export default router;

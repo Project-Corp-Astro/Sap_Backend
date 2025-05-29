@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1747085824773" clover="3.2.0">
+  <project timestamp="1747085824773" name="All files">
+    <metrics statements="31" coveredstatements="26" conditionals="8" coveredconditionals="8" methods="4" coveredmethods="4" elements="43" coveredelements="38" complexity="0" loc="31" ncloc="31" packages="1" files="3" classes="3"/>
+    <file name="content.ts" path="/Users/apple/Apps/Corp-Astro/SAP01V/shared/types/src/content.ts">
+      <metrics statements="19" coveredstatements="19" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <line num="24" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="32" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="38" count="1" type="stmt"/>
+      <line num="79" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="80" count="1" type="stmt"/>
+      <line num="81" count="1" type="stmt"/>
+      <line num="82" count="1" type="stmt"/>
+      <line num="83" count="1" type="stmt"/>
+      <line num="84" count="1" type="stmt"/>
+    </file>
+    <file name="index.ts" path="/Users/apple/Apps/Corp-Astro/SAP01V/shared/types/src/index.ts">
+      <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="6" count="0" type="stmt"/>
+    </file>
+    <file name="user.ts" path="/Users/apple/Apps/Corp-Astro/SAP01V/shared/types/src/user.ts">
+      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="29" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="30" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="34" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

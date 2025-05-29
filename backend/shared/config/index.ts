@@ -89,9 +89,9 @@ const defaults = {
   // Service URLs
   services: {
     auth: 'http://localhost:3001',
-    user: 'http://localhost:3002',
-    content: 'http://localhost:3003',
-    gateway: 'http://localhost:5001',
+    user: 'http://localhost:3002', // User service is running on port 3002
+    content: 'http://localhost:3005', // Content service is running on port 3005
+    gateway: 'http://localhost:5001', // API Gateway is running on port 5001
   },
   
   // Logging settings

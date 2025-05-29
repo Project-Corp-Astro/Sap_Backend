@@ -196,8 +196,43 @@ export interface IUser {
 /**
  * User document interface
  */
-export interface UserDocument extends IUser, Document {
+export interface UserDocument extends Document {
   _id: string;
+  username: string;
+  mfaSecret?: string;
+  mfaEnabled?: boolean;
+  mfaRecoveryCodes?: string[];
+  failedLoginAttempts?: number;
+  lockUntil?: Date;
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber?: string;
+  role: UserRole;
+  permissions?: string[];
+  isActive: boolean;
+  isEmailVerified: boolean;
+  lastLogin?: Date;
+  avatar?: string;
+  address?: UserAddress;
+  metadata?: Record<string, any>;
+  preferences: UserPreferences;
+  securityPreferences?: SecurityPreferences;
+  mfa?: MFASettings;
+  oauthProfiles?: OAuthProfile[];
+  passwordReset?: PasswordReset;
+  emailVerification?: EmailVerification;
+  loginAttempts?: LoginAttempt[];
+  accountLocked: boolean;
+  accountLockedUntil?: Date;
+  passwordLastChanged?: Date;
+  passwordChangedAt?: Date;
+  subscriptionId?: string;
+  createdAt: Date;
+  updatedAt: Date;
+  
+  // Methods
   comparePassword(candidatePassword: string): Promise<boolean>;
   isAccountLocked(): boolean;
   shouldChangePassword(): boolean;

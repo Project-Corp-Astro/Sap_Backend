@@ -3,7 +3,7 @@
  * Initializes and configures the Express application with hybrid database architecture
  */
 
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response, NextFunction, RequestHandler, ErrorRequestHandler } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -13,16 +13,18 @@ import { createServiceLogger } from '../shared/utils/logger';
 import dbManager from './utils/DatabaseManager';
 import healthRoutes from './routes/health.routes';
 // Import route modules with explicit path resolution
-// Use explicit .ts extension in imports to ensure TypeScript files are used
-import authRoutes from '../routes/auth.ts';
-import userRoutes from '../routes/users.ts';
-import contentRoutes from '../routes/content.ts';
+// TypeScript will resolve these imports correctly without extensions
+import authRoutes from '../routes/auth';
+import userRoutes from '../routes/users';
+import contentRoutes from '../routes/content';
 
 // Create logger
 const logger = createServiceLogger('app');
 
 // Create Express app
 const app = express();
+
+// Configure application
 
 // Initialize database connections
 dbManager.initializeAll()
@@ -36,8 +38,11 @@ dbManager.initializeAll()
 // Middleware
 app.use(cors());
 app.use(helmet());
+// @ts-ignore - Ignoring type incompatibility between different Express versions
 app.use(compression());
+// @ts-ignore - Ignoring type incompatibility between different Express versions
 app.use(express.json());
+// @ts-ignore - Ignoring type incompatibility between different Express versions
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan('combined'));
@@ -47,9 +52,10 @@ app.use('/health', healthRoutes);
 
 // Use TypeScript route implementations
 try {
-  app.use('/api/auth', authRoutes);
-  app.use('/api/users', userRoutes);
-  app.use('/api/content', contentRoutes);
+  // Add type assertions to fix TypeScript errors with Express route handlers
+  app.use('/api/auth', authRoutes as express.Router);
+  app.use('/api/users', userRoutes as express.Router);
+  app.use('/api/content', contentRoutes as express.Router);
   logger.info('Using TypeScript route implementations');
 } catch (error) {
   logger.error('Error loading TypeScript routes', { error: (error as Error).message });

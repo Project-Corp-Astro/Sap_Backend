@@ -117,3 +117,625 @@
 {"level":"info","message":"Health check: http://localhost:5000/health","service":"server","timestamp":"2025-05-15T07:40:14.254Z"}
 {"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-15T07:45:30.951Z"}
 {"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-15T07:45:30.957Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:56:08.983Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:56:09.011Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:56:09.011Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:56:09.012Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:56:09.489Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:56:09.495Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:56:09.495Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:56:09.496Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:56:10.349Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:56:10.355Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:56:10.355Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:56:10.355Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:56:10.552Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:56:10.557Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:56:10.558Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:56:10.559Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:56:10.953Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:56:10.958Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:56:10.958Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:56:10.959Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:56:11.034Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:56:11.042Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:56:11.042Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:56:11.043Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:56:13.297Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:56:13.303Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:56:13.303Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:56:13.303Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:57:49.626Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:57:49.634Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:57:49.635Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:57:49.635Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:57:50.204Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:57:50.209Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:57:50.210Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:57:50.210Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:57:52.701Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:57:52.706Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:57:52.706Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:57:52.707Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:57:53.032Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:57:53.038Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:57:53.038Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:57:53.038Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:57:53.961Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:57:53.979Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:57:53.980Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:57:53.981Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:57:54.042Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:57:54.049Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:57:54.049Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:57:54.049Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:57:56.950Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:57:56.959Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:57:56.961Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:57:56.965Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T10:58:26.440Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T10:58:26.445Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T10:58:26.445Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T10:58:26.446Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:04:32.062Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:04:32.070Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:04:32.070Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:04:32.070Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:04:33.080Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:04:33.084Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:04:33.084Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:04:33.084Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:04:33.650Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:04:33.655Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:04:33.655Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:04:33.656Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:04:33.855Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:04:33.859Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:04:33.859Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:04:33.859Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:04:33.935Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:04:33.940Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:04:33.940Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:04:33.941Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:04:34.249Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:04:34.253Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:04:34.253Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:04:34.254Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:04:34.985Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:04:34.990Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:04:34.990Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:04:34.990Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:04:35.449Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:04:35.460Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:04:35.463Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:04:35.466Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:05:12.406Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:05:12.411Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:05:12.411Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:05:12.412Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:09:44.085Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:09:44.093Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:09:44.093Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:09:44.093Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:09:44.475Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:09:44.483Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:09:44.493Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:09:44.499Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:09:52.366Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:09:52.372Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:09:52.372Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:09:52.372Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:09:54.625Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:09:54.630Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:09:54.630Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:09:54.630Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:09:59.315Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:09:59.320Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:09:59.320Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:09:59.320Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:09:59.565Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:09:59.572Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:09:59.572Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:09:59.572Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:10:02.315Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:10:02.321Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:10:02.321Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:10:02.322Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:10:04.110Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:10:04.114Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:10:04.114Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:10:04.115Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:10:04.218Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:10:04.223Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:10:04.223Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:10:04.223Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:13:25.777Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:13:25.971Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:13:25.971Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:13:25.971Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:13:36.186Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:13:36.191Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:13:36.191Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:13:36.191Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:13:37.047Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:13:37.055Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:13:37.055Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:13:37.059Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:13:39.924Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:13:39.929Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:13:39.929Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:13:39.930Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:13:40.832Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:13:40.855Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:13:40.856Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:13:40.856Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:13:42.308Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:13:42.314Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:13:42.315Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:13:42.315Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:13:43.434Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:13:43.440Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:13:43.440Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:13:43.440Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:13:43.720Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:13:43.726Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:13:43.726Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:13:43.726Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:13:48.474Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:13:48.540Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:13:48.654Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:13:48.721Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:14:19.050Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:14:19.055Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:14:19.055Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:14:19.055Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:12.871Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:13.113Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:13.113Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:13.113Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:24.304Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:24.310Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:24.310Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:24.310Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:27.018Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:27.234Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:27.234Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:27.235Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:30.916Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:30.925Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:30.926Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:30.927Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:33.631Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:36.767Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:36.529Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:36.548Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:36.548Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:36.556Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:36.986Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:36.987Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:36.987Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:33.636Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:37.397Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:37.398Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:37.605Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:37.610Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:37.610Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:37.610Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:39.243Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:39.251Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:39.251Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:39.251Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:20:41.276Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:20:41.319Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:20:41.351Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:20:41.365Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:21:21.999Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:21:22.003Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:21:22.004Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:21:22.004Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:10.409Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:10.417Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:10.418Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:10.418Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:12.242Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:12.251Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:12.251Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:12.251Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:12.251Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:12.256Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:12.257Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:12.257Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:15.694Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:15.705Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:15.705Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:15.705Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:16.068Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:16.074Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:16.074Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:16.074Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:20.128Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:20.138Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:20.138Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:20.138Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:21.097Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:21.113Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:21.113Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:21.113Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:22.214Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:22.229Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:22.230Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:22.230Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:22.584Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:22.602Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:22.602Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:22.602Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:23.924Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:23.931Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:23.932Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:23.936Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:26:50.686Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:26:50.695Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:26:50.695Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:26:50.696Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:15.132Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:16.400Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:16.418Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:16.418Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:16.422Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:16.538Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:16.552Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:16.553Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:16.553Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:16.588Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:16.598Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:16.599Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:16.599Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:16.744Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:16.745Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:16.745Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:16.856Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:16.873Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:16.874Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:16.874Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:17.199Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:17.212Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:17.221Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:17.221Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:17.729Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:17.768Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:17.768Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:17.771Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:18.247Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:18.261Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:18.262Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:18.262Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:21.734Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:22.094Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:22.124Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:22.125Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:22.125Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:21.740Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:21.740Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:21.741Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:32:42.191Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:32:42.289Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:32:42.289Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:32:42.290Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:33:49.969Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:33:49.974Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:33:49.974Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:33:49.975Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:36:54.312Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:36:54.324Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:36:54.324Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:36:54.325Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:08.252Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:08.256Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:08.257Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:08.257Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:09.653Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:09.665Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:09.666Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:09.666Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:14.476Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:16.104Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:16.104Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:16.104Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:21.192Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:21.452Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:21.453Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:21.453Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:22.074Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:22.078Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:22.079Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:22.079Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:23.215Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:23.221Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:23.222Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:23.222Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:25.717Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:25.723Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:25.724Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:25.724Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:27.166Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:27.182Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:27.182Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:27.183Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:30.760Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:30.765Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:30.765Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:30.765Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:31.060Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:31.065Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:31.065Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:31.065Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T11:37:32.130Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T11:37:32.149Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T11:37:32.149Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T11:37:32.150Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:13:17.314Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:13:17.319Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:13:17.320Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:13:17.320Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-25T12:15:57.565Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:16:17.715Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:16:17.719Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:16:17.720Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:16:17.721Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:19:36.691Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:19:36.731Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:19:36.735Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:19:36.738Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:20:32.136Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:20:32.155Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:20:32.156Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:20:32.158Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:20:54.212Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:20:54.216Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:20:54.216Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:20:54.216Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:21:37.265Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:21:37.271Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:21:37.272Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:21:37.272Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:21:37.940Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:21:37.944Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:21:37.946Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:21:37.946Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:21:55.149Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:21:55.154Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:21:55.154Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:21:55.154Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:25:09.284Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:25:09.289Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:25:09.289Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:25:09.290Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:25:09.665Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:25:09.669Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:25:09.670Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:25:09.670Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:25:09.938Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:25:09.943Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:25:09.943Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:25:09.943Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:25:10.922Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:25:10.937Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:25:10.938Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:25:10.939Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:25:32.163Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:25:32.168Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:25:32.168Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:25:32.168Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:26:50.873Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:26:50.879Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:26:50.880Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:26:50.880Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:26:51.897Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:26:51.901Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:26:51.901Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:26:51.901Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:26:52.902Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:26:52.906Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:26:52.906Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:26:52.907Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:26:53.202Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:26:53.208Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:26:53.208Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:26:53.209Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:27:00.682Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:27:00.687Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:27:00.688Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:27:00.689Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:27:16.120Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:27:16.125Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:27:16.125Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:27:16.125Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:29:36.148Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:29:36.158Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:29:36.159Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:29:36.159Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:29:36.293Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:29:36.298Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:29:36.298Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:29:36.299Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:29:36.793Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:29:36.799Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:29:36.799Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:29:36.799Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:29:37.201Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:29:37.206Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:29:37.206Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:29:37.206Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:29:37.564Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:29:37.569Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:29:37.569Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:29:37.570Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:29:39.141Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:29:39.152Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:29:39.154Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:29:39.157Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:31:15.343Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:31:15.352Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:31:15.352Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:31:15.352Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:31:15.635Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:31:15.639Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:31:15.639Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:31:15.639Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:31:17.394Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:31:17.399Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:31:17.399Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:31:17.399Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:31:18.422Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:31:18.428Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:31:18.428Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:31:18.429Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:31:18.618Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:31:18.622Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:31:18.622Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:31:18.623Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:31:19.228Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:31:19.233Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:31:19.233Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:31:19.233Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:32:20.352Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:32:20.357Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:32:20.357Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:32:20.357Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:34:35.891Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:34:35.900Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:34:35.901Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:34:35.901Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:34:41.153Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:34:42.113Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:34:42.120Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:34:42.120Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:34:42.120Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:34:41.323Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:34:41.544Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:34:41.719Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:34:42.489Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:34:42.504Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:34:42.504Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:34:42.505Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:34:47.420Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:34:47.426Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:34:47.426Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:34:47.426Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:34:47.445Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:34:47.452Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:34:47.453Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:34:47.453Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:34:48.298Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:34:48.302Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:34:48.302Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:34:48.303Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:35:13.351Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:35:13.355Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:35:13.355Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:35:13.356Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:38:52.599Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:38:52.812Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:38:52.813Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:38:52.813Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:38:55.419Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:38:55.553Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:38:55.558Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:38:55.682Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:39:00.001Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:39:00.184Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:39:00.184Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:39:00.184Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:39:01.484Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:39:01.761Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:39:01.730Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:39:01.731Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:39:01.731Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:39:01.868Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:39:01.970Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:39:01.997Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:39:05.435Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:39:05.446Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:39:05.447Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:39:05.448Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:39:06.031Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:39:06.039Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:39:06.046Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:39:06.046Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:39:16.939Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:39:16.945Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:39:16.946Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:39:16.946Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:39:56.583Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:39:56.588Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:39:56.588Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:39:56.589Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:43:08.885Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:43:09.644Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:43:09.645Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:43:09.645Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:43:09.693Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:43:09.698Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:43:09.698Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:43:09.699Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:43:10.168Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:43:10.173Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:43:10.174Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:43:10.174Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:43:10.667Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:43:10.965Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:43:11.000Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:43:10.965Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:43:10.966Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:43:11.004Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:43:11.005Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:43:11.005Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:43:13.403Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:43:13.415Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:43:13.416Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:43:13.416Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:43:14.639Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:43:14.644Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:43:14.644Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:43:14.645Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:43:14.862Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:43:14.867Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:43:14.867Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:43:14.867Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T12:43:16.399Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T12:43:16.406Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T12:43:16.408Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T12:43:16.408Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-25T12:43:22.369Z"}
+{"level":"info","message":"HTTP server closed","service":"server","timestamp":"2025-05-25T12:43:22.374Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T14:14:21.408Z"}
+{"level":"info","message":"Server running on port 3000","service":"server","timestamp":"2025-05-25T14:14:21.413Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T14:14:21.413Z"}
+{"level":"info","message":"Health check: http://localhost:3000/health","service":"server","timestamp":"2025-05-25T14:14:21.415Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-25T14:16:06.545Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-25T14:16:31.283Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-25T14:16:31.288Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-25T14:16:31.289Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-25T14:16:31.291Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-25T14:18:58.790Z"}
+{"error":"EPIPE: broken pipe, write","level":"error","message":"Uncaught Exception","service":"server","stack":"Error: EPIPE: broken pipe, write\n    at Socket._write (node:internal/net:63:18)\n    at writeOrBuffer (node:internal/streams/writable:572:12)\n    at _write (node:internal/streams/writable:501:10)\n    at Socket.Writable.write (node:internal/streams/writable:510:10)\n    at Console.log (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston\\lib\\winston\\transports\\console.js:87:23)\n    at Console._write (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston-transport\\modern.js:103:17)\n    at doWrite (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston-transport\\node_modules\\readable-stream\\lib\\_stream_writable.js:390:139)\n    at writeOrBuffer (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston-transport\\node_modules\\readable-stream\\lib\\_stream_writable.js:381:5)\n    at Console.Writable.write (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston-transport\\node_modules\\readable-stream\\lib\\_stream_writable.js:302:11)\n    at DerivedLogger.ondata (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston\\node_modules\\readable-stream\\lib\\_stream_readable.js:629:20)","timestamp":"2025-05-25T15:27:10.383Z"}
+{"error":"EPIPE: broken pipe, write","level":"error","message":"Uncaught Exception","service":"server","stack":"Error: EPIPE: broken pipe, write\n    at Socket._write (node:internal/net:63:18)\n    at writeOrBuffer (node:internal/streams/writable:572:12)\n    at _write (node:internal/streams/writable:501:10)\n    at Socket.Writable.write (node:internal/streams/writable:510:10)\n    at Console.log (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston\\lib\\winston\\transports\\console.js:87:23)\n    at Console._write (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston-transport\\modern.js:103:17)\n    at doWrite (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston-transport\\node_modules\\readable-stream\\lib\\_stream_writable.js:390:139)\n    at writeOrBuffer (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston-transport\\node_modules\\readable-stream\\lib\\_stream_writable.js:381:5)\n    at Console.Writable.write (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston-transport\\node_modules\\readable-stream\\lib\\_stream_writable.js:302:11)\n    at DerivedLogger.ondata (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\node_modules\\winston\\node_modules\\readable-stream\\lib\\_stream_readable.js:629:20)","timestamp":"2025-05-25T15:27:10.458Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-26T05:02:50.114Z"}
+{"level":"info","message":"Server running on port 5100","service":"server","timestamp":"2025-05-26T05:02:50.126Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-26T05:02:50.127Z"}
+{"level":"info","message":"Health check: http://localhost:5100/health","service":"server","timestamp":"2025-05-26T05:02:50.133Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-26T05:04:26.424Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-28T04:39:26.309Z"}
+{"level":"info","message":"Server running on port 5001","service":"server","timestamp":"2025-05-28T04:39:26.316Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-28T04:39:26.324Z"}
+{"level":"info","message":"Health check: http://localhost:5001/health","service":"server","timestamp":"2025-05-28T04:39:26.332Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-28T05:15:20.456Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-28T11:31:48.773Z"}
+{"level":"info","message":"Server running on port 5001","service":"server","timestamp":"2025-05-28T11:31:48.779Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-28T11:31:48.780Z"}
+{"level":"info","message":"Health check: http://localhost:5001/health","service":"server","timestamp":"2025-05-28T11:31:48.781Z"}
+{"level":"info","message":"Database connections initialized successfully","service":"server","timestamp":"2025-05-28T12:08:24.016Z"}
+{"level":"info","message":"Server running on port 5001","service":"server","timestamp":"2025-05-28T12:08:24.023Z"}
+{"level":"info","message":"Environment: development","service":"server","timestamp":"2025-05-28T12:08:24.024Z"}
+{"level":"info","message":"Health check: http://localhost:5001/health","service":"server","timestamp":"2025-05-28T12:08:24.025Z"}
+{"level":"info","message":"SIGINT signal received: closing HTTP server","service":"server","timestamp":"2025-05-28T12:13:30.982Z"}
