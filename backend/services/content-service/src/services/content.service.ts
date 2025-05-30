@@ -1,379 +1,183 @@
-import { 
-  ContentDocument, 
-  ContentFilter, 
-  ContentPaginationResult,
-  CategoryDocument,
-  RequestUser,
-  ExtendedContent,
-  ICategory
-} from '../interfaces/shared-types';
-import { ContentStatus, ContentType } from '@corp-astro/shared-types';
-import { createServiceLogger } from '../utils/sharedLogger';
+// content.service.ts
+
+import redisClient from '../../../../shared/utils/redis';
+import esClient from '../../../../shared/utils/elasticsearch';
 import Content from '../models/Content';
 import Category from '../models/Category';
+import { ContentStatus } from '@corp-astro/shared-types';
+import { RequestUser, ExtendedContent, ContentDocument, CategoryDocument } from '../interfaces/shared-types';
 
-// Initialize logger
-const logger = createServiceLogger('content-service');
+export const createContent = async (
+  contentData: Partial<ExtendedContent>,
+  user: RequestUser
+): Promise<ContentDocument> => {
+  contentData.author = {
+    id: user.userId,
+    name: user.email.split('@')[0],
+    email: user.email
+  };
 
-/**
- * Content management service
- */
-class ContentService {
-  /**
-   * Create new content
-   * @param contentData - Content data
-   * @param user - User creating the content
-   * @returns Created content
-   */
-  async createContent(contentData: Partial<ExtendedContent>, user: RequestUser): Promise<ContentDocument> {
-    logger.info('Creating new content', { userId: user.userId });
-    try {
-      // Assign author information
-      contentData.author = {
-        id: user.userId,
-        name: user.email.split('@')[0], // Use email prefix as name if username not available
-        email: user.email
-      };
+  contentData.status = contentData.status || ContentStatus.DRAFT;
 
-      // Set default status if not provided
-      if (!contentData.status) {
-        contentData.status = ContentStatus.DRAFT;
-      }
-
-      // Generate slug from title if not provided
-      if (!contentData.slug && contentData.title) {
-        contentData.slug = contentData.title
-          .toLowerCase()
-          .replace(/[^\w\s-]/g, '') // Remove non-word chars
-          .replace(/\s+/g, '-')     // Replace spaces with hyphens
-          .replace(/-+/g, '-')      // Replace multiple hyphens with single hyphen
-          .trim();
-      }
-
-      // Create content
-      const content = new Content(contentData);
-      const savedContent = await content.save();
-      
-      logger.info('Content created successfully', { 
-        contentId: savedContent._id,
-        title: savedContent.title
-      });
-      
-      return savedContent;
-    } catch (error) {
-      logger.error('Error creating content', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack,
-        contentTitle: contentData.title,
-        userId: user.userId
-      });
-      throw error;
-    }
+  if (!contentData.slug && contentData.title) {
+    contentData.slug = contentData.title
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
   }
 
-  /**
-   * Get all content with pagination and filtering
-   * @param filters - Query filters
-   * @param page - Page number
-   * @param limit - Items per page
-   * @param sortBy - Sort field
-   * @param sortOrder - Sort order (asc/desc)
-   * @returns Paginated content list
-   */
-  async getAllContent(
-    filters: ContentFilter = {}, 
-    page: number = 1, 
-    limit: number = 10, 
-    sortBy: string = 'createdAt', 
-    sortOrder: string = 'desc'
-  ): Promise<ContentPaginationResult> {
-    try {
-      // Count total documents
-      const totalItems = await Content.countDocuments(filters);
+  const content = new Content(contentData);
+  const saved = await content.save();
 
-      // Calculate skip for pagination
-      const skip = (page - 1) * limit;
+  await redisClient.set(`content:${saved._id}`, saved, 3600);
 
-      // Sort direction
-      const sort: Record<string, 1 | -1> = {};
-      sort[sortBy] = sortOrder === 'asc' ? 1 : -1;
+  await esClient.indexDocument('content', saved._id.toString(), {
+    title: saved.title,
+    body: saved.body,
+    category: saved.category,
+    tags: saved.tags,
+    author: saved.author,
+    status: saved.status,
+    slug: saved.slug
+  });
 
-      // Get paginated content
-      const items = await Content.find(filters)
-        .sort(sort)
-        .skip(skip)
-        .limit(limit);
+  return saved;
+};
 
-      return {
-        items,
-        totalItems,
-        totalPages: Math.ceil(totalItems / limit),
-        currentPage: page,
-        itemsPerPage: limit
-      };
-    } catch (error) {
-      logger.error('Error getting content', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack,
-        filters
-      });
-      throw error;
-    }
+export const getAllContent = async (filters = {}, page = 1, limit = 10, sortBy = 'createdAt', sortOrder = 'desc') => {
+  const skip = (page - 1) * limit;
+  const sort: Record<string, 1 | -1> = {};
+  sort[sortBy] = sortOrder === 'asc' ? 1 : -1;
+
+  const [items, totalItems] = await Promise.all([
+    Content.find(filters).sort(sort).skip(skip).limit(limit),
+    Content.countDocuments(filters)
+  ]);
+
+  return {
+    items,
+    totalItems,
+    totalPages: Math.ceil(totalItems / limit),
+    currentPage: page,
+    itemsPerPage: limit
+  };
+};
+
+export const getContentById = async (id: string): Promise<ContentDocument> => {
+  const cacheKey = `content:${id}`;
+  const cached = await redisClient.get(cacheKey);
+  if (cached) {
+    console.log('✅ Served from Redis cache');
+    return cached;
+  }
+  
+  console.log('🗄️ Fetched from MongoDB');
+
+  const content = await Content.findById(id);
+  if (!content) throw new Error('Content not found');
+
+  await redisClient.set(cacheKey, content, 3600);
+  return content;
+};
+
+export const getContentBySlug = async (slug: string): Promise<ContentDocument> => {
+  const cacheKey = `content:slug:${slug}`;
+  const cached = await redisClient.get(cacheKey);
+  if (cached) return cached;
+
+  const content = await Content.findOne({ slug });
+  if (!content) throw new Error('Content not found');
+
+  await redisClient.set(cacheKey, content, 3600);
+  return content;
+};
+
+export const updateContent = async (id: string, updateData: Partial<ExtendedContent>, user: RequestUser): Promise<ContentDocument> => {
+  const content = await Content.findById(id);
+  if (!content) throw new Error('Content not found');
+
+  Object.assign(content, updateData);
+  const updated = await content.save();
+
+  await redisClient.set(`content:${id}`, updated, 3600);
+  await esClient.indexDocument('content', id, updated);
+
+  return updated;
+};
+
+export const deleteContent = async (id: string, user: RequestUser): Promise<ContentDocument> => {
+  const content = await Content.findByIdAndDelete(id);
+  if (!content) throw new Error('Content not found');
+
+  await redisClient.del(`content:${id}`);
+  await esClient.deleteDocument('content', id);
+
+  return content;
+};
+
+export const updateContentStatus = async (id: string, status: ContentStatus | string, user: RequestUser): Promise<ContentDocument> => {
+  const content = await Content.findById(id);
+  if (!content) throw new Error('Content not found');
+
+  content.status = status as ContentStatus;
+  if (status === ContentStatus.PUBLISHED && !content.publishedAt) {
+    content.publishedAt = new Date();
   }
 
-  /**
-   * Get content by ID
-   * @param contentId - Content ID
-   * @returns Content document
-   */
-  async getContentById(contentId: string): Promise<ContentDocument> {
-    try {
-      const content = await Content.findById(contentId);
+  const updated = await content.save();
+  await redisClient.set(`content:${id}`, updated, 3600);
+  await esClient.indexDocument('content', id, updated);
 
-      if (!content) {
-        throw new Error('Content not found');
-      }
+  return updated;
+};
 
-      return content;
-    } catch (error) {
-      logger.error('Error getting content by ID', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack,
-        contentId
-      });
-      throw error;
-    }
+export const incrementViewCount = async (id: string): Promise<number> => {
+  const content = await Content.findByIdAndUpdate(
+    id,
+    { $inc: { viewCount: 1 } },
+    { new: true }
+  );
+
+  if (!content) throw new Error('Content not found');
+
+  await redisClient.set(`content:${id}`, content, 3600);
+  return content.viewCount || 0;
+};
+
+export const getAllCategories = async (): Promise<CategoryDocument[]> => {
+  const cacheKey = 'content:categories';
+  const cached = await redisClient.get(cacheKey);
+  if (cached) return cached;
+
+  const categories = await Category.find().sort({ name: 1 });
+  await redisClient.set(cacheKey, categories, 3600);
+  return categories;
+};
+
+export const createCategory = async (data: Partial<CategoryDocument>): Promise<CategoryDocument> => {
+  if (!data.slug && data.name) {
+    data.slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   }
 
-  /**
-   * Get content by slug
-   * @param slug - Content slug
-   * @returns Content document
-   */
-  async getContentBySlug(slug: string): Promise<ContentDocument> {
-    try {
-      const content = await Content.findOne({ slug });
+  const category = new Category(data);
+  const saved = await category.save();
 
-      if (!content) {
-        throw new Error('Content not found');
+  await redisClient.del('content:categories');
+  return saved;
+};
+
+export const searchContent = async (query: string): Promise<ContentDocument[]> => {
+  const esQuery = {
+    query: {
+      multi_match: {
+        query,
+        fields: ['title^3', 'body', 'tags', 'author.name']
       }
-
-      return content;
-    } catch (error) {
-      logger.error('Error getting content by slug', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack,
-        slug
-      });
-      throw error;
     }
-  }
+  };
 
-  /**
-   * Update content
-   * @param contentId - Content ID
-   * @param updateData - Fields to update
-   * @param user - User updating the content
-   * @returns Updated content
-   */
-  async updateContent(
-    contentId: string, 
-    updateData: Partial<ExtendedContent>, 
-    user: RequestUser
-  ): Promise<ContentDocument> {
-    try {
-      // Find content to update
-      const content = await Content.findById(contentId);
-
-      if (!content) {
-        throw new Error('Content not found');
-      }
-
-      // Update fields
-      Object.keys(updateData).forEach((key) => {
-        (content as any)[key] = (updateData as any)[key];
-      });
-
-      // Save content
-      await content.save();
-
-      return content;
-    } catch (error) {
-      logger.error('Error updating content', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack,
-        contentId,
-        userId: user.userId
-      });
-      throw error;
-    }
-  }
-
-  /**
-   * Delete content
-   * @param contentId - Content ID
-   * @param user - User deleting the content
-   * @returns Deleted content
-   */
-  async deleteContent(contentId: string, user: RequestUser): Promise<ContentDocument> {
-    try {
-      const content = await Content.findByIdAndDelete(contentId);
-
-      if (!content) {
-        throw new Error('Content not found');
-      }
-
-      logger.info('Content deleted', { 
-        contentId, 
-        userId: user.userId 
-      });
-
-      return content;
-    } catch (error) {
-      logger.error('Error deleting content', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack,
-        contentId,
-        userId: user.userId
-      });
-      throw error;
-    }
-  }
-
-  /**
-   * Update content status
-   * @param contentId - Content ID
-   * @param status - New status
-   * @param user - User updating the status
-   * @returns Updated content
-   */
-  async updateContentStatus(
-    contentId: string, 
-    status: ContentStatus | string, 
-    user: RequestUser
-  ): Promise<ContentDocument> {
-    try {
-      // Validate status
-      if (!Object.values(ContentStatus).includes(status as ContentStatus)) {
-        throw new Error(`Invalid status: ${status}. Valid statuses are: ${Object.values(ContentStatus).join(', ')}`);
-      }
-
-      // Find content
-      const content = await Content.findById(contentId);
-
-      if (!content) {
-        throw new Error('Content not found');
-      }
-
-      // Update status
-      content.status = status as ContentStatus;
-
-      // If status is published, set publishedAt date
-      if (status === ContentStatus.PUBLISHED && !content.publishedAt) {
-        content.publishedAt = new Date();
-      }
-
-      // Save content
-      await content.save();
-
-      return content;
-    } catch (error) {
-      logger.error('Error updating content status', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack,
-        contentId,
-        status,
-        userId: user.userId
-      });
-      throw error;
-    }
-  }
-
-  /**
-   * Increment view count
-   * @param contentId - Content ID
-   * @returns New view count
-   */
-  async incrementViewCount(contentId: string): Promise<number> {
-    try {
-      const content = await Content.findByIdAndUpdate(
-        contentId,
-        { $inc: { viewCount: 1 } },
-        { new: true },
-      );
-
-      if (!content) {
-        throw new Error('Content not found');
-      }
-
-      return content.viewCount || 0;
-    } catch (error) {
-      logger.error('Error incrementing view count', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack,
-        contentId
-      });
-      throw error;
-    }
-  }
-
-  /**
-   * Get all categories
-   * @returns List of categories
-   */
-  async getAllCategories(): Promise<CategoryDocument[]> {
-    try {
-      return await Category.find().sort({ name: 1 });
-    } catch (error) {
-      logger.error('Error getting categories', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack
-      });
-      throw error;
-    }
-  }
-
-  /**
-   * Create category
-   * @param categoryData - Category data
-   * @returns Created category
-   */
-  async createCategory(categoryData: Partial<ICategory>): Promise<CategoryDocument> {
-    try {
-      // Create slug if not provided
-      if (!categoryData.slug && categoryData.name) {
-        categoryData.slug = categoryData.name
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, '-')
-          .replace(/(^-|-$)/g, '');
-      }
-
-      const category = new Category(categoryData);
-      return await category.save();
-    } catch (error) {
-      logger.error('Error creating category', { 
-        error: (error as Error).message, 
-        stack: (error as Error).stack,
-        categoryName: categoryData.name
-      });
-      throw error;
-    }
-  }
-}
-
-// Create and export service instance
-const contentService = new ContentService();
-
-// Export individual methods
-export const {
-  createContent,
-  getAllContent,
-  getContentById,
-  getContentBySlug,
-  updateContent,
-  deleteContent,
-  updateContentStatus,
-  incrementViewCount,
-  getAllCategories,
-  createCategory
-} = contentService;
+  const result = await esClient.search('content', esQuery);
+  return result.hits.map((hit: any) => hit._source);
+};
