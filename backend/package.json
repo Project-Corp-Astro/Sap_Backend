@@ -58,6 +58,7 @@
   "description": "Backend services for SAP project",
   "dependencies": {
     "@corp-astro/shared-types": "file:../shared/types",
+    "@supabase/supabase-js": "^2.49.8",
     "@types/nodemailer": "^6.4.17",
     "amqplib": "^0.10.3",
     "apollo-server-express": "^3.13.0",

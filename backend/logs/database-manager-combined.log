@@ -4674,3 +4674,707 @@
 {"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-28T12:08:24.015Z"}
 {"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-28T12:08:24.015Z"}
 {"level":"info","message":"SIGINT signal received: closing database connections","service":"database-manager","timestamp":"2025-05-28T12:13:30.976Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:33:14.935Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:33:14.936Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:33:14.965Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:33:14.966Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:33:14.977Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:33:14.978Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:33:14.978Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:33:15.091Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:33:15.120Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:33:15.125Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:33:15.387Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:33:15.388Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:33:15.389Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T06:33:15.391Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T06:33:15.416Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:33:15.418Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:33:15.419Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:33:15.438Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:33:15.439Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:33:15.439Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T06:33:15.440Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:33:15.440Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:33:15.441Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:33:15.477Z"}
+{"level":"warn","message":"Continuing without Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:33:15.478Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:33:15.478Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:33:15.479Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:33:15.491Z"}
+{"level":"warn","message":"Continuing without Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:33:15.491Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:33:15.492Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:33:15.492Z"}
+{"level":"info","message":"SIGINT signal received: closing database connections","service":"database-manager","timestamp":"2025-05-30T06:36:51.694Z"}
+{"level":"info","message":"Closing all database connections","service":"database-manager","timestamp":"2025-05-30T06:36:51.702Z"}
+{"level":"info","message":"SIGINT signal received: closing database connections","service":"database-manager","timestamp":"2025-05-30T06:36:51.720Z"}
+{"level":"info","message":"Closing all database connections","service":"database-manager","timestamp":"2025-05-30T06:36:51.721Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database-manager","timestamp":"2025-05-30T06:36:51.775Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database-manager","timestamp":"2025-05-30T06:36:51.776Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:55:29.956Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:55:29.957Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:55:29.991Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:55:29.992Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:55:30.013Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:55:30.014Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:55:30.015Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:55:30.094Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:55:30.095Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:55:30.096Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:55:30.269Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:55:30.271Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:55:30.272Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T06:55:30.273Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T06:55:30.287Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:55:30.288Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:55:30.289Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:55:30.326Z"}
+{"level":"warn","message":"Continuing without Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:55:30.326Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:55:30.327Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:55:30.327Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:55:30.538Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:55:30.540Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:55:30.542Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T06:55:30.544Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:55:30.546Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:55:30.548Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:55:30.618Z"}
+{"level":"warn","message":"Continuing without Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:55:30.620Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:55:30.623Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:55:30.626Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:56:05.519Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:56:05.522Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:56:05.580Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:56:05.584Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:56:05.626Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:56:05.627Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:56:05.629Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:56:05.820Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:56:05.821Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:56:05.822Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:56:06.190Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:56:06.190Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:56:06.191Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T06:56:06.192Z"}
+{"code":"ECONNRESET","error":"read ECONNRESET","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:56:06.201Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:56:06.202Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T06:56:06.204Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T06:56:06.214Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T06:56:06.214Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:56:06.215Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:56:06.216Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:56:06.223Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:56:06.226Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:56:06.270Z"}
+{"level":"warn","message":"Continuing without Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:56:06.270Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:56:06.273Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:56:06.274Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:56:06.282Z"}
+{"level":"warn","message":"Continuing without Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:56:06.283Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:56:06.283Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:56:06.287Z"}
+{"level":"info","message":"SIGINT signal received: closing database connections","service":"database-manager","timestamp":"2025-05-30T06:57:02.619Z"}
+{"level":"info","message":"Closing all database connections","service":"database-manager","timestamp":"2025-05-30T06:57:02.640Z"}
+{"level":"info","message":"SIGINT signal received: closing database connections","service":"database-manager","timestamp":"2025-05-30T06:57:02.653Z"}
+{"level":"info","message":"Closing all database connections","service":"database-manager","timestamp":"2025-05-30T06:57:02.654Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database-manager","timestamp":"2025-05-30T06:57:02.740Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database-manager","timestamp":"2025-05-30T06:57:02.741Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:58:58.886Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:58:58.887Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:58:58.920Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:58:58.921Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:58:58.936Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:58:58.937Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:58:58.938Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:58:58.989Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:58:58.990Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:58:58.992Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:58:59.241Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:58:59.242Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:58:59.242Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T06:58:59.243Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T06:58:59.254Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:58:59.254Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:58:59.255Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:58:59.265Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:58:59.266Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:58:59.267Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T06:58:59.267Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:58:59.268Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:58:59.269Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T06:58:59.273Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:58:59.274Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:58:59.275Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T06:58:59.287Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:58:59.289Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:58:59.289Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:59:36.914Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:59:36.915Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T06:59:36.945Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T06:59:36.945Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:59:36.958Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:59:36.959Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:59:36.960Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T06:59:37.052Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T06:59:37.057Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:59:37.058Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:59:37.281Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:59:37.281Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:59:37.282Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T06:59:37.282Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T06:59:37.294Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:59:37.294Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:59:37.295Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:59:37.304Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:59:37.305Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T06:59:37.306Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T06:59:37.307Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:59:37.308Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T06:59:37.309Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T06:59:37.315Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:59:37.316Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:59:37.317Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T06:59:37.327Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T06:59:37.328Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T06:59:37.328Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:02:20.347Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:02:20.349Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:02:20.380Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:02:20.381Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:02:20.394Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:02:20.395Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:02:20.395Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:02:20.484Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:02:20.485Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:02:20.492Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:02:20.681Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:02:20.681Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T07:02:20.682Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:02:20.683Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:02:20.696Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:02:20.696Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T07:02:20.697Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:02:20.706Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T07:02:20.706Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:02:20.707Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:02:20.718Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:02:20.719Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T07:02:20.719Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T07:02:20.720Z"}
+{"level":"info","message":"Elasticsearch already connected","service":"database-manager","timestamp":"2025-05-30T07:02:20.720Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T07:02:20.721Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:02:20.721Z"}
+{"level":"info","message":"SIGINT signal received: closing database connections","service":"database-manager","timestamp":"2025-05-30T07:04:20.454Z"}
+{"level":"info","message":"Closing all database connections","service":"database-manager","timestamp":"2025-05-30T07:04:20.461Z"}
+{"level":"info","message":"SIGINT signal received: closing database connections","service":"database-manager","timestamp":"2025-05-30T07:04:20.481Z"}
+{"level":"info","message":"Closing all database connections","service":"database-manager","timestamp":"2025-05-30T07:04:20.482Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database-manager","timestamp":"2025-05-30T07:04:20.549Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database-manager","timestamp":"2025-05-30T07:04:20.550Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:04:34.745Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:04:34.746Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:04:34.774Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:04:34.774Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:04:34.785Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:04:34.787Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:04:34.787Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:04:34.862Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:04:34.863Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:04:34.863Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:04:35.084Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:04:35.085Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T07:04:35.085Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:04:35.085Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:04:35.096Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:04:35.097Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T07:04:35.099Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:04:35.108Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:04:35.109Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T07:04:35.109Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T07:04:35.110Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:04:35.110Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T07:04:35.111Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:04:35.115Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T07:04:35.117Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:04:35.118Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:04:35.121Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T07:04:35.122Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:04:35.122Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:12:02.695Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:12:02.707Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:12:02.783Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:12:02.791Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:12:02.830Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:12:02.831Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:12:02.838Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:12:02.982Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:12:02.994Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:12:02.996Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:12:03.396Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:12:03.397Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T07:12:03.398Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:12:03.400Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:12:03.416Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:12:03.417Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T07:12:03.422Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:12:03.449Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:12:03.450Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T07:12:03.453Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T07:12:03.455Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:12:03.457Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T07:12:03.461Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:12:03.475Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T07:12:03.478Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:12:03.481Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:12:03.507Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T07:12:03.512Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:12:03.515Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:13:35.744Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:13:35.745Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:13:35.771Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:13:35.772Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:13:35.781Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:13:35.782Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:13:35.785Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:13:35.872Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:13:35.874Z"}
+{"level":"info","message":"Connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:13:35.876Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:13:36.170Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:13:36.174Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T07:13:36.177Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:13:36.183Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:13:36.204Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:13:36.207Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T07:13:36.211Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:13:36.236Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:13:36.239Z"}
+{"level":"warn","message":"Application will continue without PostgreSQL connection","service":"database-manager","timestamp":"2025-05-30T07:13:36.244Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T07:13:36.246Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:13:36.249Z"}
+{"auth":"provided","level":"info","message":"Elasticsearch connection details","node":"http://localhost:9200","service":"database-manager","timestamp":"2025-05-30T07:13:36.250Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:13:36.264Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T07:13:36.266Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:13:36.270Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:13:36.281Z"}
+{"level":"warn","message":"Skipping TypeORM initialization as PostgreSQL is not connected","service":"database-manager","timestamp":"2025-05-30T07:13:36.281Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:13:36.282Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:21:08.993Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:21:08.994Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:21:09.024Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:21:09.024Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:21:09.037Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:21:09.038Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:21:09.040Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:21:09.220Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:21:09.221Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:21:09.222Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:21:12.208Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:21:12.209Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:21:12.223Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:21:12.225Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:21:12.241Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:21:12.241Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:21:12.242Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:21:12.244Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:21:12.254Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:21:12.255Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.256Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:21:12.320Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:21:12.321Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.321Z"}
+{"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.445Z"}
+{"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.447Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:21:12.447Z"}
+{"error":"read ECONNRESET","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.463Z"}
+{"error":"read ECONNRESET","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.463Z"}
+{"level":"warn","message":"Some database connections failed to initialize. Application will continue with limited functionality.","service":"database-manager","timestamp":"2025-05-30T07:21:12.464Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:22:20.689Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:22:20.690Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:22:20.718Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:22:20.719Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:22:20.732Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:22:20.733Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:22:20.734Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:22:20.845Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:22:20.846Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:22:20.847Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:22:21.308Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:22:21.309Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:22:21.329Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:22:21.331Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:22:21.353Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:22:21.354Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:22:21.355Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:22:21.555Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T07:22:21.556Z"}
+{"level":"info","message":"Elasticsearch already connected","service":"database-manager","timestamp":"2025-05-30T07:22:21.556Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:22:21.557Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:22:21.557Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:22:23.296Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:22:23.298Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:22:23.322Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:22:23.323Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:28:51.108Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:28:51.109Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:28:51.140Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:28:51.141Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:28:51.155Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:28:51.156Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:28:51.157Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:28:51.292Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:28:51.293Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:28:51.293Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:28:52.427Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:28:52.429Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:28:52.444Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:28:52.446Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:28:52.455Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T07:28:52.458Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:28:52.459Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:28:52.471Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:28:52.472Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:28:52.473Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:28:52.534Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:28:52.534Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:28:52.535Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:28:55.024Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:28:55.026Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:28:55.049Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:28:55.051Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:41:17.652Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:41:17.653Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:41:17.679Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:41:17.680Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:41:17.691Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:41:17.692Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:41:17.693Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:41:17.798Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:41:17.799Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:41:17.799Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:41:19.217Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:41:19.219Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:41:19.232Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:41:19.233Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:41:19.249Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:41:19.250Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:41:19.251Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:41:19.255Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:41:19.269Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:41:19.270Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:41:19.271Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:41:19.401Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:41:19.402Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:41:19.403Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:41:21.199Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:41:21.200Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:41:21.205Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:41:21.206Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:41:44.420Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:41:44.421Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:41:44.447Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:41:44.448Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:41:44.459Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:41:44.460Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:41:44.461Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:41:44.569Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:41:44.570Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:41:44.570Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:41:44.911Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:41:44.913Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:41:44.932Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:41:44.933Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:41:44.947Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T07:41:44.949Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:41:44.949Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:41:44.963Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:41:44.964Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:41:44.975Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:41:45.205Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:41:45.230Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:41:45.248Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:41:47.355Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:41:47.355Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:41:47.729Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:41:47.730Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:42:10.634Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:42:10.636Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:42:10.662Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:42:10.663Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:42:10.674Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:42:10.675Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:42:10.675Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:42:10.786Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:42:10.787Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:42:10.787Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:42:11.104Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:42:11.105Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:42:11.116Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:42:11.117Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:42:11.127Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:42:11.127Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:42:11.128Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:42:11.196Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T07:42:11.197Z"}
+{"level":"info","message":"Elasticsearch already connected","service":"database-manager","timestamp":"2025-05-30T07:42:11.198Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:42:11.198Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:42:11.199Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:42:12.929Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:42:12.930Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:42:12.936Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:42:12.937Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:45:09.822Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:45:09.823Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:45:09.858Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:45:09.860Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:45:09.874Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:45:09.875Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:45:09.876Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:45:10.194Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:45:10.195Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:45:10.197Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:45:11.188Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:45:11.189Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:45:11.197Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:45:11.198Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:45:11.205Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:45:11.206Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:45:11.206Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:45:11.209Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:45:11.215Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:45:11.216Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:45:11.217Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:45:11.285Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:45:11.285Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:45:11.286Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:45:13.665Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:45:13.667Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:45:13.672Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:45:13.674Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:55:10.875Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:55:10.876Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T07:55:10.944Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T07:55:10.945Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:55:10.970Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:55:10.971Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:55:10.975Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T07:55:11.298Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T07:55:11.300Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T07:55:11.304Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:55:12.597Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T07:55:12.650Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T07:55:12.791Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:55:12.837Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T07:55:12.902Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T07:55:12.911Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T07:55:12.915Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:55:13.086Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:55:13.095Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:55:13.100Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T07:55:13.234Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T07:55:13.235Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:55:13.236Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:55:16.924Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:55:16.924Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:55:16.932Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T07:55:16.932Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:04:02.541Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:04:02.543Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:04:02.572Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:04:02.573Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:04:02.586Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:04:02.587Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:04:02.587Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:04:02.765Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:04:02.765Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:04:02.766Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:04:04.402Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:04:04.403Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:04:04.414Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:04:04.415Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:04:04.423Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:04:04.424Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:04:04.425Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:04:04.428Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:04:04.437Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:04:04.438Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:04:04.439Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:04:04.506Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:04:04.507Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:04:04.507Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:04:06.462Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:04:06.463Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:04:06.469Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:04:06.472Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:05:30.877Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:05:30.878Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:05:30.905Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:05:30.906Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:05:30.918Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:05:30.918Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:05:30.919Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:05:31.036Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:05:31.037Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:05:31.037Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:05:31.417Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:05:31.418Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:05:31.428Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:05:31.429Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:05:31.437Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:05:31.438Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:05:31.438Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:05:31.440Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:05:31.458Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:05:31.459Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:05:31.460Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:05:31.550Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:05:31.552Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:05:31.553Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:05:33.372Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:05:33.372Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:05:33.380Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:05:33.380Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:06:32.362Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:06:32.363Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:06:32.391Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:06:32.391Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:06:32.402Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:06:32.403Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:06:32.404Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:06:32.509Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:06:32.510Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:06:32.510Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:06:33.716Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:06:33.718Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:06:33.735Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:06:33.739Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:06:33.764Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:06:33.766Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:06:33.770Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:06:33.779Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:06:33.802Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:06:33.803Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:06:33.805Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:06:33.870Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:06:33.870Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:06:33.871Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:06:35.717Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:06:35.718Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:06:35.734Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:06:35.735Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:13:15.560Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:13:15.562Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:13:15.590Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:13:15.590Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:13:15.604Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:13:15.605Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:13:15.605Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:13:15.760Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:13:15.760Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:13:15.761Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:13:17.112Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:13:17.114Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:13:17.129Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:13:17.131Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:13:17.148Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:13:17.150Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:13:17.152Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:13:17.159Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:13:17.187Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:13:17.189Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:13:17.190Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:13:17.291Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:13:17.292Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:13:17.293Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:13:19.255Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:13:19.256Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:13:19.274Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:13:19.275Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:17:30.868Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:17:30.869Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:17:30.903Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:17:30.904Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:17:30.925Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:17:30.929Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:17:30.931Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:17:31.085Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:17:31.086Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:17:31.087Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:17:32.511Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:17:32.560Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:17:32.597Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:17:32.598Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:17:32.631Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:17:32.639Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:17:32.654Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:17:32.667Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:17:32.692Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:17:32.696Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:17:32.698Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:17:32.764Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:17:32.764Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:17:32.765Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:17:35.867Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:17:35.867Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:17:35.869Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:17:35.870Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:21:54.740Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:21:54.741Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:21:54.769Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:21:54.769Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:21:54.783Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:21:54.783Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:21:54.784Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:21:54.929Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:21:54.929Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:21:54.930Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:21:56.154Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:21:56.156Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:21:56.173Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:21:56.175Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:21:56.189Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:21:56.190Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:21:56.191Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:21:56.275Z"}
+{"level":"info","message":"Redis already connected","service":"database-manager","timestamp":"2025-05-30T08:21:56.275Z"}
+{"level":"info","message":"Elasticsearch already connected","service":"database-manager","timestamp":"2025-05-30T08:21:56.276Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:21:56.276Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:21:56.276Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:21:58.160Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:21:58.161Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:21:58.168Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:21:58.168Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:27:09.074Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:27:09.075Z"}
+{"level":"info","message":"Initializing all database connections","service":"database-manager","timestamp":"2025-05-30T08:27:09.126Z"}
+{"level":"info","message":"Connecting to MongoDB","service":"database-manager","timestamp":"2025-05-30T08:27:09.127Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:27:09.152Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:27:09.153Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:27:09.154Z"}
+{"level":"info","message":"MongoDB models registered successfully","service":"database-manager","timestamp":"2025-05-30T08:27:09.349Z"}
+{"level":"info","message":"Connected to MongoDB successfully","service":"database-manager","timestamp":"2025-05-30T08:27:09.349Z"}
+{"level":"info","message":"Connecting to Supabase","service":"database-manager","timestamp":"2025-05-30T08:27:09.350Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:27:10.864Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:27:10.865Z"}
+{"level":"info","message":"Supabase connection_test table does not exist, but connection succeeded","service":"database-manager","timestamp":"2025-05-30T08:27:10.873Z"}
+{"level":"info","message":"Connecting to Redis","service":"database-manager","timestamp":"2025-05-30T08:27:10.874Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:27:10.882Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"database-manager","timestamp":"2025-05-30T08:27:10.883Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:27:10.884Z"}
+{"level":"info","message":"Connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T08:27:10.886Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:27:10.916Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:27:10.917Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:27:10.918Z"}
+{"level":"info","message":"Connected to Elasticsearch successfully","service":"database-manager","timestamp":"2025-05-30T08:27:11.012Z"}
+{"level":"info","message":"Skipping Elasticsearch connection as requested","service":"database-manager","timestamp":"2025-05-30T08:27:11.013Z"}
+{"level":"info","message":"Initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T08:27:11.013Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:27:13.352Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:27:13.353Z"}
+{"level":"info","message":"TypeORM initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:27:13.978Z"}
+{"level":"info","message":"All database connections initialized successfully","service":"database-manager","timestamp":"2025-05-30T08:27:13.978Z"}
+{"level":"info","message":"Received SIGINT signal, closing database connections gracefully","service":"database-manager","timestamp":"2025-05-30T08:42:21.474Z"}
+{"level":"info","message":"Closing all database connections","service":"database-manager","timestamp":"2025-05-30T08:42:21.482Z"}
+{"level":"info","message":"Received SIGINT signal, closing database connections gracefully","service":"database-manager","timestamp":"2025-05-30T08:42:21.542Z"}
+{"level":"info","message":"Closing all database connections","service":"database-manager","timestamp":"2025-05-30T08:42:21.542Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database-manager","timestamp":"2025-05-30T08:42:21.696Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database-manager","timestamp":"2025-05-30T08:42:21.699Z"}
+{"level":"info","message":"Supabase resources cleaned up","service":"database-manager","timestamp":"2025-05-30T08:42:21.701Z"}
+{"level":"info","message":"Supabase resources cleaned up","service":"database-manager","timestamp":"2025-05-30T08:42:21.709Z"}

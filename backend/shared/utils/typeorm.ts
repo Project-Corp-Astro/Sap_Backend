@@ -6,7 +6,6 @@
 
 import { DataSource, EntityTarget, Repository, EntitySchema, ObjectLiteral } from 'typeorm';
 import { createServiceLogger } from './logger';
-import config from '../config/index';
 
 // Initialize logger
 const logger = createServiceLogger('typeorm');
@@ -27,24 +26,24 @@ interface TypeORMConfig {
   ssl?: boolean | { rejectUnauthorized: boolean };
 }
 
-// Default TypeORM configuration
+// Default TypeORM configuration (updated for Supabase)
 const defaultConfig: TypeORMConfig = {
   type: 'postgres',
-  host: config.get('postgres.host', 'localhost'),
-  port: parseInt(config.get('postgres.port', '5432')),
-  username: config.get('postgres.user', 'postgres'),
-  password: config.get('postgres.password', '12345'),
-  database: config.get('postgres.database', 'sap_db'),
+  host: process.env.SUPABASE_DB_HOST || 'db.leaekgpafpvrvykeuvgk.supabase.co',
+  port: parseInt(process.env.SUPABASE_DB_PORT || '5432'),
+  username: process.env.SUPABASE_DB_USER || 'postgres',
+  password: process.env.SUPABASE_DB_PASSWORD || 'COLLoSSkT4atAoWZ',
+  database: process.env.SUPABASE_DB_NAME || 'postgres',
   entities: [
     process.env.NODE_ENV === 'production'
       ? 'dist/entities/**/*.entity.js'
       : 'src/entities/**/*.entity.ts'
   ],
   migrations: [], // Disabled migrations to avoid TypeORM errors
-  synchronize: process.env.NODE_ENV !== 'production',
+  synchronize: false, // Disable auto-synchronization to prevent conflicts with existing Supabase schema
   logging: process.env.NODE_ENV !== 'production' ? ['error', 'warn', 'schema', 'migration'] : ['error'],
   maxQueryExecutionTime: 1000, // Log queries taking longer than 1 second
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  ssl: { rejectUnauthorized: false } // Supabase requires SSL connections
 };
 
 /**

@@ -536,3 +536,21 @@
 {"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.221Z"}
 {"error":"security_exception: [security_exception] Reason: missing authentication credentials for REST request [/]","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.241Z"}
 {"level":"error","message":"Elasticsearch authentication failed. Check your credentials in .env file","service":"elasticsearch-client","timestamp":"2025-05-25T14:14:19.242Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:33:15.255Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:33:15.312Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:33:15.453Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:33:15.456Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:33:15.476Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:33:15.490Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:55:30.210Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:55:30.249Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:55:30.308Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:55:30.324Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:55:30.583Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:55:30.615Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:56:06.098Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:56:06.166Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:56:06.242Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:56:06.244Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:56:06.266Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:56:06.282Z"}
