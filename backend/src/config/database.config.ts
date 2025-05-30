@@ -5,14 +5,19 @@
 
 import * as dotenv from 'dotenv';
 import path from 'path';
+import { createClient } from '@supabase/supabase-js';
 
 // Load environment variables
-dotenv.config({ path: path.join(__dirname, '../../.env') });
+// dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 // Environment
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const isProduction = NODE_ENV === 'production';
-
+// Load environment variables
+const envPath = path.resolve(process.cwd(), '.env');
+dotenv.config({ path: envPath });
+console.log(`Loading environment from ${envPath}`);
+console.log('SUPABASE_URL:', process.env.SUPABASE_URL);
 // MongoDB Configuration
 export const mongoConfig = {
   uri: process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/sap-db', // Using IPv4 instead of localhost to avoid IPv6 issues
@@ -29,23 +34,35 @@ export const mongoConfig = {
     minPoolSize: 2, // Reduced min pool size
     autoIndex: !isProduction,
     family: 4, // Force IPv4
-    // Removed serverApi configuration to avoid issues with serverStatus command
-  // This prevents the 'Provided apiStrict:true' error
+    serverApi: { version: '1', strict: false, deprecationErrors: true }
   }
 };
 
-// PostgreSQL Configuration
-export const postgresConfig = {
-  host: process.env.POSTGRES_HOST || 'localhost',
-  port: parseInt(process.env.POSTGRES_PORT || '5432'),
-  database: process.env.POSTGRES_DB || 'sap_db',
-  user: process.env.POSTGRES_USER || 'postgres',
-  password: process.env.POSTGRES_PASSWORD || '12345',  // Set fixed password for development
-  max: parseInt(process.env.POSTGRES_MAX_CONNECTIONS || '10'), // Reduced connections
-  idleTimeoutMillis: 10000, // Reduced idle timeout
-  connectionTimeoutMillis: 3000, // Reduced connection timeout
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+// Supabase Configuration
+export const supabaseConfig = {
+  url: process.env.SUPABASE_URL || 'https://your-supabase-url.supabase.co',
+  key: process.env.SUPABASE_ANON_KEY || 'your-anon-key',
+  options: {
+    auth: {
+      autoRefreshToken: true,
+      persistSession: true,
+      detectSessionInUrl: true
+    },
+    db: {
+      schema: 'public',
+    },
+    global: {
+      headers: { 'x-application-name': 'sap-backend' },
+    },
+  }
 };
+
+// Initialize Supabase client
+export const supabaseClient = createClient(
+  supabaseConfig.url,
+  supabaseConfig.key,
+  supabaseConfig.options
+);
 
 // Redis Configuration
 export const redisConfig = {
@@ -76,14 +93,14 @@ export const elasticsearchConfig = {
   sniffInterval: 60000
 };
 
-// TypeORM Configuration
+// TypeORM Configuration (updated to use Supabase PostgreSQL connection)
 export const typeormConfig = {
   type: 'postgres' as const,
-  host: postgresConfig.host,
-  port: postgresConfig.port,
-  username: postgresConfig.user,
-  password: postgresConfig.password,
-  database: postgresConfig.database,
+  host: process.env.SUPABASE_DB_HOST || 'db.your-supabase-url.supabase.co',
+  port: parseInt(process.env.SUPABASE_DB_PORT || '5432'),
+  username: process.env.SUPABASE_DB_USER || 'postgres',
+  password: process.env.SUPABASE_DB_PASSWORD || 'your-db-password',
+  database: process.env.SUPABASE_DB_NAME || 'postgres',
   entities: [
     isProduction
       ? 'dist/entities/**/*.entity.js'
@@ -102,7 +119,7 @@ export const typeormConfig = {
   synchronize: !isProduction,
   logging: isProduction ? ['error'] : ['error', 'warn', 'schema', 'migration'],
   maxQueryExecutionTime: 1000,
-  ssl: postgresConfig.ssl,
+  ssl: { rejectUnauthorized: false },
   cache: {
     type: 'redis',
     options: {
@@ -118,7 +135,7 @@ export const typeormConfig = {
 // Export all configurations
 export default {
   mongo: mongoConfig,
-  postgres: postgresConfig,
+  supabase: supabaseConfig,
   redis: redisConfig,
   elasticsearch: elasticsearchConfig,
   typeorm: typeormConfig,

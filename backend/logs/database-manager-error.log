@@ -226,3 +226,48 @@
 {"error":"Called end on pool more than once","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-26T05:04:26.536Z"}
 {"error":"Called end on pool more than once","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-28T05:15:20.639Z"}
 {"error":"Called end on pool more than once","level":"error","message":"Error closing database connections","service":"database-manager","timestamp":"2025-05-28T12:13:31.070Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:33:15.387Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:33:15.388Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:33:15.438Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:33:15.439Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:33:15.477Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:33:15.491Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:55:30.269Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:55:30.271Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:55:30.326Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:55:30.538Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:55:30.540Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:55:30.618Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:56:06.190Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:56:06.190Z"}
+{"code":"ECONNRESET","error":"read ECONNRESET","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:56:06.201Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:56:06.270Z"}
+{"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-05-30T06:56:06.282Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:58:59.241Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:58:59.242Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:58:59.265Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:58:59.266Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:59:37.281Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:59:37.281Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T06:59:37.304Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T06:59:37.305Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:02:20.681Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:02:20.681Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:02:20.717Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:02:20.719Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:04:35.084Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:04:35.085Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:04:35.108Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:04:35.109Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:12:03.395Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:12:03.397Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:12:03.449Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:12:03.450Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:13:36.170Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:13:36.174Z"}
+{"code":"28P01","error":"password authentication failed for user \"postgres\"","level":"error","message":"Error connecting to PostgreSQL","service":"database-manager","timestamp":"2025-05-30T07:13:36.236Z"}
+{"level":"error","message":"PostgreSQL authentication failed. Please check your credentials in the configuration.","service":"database-manager","timestamp":"2025-05-30T07:13:36.239Z"}
+{"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.445Z"}
+{"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.447Z"}
+{"error":"read ECONNRESET","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.463Z"}
+{"error":"read ECONNRESET","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.463Z"}
