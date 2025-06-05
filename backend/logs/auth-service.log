@@ -921,3 +921,217 @@
 {"level":"info","message":"POST /api/auth/register 201 199ms","service":"auth-service","timestamp":"2025-05-30T08:37:47.113Z"}
 {"level":"info","message":"POST /api/auth/login 200 180ms","service":"auth-service","timestamp":"2025-05-30T08:38:19.226Z"}
 {"level":"info","message":"Received shutdown signal, closing server...","service":"auth-service","timestamp":"2025-05-30T08:42:17.215Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T03:54:14.621Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T03:54:14.627Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T03:54:14.628Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T03:54:14.646Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T04:36:44.303Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T04:36:44.313Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T04:36:44.315Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T04:36:44.341Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T04:48:22.439Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T04:48:22.458Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T04:48:22.479Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T04:48:22.524Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T05:09:40.240Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T05:09:40.284Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:09:40.288Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:09:40.352Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T05:15:45.234Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T05:15:45.254Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:15:45.262Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:15:45.354Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T05:16:14.768Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T05:16:14.779Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:16:14.792Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:16:14.833Z"}
+{"level":"info","message":"POST /api/auth/rigister 404 5ms","service":"auth-service","timestamp":"2025-06-05T05:18:00.291Z"}
+{"level":"info","message":"POST /api/auth/register 201 193ms","service":"auth-service","timestamp":"2025-06-05T05:19:21.093Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 1648ms","service":"auth-service","timestamp":"2025-06-05T05:20:12.320Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 1579ms","service":"auth-service","timestamp":"2025-06-05T05:22:49.362Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T05:25:04.734Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T05:25:04.748Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:25:04.749Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:25:04.804Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 1827ms","service":"auth-service","timestamp":"2025-06-05T05:26:06.675Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T05:27:24.413Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T05:27:24.423Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:27:24.424Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:27:24.453Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 2378ms","service":"auth-service","timestamp":"2025-06-05T05:27:42.073Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T05:34:28.356Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T05:34:28.367Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:34:28.368Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T05:34:28.411Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 4059ms","service":"auth-service","timestamp":"2025-06-05T05:41:09.999Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:31:43.751Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:31:43.817Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:31:43.820Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:31:43.880Z"}
+{"level":"info","message":"Received shutdown signal, closing server...","service":"auth-service","timestamp":"2025-06-05T06:33:21.843Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:33:49.351Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:33:49.360Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:33:49.361Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:33:49.390Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 1731ms","service":"auth-service","timestamp":"2025-06-05T06:33:54.594Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:36:24.803Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:36:24.813Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:36:24.813Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:36:24.844Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:37:07.225Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:37:07.241Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:37:07.250Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:37:07.326Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:38:05.341Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:38:05.355Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:38:05.364Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:38:05.415Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:38:29.986Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:38:29.992Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:38:29.993Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:38:30.095Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:41:08.314Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:41:08.323Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:41:08.325Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:41:08.430Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:44:45.655Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:44:45.664Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:44:45.665Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:44:45.764Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:46:29.671Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:46:29.718Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:46:29.743Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:47:21.788Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:47:21.807Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:47:21.826Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:47:21.871Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 2469ms","service":"auth-service","timestamp":"2025-06-05T06:47:59.887Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:49:09.665Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:49:09.685Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:49:09.687Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:49:09.719Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T06:49:27.440Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T06:49:27.451Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:49:27.453Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T06:49:27.572Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 2324ms","service":"auth-service","timestamp":"2025-06-05T06:50:48.018Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T07:03:17.891Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T07:03:17.904Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T07:03:17.906Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T07:03:17.967Z"}
+{"level":"info","message":"POST /api/auth/login 200 748ms","service":"auth-service","timestamp":"2025-06-05T08:41:52.824Z"}
+{"level":"info","message":"POST /api/auth/login 200 151ms","service":"auth-service","timestamp":"2025-06-05T08:46:33.153Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 2114ms","service":"auth-service","timestamp":"2025-06-05T09:13:51.993Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:19:31.566Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:19:31.573Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:19:31.575Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:19:31.629Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:20:50.214Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:20:50.221Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:20:50.225Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:20:50.263Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 10010ms","service":"auth-service","timestamp":"2025-06-05T09:21:45.352Z"}
+{"level":"info","message":"POST /api/auth/password-reset/verify-otp 200 9ms","service":"auth-service","timestamp":"2025-06-05T09:23:43.927Z"}
+{"level":"info","message":"POST /api/auth/password-reset/verify-otp 400 17ms","service":"auth-service","timestamp":"2025-06-05T09:23:57.197Z"}
+{"level":"info","message":"POST /api/auth/password-reset/verify-otp 400 9ms","service":"auth-service","timestamp":"2025-06-05T09:24:05.640Z"}
+{"level":"info","message":"POST /api/auth/password-reset/change 200 219ms","service":"auth-service","timestamp":"2025-06-05T09:25:01.557Z"}
+{"level":"info","message":"POST /api/auth/login 400 2ms","service":"auth-service","timestamp":"2025-06-05T09:25:18.543Z"}
+{"level":"info","message":"POST /api/auth/login 400 3ms","service":"auth-service","timestamp":"2025-06-05T09:25:28.566Z"}
+{"level":"info","message":"POST /api/auth/login 400 1ms","service":"auth-service","timestamp":"2025-06-05T09:25:42.988Z"}
+{"level":"info","message":"POST /api/auth/login 400 2ms","service":"auth-service","timestamp":"2025-06-05T09:26:36.932Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:36:59.492Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:36:59.503Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:36:59.507Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:36:59.562Z"}
+{"level":"info","message":"POST /api/auth/password-reset/change 400 8ms","service":"auth-service","timestamp":"2025-06-05T09:38:33.286Z"}
+{"level":"info","message":"POST /api/auth/password-reset/change 400 3ms","service":"auth-service","timestamp":"2025-06-05T09:38:57.559Z"}
+{"level":"info","message":"POST /api/auth/password-reset/change 400 0ms","service":"auth-service","timestamp":"2025-06-05T09:40:02.222Z"}
+{"level":"info","message":"POST /api/auth/password-reset/change 200 330ms","service":"auth-service","timestamp":"2025-06-05T09:43:15.943Z"}
+{"level":"info","message":"POST /api/auth/login 400 1ms","service":"auth-service","timestamp":"2025-06-05T09:43:36.011Z"}
+{"level":"info","message":"POST /api/auth/login 400 1ms","service":"auth-service","timestamp":"2025-06-05T09:43:43.863Z"}
+{"level":"info","message":"POST /api/auth/login 400 0ms","service":"auth-service","timestamp":"2025-06-05T09:43:48.587Z"}
+{"level":"info","message":"POST /api/auth/login 401 190ms","service":"auth-service","timestamp":"2025-06-05T09:43:59.783Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:49:33.737Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:49:33.746Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:49:33.748Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:49:33.788Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:50:29.341Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:50:29.351Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:50:29.352Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:50:29.401Z"}
+{"level":"info","message":"POST /api/auth/login 401 148ms","service":"auth-service","timestamp":"2025-06-05T09:50:40.995Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:52:05.768Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:52:05.775Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:52:05.775Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:52:05.821Z"}
+{"level":"info","message":"POST /api/auth/login 401 186ms","service":"auth-service","timestamp":"2025-06-05T09:53:02.096Z"}
+{"level":"info","message":"POST /api/auth/login 401 167ms","service":"auth-service","timestamp":"2025-06-05T09:53:04.726Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:53:29.634Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:53:29.653Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:53:29.678Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:53:29.745Z"}
+{"level":"info","message":"POST /api/auth/login 401 198ms","service":"auth-service","timestamp":"2025-06-05T09:53:59.887Z"}
+{"level":"info","message":"POST /api/auth/login 200 162ms","service":"auth-service","timestamp":"2025-06-05T09:54:42.944Z"}
+{"level":"info","message":"POST /api/auth/login 401 111ms","service":"auth-service","timestamp":"2025-06-05T09:55:32.690Z"}
+{"level":"info","message":"POST /api/auth/login 401 231ms","service":"auth-service","timestamp":"2025-06-05T09:55:39.082Z"}
+{"level":"info","message":"POST /api/auth/login 401 136ms","service":"auth-service","timestamp":"2025-06-05T09:56:09.114Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:58:47.872Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:58:47.898Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:58:47.905Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:58:48.004Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:59:11.185Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:59:11.199Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:59:11.201Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:59:11.247Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:59:32.170Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:59:32.198Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:59:32.213Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:59:32.249Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:59:58.270Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:59:58.297Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:59:58.343Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:59:58.394Z"}
+{"level":"info","message":"POST /api/auth/password-reset/change 200 382ms","service":"auth-service","timestamp":"2025-06-05T10:00:48.732Z"}
+{"level":"info","message":"POST /api/auth/login 401 173ms","service":"auth-service","timestamp":"2025-06-05T10:01:11.249Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T10:02:41.346Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T10:02:41.356Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:02:41.356Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:02:41.409Z"}
+{"level":"info","message":"POST /api/auth/login 401 183ms","service":"auth-service","timestamp":"2025-06-05T10:03:50.902Z"}
+{"level":"info","message":"POST /api/auth/login 401 114ms","service":"auth-service","timestamp":"2025-06-05T10:03:55.028Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T10:04:18.106Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T10:04:18.126Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:04:18.131Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:04:18.186Z"}
+{"level":"info","message":"POST /api/auth/login 401 154ms","service":"auth-service","timestamp":"2025-06-05T10:04:21.670Z"}
+{"level":"info","message":"POST /api/auth/login 401 180ms","service":"auth-service","timestamp":"2025-06-05T10:05:40.095Z"}
+{"level":"info","message":"POST /api/auth/login 401 171ms","service":"auth-service","timestamp":"2025-06-05T10:05:43.354Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T10:06:37.317Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T10:06:37.335Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:06:37.335Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:06:37.370Z"}
+{"level":"info","message":"POST /api/auth/login 401 154ms","service":"auth-service","timestamp":"2025-06-05T10:06:49.161Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T10:08:42.546Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T10:08:42.563Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:08:42.564Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:08:42.638Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T10:09:01.285Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T10:09:01.302Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:09:01.347Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:09:01.429Z"}
+{"level":"info","message":"POST /api/auth/login 401 264ms","service":"auth-service","timestamp":"2025-06-05T10:09:21.335Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T10:31:38.734Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T10:31:38.777Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:31:38.862Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:31:39.077Z"}
+{"level":"info","message":"POST /api/auth/login 401 372ms","service":"auth-service","timestamp":"2025-06-05T10:31:49.959Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T10:50:34.224Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T10:50:34.233Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:50:34.235Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T10:50:34.315Z"}
+{"level":"info","message":"POST /api/auth/login 401 166ms","service":"auth-service","timestamp":"2025-06-05T10:50:40.365Z"}
+{"level":"info","message":"POST /api/auth/login 401 109ms","service":"auth-service","timestamp":"2025-06-05T10:51:40.870Z"}
+{"level":"info","message":"POST /api/auth/login 401 115ms","service":"auth-service","timestamp":"2025-06-05T10:52:41.849Z"}
+{"level":"info","message":"POST /api/auth/login 401 264ms","service":"auth-service","timestamp":"2025-06-05T12:54:24.532Z"}
+{"level":"info","message":"POST /api/auth/login 401 132ms","service":"auth-service","timestamp":"2025-06-05T12:54:27.000Z"}
+{"level":"info","message":"Received shutdown signal, closing server...","service":"auth-service","timestamp":"2025-06-05T12:57:02.198Z"}

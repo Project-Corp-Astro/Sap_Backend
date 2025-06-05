@@ -1623,3 +1623,164 @@
 {"level":"warn","message":"MongoDB disconnected","service":"database","timestamp":"2025-05-30T08:42:21.693Z"}
 {"level":"info","message":"MongoDB connection closed","service":"database","timestamp":"2025-05-30T08:42:21.695Z"}
 {"level":"info","message":"MongoDB connection closed","service":"database","timestamp":"2025-05-30T08:42:21.696Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T03:52:38.489Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T03:52:38.599Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T03:53:09.598Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T03:53:09.705Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T03:53:45.960Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T03:53:46.063Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T04:25:16.791Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T04:25:16.883Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T04:26:08.456Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T04:26:08.552Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T04:34:08.676Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T04:34:08.781Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T04:36:46.400Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T04:36:46.492Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T04:48:25.131Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T04:48:25.245Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T05:09:43.916Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T05:09:44.075Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T05:12:25.928Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T05:12:26.038Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T05:15:50.168Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T05:15:50.390Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T05:16:19.503Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T05:16:19.737Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T05:25:08.322Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T05:25:08.490Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T05:27:26.508Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T05:27:26.606Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T05:34:31.090Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T05:34:31.206Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:31:46.655Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:31:46.899Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:37:09.392Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:37:09.497Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:38:08.099Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:38:08.213Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:38:31.689Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:38:31.787Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:41:10.071Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:41:10.176Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:44:48.208Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:44:48.340Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:47:25.393Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:47:25.639Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:49:12.431Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:49:12.558Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:49:30.048Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:49:30.255Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:56:43.805Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:56:43.934Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:58:34.411Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:58:34.553Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T06:59:36.219Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T06:59:36.337Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T07:00:22.336Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T07:00:22.481Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T07:01:01.759Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T07:01:01.868Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T07:02:12.337Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T07:02:12.439Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T07:02:29.440Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T07:02:29.548Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T07:03:20.371Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T07:03:20.546Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"database","timestamp":"2025-06-05T08:29:35.213Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"database","timestamp":"2025-06-05T08:29:35.518Z"}
+{"error":"Connection to localhost:27017 interrupted due to server monitor timeout","level":"error","message":"Error getting server status","service":"database","timestamp":"2025-06-05T08:29:36.663Z"}
+{"level":"info","message":"MongoDB reconnected","service":"database","timestamp":"2025-06-05T08:29:45.551Z"}
+{"level":"info","message":"MongoDB reconnected","service":"database","timestamp":"2025-06-05T08:29:45.551Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"database","timestamp":"2025-06-05T08:57:01.043Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"database","timestamp":"2025-06-05T08:57:01.054Z"}
+{"error":"Connection to localhost:27017 interrupted due to server monitor timeout","level":"error","message":"Error getting server status","service":"database","timestamp":"2025-06-05T08:57:01.067Z"}
+{"error":"Connection to localhost:27017 interrupted due to server monitor timeout","level":"error","message":"Error getting server status","service":"database","timestamp":"2025-06-05T08:57:01.067Z"}
+{"level":"info","message":"MongoDB reconnected","service":"database","timestamp":"2025-06-05T08:57:11.126Z"}
+{"level":"info","message":"MongoDB reconnected","service":"database","timestamp":"2025-06-05T08:57:11.127Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:19:34.998Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:19:35.125Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:20:52.446Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:20:52.582Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:37:04.150Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:37:04.268Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:49:36.785Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:49:36.984Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:50:33.026Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:50:33.154Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:52:08.147Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:52:08.436Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:53:32.469Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:53:32.590Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:58:50.920Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:58:51.161Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:59:14.035Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:59:14.164Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T09:59:35.456Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T09:59:35.595Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:00:00.983Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:00:01.187Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:02:43.883Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:02:44.007Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:04:20.308Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:04:20.461Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:06:39.815Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:06:39.957Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:08:45.672Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:08:45.802Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:09:06.891Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:09:07.044Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:10:27.504Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:10:27.648Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:11:21.329Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:11:21.440Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:12:13.634Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:12:13.749Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:14:18.130Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:14:18.265Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:14:59.404Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:14:59.566Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:17:59.193Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:17:59.305Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:27:33.893Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:27:34.010Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:30:59.079Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:30:59.175Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:31:43.259Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:31:43.391Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:33:10.319Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:33:10.443Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:34:44.853Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:34:44.951Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:35:21.931Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:35:22.046Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:35:54.557Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:35:54.680Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:37:07.683Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:37:07.785Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:39:10.350Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:39:10.458Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:39:59.690Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:39:59.790Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:41:30.095Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:41:30.195Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:42:34.520Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:42:34.621Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:43:58.728Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:43:58.858Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:48:49.929Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:48:50.049Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:49:40.319Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:49:40.450Z"}
+{"level":"info","message":"Connected to MongoDB","service":"database","timestamp":"2025-06-05T10:50:38.715Z"}
+{"host":"localhost","level":"info","message":"Connected to MongoDB","name":"sap-db","port":27017,"service":"database","timestamp":"2025-06-05T10:50:38.842Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"database","timestamp":"2025-06-05T12:53:18.587Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"database","timestamp":"2025-06-05T12:53:18.756Z"}
+{"error":"Connection to localhost:27017 interrupted due to server monitor timeout","level":"error","message":"Error getting server status","service":"database","timestamp":"2025-06-05T12:53:18.851Z"}
+{"error":"Connection to localhost:27017 interrupted due to server monitor timeout","level":"error","message":"Error getting server status","service":"database","timestamp":"2025-06-05T12:53:18.926Z"}
+{"level":"info","message":"MongoDB reconnected","service":"database","timestamp":"2025-06-05T12:53:28.832Z"}
+{"level":"info","message":"MongoDB reconnected","service":"database","timestamp":"2025-06-05T12:53:28.834Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"database","timestamp":"2025-06-05T12:57:43.691Z"}
+{"level":"warn","message":"MongoDB disconnected","service":"database","timestamp":"2025-06-05T12:57:43.692Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database","timestamp":"2025-06-05T12:57:43.693Z"}
+{"level":"info","message":"MongoDB connection closed","service":"database","timestamp":"2025-06-05T12:57:43.694Z"}

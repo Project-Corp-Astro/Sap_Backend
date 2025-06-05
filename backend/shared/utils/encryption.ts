@@ -4,7 +4,7 @@
  */
 
 import crypto from 'crypto';
-import { Schema, Document, HydratedDocument, Query } from 'mongoose';
+import { Schema, Document, HydratedDocument, Query, Types } from 'mongoose';
 import { createServiceLogger } from './logger';
 import config from '../config';
 import { AppError, ErrorTypes } from './errorHandler';
@@ -13,16 +13,10 @@ import { AppError, ErrorTypes } from './errorHandler';
 const logger = createServiceLogger('encryption');
 
 // Define interfaces
-interface EncryptionConfig {
-  algorithm: string;
-  secretKey: string;
-  ivLength: number;
-  authTagLength: number;
-}
-
 interface EncryptionOptions {
-  algorithm?: string;
-  secretKey?: string;
+  key: string;
+  iv: string;
+  algorithm: string;
 }
 
 interface EncryptedData {
@@ -32,8 +26,13 @@ interface EncryptedData {
 }
 
 interface PluginOptions {
-  fields?: string[];
+  fields: string[];
   defaultOptions?: EncryptionOptions;
+}
+
+// Define encrypted document type
+interface EncryptedDocument extends Document {
+  _encrypted?: Record<string, string>;
 }
 
 interface HashOptions {
@@ -42,20 +41,24 @@ interface HashOptions {
 }
 
 // Default encryption configuration
-const defaultConfig: EncryptionConfig = {
-  algorithm: config.get('encryption.algorithm', 'aes-256-gcm'),
-  secretKey: config.get('encryption.secretKey', 'your-secret-key-change-in-production'),
-  ivLength: 16, // 16 bytes for AES
-  authTagLength: 16 // 16 bytes for GCM mode
+const defaultConfig: EncryptionOptions = {
+  key: process.env.ENCRYPTION_KEY || 'your-secret-key',
+  iv: process.env.ENCRYPTION_IV || 'your-initialization-vector',
+  algorithm: 'aes-256-gcm'
 };
 
 /**
- * Generate encryption key from secret
- * @param secret - Secret key
- * @returns Encryption key
+ * Get encryption options with defaults
  */
-const generateKey = (secret: string): Buffer => {
-  return crypto.scryptSync(secret, 'salt', 32); // 32 bytes (256 bits) key
+const getEncryptionOptions = (options?: Partial<EncryptionOptions>): EncryptionOptions => {
+  if (!options) {
+    return defaultConfig;
+  }
+  return {
+    key: options.key || defaultConfig.key,
+    iv: options.iv || defaultConfig.iv,
+    algorithm: options.algorithm || defaultConfig.algorithm
+  };
 };
 
 /**
@@ -64,41 +67,21 @@ const generateKey = (secret: string): Buffer => {
  * @param options - Encryption options
  * @returns Encrypted data
  */
-export const encrypt = (data: any, options: EncryptionOptions = {}): string => {
+export const encrypt = (data: any, options: Partial<EncryptionOptions> = {}): string => {
   try {
-    const { algorithm, secretKey } = { ...defaultConfig, ...options };
-    
-    // Convert data to string if object
-    const dataString = typeof data === 'object' ? JSON.stringify(data) : String(data);
-    
-    // Generate initialization vector
-    const iv = crypto.randomBytes(defaultConfig.ivLength);
-    
-    // Generate encryption key
-    const key = generateKey(secretKey);
+    // Get encryption options with defaults
+    const { key, iv, algorithm } = getEncryptionOptions(options);
     
     // Create cipher
-    const cipher = crypto.createCipheriv(algorithm, key, iv);
-    
+    const cipher = crypto.createCipheriv(algorithm, Buffer.from(key), Buffer.from(iv));
+
     // Encrypt data
-    let encrypted = cipher.update(dataString, 'utf8', 'hex');
+    let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'hex');
     encrypted += cipher.final('hex');
-    
-    // Get authentication tag (for GCM mode)
-    // Use type assertion for GCM cipher which has getAuthTag method
-    const authTag = (cipher as crypto.CipherGCM).getAuthTag();
-    
-    // Combine IV, encrypted data, and auth tag
-    const result: EncryptedData = {
-      iv: iv.toString('hex'),
-      data: encrypted,
-      tag: authTag.toString('hex')
-    };
-    
-    // Return as base64 string
-    return Buffer.from(JSON.stringify(result)).toString('base64');
-  } catch (err) {
-    logger.error('Encryption error', { error: (err as Error).message });
+
+    // Return encrypted data with IV
+    return `${iv}:${encrypted}`;
+  } catch (error) {
     throw new AppError(ErrorTypes.INTERNAL_ERROR, 'Failed to encrypt data');
   }
 };
@@ -109,40 +92,25 @@ export const encrypt = (data: any, options: EncryptionOptions = {}): string => {
  * @param options - Decryption options
  * @returns Decrypted data
  */
-export const decrypt = (encryptedData: string, options: EncryptionOptions = {}): any => {
+export const decrypt = (encryptedData: string, options: Partial<EncryptionOptions> = {}): any => {
   try {
-    const { algorithm, secretKey } = { ...defaultConfig, ...options };
-    
-    // Parse encrypted data
-    const encryptedObj: EncryptedData = JSON.parse(Buffer.from(encryptedData, 'base64').toString('utf8'));
-    const { iv, data, tag } = encryptedObj;
-    
-    // Generate decryption key
-    const key = generateKey(secretKey);
-    
-    // Create decipher
-    const decipher = crypto.createDecipheriv(
-      algorithm,
-      key,
-      Buffer.from(iv, 'hex')
-    );
-    
-    // Set authentication tag (for GCM mode)
-    // Use type assertion for GCM decipher which has setAuthTag method
-    (decipher as crypto.DecipherGCM).setAuthTag(Buffer.from(tag, 'hex'));
-    
-    // Decrypt data
-    let decrypted = decipher.update(data, 'hex', 'utf8');
-    decrypted += decipher.final('utf8');
-    
-    // Try to parse as JSON, return as string if not valid JSON
-    try {
-      return JSON.parse(decrypted);
-    } catch (e) {
-      return decrypted;
+    // Get encryption options with defaults
+    const { key, algorithm } = getEncryptionOptions(options);
+    const [iv, encryptedDataHex] = encryptedData.split(':');
+    if (!iv || !encryptedDataHex) {
+      throw new AppError(ErrorTypes.INTERNAL_ERROR, 'Invalid encrypted data format');
     }
-  } catch (err) {
-    logger.error('Decryption error', { error: (err as Error).message });
+
+    // Create decipher
+    const decipher = crypto.createDecipheriv(algorithm, Buffer.from(key), Buffer.from(iv));
+
+    // Decrypt data
+    let decryptedData = decipher.update(encryptedDataHex, 'hex', 'utf8');
+    decryptedData += decipher.final('utf8');
+
+    // Parse decrypted data
+    return JSON.parse(decryptedData);
+  } catch (error) {
     throw new AppError(ErrorTypes.INTERNAL_ERROR, 'Failed to decrypt data');
   }
 };
@@ -152,105 +120,34 @@ export const decrypt = (encryptedData: string, options: EncryptionOptions = {}):
  * @param options - Plugin options
  * @returns Mongoose plugin
  */
-export const createMongooseEncryptionPlugin = (options: PluginOptions = {}): ((schema: Schema) => void) => {
-  const {
-    fields = [],
-    defaultOptions = {}
-  } = options;
-  
-  return function(schema: Schema): void {
-    // Add encrypted flag to schema
+export const createMongooseEncryptionPlugin = (options: PluginOptions): (schema: Schema) => void => {
+  const { fields, defaultOptions = {} } = options;
+  const config = getEncryptionOptions(defaultOptions);
+
+  return function encryptionPlugin(schema: Schema): void {
+    // Add encrypted document type to schema
     schema.add({
       _encrypted: {
-        type: Object,
-        select: false
+        type: Map,
+        of: String
       }
     });
-    
-    // Pre-save hook to encrypt fields
-    schema.pre('save', function(this: Document & { _encrypted?: Record<string, string> }, next) {
-      try {
-        // Skip if no fields to encrypt
-        if (fields.length === 0) {
-          return next();
-        }
-        
-        // Initialize _encrypted object if not exists
-        if (!this._encrypted) {
-          this._encrypted = {};
-        }
-        
-        // Encrypt fields
-        fields.forEach(field => {
-          if (this.isModified(field) && (this as any)[field] !== undefined) {
-            this._encrypted![field] = encrypt((this as any)[field], defaultOptions);
-            (this as any)[field] = undefined;
-          }
-        });
-        
-        next();
-      } catch (err) {
-        next(err as Error);
-      }
-    });
-    
-    // Post-find hook to decrypt fields
-    // Use separate hooks for different query types
-    schema.post('find', function(docs: any, next: (err?: Error) => void) {
-      decryptDocuments(docs, next);
-    });
-    
-    schema.post('findOne', function(doc: any, next: (err?: Error) => void) {
-      if (doc) decryptDocument(doc);
-      next();
-    });
-    
-    // Using regex pattern to match findById and similar methods
-    schema.post(/^findById/, function(doc: any, next: (err?: Error) => void) {
-      if (doc) decryptDocument(doc);
-      next();
-    });
-    
-    // Helper function to handle multiple documents
-    function decryptDocuments(docs: any, next: (err?: Error) => void) {
-      try {
-        // Skip if no documents or no fields to decrypt
-        if (!docs || fields.length === 0) {
-          return next();
-        }
-        
-        // Handle array of documents
-        if (Array.isArray(docs)) {
-          docs.forEach((doc: any) => {
-            if (doc) decryptDocument(doc);
-          });
-        }
-        
-        next();
-      } catch (err) {
-        next(err as Error);
-      }
+    // Define encrypted document type within plugin scope
+    interface EncryptedDocument extends Document {
+      _encrypted?: Record<string, string>;
     }
-    
-    // Helper function to decrypt document fields
-    function decryptDocument(doc: any): void {
-      if (!doc || !doc._encrypted) {
-        return;
-      }
-      
-      fields.forEach(field => {
-        if (doc._encrypted[field]) {
-          try {
-            doc[field] = decrypt(doc._encrypted[field], defaultOptions);
-          } catch (err) {
-            logger.error(`Error decrypting field ${field}`, { error: (err as Error).message });
-          }
-        }
-      });
-    }
-    
-    // Add instance method to encrypt field
-    schema.methods.encryptField = function(field: string, value: any): Document & Record<string, any> {
+
+    // Add encryption methods to schema
+    schema.statics.encrypt = (data: any, options: Partial<EncryptionOptions> = {}): string => {
+      return encrypt(data, options);
+    };
+
+    schema.statics.decrypt = (encryptedData: string, options: Partial<EncryptionOptions> = {}): any => {
+      return decrypt(encryptedData, options);
+    };
+
+    // Add encryption methods to document
+    schema.methods.encryptField = function(this: EncryptedDocument, field: string, value: any): EncryptedDocument & Record<string, any> {
       if (!fields.includes(field)) {
         throw new Error(`Field ${field} is not configured for encryption`);
       }
@@ -259,22 +156,107 @@ export const createMongooseEncryptionPlugin = (options: PluginOptions = {}): ((s
         this._encrypted = {};
       }
       
-      this._encrypted[field] = encrypt(value, defaultOptions);
+      this._encrypted[field] = encrypt(value, getEncryptionOptions(defaultOptions));
       this[field] = undefined;
       
-      return this as Document & Record<string, any>;
+      return this;
     };
     
-    // Add instance method to decrypt field
-    schema.methods.decryptField = function(field: string): any {
+    schema.methods.decryptField = function(this: EncryptedDocument, field: string): any {
       if (!fields.includes(field) || !this._encrypted || !this._encrypted[field]) {
         return null;
       }
       
-      return decrypt(this._encrypted[field], defaultOptions);
+      return decrypt(this._encrypted[field], getEncryptionOptions(defaultOptions));
     };
+
+    // Add encryption middleware
+    schema.pre('save', async function(this: EncryptedDocument, next) {
+      try {
+        const doc = this;
+        const modifiedPaths = doc.modifiedPaths();
+
+        for (const path of modifiedPaths) {
+          if (fields.includes(path)) {
+            const value = doc.get(path);
+            if (value !== undefined) {
+              const encrypted = await encrypt(value, getEncryptionOptions(defaultOptions));
+              doc.set(path, undefined);
+              if (!doc._encrypted) {
+                doc._encrypted = {};
+              }
+              doc._encrypted[path] = encrypted;
+            }
+          }
+        }
+
+        next();
+      } catch (error) {
+        next(error as Error);
+      }
+    });
+
+    schema.pre('findOneAndUpdate', async function(this: Query<any, any>, next) {
+      try {
+        const update = this.getUpdate();
+        const options = this.getOptions();
+
+        if (typeof update === 'object' && update !== null && '$set' in update) {
+          const setOperations = update.$set as Record<string, any>;
+          for (const [key, value] of Object.entries(setOperations)) {
+            if (fields.includes(key)) {
+              const encrypted = await encrypt(value, getEncryptionOptions(defaultOptions));
+              setOperations[key] = encrypted;
+            }
+          }
+        }
+
+        next();
+      } catch (error) {
+        next(error as Error);
+      }
+    });
+
+    // Add decryption middleware
+    schema.post('find', async function(this: Query<any, any>, docs: HydratedDocument<any>[]) {
+      try {
+        for (const doc of docs) {
+          if (doc._encrypted) {
+            for (const field of fields) {
+              if (doc._encrypted[field]) {
+                const decrypted = await decrypt(doc._encrypted[field], getEncryptionOptions(defaultOptions));
+                doc.set(field, decrypted);
+              }
+            }
+          }
+        }
+      } catch (error) {
+        throw new AppError(ErrorTypes.INTERNAL_ERROR, 'Failed to decrypt data');
+      }
+    });
+
+    schema.post('findOne', async function(this: Query<any, any>, doc: HydratedDocument<any> | null) {
+      try {
+        if (doc && doc._encrypted) {
+          for (const field of fields) {
+            if (doc._encrypted[field]) {
+              const decrypted = await decrypt(doc._encrypted[field], getEncryptionOptions(defaultOptions));
+              doc.set(field, decrypted);
+            }
+          }
+        }
+      } catch (error) {
+        throw new AppError(ErrorTypes.INTERNAL_ERROR, 'Failed to decrypt data');
+      }
+    });
   };
 };
+
+// Export the plugin as a named export for compatibility with require syntax
+export const encryptionPlugin = createMongooseEncryptionPlugin({
+  fields: [],
+  defaultOptions: defaultConfig
+});
 
 /**
  * Hash data (one-way encryption)
@@ -312,6 +294,3 @@ export const generateRandomString = (length = 32, encoding: BufferEncoding = 'he
     throw new AppError(ErrorTypes.INTERNAL_ERROR, 'Failed to generate random string');
   }
 };
-
-// Export the plugin as a named export for compatibility with require syntax
-export const encryptionPlugin = createMongooseEncryptionPlugin();
