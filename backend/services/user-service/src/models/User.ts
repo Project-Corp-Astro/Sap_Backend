@@ -1,5 +1,5 @@
 import mongoose, { Schema, model } from 'mongoose';
-import { UserDocument, ThemePreference } from '../interfaces/shared-types';
+import { UserDocument, ThemePreference, AppAccess } from '../interfaces/shared-types';
 
 // Try to import UserRole from shared types, but provide a fallback if it fails
 let UserRole;
@@ -115,7 +115,12 @@ const userSchema = new Schema({
   subscriptionId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Subscription'
-  }
+  },
+  appAccess: [{
+    type: String,
+    enum: Object.values(AppAccess),
+    default: [AppAccess.CORP_ASTRO] // Default to corpAstro access
+  }]
 }, {
   timestamps: true
 });

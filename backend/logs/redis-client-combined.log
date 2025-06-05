@@ -396,6 +396,107 @@
 {"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T08:27:10.877Z"}
 {"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T08:30:21.282Z"}
 {"level":"info","message":"All Redis connections closed","service":"redis-client","timestamp":"2025-05-30T08:42:21.717Z"}
+<<<<<<< HEAD
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T10:23:07.205Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T10:30:06.916Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T10:40:52.114Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T10:43:14.397Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T10:43:14.786Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T10:45:38.278Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T10:46:35.549Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T11:00:02.562Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T11:02:09.219Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T11:02:17.210Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T11:08:55.453Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T11:30:28.391Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T11:34:42.827Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T11:37:13.017Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T11:50:50.025Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-30T11:54:51.107Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.207Z"}
+{"level":"info","message":"Redis connection retry in 50ms (attempt 1)","service":"redis-client","timestamp":"2025-05-30T13:30:28.227Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.263Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.308Z"}
+{"level":"info","message":"Redis connection retry in 100ms (attempt 2)","service":"redis-client","timestamp":"2025-05-30T13:30:28.310Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.311Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.339Z"}
+{"error":"read ECONNRESET","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.340Z"}
+{"level":"info","message":"Redis connection retry in 50ms (attempt 1)","service":"redis-client","timestamp":"2025-05-30T13:30:28.365Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.377Z"}
+{"level":"info","message":"Redis connection retry in 50ms (attempt 1)","service":"redis-client","timestamp":"2025-05-30T13:30:28.369Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.393Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.445Z"}
+{"level":"info","message":"Redis connection retry in 150ms (attempt 3)","service":"redis-client","timestamp":"2025-05-30T13:30:28.450Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.462Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.487Z"}
+{"level":"info","message":"Redis connection retry in 100ms (attempt 2)","service":"redis-client","timestamp":"2025-05-30T13:30:28.489Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.490Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.496Z"}
+{"level":"info","message":"Redis connection retry in 100ms (attempt 2)","service":"redis-client","timestamp":"2025-05-30T13:30:28.497Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.500Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.609Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.609Z"}
+{"level":"info","message":"Redis connection retry in 150ms (attempt 3)","service":"redis-client","timestamp":"2025-05-30T13:30:28.612Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.614Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.619Z"}
+{"level":"info","message":"Redis connection retry in 150ms (attempt 3)","service":"redis-client","timestamp":"2025-05-30T13:30:28.618Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.621Z"}
+{"level":"warn","message":"Redis connection retry limit reached, stopping reconnection attempts","service":"redis-client","timestamp":"2025-05-30T13:30:28.620Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.625Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.771Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:6379","level":"error","message":"Redis client error","service":"redis-client","timestamp":"2025-05-30T13:30:28.772Z"}
+{"level":"warn","message":"Redis connection retry limit reached, stopping reconnection attempts","service":"redis-client","timestamp":"2025-05-30T13:30:28.773Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.777Z"}
+{"level":"warn","message":"Redis connection retry limit reached, stopping reconnection attempts","service":"redis-client","timestamp":"2025-05-30T13:30:28.772Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-05-30T13:30:28.779Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-31T04:07:50.520Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-31T11:57:13.121Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-31T13:42:04.386Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-31T14:55:47.136Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-31T17:00:12.785Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-05-31T17:57:56.734Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T04:05:06.202Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T08:32:41.739Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T11:03:00.655Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T11:48:31.016Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T11:49:16.339Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T12:02:17.077Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T12:03:05.236Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T12:23:04.611Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T12:29:39.121Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T12:33:21.229Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T13:12:52.901Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-01T13:26:07.714Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-02T04:45:41.347Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-02T04:45:48.191Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-02T04:54:49.999Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-02T06:55:44.911Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-02T09:10:36.042Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-03T04:26:58.416Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-03T04:27:21.141Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-03T12:38:31.860Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-03T12:38:56.334Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-03T12:49:36.162Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-03T13:00:40.617Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-03T13:02:35.266Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-04T05:22:47.976Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-04T05:41:50.917Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-04T05:43:22.931Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-04T10:24:06.686Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-04T11:13:48.475Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T04:37:51.612Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T08:40:00.703Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T08:43:37.568Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T09:45:51.735Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T09:48:35.824Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T09:50:17.555Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T09:51:03.592Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T09:51:03.802Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T11:21:02.689Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T11:58:45.697Z"}
+{"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T11:58:50.531Z"}
+{"level":"info","message":"Redis client connection closed","service":"redis-client","timestamp":"2025-06-05T14:40:18.547Z"}
+=======
 {"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T03:52:39.917Z"}
 {"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T03:53:10.380Z"}
 {"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T03:53:46.620Z"}
@@ -475,3 +576,4 @@
 {"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T10:49:40.862Z"}
 {"level":"info","message":"Redis client connected","service":"redis-client","timestamp":"2025-06-05T10:50:39.485Z"}
 {"level":"info","message":"All Redis connections closed","service":"redis-client","timestamp":"2025-06-05T12:57:43.732Z"}
+>>>>>>> 2a56d706505379ec4c288eb7427895d7f8dc214d

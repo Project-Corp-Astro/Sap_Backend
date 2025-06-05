@@ -15,6 +15,27 @@
 {"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T08:27:11.081Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
 {"level":"info","message":"Supabase client resources cleaned up","service":"supabase-client","timestamp":"2025-05-30T08:42:21.699Z"}
 {"level":"info","message":"Supabase client resources cleaned up","service":"supabase-client","timestamp":"2025-05-30T08:42:21.700Z"}
+<<<<<<< HEAD
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T10:30:07.105Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T10:40:52.224Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T10:43:14.265Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T10:45:37.752Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T10:46:35.926Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T11:00:02.598Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T11:02:09.214Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T11:02:17.376Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T11:08:55.361Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T11:34:43.346Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-05-30T11:50:49.972Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-04T05:22:47.833Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-05T04:37:51.489Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-05T09:45:51.930Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-05T09:48:36.101Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-05T09:50:17.521Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-05T11:21:02.695Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
+{"level":"info","message":"Supabase client resources cleaned up","service":"supabase-client","timestamp":"2025-06-05T14:40:18.377Z"}
+{"level":"info","message":"Supabase client resources cleaned up","service":"supabase-client","timestamp":"2025-06-05T14:40:18.379Z"}
+=======
 {"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-05T03:52:39.906Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
 {"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-05T03:53:10.201Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
 {"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-05T03:53:46.425Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
@@ -85,3 +106,4 @@
 {"level":"info","message":"Supabase connection successful (connection_test table does not exist yet)","service":"supabase-client","timestamp":"2025-06-05T10:50:39.643Z","url":"https://leaekgpafpvrvykeuvgk.supabase.co"}
 {"level":"info","message":"Supabase client resources cleaned up","service":"supabase-client","timestamp":"2025-06-05T12:57:43.701Z"}
 {"level":"info","message":"Supabase client resources cleaned up","service":"supabase-client","timestamp":"2025-06-05T12:57:43.705Z"}
+>>>>>>> 2a56d706505379ec4c288eb7427895d7f8dc214d

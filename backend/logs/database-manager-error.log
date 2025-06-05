@@ -271,6 +271,9 @@
 {"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.447Z"}
 {"error":"read ECONNRESET","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.463Z"}
 {"error":"read ECONNRESET","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.463Z"}
+<<<<<<< HEAD
+{"error":"Connection is closed.","level":"error","message":"Error closing Redis connection","service":"database-manager","timestamp":"2025-06-05T14:40:18.550Z"}
+=======
 {"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-06-05T03:52:39.990Z"}
 {"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-06-05T03:52:40.067Z"}
 {"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-06-05T03:53:10.499Z"}
@@ -407,3 +410,4 @@
 {"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-06-05T10:49:41.113Z"}
 {"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-06-05T10:50:39.514Z"}
 {"error":"Elasticsearch connection failed","level":"error","message":"Error connecting to Elasticsearch","service":"database-manager","timestamp":"2025-06-05T10:50:39.885Z"}
+>>>>>>> 2a56d706505379ec4c288eb7427895d7f8dc214d

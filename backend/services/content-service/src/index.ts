@@ -133,9 +133,7 @@ const createAndStartServer = (port: number) => {
     logger.info(`Content Service running on port ${port} in ${config.env} mode`);
   });
   
-  server.listen(port, '127.0.0.1');
-
-  
+  server.listen(port);
   // Store the active server instance
   activeServer = server;
   

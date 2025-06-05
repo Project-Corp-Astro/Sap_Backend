@@ -14,7 +14,7 @@ const app = express();
 const PREFERRED_PORT = parseInt(process.env.USER_SERVICE_PORT || '3002', 10);
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(helmet());
 app.use(express.json());
 app.use(performanceMiddleware); // @ts-ignore
@@ -98,7 +98,7 @@ const startServer = async () => {
       logger.warn(`Preferred port ${PREFERRED_PORT} is in use, using available port ${availablePort}`);
     }
 
-    server = app.listen(availablePort, '127.0.0.1', () => {
+    server = app.listen(availablePort, () => {
       logger.info(`User Service running on port ${availablePort}`);
       logger.info(`Health check available at http://localhost:${availablePort}/health`);
     });

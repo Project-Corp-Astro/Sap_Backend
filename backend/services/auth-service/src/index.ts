@@ -107,7 +107,7 @@ const startServer = async () => {
     const fixedPort = 3001;
     logger.info(`Starting Auth Service on fixed port ${fixedPort}`);
 
-    const server = app.listen(fixedPort, '127.0.0.1', () => {
+    const server = app.listen(fixedPort, () => {
       logger.info(`Auth Service running on port ${fixedPort}`);
       logger.info(`MongoDB Connected to ${MONGO_URI}`);
     });
