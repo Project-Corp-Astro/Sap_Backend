@@ -921,3 +921,728 @@
 {"level":"info","message":"POST /api/auth/register 201 199ms","service":"auth-service","timestamp":"2025-05-30T08:37:47.113Z"}
 {"level":"info","message":"POST /api/auth/login 200 180ms","service":"auth-service","timestamp":"2025-05-30T08:38:19.226Z"}
 {"level":"info","message":"Received shutdown signal, closing server...","service":"auth-service","timestamp":"2025-05-30T08:42:17.215Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T10:21:39.718Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T10:21:39.737Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:21:39.738Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:21:39.805Z"}
+{"level":"info","message":"POST /api/auth/login 200 222ms","service":"auth-service","timestamp":"2025-05-30T10:23:07.232Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T10:29:45.743Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T10:29:45.935Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:29:45.979Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:29:46.143Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T10:40:39.801Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T10:40:39.824Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:40:39.850Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:40:39.936Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T10:42:57.027Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T10:42:57.036Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:42:57.058Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:42:57.095Z"}
+{"level":"info","message":"POST /api/auth/login 200 262ms","service":"auth-service","timestamp":"2025-05-30T10:43:14.821Z"}
+{"level":"info","message":"POST /api/auth/login 200 164ms","service":"auth-service","timestamp":"2025-05-30T10:43:32.068Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T10:45:27.119Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T10:45:27.249Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:45:27.266Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:45:27.374Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T10:46:29.988Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T10:46:30.019Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:46:30.028Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:46:30.081Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T10:59:53.803Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T10:59:53.860Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:59:53.930Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T10:59:54.281Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T11:02:07.709Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T11:02:07.791Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T11:02:07.804Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T11:02:07.922Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T11:08:44.613Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T11:08:44.628Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T11:08:44.629Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T11:08:44.669Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T11:34:33.029Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T11:34:33.232Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T11:34:33.235Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T11:34:33.336Z"}
+{"level":"info","message":"POST /api/auth/login 200 342ms","service":"auth-service","timestamp":"2025-05-30T11:37:13.047Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-30T11:50:43.808Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-30T11:50:43.841Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T11:50:43.845Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-30T11:50:43.984Z"}
+{"level":"info","message":"POST /api/auth/login 200 1310ms","service":"auth-service","timestamp":"2025-05-30T11:54:51.360Z"}
+{"level":"info","message":"GET /api/auth/profile 200 31ms","service":"auth-service","timestamp":"2025-05-30T11:55:34.348Z"}
+{"level":"info","message":"GET /api/auth/profile 304 14ms","service":"auth-service","timestamp":"2025-05-30T11:55:34.442Z"}
+{"level":"info","message":"POST /api/auth/login 200 119ms","service":"auth-service","timestamp":"2025-05-30T11:55:45.625Z"}
+{"level":"info","message":"GET /api/auth/profile 200 73ms","service":"auth-service","timestamp":"2025-05-30T12:43:52.244Z"}
+{"level":"info","message":"GET /api/auth/profile 304 34ms","service":"auth-service","timestamp":"2025-05-30T12:43:52.370Z"}
+{"level":"info","message":"POST /api/auth/login 200 260ms","service":"auth-service","timestamp":"2025-05-30T13:06:40.045Z"}
+{"level":"info","message":"GET /api/auth/profile 200 14ms","service":"auth-service","timestamp":"2025-05-30T13:06:54.000Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-05-30T13:06:54.201Z"}
+{"level":"info","message":"POST /api/auth/login 200 102ms","service":"auth-service","timestamp":"2025-05-30T13:22:21.477Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-31T04:04:22.258Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-31T04:04:22.267Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T04:04:22.270Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T04:04:22.337Z"}
+{"level":"info","message":"POST /api/auth/login 200 282ms","service":"auth-service","timestamp":"2025-05-31T04:07:50.610Z"}
+{"level":"info","message":"GET /api/auth/profile 401 415ms","service":"auth-service","timestamp":"2025-05-31T04:10:20.994Z"}
+{"level":"info","message":"GET /api/auth/profile 401 27ms","service":"auth-service","timestamp":"2025-05-31T04:10:21.053Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 401 14ms","service":"auth-service","timestamp":"2025-05-31T04:10:21.105Z"}
+{"level":"info","message":"POST /api/auth/logout 401 2ms","service":"auth-service","timestamp":"2025-05-31T04:10:21.167Z"}
+{"level":"info","message":"POST /api/auth/login 200 149ms","service":"auth-service","timestamp":"2025-05-31T04:11:06.872Z"}
+{"level":"info","message":"GET /api/auth/profile 401 78ms","service":"auth-service","timestamp":"2025-05-31T07:17:25.390Z"}
+{"level":"info","message":"GET /api/auth/profile 401 16ms","service":"auth-service","timestamp":"2025-05-31T07:17:25.479Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 126ms","service":"auth-service","timestamp":"2025-05-31T07:17:25.641Z"}
+{"level":"info","message":"GET /api/auth/profile 200 38ms","service":"auth-service","timestamp":"2025-05-31T07:17:25.706Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-05-31T07:17:25.807Z"}
+{"level":"info","message":"POST /api/auth/login 200 398ms","service":"auth-service","timestamp":"2025-05-31T08:46:47.416Z"}
+{"level":"info","message":"POST /api/auth/login 401 13ms","service":"auth-service","timestamp":"2025-05-31T08:53:45.929Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 401 3ms","service":"auth-service","timestamp":"2025-05-31T08:53:45.976Z"}
+{"level":"info","message":"POST /api/auth/login 200 102ms","service":"auth-service","timestamp":"2025-05-31T08:54:13.033Z"}
+{"level":"info","message":"GET /api/auth/profile 200 88ms","service":"auth-service","timestamp":"2025-05-31T09:33:54.739Z"}
+{"level":"info","message":"GET /api/auth/profile 304 5ms","service":"auth-service","timestamp":"2025-05-31T09:33:54.767Z"}
+{"level":"info","message":"POST /api/auth/login 200 128ms","service":"auth-service","timestamp":"2025-05-31T09:42:05.370Z"}
+{"level":"info","message":"GET /api/auth/profile 200 12ms","service":"auth-service","timestamp":"2025-05-31T10:05:05.727Z"}
+{"level":"info","message":"GET /api/auth/profile 304 38ms","service":"auth-service","timestamp":"2025-05-31T10:05:05.852Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-05-31T10:05:29.135Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-05-31T10:05:29.217Z"}
+{"level":"info","message":"POST /api/auth/login 200 244ms","service":"auth-service","timestamp":"2025-05-31T10:59:10.508Z"}
+{"level":"info","message":"GET /api/auth/profile 200 19ms","service":"auth-service","timestamp":"2025-05-31T11:02:09.226Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-05-31T11:02:09.268Z"}
+{"level":"info","message":"POST /api/auth/login 200 100ms","service":"auth-service","timestamp":"2025-05-31T11:02:41.232Z"}
+{"level":"info","message":"GET /api/auth/profile 200 10ms","service":"auth-service","timestamp":"2025-05-31T11:07:04.992Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-05-31T11:07:05.063Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-05-31T11:07:05.137Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T11:07:05.168Z"}
+{"level":"info","message":"POST /api/auth/login 200 107ms","service":"auth-service","timestamp":"2025-05-31T11:07:31.877Z"}
+{"level":"info","message":"GET /api/auth/profile 200 9ms","service":"auth-service","timestamp":"2025-05-31T11:11:47.849Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T11:11:48.092Z"}
+{"level":"info","message":"POST /api/auth/login 200 101ms","service":"auth-service","timestamp":"2025-05-31T11:12:15.001Z"}
+{"level":"info","message":"GET /api/auth/profile 200 7ms","service":"auth-service","timestamp":"2025-05-31T11:15:17.454Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-05-31T11:15:17.565Z"}
+{"level":"info","message":"POST /api/auth/login 200 100ms","service":"auth-service","timestamp":"2025-05-31T11:15:49.759Z"}
+{"level":"info","message":"GET /api/auth/profile 200 10ms","service":"auth-service","timestamp":"2025-05-31T11:16:48.376Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-05-31T11:16:48.440Z"}
+{"level":"info","message":"POST /api/auth/login 200 95ms","service":"auth-service","timestamp":"2025-05-31T11:17:42.709Z"}
+{"level":"info","message":"POST /api/auth/login 200 102ms","service":"auth-service","timestamp":"2025-05-31T11:20:03.137Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-31T11:37:08.572Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-31T11:37:08.620Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T11:37:08.693Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T11:37:08.781Z"}
+{"level":"info","message":"GET /api/auth/profile 200 577ms","service":"auth-service","timestamp":"2025-05-31T11:56:57.667Z"}
+{"level":"info","message":"GET /api/auth/profile 304 15ms","service":"auth-service","timestamp":"2025-05-31T11:56:57.712Z"}
+{"level":"info","message":"POST /api/auth/login 200 270ms","service":"auth-service","timestamp":"2025-05-31T11:57:13.144Z"}
+{"level":"info","message":"GET /api/auth/profile 200 14ms","service":"auth-service","timestamp":"2025-05-31T12:06:38.704Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-05-31T12:06:38.767Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-05-31T12:06:38.816Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T12:06:38.920Z"}
+{"level":"info","message":"GET /api/auth/profile 304 6ms","service":"auth-service","timestamp":"2025-05-31T12:07:01.542Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T12:07:01.570Z"}
+{"level":"info","message":"POST /api/auth/login 200 100ms","service":"auth-service","timestamp":"2025-05-31T12:07:35.110Z"}
+{"level":"info","message":"GET /api/auth/profile 200 13ms","service":"auth-service","timestamp":"2025-05-31T12:15:08.564Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-05-31T12:15:08.666Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T12:21:42.036Z"}
+{"level":"info","message":"GET /api/auth/profile 304 16ms","service":"auth-service","timestamp":"2025-05-31T12:21:42.078Z"}
+{"level":"info","message":"POST /api/auth/login 200 126ms","service":"auth-service","timestamp":"2025-05-31T12:22:01.371Z"}
+{"level":"info","message":"GET /api/auth/profile 200 167ms","service":"auth-service","timestamp":"2025-05-31T13:02:47.127Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T13:02:47.152Z"}
+{"level":"info","message":"POST /api/auth/login 200 146ms","service":"auth-service","timestamp":"2025-05-31T13:03:05.461Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-31T13:39:13.400Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-31T13:39:13.495Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T13:39:13.517Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T13:39:13.593Z"}
+{"level":"info","message":"POST /api/auth/login 200 264ms","service":"auth-service","timestamp":"2025-05-31T13:42:04.411Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-31T14:53:15.646Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-31T14:53:15.651Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T14:53:15.652Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T14:53:15.700Z"}
+{"level":"info","message":"GET /api/auth/profile 401 107ms","service":"auth-service","timestamp":"2025-05-31T14:55:46.948Z"}
+{"level":"info","message":"GET /api/auth/profile 401 23ms","service":"auth-service","timestamp":"2025-05-31T14:55:47.063Z"}
+{"level":"info","message":"GET /api/auth/profile 401 38ms","service":"auth-service","timestamp":"2025-05-31T14:55:47.183Z"}
+{"level":"info","message":"GET /api/auth/profile 401 56ms","service":"auth-service","timestamp":"2025-05-31T14:55:47.428Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 401 492ms","service":"auth-service","timestamp":"2025-05-31T14:55:47.600Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 401 235ms","service":"auth-service","timestamp":"2025-05-31T14:55:47.604Z"}
+{"level":"info","message":"POST /api/auth/logout 401 2ms","service":"auth-service","timestamp":"2025-05-31T14:55:47.673Z"}
+{"level":"info","message":"POST /api/auth/logout 401 12ms","service":"auth-service","timestamp":"2025-05-31T14:55:47.724Z"}
+{"level":"info","message":"POST /api/auth/login 200 193ms","service":"auth-service","timestamp":"2025-05-31T14:56:09.416Z"}
+{"level":"info","message":"POST /api/auth/login 200 100ms","service":"auth-service","timestamp":"2025-05-31T15:03:04.245Z"}
+{"level":"info","message":"POST /api/auth/login 200 147ms","service":"auth-service","timestamp":"2025-05-31T15:08:26.043Z"}
+{"level":"info","message":"GET /api/auth/profile 200 95ms","service":"auth-service","timestamp":"2025-05-31T15:53:33.295Z"}
+{"level":"info","message":"GET /api/auth/profile 304 16ms","service":"auth-service","timestamp":"2025-05-31T15:53:33.343Z"}
+{"level":"info","message":"POST /api/auth/login 200 106ms","service":"auth-service","timestamp":"2025-05-31T15:53:50.200Z"}
+{"level":"info","message":"GET /api/auth/profile 200 10ms","service":"auth-service","timestamp":"2025-05-31T16:01:05.422Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T16:01:05.445Z"}
+{"level":"info","message":"POST /api/auth/login 401 6ms","service":"auth-service","timestamp":"2025-05-31T16:01:25.054Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 16ms","service":"auth-service","timestamp":"2025-05-31T16:01:25.087Z"}
+{"level":"info","message":"POST /api/auth/login 401 4ms","service":"auth-service","timestamp":"2025-05-31T16:01:25.107Z"}
+{"level":"info","message":"POST /api/auth/login 200 105ms","service":"auth-service","timestamp":"2025-05-31T16:01:38.655Z"}
+{"level":"info","message":"GET /api/auth/profile 200 14ms","service":"auth-service","timestamp":"2025-05-31T16:15:23.547Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-05-31T16:15:23.576Z"}
+{"level":"info","message":"POST /api/auth/login 200 108ms","service":"auth-service","timestamp":"2025-05-31T16:15:46.918Z"}
+{"level":"info","message":"GET /api/auth/profile 200 14ms","service":"auth-service","timestamp":"2025-05-31T16:41:37.762Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-05-31T16:41:37.929Z"}
+{"level":"info","message":"POST /api/auth/login 200 99ms","service":"auth-service","timestamp":"2025-05-31T16:41:52.870Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-31T16:58:33.609Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-31T16:58:33.668Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T16:58:33.706Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T16:58:33.820Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-31T16:59:40.468Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-31T16:59:40.482Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T16:59:40.483Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T16:59:40.534Z"}
+{"level":"info","message":"GET /api/auth/profile 200 88ms","service":"auth-service","timestamp":"2025-05-31T16:59:54.928Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T16:59:54.954Z"}
+{"level":"info","message":"POST /api/auth/login 200 163ms","service":"auth-service","timestamp":"2025-05-31T17:00:12.801Z"}
+{"level":"info","message":"GET /api/auth/profile 200 16ms","service":"auth-service","timestamp":"2025-05-31T17:11:45.863Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-05-31T17:11:45.891Z"}
+{"level":"info","message":"POST /api/auth/login 200 103ms","service":"auth-service","timestamp":"2025-05-31T17:12:01.688Z"}
+{"level":"info","message":"GET /api/auth/profile 200 13ms","service":"auth-service","timestamp":"2025-05-31T17:13:43.598Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T17:13:43.621Z"}
+{"level":"info","message":"POST /api/auth/login 200 106ms","service":"auth-service","timestamp":"2025-05-31T17:14:03.212Z"}
+{"level":"info","message":"GET /api/auth/profile 200 10ms","service":"auth-service","timestamp":"2025-05-31T17:24:14.129Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T17:24:14.154Z"}
+{"level":"info","message":"POST /api/auth/login 200 100ms","service":"auth-service","timestamp":"2025-05-31T17:24:31.846Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-31T17:57:51.698Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-31T17:57:51.706Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T17:57:51.707Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T17:57:51.745Z"}
+{"level":"info","message":"POST /api/auth/login 200 156ms","service":"auth-service","timestamp":"2025-05-31T17:57:56.754Z"}
+{"level":"info","message":"GET /api/auth/profile 200 39ms","service":"auth-service","timestamp":"2025-05-31T18:00:56.100Z"}
+{"level":"info","message":"GET /api/auth/profile 304 14ms","service":"auth-service","timestamp":"2025-05-31T18:00:56.146Z"}
+{"level":"info","message":"POST /api/auth/login 200 124ms","service":"auth-service","timestamp":"2025-05-31T18:01:12.081Z"}
+{"level":"info","message":"GET /api/auth/profile 200 13ms","service":"auth-service","timestamp":"2025-05-31T18:13:01.064Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-05-31T18:13:01.095Z"}
+{"level":"info","message":"POST /api/auth/login 200 105ms","service":"auth-service","timestamp":"2025-05-31T18:13:14.230Z"}
+{"level":"info","message":"GET /api/auth/profile 200 13ms","service":"auth-service","timestamp":"2025-05-31T18:18:15.729Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-05-31T18:18:16.089Z"}
+{"level":"info","message":"POST /api/auth/login 200 148ms","service":"auth-service","timestamp":"2025-05-31T18:19:33.094Z"}
+{"level":"info","message":"GET /api/auth/profile 200 12ms","service":"auth-service","timestamp":"2025-05-31T18:29:09.538Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-05-31T18:29:09.594Z"}
+{"level":"info","message":"POST /api/auth/login 200 149ms","service":"auth-service","timestamp":"2025-05-31T18:29:22.747Z"}
+{"level":"info","message":"GET /api/auth/profile 200 15ms","service":"auth-service","timestamp":"2025-05-31T18:36:09.723Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-05-31T18:36:09.826Z"}
+{"level":"info","message":"POST /api/auth/login 200 103ms","service":"auth-service","timestamp":"2025-05-31T18:36:27.585Z"}
+{"level":"info","message":"GET /api/auth/profile 200 9ms","service":"auth-service","timestamp":"2025-05-31T18:46:15.247Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T18:46:15.347Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T18:46:42.941Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-05-31T18:46:43.026Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T18:47:09.122Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-05-31T18:47:09.195Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T18:50:26.256Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T18:50:26.306Z"}
+{"level":"info","message":"POST /api/auth/login 200 103ms","service":"auth-service","timestamp":"2025-05-31T18:50:44.365Z"}
+{"level":"info","message":"GET /api/auth/profile 200 11ms","service":"auth-service","timestamp":"2025-05-31T18:55:45.800Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T18:55:45.830Z"}
+{"level":"info","message":"POST /api/auth/login 200 104ms","service":"auth-service","timestamp":"2025-05-31T18:56:03.646Z"}
+{"level":"info","message":"GET /api/auth/profile 200 15ms","service":"auth-service","timestamp":"2025-05-31T19:06:49.126Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T19:06:49.178Z"}
+{"level":"info","message":"POST /api/auth/login 200 96ms","service":"auth-service","timestamp":"2025-05-31T19:07:04.297Z"}
+{"level":"info","message":"GET /api/auth/profile 200 10ms","service":"auth-service","timestamp":"2025-05-31T19:20:30.555Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T19:20:30.845Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T19:22:50.744Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-05-31T19:22:50.813Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-05-31T19:22:58.625Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T19:22:58.726Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T19:23:43.436Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T19:23:43.528Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-05-31T19:23:49.958Z"}
+{"level":"info","message":"GET /api/auth/profile 304 6ms","service":"auth-service","timestamp":"2025-05-31T19:23:50.152Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T19:37:11.943Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-05-31T19:37:12.056Z"}
+{"level":"info","message":"POST /api/auth/login 200 114ms","service":"auth-service","timestamp":"2025-05-31T19:37:33.403Z"}
+{"level":"info","message":"GET /api/auth/profile 200 8ms","service":"auth-service","timestamp":"2025-05-31T19:56:14.820Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T19:56:14.843Z"}
+{"level":"info","message":"POST /api/auth/login 200 100ms","service":"auth-service","timestamp":"2025-05-31T19:56:33.282Z"}
+{"level":"info","message":"GET /api/auth/profile 200 29ms","service":"auth-service","timestamp":"2025-05-31T20:02:18.764Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-05-31T20:02:18.805Z"}
+{"level":"info","message":"POST /api/auth/login 200 122ms","service":"auth-service","timestamp":"2025-05-31T20:02:33.858Z"}
+{"level":"info","message":"GET /api/auth/profile 200 11ms","service":"auth-service","timestamp":"2025-05-31T20:06:49.387Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-05-31T20:06:49.646Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-05-31T20:09:46.948Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-05-31T20:09:46.960Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T20:09:46.962Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-05-31T20:09:47.033Z"}
+{"level":"info","message":"GET / 404 12ms","service":"auth-service","timestamp":"2025-05-31T20:13:40.814Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:13:41.828Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:42.854Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:43.868Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:13:44.878Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:45.889Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:46.901Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:47.909Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:13:48.920Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:13:49.933Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:50.963Z"}
+{"level":"info","message":"GET / 404 3ms","service":"auth-service","timestamp":"2025-05-31T20:13:51.989Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:53.008Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:54.030Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:55.051Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:13:56.077Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:14:51.521Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:14:52.539Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:14:53.568Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:14:54.575Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:14:55.591Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:14:56.610Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:14:57.626Z"}
+{"level":"info","message":"GET / 404 4ms","service":"auth-service","timestamp":"2025-05-31T20:14:58.663Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:14:59.685Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:00.713Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:01.741Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:02.772Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:03.796Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:04.824Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:05.855Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:15:06.879Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:07.906Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:08.937Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:09.957Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:10.979Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:12.023Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:13.151Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:14.183Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:15.230Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:16.290Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:17.347Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:18.392Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:19.436Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:20.581Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:21.670Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:22.836Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:23.899Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:15:25.208Z"}
+{"level":"info","message":"GET / 404 4ms","service":"auth-service","timestamp":"2025-05-31T20:15:26.412Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:27.559Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:28.648Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:29.971Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:31.201Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:32.521Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:33.998Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:35.981Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:37.587Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:15:39.813Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:41.431Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:43.753Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:45.742Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:47.471Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:49.518Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:15:55.305Z"}
+{"level":"info","message":"GET / 404 3ms","service":"auth-service","timestamp":"2025-05-31T20:15:59.418Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:16:05.076Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:16:09.722Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:16:13.340Z"}
+{"level":"info","message":"GET / 404 0ms","service":"auth-service","timestamp":"2025-05-31T20:16:16.305Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:16:20.658Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:16:23.105Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:16:26.247Z"}
+{"level":"info","message":"GET / 404 3ms","service":"auth-service","timestamp":"2025-05-31T20:16:31.124Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:16:34.854Z"}
+{"level":"info","message":"GET / 404 2ms","service":"auth-service","timestamp":"2025-05-31T20:16:38.266Z"}
+{"level":"info","message":"GET / 404 1ms","service":"auth-service","timestamp":"2025-05-31T20:16:43.330Z"}
+{"level":"info","message":"GET / 404 3ms","service":"auth-service","timestamp":"2025-05-31T20:16:46.454Z"}
+{"level":"info","message":"GET / 404 0ms","service":"auth-service","timestamp":"2025-05-31T20:16:51.704Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T04:02:33.974Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T04:02:33.986Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T04:02:33.990Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T04:02:34.056Z"}
+{"level":"info","message":"POST /api/auth/login 200 402ms","service":"auth-service","timestamp":"2025-06-01T04:05:06.274Z"}
+{"level":"info","message":"GET /api/auth/profile 200 57ms","service":"auth-service","timestamp":"2025-06-01T04:27:30.101Z"}
+{"level":"info","message":"GET /api/auth/profile 304 16ms","service":"auth-service","timestamp":"2025-06-01T04:27:30.200Z"}
+{"level":"info","message":"POST /api/auth/login 200 115ms","service":"auth-service","timestamp":"2025-06-01T04:27:48.002Z"}
+{"level":"info","message":"GET /api/auth/profile 401 336ms","service":"auth-service","timestamp":"2025-06-01T05:36:27.858Z"}
+{"level":"info","message":"GET /api/auth/profile 401 9ms","service":"auth-service","timestamp":"2025-06-01T05:36:27.898Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 59ms","service":"auth-service","timestamp":"2025-06-01T05:36:27.982Z"}
+{"level":"info","message":"GET /api/auth/profile 200 21ms","service":"auth-service","timestamp":"2025-06-01T05:36:28.039Z"}
+{"level":"info","message":"GET /api/auth/profile 304 26ms","service":"auth-service","timestamp":"2025-06-01T05:36:28.076Z"}
+{"level":"info","message":"POST /api/auth/login 200 111ms","service":"auth-service","timestamp":"2025-06-01T05:36:45.669Z"}
+{"level":"info","message":"GET /api/auth/profile 200 12ms","service":"auth-service","timestamp":"2025-06-01T05:39:52.741Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-01T05:39:52.777Z"}
+{"level":"info","message":"GET /api/auth/profile 304 289ms","service":"auth-service","timestamp":"2025-06-01T05:54:39.350Z"}
+{"level":"info","message":"GET /api/auth/profile 304 20ms","service":"auth-service","timestamp":"2025-06-01T05:54:39.419Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-06-01T05:54:40.488Z"}
+{"level":"info","message":"GET /api/auth/profile 304 14ms","service":"auth-service","timestamp":"2025-06-01T05:54:40.547Z"}
+{"level":"info","message":"POST /api/auth/login 200 124ms","service":"auth-service","timestamp":"2025-06-01T05:55:01.302Z"}
+{"level":"warn","message":"MongoDB disconnected, attempting to reconnect...","service":"auth-service","timestamp":"2025-06-01T06:45:51.326Z"}
+{"level":"info","message":"MongoDB reconnected","service":"auth-service","timestamp":"2025-06-01T06:45:54.832Z"}
+{"level":"info","message":"GET /api/auth/profile 200 237ms","service":"auth-service","timestamp":"2025-06-01T06:45:54.911Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-06-01T06:45:54.958Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-06-01T06:53:54.689Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-06-01T06:53:54.885Z"}
+{"level":"info","message":"GET /api/auth/profile 304 6ms","service":"auth-service","timestamp":"2025-06-01T06:54:07.032Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-01T06:54:07.134Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T08:30:23.115Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T08:30:23.121Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T08:30:23.121Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T08:30:23.248Z"}
+{"level":"info","message":"GET /api/auth/profile 401 677ms","service":"auth-service","timestamp":"2025-06-01T08:32:40.981Z"}
+{"level":"info","message":"GET /api/auth/profile 401 21ms","service":"auth-service","timestamp":"2025-06-01T08:32:41.205Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 618ms","service":"auth-service","timestamp":"2025-06-01T08:32:42.001Z"}
+{"level":"info","message":"GET /api/auth/profile 200 16ms","service":"auth-service","timestamp":"2025-06-01T08:32:42.036Z"}
+{"level":"info","message":"GET /api/auth/profile 304 5ms","service":"auth-service","timestamp":"2025-06-01T08:32:42.057Z"}
+{"level":"info","message":"POST /api/auth/login 200 176ms","service":"auth-service","timestamp":"2025-06-01T08:33:03.416Z"}
+{"level":"info","message":"GET /api/auth/profile 200 38ms","service":"auth-service","timestamp":"2025-06-01T09:00:40.501Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-06-01T09:00:40.530Z"}
+{"level":"info","message":"POST /api/auth/login 200 107ms","service":"auth-service","timestamp":"2025-06-01T09:00:58.892Z"}
+{"level":"info","message":"GET /api/auth/profile 200 11ms","service":"auth-service","timestamp":"2025-06-01T09:12:42.200Z"}
+{"level":"info","message":"GET /api/auth/profile 304 5ms","service":"auth-service","timestamp":"2025-06-01T09:12:42.224Z"}
+{"level":"info","message":"POST /api/auth/login 200 95ms","service":"auth-service","timestamp":"2025-06-01T09:13:00.588Z"}
+{"level":"info","message":"GET /api/auth/profile 200 13ms","service":"auth-service","timestamp":"2025-06-01T09:26:45.474Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-06-01T09:26:45.605Z"}
+{"level":"info","message":"POST /api/auth/login 200 106ms","service":"auth-service","timestamp":"2025-06-01T09:27:57.825Z"}
+{"level":"info","message":"GET /api/auth/profile 200 21ms","service":"auth-service","timestamp":"2025-06-01T09:39:16.892Z"}
+{"level":"info","message":"GET /api/auth/profile 304 21ms","service":"auth-service","timestamp":"2025-06-01T09:39:16.944Z"}
+{"level":"info","message":"POST /api/auth/login 200 100ms","service":"auth-service","timestamp":"2025-06-01T09:39:33.272Z"}
+{"level":"info","message":"GET /api/auth/profile 200 8ms","service":"auth-service","timestamp":"2025-06-01T09:47:04.850Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-01T09:47:04.896Z"}
+{"level":"info","message":"POST /api/auth/login 200 94ms","service":"auth-service","timestamp":"2025-06-01T09:47:22.376Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T11:01:49.323Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T11:01:49.347Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T11:01:49.348Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T11:01:49.391Z"}
+{"level":"info","message":"POST /api/auth/login 200 153ms","service":"auth-service","timestamp":"2025-06-01T11:03:00.677Z"}
+{"level":"info","message":"GET /api/auth/profile 200 228ms","service":"auth-service","timestamp":"2025-06-01T11:21:29.115Z"}
+{"level":"info","message":"GET /api/auth/profile 304 15ms","service":"auth-service","timestamp":"2025-06-01T11:21:29.219Z"}
+{"level":"info","message":"POST /api/auth/login 200 139ms","service":"auth-service","timestamp":"2025-06-01T11:24:14.540Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T11:48:13.102Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T11:48:13.112Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T11:48:13.113Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T11:48:13.151Z"}
+{"level":"info","message":"POST /api/auth/login 200 246ms","service":"auth-service","timestamp":"2025-06-01T11:48:31.048Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T12:02:15.813Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T12:02:15.829Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:02:15.830Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:02:15.879Z"}
+{"level":"info","message":"POST /api/auth/login 200 195ms","service":"auth-service","timestamp":"2025-06-01T12:03:05.260Z"}
+{"level":"info","message":"GET /api/auth/profile 200 18ms","service":"auth-service","timestamp":"2025-06-01T12:05:20.284Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-06-01T12:05:20.333Z"}
+{"level":"info","message":"POST /api/auth/login 200 100ms","service":"auth-service","timestamp":"2025-06-01T12:05:39.369Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T12:15:43.988Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T12:15:44.021Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:15:44.023Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:15:44.076Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T12:21:39.160Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T12:21:39.190Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:21:39.191Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:21:39.243Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T12:29:38.672Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T12:29:38.699Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:29:38.724Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:29:38.800Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T12:31:06.005Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T12:31:06.047Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:31:06.049Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:31:06.127Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T12:33:07.213Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T12:33:07.225Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:33:07.237Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T12:33:07.325Z"}
+{"level":"info","message":"POST /api/auth/login 200 184ms","service":"auth-service","timestamp":"2025-06-01T13:12:52.920Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 265ms","service":"auth-service","timestamp":"2025-06-01T14:14:53.690Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-01T14:53:02.561Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-01T14:53:02.568Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T14:53:02.568Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-01T14:53:02.596Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-02T04:31:05.707Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-02T04:31:05.718Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-02T04:31:05.719Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-02T04:31:05.762Z"}
+{"level":"info","message":"GET /api/auth/profile 401 195ms","service":"auth-service","timestamp":"2025-06-02T04:44:37.597Z"}
+{"level":"info","message":"GET /api/auth/profile 401 7ms","service":"auth-service","timestamp":"2025-06-02T04:44:38.082Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 401 6ms","service":"auth-service","timestamp":"2025-06-02T04:44:38.284Z"}
+{"level":"info","message":"POST /api/auth/logout 401 1ms","service":"auth-service","timestamp":"2025-06-02T04:44:38.365Z"}
+{"level":"info","message":"POST /api/auth/login 200 451ms","service":"auth-service","timestamp":"2025-06-02T04:45:41.436Z"}
+{"level":"info","message":"GET /api/auth/profile 200 22ms","service":"auth-service","timestamp":"2025-06-02T04:56:14.503Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-06-02T04:56:14.542Z"}
+{"level":"info","message":"POST /api/auth/login 200 152ms","service":"auth-service","timestamp":"2025-06-02T04:57:23.336Z"}
+{"level":"info","message":"GET /api/auth/profile 200 10ms","service":"auth-service","timestamp":"2025-06-02T05:00:31.588Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-02T05:00:31.627Z"}
+{"level":"info","message":"POST /api/auth/login 200 116ms","service":"auth-service","timestamp":"2025-06-02T05:00:50.061Z"}
+{"level":"info","message":"GET /api/auth/profile 200 17ms","service":"auth-service","timestamp":"2025-06-02T05:14:16.684Z"}
+{"level":"info","message":"GET /api/auth/profile 304 14ms","service":"auth-service","timestamp":"2025-06-02T05:14:16.716Z"}
+{"level":"info","message":"POST /api/auth/login 200 103ms","service":"auth-service","timestamp":"2025-06-02T05:14:36.336Z"}
+{"level":"info","message":"GET /api/auth/profile 200 39ms","service":"auth-service","timestamp":"2025-06-02T05:43:17.552Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-06-02T05:43:17.843Z"}
+{"level":"info","message":"GET /api/auth/profile 304 22ms","service":"auth-service","timestamp":"2025-06-02T05:44:08.042Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-06-02T05:44:08.821Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-06-02T05:44:11.339Z"}
+{"level":"info","message":"GET /api/auth/profile 304 14ms","service":"auth-service","timestamp":"2025-06-02T05:44:11.439Z"}
+{"level":"info","message":"POST /api/auth/login 200 143ms","service":"auth-service","timestamp":"2025-06-02T05:44:52.031Z"}
+{"level":"info","message":"GET /api/auth/profile 200 13ms","service":"auth-service","timestamp":"2025-06-02T05:46:22.350Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T05:46:22.470Z"}
+{"level":"info","message":"POST /api/auth/login 200 133ms","service":"auth-service","timestamp":"2025-06-02T05:46:51.191Z"}
+{"level":"info","message":"GET /api/auth/profile 200 26ms","service":"auth-service","timestamp":"2025-06-02T05:48:21.659Z"}
+{"level":"info","message":"GET /api/auth/profile 304 16ms","service":"auth-service","timestamp":"2025-06-02T05:48:21.943Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-06-02T05:49:42.249Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-06-02T05:49:42.276Z"}
+{"level":"info","message":"POST /api/auth/login 200 141ms","service":"auth-service","timestamp":"2025-06-02T05:49:57.189Z"}
+{"level":"info","message":"GET /api/auth/profile 200 50ms","service":"auth-service","timestamp":"2025-06-02T06:39:45.982Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:39:46.039Z"}
+{"level":"info","message":"POST /api/auth/login 200 101ms","service":"auth-service","timestamp":"2025-06-02T06:40:04.177Z"}
+{"level":"info","message":"GET /api/auth/profile 200 10ms","service":"auth-service","timestamp":"2025-06-02T06:45:42.154Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-02T06:45:42.305Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T06:45:42.361Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:45:42.419Z"}
+{"level":"info","message":"GET /api/auth/profile 304 14ms","service":"auth-service","timestamp":"2025-06-02T06:47:09.594Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-06-02T06:47:10.061Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-02T06:47:49.779Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-06-02T06:47:49.877Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:47:49.945Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-02T06:47:50.057Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-06-02T06:47:50.189Z"}
+{"level":"info","message":"GET /api/auth/profile 304 6ms","service":"auth-service","timestamp":"2025-06-02T06:47:50.247Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T06:47:50.338Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:47:50.402Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-06-02T06:48:04.965Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:48:05.021Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:48:05.257Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-06-02T06:48:05.419Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:48:05.557Z"}
+{"level":"info","message":"GET /api/auth/profile 304 6ms","service":"auth-service","timestamp":"2025-06-02T06:48:05.643Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-06-02T06:48:17.951Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-06-02T06:48:18.051Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T06:48:18.103Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-06-02T06:48:18.185Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-06-02T06:48:18.217Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:48:18.324Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T06:48:18.389Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T06:48:18.481Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:48:18.523Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-02T06:48:18.551Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-02T06:54:34.445Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-02T06:54:34.453Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-02T06:54:34.454Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-02T06:54:34.492Z"}
+{"level":"info","message":"GET /api/auth/profile 304 70ms","service":"auth-service","timestamp":"2025-06-02T06:55:14.927Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-06-02T06:55:14.960Z"}
+{"level":"info","message":"GET /api/auth/profile 304 12ms","service":"auth-service","timestamp":"2025-06-02T06:55:17.659Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T06:55:17.868Z"}
+{"level":"info","message":"POST /api/auth/login 200 170ms","service":"auth-service","timestamp":"2025-06-02T06:55:44.927Z"}
+{"level":"info","message":"GET /api/auth/profile 200 13ms","service":"auth-service","timestamp":"2025-06-02T06:56:37.066Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-06-02T06:56:37.093Z"}
+{"level":"info","message":"POST /api/auth/login 200 123ms","service":"auth-service","timestamp":"2025-06-02T06:57:05.684Z"}
+{"level":"info","message":"GET /api/auth/profile 200 13ms","service":"auth-service","timestamp":"2025-06-02T06:59:27.869Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-06-02T06:59:28.073Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-06-02T06:59:30.318Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-02T06:59:30.371Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-06-02T07:01:36.895Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-02T07:01:36.966Z"}
+{"level":"info","message":"POST /api/auth/login 200 98ms","service":"auth-service","timestamp":"2025-06-02T07:01:50.762Z"}
+{"level":"info","message":"GET /api/auth/profile 200 8ms","service":"auth-service","timestamp":"2025-06-02T07:02:45.568Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T07:02:45.754Z"}
+{"level":"info","message":"POST /api/auth/login 200 105ms","service":"auth-service","timestamp":"2025-06-02T07:02:59.617Z"}
+{"level":"info","message":"POST /api/auth/login 200 97ms","service":"auth-service","timestamp":"2025-06-02T08:05:23.890Z"}
+{"level":"info","message":"GET /api/auth/profile 200 74ms","service":"auth-service","timestamp":"2025-06-02T08:54:35.287Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-06-02T08:54:35.366Z"}
+{"level":"info","message":"POST /api/auth/login 200 154ms","service":"auth-service","timestamp":"2025-06-02T09:10:30.879Z"}
+{"level":"info","message":"GET /api/auth/profile 200 45ms","service":"auth-service","timestamp":"2025-06-02T09:49:03.147Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-06-02T09:49:03.382Z"}
+{"level":"info","message":"POST /api/auth/login 200 123ms","service":"auth-service","timestamp":"2025-06-02T09:49:17.645Z"}
+{"level":"info","message":"GET /api/auth/profile 200 10ms","service":"auth-service","timestamp":"2025-06-02T09:51:28.259Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-06-02T09:51:28.420Z"}
+{"level":"info","message":"GET /api/auth/profile 304 11ms","service":"auth-service","timestamp":"2025-06-02T09:53:07.350Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T09:53:07.588Z"}
+{"level":"info","message":"POST /api/auth/login 200 120ms","service":"auth-service","timestamp":"2025-06-02T09:53:28.235Z"}
+{"level":"info","message":"GET /api/auth/profile 200 15ms","service":"auth-service","timestamp":"2025-06-02T10:22:33.333Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T10:22:33.386Z"}
+{"level":"info","message":"POST /api/auth/login 200 112ms","service":"auth-service","timestamp":"2025-06-02T10:22:57.563Z"}
+{"level":"info","message":"GET /api/auth/profile 401 351ms","service":"auth-service","timestamp":"2025-06-02T12:25:51.590Z"}
+{"level":"info","message":"GET /api/auth/profile 401 8ms","service":"auth-service","timestamp":"2025-06-02T12:25:51.664Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 123ms","service":"auth-service","timestamp":"2025-06-02T12:25:51.817Z"}
+{"level":"info","message":"GET /api/auth/profile 200 12ms","service":"auth-service","timestamp":"2025-06-02T12:25:51.845Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-02T12:25:51.866Z"}
+{"level":"info","message":"POST /api/auth/login 200 240ms","service":"auth-service","timestamp":"2025-06-02T12:26:04.578Z"}
+{"level":"info","message":"GET /api/auth/profile 401 186ms","service":"auth-service","timestamp":"2025-06-02T16:09:29.950Z"}
+{"level":"info","message":"GET /api/auth/profile 401 56ms","service":"auth-service","timestamp":"2025-06-02T16:09:30.196Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 154ms","service":"auth-service","timestamp":"2025-06-02T16:09:30.374Z"}
+{"level":"info","message":"GET /api/auth/profile 200 14ms","service":"auth-service","timestamp":"2025-06-02T16:09:30.634Z"}
+{"level":"info","message":"GET /api/auth/profile 304 21ms","service":"auth-service","timestamp":"2025-06-02T16:09:31.007Z"}
+{"level":"info","message":"GET /api/auth/profile 304 143ms","service":"auth-service","timestamp":"2025-06-02T16:17:24.759Z"}
+{"level":"info","message":"GET /api/auth/profile 304 6ms","service":"auth-service","timestamp":"2025-06-02T16:17:24.781Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T04:22:48.683Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T04:22:48.756Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T04:22:48.802Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T04:22:48.987Z"}
+{"level":"info","message":"GET /api/auth/profile 401 541ms","service":"auth-service","timestamp":"2025-06-03T04:26:36.315Z"}
+{"level":"info","message":"GET /api/auth/profile 401 79ms","service":"auth-service","timestamp":"2025-06-03T04:26:37.775Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 401 2ms","service":"auth-service","timestamp":"2025-06-03T04:26:38.664Z"}
+{"level":"info","message":"POST /api/auth/logout 401 1ms","service":"auth-service","timestamp":"2025-06-03T04:26:38.758Z"}
+{"level":"info","message":"POST /api/auth/login 200 989ms","service":"auth-service","timestamp":"2025-06-03T04:26:58.555Z"}
+{"level":"info","message":"GET /api/auth/profile 401 52ms","service":"auth-service","timestamp":"2025-06-03T05:49:37.129Z"}
+{"level":"info","message":"GET /api/auth/profile 401 12ms","service":"auth-service","timestamp":"2025-06-03T05:49:37.179Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 94ms","service":"auth-service","timestamp":"2025-06-03T05:49:37.297Z"}
+{"level":"info","message":"GET /api/auth/profile 200 27ms","service":"auth-service","timestamp":"2025-06-03T05:49:37.346Z"}
+{"level":"info","message":"GET /api/auth/profile 304 26ms","service":"auth-service","timestamp":"2025-06-03T05:49:37.436Z"}
+{"level":"info","message":"POST /api/auth/login 200 124ms","service":"auth-service","timestamp":"2025-06-03T05:49:57.697Z"}
+{"level":"info","message":"GET /api/auth/profile 200 12ms","service":"auth-service","timestamp":"2025-06-03T05:56:27.631Z"}
+{"level":"info","message":"GET /api/auth/profile 304 14ms","service":"auth-service","timestamp":"2025-06-03T05:56:27.674Z"}
+{"level":"info","message":"POST /api/auth/login 200 105ms","service":"auth-service","timestamp":"2025-06-03T05:56:49.698Z"}
+{"level":"info","message":"POST /api/auth/login 200 158ms","service":"auth-service","timestamp":"2025-06-03T05:59:11.583Z"}
+{"level":"info","message":"GET /api/auth/profile 200 98ms","service":"auth-service","timestamp":"2025-06-03T06:21:38.133Z"}
+{"level":"info","message":"GET /api/auth/profile 304 29ms","service":"auth-service","timestamp":"2025-06-03T06:21:38.201Z"}
+{"level":"info","message":"POST /api/auth/login 200 138ms","service":"auth-service","timestamp":"2025-06-03T06:21:58.940Z"}
+{"level":"info","message":"GET /api/auth/profile 200 15ms","service":"auth-service","timestamp":"2025-06-03T06:32:20.974Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-03T06:32:21.000Z"}
+{"level":"info","message":"POST /api/auth/login 200 91ms","service":"auth-service","timestamp":"2025-06-03T06:32:48.239Z"}
+{"level":"info","message":"GET /api/auth/profile 200 8ms","service":"auth-service","timestamp":"2025-06-03T06:39:26.024Z"}
+{"level":"info","message":"GET /api/auth/profile 304 10ms","service":"auth-service","timestamp":"2025-06-03T06:39:26.153Z"}
+{"level":"info","message":"POST /api/auth/login 200 90ms","service":"auth-service","timestamp":"2025-06-03T06:39:48.563Z"}
+{"level":"info","message":"GET /api/auth/profile 200 8ms","service":"auth-service","timestamp":"2025-06-03T06:51:54.984Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-03T06:51:55.008Z"}
+{"level":"info","message":"POST /api/auth/login 200 91ms","service":"auth-service","timestamp":"2025-06-03T06:52:14.772Z"}
+{"level":"info","message":"GET /api/auth/profile 200 79ms","service":"auth-service","timestamp":"2025-06-03T07:20:47.497Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-03T07:20:47.527Z"}
+{"level":"info","message":"POST /api/auth/login 200 110ms","service":"auth-service","timestamp":"2025-06-03T07:21:02.972Z"}
+{"level":"info","message":"POST /api/auth/login 200 203ms","service":"auth-service","timestamp":"2025-06-03T08:48:45.871Z"}
+{"level":"info","message":"POST /api/auth/login 200 199ms","service":"auth-service","timestamp":"2025-06-03T09:49:27.457Z"}
+{"level":"info","message":"GET /api/auth/profile 200 586ms","service":"auth-service","timestamp":"2025-06-03T10:34:18.843Z"}
+{"level":"info","message":"GET /api/auth/profile 304 87ms","service":"auth-service","timestamp":"2025-06-03T10:34:19.036Z"}
+{"level":"info","message":"POST /api/auth/login 200 386ms","service":"auth-service","timestamp":"2025-06-03T10:34:51.366Z"}
+{"level":"info","message":"GET /api/auth/profile 200 9ms","service":"auth-service","timestamp":"2025-06-03T10:50:31.260Z"}
+{"level":"info","message":"GET /api/auth/profile 304 15ms","service":"auth-service","timestamp":"2025-06-03T10:50:31.313Z"}
+{"level":"info","message":"POST /api/auth/login 200 98ms","service":"auth-service","timestamp":"2025-06-03T10:50:46.429Z"}
+{"level":"info","message":"GET /api/auth/profile 200 74ms","service":"auth-service","timestamp":"2025-06-03T11:08:24.630Z"}
+{"level":"info","message":"GET /api/auth/profile 304 15ms","service":"auth-service","timestamp":"2025-06-03T11:08:24.681Z"}
+{"error":"data and hash arguments required","level":"error","message":"Error processing request","method":"POST","path":"/api/auth/login","service":"auth-service","stack":"Error: data and hash arguments required\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:208:17)\n    at C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:29:12\n    at new Promise (<anonymous>)\n    at Object.module.exports.promise (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:20:12)\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:204:25)\n    at model.userSchema.methods.comparePassword (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\models\\User.ts:245:25)\n    at Object.login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\services\\auth.service.ts:126:32)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\controllers\\auth.controller.ts:152:22)","timestamp":"2025-06-03T11:08:43.135Z"}
+{"error":"data and hash arguments required","level":"error","message":"Unhandled error:","path":"/api/auth/login","service":"auth-service","stack":"Error: data and hash arguments required\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:208:17)\n    at C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:29:12\n    at new Promise (<anonymous>)\n    at Object.module.exports.promise (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:20:12)\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:204:25)\n    at model.userSchema.methods.comparePassword (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\models\\User.ts:245:25)\n    at Object.login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\services\\auth.service.ts:126:32)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\controllers\\auth.controller.ts:152:22)","timestamp":"2025-06-03T11:08:43.144Z"}
+{"level":"info","message":"POST /api/auth/login 500 141ms","service":"auth-service","timestamp":"2025-06-03T11:08:43.150Z"}
+{"error":"data and hash arguments required","level":"error","message":"Error processing request","method":"POST","path":"/api/auth/login","service":"auth-service","stack":"Error: data and hash arguments required\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:208:17)\n    at C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:29:12\n    at new Promise (<anonymous>)\n    at Object.module.exports.promise (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:20:12)\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:204:25)\n    at model.userSchema.methods.comparePassword (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\models\\User.ts:245:25)\n    at Object.login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\services\\auth.service.ts:126:32)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\controllers\\auth.controller.ts:152:22)","timestamp":"2025-06-03T11:09:00.204Z"}
+{"error":"data and hash arguments required","level":"error","message":"Unhandled error:","path":"/api/auth/login","service":"auth-service","stack":"Error: data and hash arguments required\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:208:17)\n    at C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:29:12\n    at new Promise (<anonymous>)\n    at Object.module.exports.promise (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:20:12)\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:204:25)\n    at model.userSchema.methods.comparePassword (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\models\\User.ts:245:25)\n    at Object.login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\services\\auth.service.ts:126:32)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\controllers\\auth.controller.ts:152:22)","timestamp":"2025-06-03T11:09:00.207Z"}
+{"level":"info","message":"POST /api/auth/login 500 37ms","service":"auth-service","timestamp":"2025-06-03T11:09:00.233Z"}
+{"level":"info","message":"POST /api/auth/login 401 126ms","service":"auth-service","timestamp":"2025-06-03T11:10:23.273Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 28ms","service":"auth-service","timestamp":"2025-06-03T11:10:23.317Z"}
+{"level":"info","message":"POST /api/auth/login 401 122ms","service":"auth-service","timestamp":"2025-06-03T11:10:23.456Z"}
+{"level":"info","message":"POST /api/auth/login 401 112ms","service":"auth-service","timestamp":"2025-06-03T11:10:30.897Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 401 2ms","service":"auth-service","timestamp":"2025-06-03T11:10:30.919Z"}
+{"level":"info","message":"POST /api/auth/login 200 132ms","service":"auth-service","timestamp":"2025-06-03T11:12:34.996Z"}
+{"error":"data and hash arguments required","level":"error","message":"Error processing request","method":"POST","path":"/api/auth/login","service":"auth-service","stack":"Error: data and hash arguments required\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:208:17)\n    at C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:29:12\n    at new Promise (<anonymous>)\n    at Object.module.exports.promise (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:20:12)\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:204:25)\n    at model.userSchema.methods.comparePassword (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\models\\User.ts:245:25)\n    at Object.login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\services\\auth.service.ts:126:32)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\controllers\\auth.controller.ts:152:22)","timestamp":"2025-06-03T11:16:15.411Z"}
+{"error":"data and hash arguments required","level":"error","message":"Unhandled error:","path":"/api/auth/login","service":"auth-service","stack":"Error: data and hash arguments required\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:208:17)\n    at C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:29:12\n    at new Promise (<anonymous>)\n    at Object.module.exports.promise (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\promises.js:20:12)\n    at Object.compare (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\node_modules\\bcrypt\\bcrypt.js:204:25)\n    at model.userSchema.methods.comparePassword (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\models\\User.ts:245:25)\n    at Object.login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\services\\auth.service.ts:126:32)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async login (C:\\Users\\lenovo\\Desktop\\sap_server\\Sap_Backend\\backend\\services\\auth-service\\src\\controllers\\auth.controller.ts:152:22)","timestamp":"2025-06-03T11:16:15.421Z"}
+{"level":"info","message":"POST /api/auth/login 500 29ms","service":"auth-service","timestamp":"2025-06-03T11:16:15.431Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T12:19:36.083Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T12:19:36.102Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:19:36.130Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:19:36.212Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T12:23:27.005Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T12:23:27.016Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:23:27.017Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:23:27.085Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T12:27:11.835Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T12:27:11.868Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:27:11.872Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:27:11.916Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T12:28:01.614Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T12:28:01.641Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:28:01.643Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:28:01.680Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T12:30:09.988Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T12:30:10.022Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:30:10.027Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:30:10.072Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T12:31:34.673Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T12:31:34.687Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:31:34.689Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:31:34.738Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T12:37:43.659Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T12:37:43.689Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:37:43.702Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:37:43.818Z"}
+{"level":"info","message":"GET /api/auth/profile 401 196ms","service":"auth-service","timestamp":"2025-06-03T12:38:31.272Z"}
+{"level":"info","message":"GET /api/auth/profile 401 9ms","service":"auth-service","timestamp":"2025-06-03T12:38:31.308Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 156ms","service":"auth-service","timestamp":"2025-06-03T12:38:31.998Z"}
+{"level":"info","message":"GET /api/auth/profile 200 14ms","service":"auth-service","timestamp":"2025-06-03T12:38:32.031Z"}
+{"level":"info","message":"GET /api/auth/profile 304 7ms","service":"auth-service","timestamp":"2025-06-03T12:38:32.060Z"}
+{"level":"info","message":"POST /api/auth/login 200 197ms","service":"auth-service","timestamp":"2025-06-03T12:38:51.999Z"}
+{"level":"info","message":"POST /api/auth/login 200 157ms","service":"auth-service","timestamp":"2025-06-03T12:41:46.908Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T12:49:33.830Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T12:49:33.882Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:49:33.910Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:49:34.027Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T12:59:52.012Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T12:59:52.025Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:59:52.027Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T12:59:52.088Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-03T13:01:54.144Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-03T13:01:54.162Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T13:01:54.166Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-03T13:01:54.218Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-04T05:25:46.616Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-04T05:25:46.631Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-04T05:25:46.635Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-04T05:25:46.721Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-04T05:40:14.863Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-04T05:40:14.871Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-04T05:40:14.872Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-04T05:40:14.903Z"}
+{"level":"info","message":"POST /api/auth/login 200 335ms","service":"auth-service","timestamp":"2025-06-04T05:41:50.961Z"}
+{"level":"info","message":"POST /api/auth/login 200 123ms","service":"auth-service","timestamp":"2025-06-04T05:43:14.499Z"}
+{"level":"info","message":"GET /api/auth/profile 200 200ms","service":"auth-service","timestamp":"2025-06-04T06:27:30.682Z"}
+{"level":"info","message":"GET /api/auth/profile 304 13ms","service":"auth-service","timestamp":"2025-06-04T06:27:30.732Z"}
+{"level":"info","message":"POST /api/auth/login 200 108ms","service":"auth-service","timestamp":"2025-06-04T06:27:46.386Z"}
+{"level":"info","message":"GET /api/auth/profile 200 97ms","service":"auth-service","timestamp":"2025-06-04T06:53:32.270Z"}
+{"level":"info","message":"GET /api/auth/profile 304 22ms","service":"auth-service","timestamp":"2025-06-04T06:53:32.365Z"}
+{"level":"info","message":"POST /api/auth/login 200 133ms","service":"auth-service","timestamp":"2025-06-04T06:53:50.679Z"}
+{"level":"info","message":"GET /api/auth/profile 200 14ms","service":"auth-service","timestamp":"2025-06-04T07:07:48.356Z"}
+{"level":"info","message":"GET /api/auth/profile 304 9ms","service":"auth-service","timestamp":"2025-06-04T07:07:48.384Z"}
+{"level":"info","message":"POST /api/auth/login 200 131ms","service":"auth-service","timestamp":"2025-06-04T07:08:08.394Z"}
+{"level":"info","message":"GET /api/auth/profile 401 217ms","service":"auth-service","timestamp":"2025-06-04T08:47:43.353Z"}
+{"level":"info","message":"GET /api/auth/profile 401 10ms","service":"auth-service","timestamp":"2025-06-04T08:47:43.385Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 156ms","service":"auth-service","timestamp":"2025-06-04T08:47:43.592Z"}
+{"level":"info","message":"GET /api/auth/profile 200 12ms","service":"auth-service","timestamp":"2025-06-04T08:47:43.627Z"}
+{"level":"info","message":"GET /api/auth/profile 304 75ms","service":"auth-service","timestamp":"2025-06-04T08:47:43.721Z"}
+{"level":"info","message":"POST /api/auth/login 200 282ms","service":"auth-service","timestamp":"2025-06-04T08:48:25.536Z"}
+{"level":"info","message":"GET /api/auth/profile 200 14ms","service":"auth-service","timestamp":"2025-06-04T09:06:00.557Z"}
+{"level":"info","message":"GET /api/auth/profile 304 8ms","service":"auth-service","timestamp":"2025-06-04T09:06:00.581Z"}
+{"level":"info","message":"POST /api/auth/login 200 96ms","service":"auth-service","timestamp":"2025-06-04T09:06:18.203Z"}
+{"level":"info","message":"POST /api/auth/login 200 267ms","service":"auth-service","timestamp":"2025-06-04T10:22:16.207Z"}
+{"level":"info","message":"POST /api/auth/login 200 251ms","service":"auth-service","timestamp":"2025-06-04T10:48:56.514Z"}
+{"level":"info","message":"POST /api/auth/login 200 219ms","service":"auth-service","timestamp":"2025-06-04T11:13:21.539Z"}
+{"level":"info","message":"GET /api/auth/profile 401 83ms","service":"auth-service","timestamp":"2025-06-04T11:15:31.065Z"}
+{"level":"info","message":"GET /api/auth/profile 401 18ms","service":"auth-service","timestamp":"2025-06-04T11:15:31.109Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 401 17ms","service":"auth-service","timestamp":"2025-06-04T11:15:31.170Z"}
+{"level":"info","message":"POST /api/auth/logout 401 3ms","service":"auth-service","timestamp":"2025-06-04T11:15:31.231Z"}
+{"level":"info","message":"POST /api/auth/login 200 178ms","service":"auth-service","timestamp":"2025-06-04T11:15:48.650Z"}
+{"level":"info","message":"POST /api/auth/login 200 117ms","service":"auth-service","timestamp":"2025-06-04T11:32:38.096Z"}
+{"level":"info","message":"GET /api/auth/profile 200 55ms","service":"auth-service","timestamp":"2025-06-04T12:05:52.806Z"}
+{"level":"info","message":"GET /api/auth/profile 304 22ms","service":"auth-service","timestamp":"2025-06-04T12:05:52.857Z"}
+{"level":"info","message":"POST /api/auth/login 200 105ms","service":"auth-service","timestamp":"2025-06-04T12:06:08.051Z"}
+{"level":"info","message":"POST /api/auth/login 200 224ms","service":"auth-service","timestamp":"2025-06-04T12:21:40.280Z"}
+{"level":"info","message":"GET /api/auth/profile 200 169ms","service":"auth-service","timestamp":"2025-06-04T12:39:09.254Z"}
+{"level":"info","message":"GET /api/auth/profile 304 29ms","service":"auth-service","timestamp":"2025-06-04T12:39:09.312Z"}
+{"level":"info","message":"POST /api/auth/login 200 186ms","service":"auth-service","timestamp":"2025-06-04T12:39:22.589Z"}
+{"level":"info","message":"GET /api/auth/profile 200 54ms","service":"auth-service","timestamp":"2025-06-04T13:02:17.171Z"}
+{"level":"info","message":"GET /api/auth/profile 304 14ms","service":"auth-service","timestamp":"2025-06-04T13:02:17.261Z"}
+{"level":"info","message":"POST /api/auth/login 200 104ms","service":"auth-service","timestamp":"2025-06-04T13:02:39.965Z"}
+{"level":"info","message":"POST /api/auth/login 200 277ms","service":"auth-service","timestamp":"2025-06-04T13:49:31.053Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T04:39:50.500Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T04:39:50.507Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T04:39:50.509Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T04:39:50.549Z"}
+{"level":"info","message":"POST /api/auth/login 200 901ms","service":"auth-service","timestamp":"2025-06-05T08:40:00.773Z"}
+{"level":"info","message":"POST /api/auth/login 200 202ms","service":"auth-service","timestamp":"2025-06-05T08:43:30.873Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 37ms","service":"auth-service","timestamp":"2025-06-05T08:43:37.271Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 29ms","service":"auth-service","timestamp":"2025-06-05T08:43:37.356Z"}
+{"level":"info","message":"POST /api/auth/login 200 148ms","service":"auth-service","timestamp":"2025-06-05T08:48:00.951Z"}
+{"level":"info","message":"POST /api/auth/login 200 106ms","service":"auth-service","timestamp":"2025-06-05T09:05:45.000Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:45:28.791Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:45:28.806Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:45:28.807Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:45:28.987Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:48:26.828Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:48:26.895Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:48:26.900Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:48:27.018Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T09:50:07.317Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T09:50:07.480Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:50:07.535Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T09:50:07.760Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 187ms","service":"auth-service","timestamp":"2025-06-05T09:51:03.720Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 158ms","service":"auth-service","timestamp":"2025-06-05T09:51:03.736Z"}
+{"level":"info","message":"POST /api/auth/login 200 193ms","service":"auth-service","timestamp":"2025-06-05T09:54:16.493Z"}
+{"level":"info","message":"POST /api/auth/password-reset/request 200 113ms","service":"auth-service","timestamp":"2025-06-05T10:26:40.207Z"}
+{"level":"info","message":"Starting Auth Service on fixed port 3001","service":"auth-service","timestamp":"2025-06-05T11:23:00.847Z"}
+{"level":"info","message":"Auth Service running on port 3001","service":"auth-service","timestamp":"2025-06-05T11:23:00.856Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T11:23:00.857Z"}
+{"level":"info","message":"MongoDB Connected to mongodb://localhost:27017/sap-db","service":"auth-service","timestamp":"2025-06-05T11:23:00.908Z"}
+{"level":"info","message":"POST /api/auth/login 200 321ms","service":"auth-service","timestamp":"2025-06-05T11:58:45.718Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 16ms","service":"auth-service","timestamp":"2025-06-05T11:58:50.484Z"}
+{"level":"info","message":"POST /api/auth/refresh-token 200 12ms","service":"auth-service","timestamp":"2025-06-05T11:58:50.506Z"}
+{"level":"info","message":"POST /api/auth/login 401 67ms","service":"auth-service","timestamp":"2025-06-05T14:35:41.371Z"}
+{"level":"info","message":"Received shutdown signal, closing server...","service":"auth-service","timestamp":"2025-06-05T14:40:22.496Z"}

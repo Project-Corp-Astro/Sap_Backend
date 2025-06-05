@@ -165,7 +165,32 @@ app.use('/api/content', createProxyMiddleware({
   target: SERVICES.CONTENT_SERVICE,
   changeOrigin: true,
   pathRewrite: {
-    '^/api/content': '/',
+    '^/api/content': '/api/content',  // Keep the prefix intact
+  },
+  // Add timeout settings (in milliseconds)
+  proxyTimeout: 60000,    // 60 seconds for proxy response
+  timeout: 60000,         // 60 seconds for connection timeout
+  // Connection handling
+  secure: false,          // Don't verify SSL certificates
+  xfwd: true,             // Add x-forwarded headers
+  ws: true,               // Enable WebSocket proxying
+  followRedirects: true,  // Follow any redirects
+  // Error handling
+  logLevel: 'debug',      // Increase logging for troubleshooting
+  // Add important body parsing options
+  onProxyReq: (proxyReq, req, res) => {
+    // Add additional request handling if needed
+    if (req.body && Object.keys(req.body).length > 0) {
+      // If content-type is application/json, stringify the body
+      const contentType = proxyReq.getHeader('Content-Type');
+      if (contentType && contentType.toString().includes('application/json')) {
+        const bodyData = JSON.stringify(req.body);
+        // Update content-length
+        proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+        // Write body data to the proxy request
+        proxyReq.write(bodyData);
+      }
+    }
   },
   logProvider: () => logger,
   onError: (err: Error, req: Request, res: Response) => {

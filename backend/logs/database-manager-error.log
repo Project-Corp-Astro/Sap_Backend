@@ -271,3 +271,4 @@
 {"error":"password authentication failed for user \"postgres\"","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.447Z"}
 {"error":"read ECONNRESET","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.463Z"}
 {"error":"read ECONNRESET","level":"error","message":"Error initializing TypeORM","service":"database-manager","timestamp":"2025-05-30T07:21:12.463Z"}
+{"error":"Connection is closed.","level":"error","message":"Error closing Redis connection","service":"database-manager","timestamp":"2025-06-05T14:40:18.550Z"}

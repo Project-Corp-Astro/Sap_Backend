@@ -11,6 +11,7 @@ var ContentStatus;
     ContentStatus["PUBLISHED"] = "published";
     ContentStatus["ARCHIVED"] = "archived";
     ContentStatus["REJECTED"] = "rejected";
+    ContentStatus["REVISION"] = "revision";
 })(ContentStatus = exports.ContentStatus || (exports.ContentStatus = {}));
 var ContentType;
 (function (ContentType) {

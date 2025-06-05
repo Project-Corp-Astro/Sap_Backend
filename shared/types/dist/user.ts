@@ -7,6 +7,7 @@ export interface User {
     firstName: string;
     lastName: string;
     role: UserRole;
+    password:string,
     permissions: Permission[];
     department?: string;
     position?: string;

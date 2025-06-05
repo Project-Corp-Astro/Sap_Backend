@@ -24,7 +24,8 @@ export declare enum ContentStatus {
     REVIEW = "review",
     PUBLISHED = "published",
     ARCHIVED = "archived",
-    REJECTED = "rejected"
+    REJECTED = "rejected",
+    REVISION = "revision"
 }
 export declare enum ContentType {
     ARTICLE = "article",

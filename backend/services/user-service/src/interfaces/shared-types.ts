@@ -171,6 +171,14 @@ export interface ActivityPaginationResult {
   activitiesPerPage: number;
 }
 
+export enum AppAccess {
+  CORP_ASTRO = 'corpAstro',
+  GRAHVANI = 'grahvani',
+  TELL_MY_STARS = 'tellmystars',
+  HUMAN_ASTROLOGY = 'human astrology'
+}
+
+
 /**
  * JWT payload interface
  */
@@ -182,6 +190,7 @@ export interface JwtPayload {
   isSpecialist?: boolean;
   businessIds?: string[];
   subscriptionTier?: string;
+  appAccess?: AppAccess[]; // ← Added here
   iat?: number;
   exp?: number;
 }
