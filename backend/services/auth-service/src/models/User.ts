@@ -1,6 +1,6 @@
 import mongoose, { Schema, Model } from 'mongoose';
 import bcrypt from 'bcrypt';
-import { encryptionPlugin } from '../../../../shared/utils/encryption';
+import { encryptionPlugin, decrypt } from '../../../../shared/utils/encryption';
 import { 
   UserDocument, 
   IUser, 
@@ -240,9 +240,21 @@ userSchema.pre('save', async function(next) {
 // Method to compare passwords
 userSchema.methods.comparePassword = async function(candidatePassword: string): Promise<boolean> {
   try {
-    // Use type assertion to access the password property
-    const userDoc = this as unknown as UserDocument;
-    return await bcrypt.compare(candidatePassword, userDoc.password);
+    // Get the password value (which may be encrypted)
+    const storedPassword = this.password;
+    
+    // If the password is encrypted, decrypt it first
+    if (this._encrypted && this._encrypted.password) {
+      const decryptedPassword = await decrypt(this._encrypted.password, {
+        key: process.env.ENCRYPTION_KEY || 'your-secret-key',
+        iv: process.env.ENCRYPTION_IV || 'your-initialization-vector',
+        algorithm: 'aes-256-gcm'
+      });
+      return await bcrypt.compare(candidatePassword, decryptedPassword);
+    }
+    
+    // If not encrypted, compare directly
+    return await bcrypt.compare(candidatePassword, storedPassword);
   } catch (error) {
     throw error;
   }
@@ -279,7 +291,17 @@ userSchema.methods.shouldChangePassword = function(): boolean {
   return passwordAge > expiryDays;
 };
 
+// Add pre-save middleware to ensure password is properly hashed
+userSchema.pre('save', async function(this: UserDocument, next) {
+  // Only hash password if it's modified
+  if (this.isModified('password')) {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
+  next();
+});
+
 // Apply encryption plugin to encrypt sensitive fields
+// We don't need to exclude password since it's already handled by bcrypt
 userSchema.plugin(encryptionPlugin);
 
 // Create and export the User model

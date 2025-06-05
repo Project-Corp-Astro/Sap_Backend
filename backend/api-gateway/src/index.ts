@@ -202,7 +202,6 @@ app.use('/api/content', createProxyMiddleware({
     });
   }
 }));
-
 // Configure proxy middleware for Astro Engine Service (if configured)
 if (SERVICES.ASTRO_ENGINE_SERVICE) {
   app.use('/api/astro-engine', createProxyMiddleware({
