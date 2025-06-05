@@ -26,7 +26,8 @@ const JWT_REFRESH_EXPIRES_IN = process.env.JWT_REFRESH_EXPIRES_IN || '7d';
 const MFA_APP_NAME = process.env.MFA_APP_NAME || 'SAP Corp Astro';
 
 // Password reset settings
-const PASSWORD_RESET_EXPIRES = 60 * 60; // 1 hour in seconds
+const PASSWORD_RESET_EXPIRES = 60 * 5; // 5 minutes in seconds
+const OTP_LENGTH = 4;
 
 // Login attempt settings
 const MAX_FAILED_ATTEMPTS = 5;
@@ -88,8 +89,12 @@ export const register = async (userData: UserData): Promise<any> => {
       }
     }
     
-    // Create new user
-    const user = new User(userData);
+    // Hash the password before saving
+    const hashedPassword = await bcrypt.hash(userData.password, 10);
+    const user = new User({
+      ...userData,
+      password: hashedPassword
+    });
     await user.save();
     
     // Return user without password
@@ -114,18 +119,25 @@ export const login = async (email: string, password: string): Promise<AuthData> 
     const user = await User.findOne({ email });
     
     if (!user) {
+      console.log('Login failed: User not found for email:', email);
       throw new Error('Invalid email or password');
     }
     
     // Check if user is active
     if (!user.isActive) {
+      console.log('Login failed: User account is disabled:', email);
       throw new Error('Account is disabled. Please contact support.');
     }
     
+    // Log the stored password hash (for debugging only - remove in production)
+    console.log('Stored password hash:', user.password);
+    
     // Verify password
     const isMatch = await user.comparePassword(password);
+    console.log('Password comparison result:', isMatch);
     
     if (!isMatch) {
+      console.log('Login failed: Password mismatch for email:', email);
       throw new Error('Invalid email or password');
     }
     
@@ -145,6 +157,7 @@ export const login = async (email: string, password: string): Promise<AuthData> 
       ...tokens
     };
   } catch (error) {
+    console.error('Login error:', error);
     throw error;
   }
 };
@@ -488,7 +501,7 @@ export const trackLoginAttempt = async (userId: string, ip: string, success: boo
  * Request password reset
  * @param email - User email
  */
-export const requestPasswordReset = async (email: string): Promise<void> => {
+export const generatePasswordResetOTP = async (email: string): Promise<void> => {
   try {
     // Find user
     const user = await User.findOne({ email });
@@ -498,79 +511,97 @@ export const requestPasswordReset = async (email: string): Promise<void> => {
       return;
     }
     
-    // Generate reset token
-    const resetToken = crypto.randomBytes(32).toString('hex');
+    // Generate OTP (4 digits)
+    const otp = Math.floor(1000 + Math.random() * 9000).toString();
     
-    // Hash token
-    const hashedToken = crypto
-      .createHash('sha256')
-      .update(resetToken)
-      .digest('hex');
-    
-    // Store token in Redis with expiration
+    // Store OTP in Redis with expiration
     await redisClient.set(
-      `password_reset:${user._id}`,
-      hashedToken,
+      `password_reset_otp:${user._id}`,
+      otp,
       PASSWORD_RESET_EXPIRES
     );
     
-    // Send email with reset link
-    await emailService.sendPasswordResetEmail(user.email, resetToken);
+    // Send email with OTP
+    await emailService.sendPasswordResetOTP(user.email, otp);
   } catch (error) {
     throw error;
   }
 };
 
 /**
- * Reset password with token
- * @param token - Reset token
- * @param newPassword - New password
+ * Verify password reset OTP
+ * @param email - User email
+ * @param otp - OTP received by user
+ * @returns Whether OTP is valid
  */
-export const resetPassword = async (token: string, newPassword: string): Promise<void> => {
+export const verifyPasswordResetOTP = async (email: string, otp: string): Promise<boolean> => {
   try {
-    // Hash token to compare with stored token
-    const hashedToken = crypto
-      .createHash('sha256')
-      .update(token)
-      .digest('hex');
-    
-    // Find token in Redis
-    const keys = await redisClient.keys('password_reset:*');
-    
-    let userId: string | null = null;
-    
-    // Check each token
-    for (const key of keys) {
-      const storedToken = await redisClient.get(key);
-      
-      if (storedToken === hashedToken) {
-        userId = key.split(':')[1];
-        break;
-      }
-    }
-    
-    if (!userId) {
-      throw new Error('Invalid or expired password reset token');
-    }
-    
     // Find user
-    const user = await User.findById(userId);
+    const user = await User.findOne({ email });
     
     if (!user) {
       throw new Error('User not found');
     }
     
-    // Update password
-    user.password = newPassword;
+    // Get stored OTP
+    const storedOTP = await redisClient.get(`password_reset_otp:${user._id}`);
+    
+    if (!storedOTP || storedOTP !== otp) {
+      throw new Error('Invalid OTP');
+    }
+    
+    // Delete OTP from Redis
+    await redisClient.del(`password_reset_otp:${user._id}`);
+    
+    return true;
+  } catch (error) {
+    throw error;
+  }
+};
+
+/**
+ * Reset password after OTP verification
+ * @param email - User email
+ * @param newPassword - New password
+ */
+export const resetPasswordWithOTP = async (email: string, newPassword: string): Promise<void> => {
+  try {
+    // Validate input
+    if (!email || !newPassword) {
+      throw new Error('Email and new password are required');
+    }
+
+    // Find user
+    const user = await User.findOne({ email });
+    
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    // Log the current password hash (for debugging only - remove in production)
+    console.log('Current password hash:', user.password);
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    console.log('New password hash:', hashedPassword);
+
+    // Update user document directly
+    user.password = hashedPassword;
     user.passwordLastChanged = new Date();
-    await user.save();
+    user.passwordChangedAt = new Date();
     
-    // Delete token
-    await redisClient.del(`password_reset:${userId}`);
-    
+    // Save the document with validation
+    const savedUser = await user.save({ validateBeforeSave: true });
+    console.log('Saved password hash:', savedUser.password);
+
     // Invalidate all existing tokens
     // This is done by updating passwordChangedAt
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Password reset error:', error);
+    // Add more specific error handling
+    if (error.name === 'ValidationError') {
+      throw new Error('Invalid data provided');
+    }
     throw error;
   }
 };

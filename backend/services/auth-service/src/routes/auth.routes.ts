@@ -185,19 +185,41 @@ router.post('/password-reset/request', validateRequest([
       message: 'Please provide a valid email'
     }]
   }
-]), authController.requestPasswordReset);
+]), authController.requestPasswordResetOTP);
 
 /**
- * @route POST /api/auth/password-reset
- * @desc Reset password with token
+ * @route POST /api/auth/password-reset/verify-otp
+ * @desc Verify password reset OTP
  * @access Public
  */
-router.post('/password-reset', validateRequest([
+router.post('/password-reset/verify-otp', validateRequest([
   {
-    field: 'token',
+    field: 'email',
     validations: [{
-      validator: validators.notEmpty,
-      message: 'Token is required'
+      validator: validators.isEmail,
+      message: 'Please provide a valid email'
+    }]
+  },
+  {
+    field: 'otp',
+    validations: [{
+      validator: validators.isLength(6),
+      message: 'OTP must be 6 digits'
+    }]
+  }
+]), authController.verifyPasswordResetOTP);
+
+/**
+ * @route POST /api/auth/password-reset/change
+ * @desc Reset password after OTP verification
+ * @access Public
+ */
+router.post('/password-reset/change', validateRequest([
+  {
+    field: 'email',
+    validations: [{
+      validator: validators.isEmail,
+      message: 'Please provide a valid email'
     }]
   },
   {
@@ -207,6 +229,6 @@ router.post('/password-reset', validateRequest([
       message: 'Password must be at least 8 characters'
     }]
   }
-]), authController.resetPassword);
+]), authController.resetPasswordWithOTP);
 
 export default router;

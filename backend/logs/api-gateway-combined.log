@@ -3363,3 +3363,862 @@
 {"duration":185,"level":"info","message":"Request completed: req-1748594299042-fej2b4gel","method":"POST","path":"/api/auth/login","requestId":"req-1748594299042-fej2b4gel","service":"api-gateway","statusCode":200,"timestamp":"2025-05-30T08:38:19.228Z"}
 {"duration":12,"level":"warn","message":"Request completed: req-1748594335996-pwvrq9a7j","method":"GET","path":"/api/users","requestId":"req-1748594335996-pwvrq9a7j","service":"api-gateway","statusCode":403,"timestamp":"2025-05-30T08:38:56.012Z"}
 {"duration":10,"level":"warn","message":"Request completed: req-1748594379124-ly31joidd","method":"GET","path":"/api/users","requestId":"req-1748594379124-ly31joidd","service":"api-gateway","statusCode":403,"timestamp":"2025-05-30T08:39:39.136Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T03:54:28.883Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T03:54:28.885Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T03:54:28.889Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T03:54:28.890Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T03:54:28.891Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T03:54:28.892Z"}
+{"level":"info","message":"API Gateway running on port 5002","service":"api-gateway","timestamp":"2025-06-05T03:54:28.929Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T03:54:28.929Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T03:54:28.930Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T03:54:28.931Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:25:11.917Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T04:25:11.922Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:25:11.929Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T04:25:11.932Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:25:11.936Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T04:25:11.937Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T04:25:12.034Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:25:12.084Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:25:12.092Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:25:12.095Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:25:32.444Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T04:25:32.456Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:25:32.485Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T04:25:32.489Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:25:32.492Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T04:25:32.493Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T04:25:32.672Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:25:32.677Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:25:32.678Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:25:32.691Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:25:47.694Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T04:25:47.698Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:25:47.716Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T04:25:47.722Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:25:47.728Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T04:25:47.742Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T04:25:47.893Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:25:47.899Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:25:47.912Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:25:47.942Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:26:02.571Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T04:26:02.619Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:26:02.631Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T04:26:02.644Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:26:02.701Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T04:26:02.724Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T04:26:02.801Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:26:02.803Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:26:02.804Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:26:02.821Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:34:01.834Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T04:34:01.847Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:34:01.854Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T04:34:01.857Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:34:01.879Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T04:34:01.882Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T04:34:01.924Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:34:01.933Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:34:01.934Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:34:01.936Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:36:42.090Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T04:36:42.093Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:36:42.097Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T04:36:42.098Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:36:42.101Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T04:36:42.102Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T04:36:42.145Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:36:42.147Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:36:42.148Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:36:42.153Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:48:19.336Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T04:48:19.337Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:48:19.343Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T04:48:19.355Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:48:19.357Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T04:48:19.360Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T04:48:19.413Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T04:48:19.414Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T04:48:19.418Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T04:48:19.419Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:09:35.447Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T05:09:35.457Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:09:35.467Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T05:09:35.470Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:09:35.473Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T05:09:35.477Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T05:09:35.539Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:09:35.541Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:09:35.542Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:09:35.546Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:12:20.021Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T05:12:20.029Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:12:20.038Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T05:12:20.041Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:12:20.047Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T05:12:20.056Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T05:12:20.203Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:12:20.207Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:12:20.210Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:12:20.213Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:15:39.579Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T05:15:39.618Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:15:39.672Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T05:15:39.730Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:15:39.770Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T05:15:39.789Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T05:15:39.931Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:15:39.939Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:15:39.962Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:15:39.980Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:16:07.334Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T05:16:07.342Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:16:07.395Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T05:16:07.401Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:16:07.451Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T05:16:07.472Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T05:16:07.732Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:16:07.764Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:16:07.915Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:16:07.960Z"}
+{"duration":102,"level":"warn","message":"Request completed: req-1749100680191-w2umxhz01","method":"POST","path":"/api/auth/rigister","requestId":"req-1749100680191-w2umxhz01","service":"api-gateway","statusCode":404,"timestamp":"2025-06-05T05:18:00.307Z"}
+{"duration":200,"level":"info","message":"Request completed: req-1749100760894-x7j6l8tl8","method":"POST","path":"/api/auth/register","requestId":"req-1749100760894-x7j6l8tl8","service":"api-gateway","statusCode":201,"timestamp":"2025-06-05T05:19:21.095Z"}
+{"error":{"message":"Expected double-quoted property name in JSON at position 81","name":"InternalError","originalError":{"message":"Expected double-quoted property name in JSON at position 81","stack":"SyntaxError: Expected double-quoted property name in JSON at position 81\n    at JSON.parse (<anonymous>)\n    at parse (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\body-parser\\lib\\types\\json.js:92:19)\n    at D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\body-parser\\lib\\read.js:128:18\n    at AsyncResource.runInAsyncScope (node:async_hooks:206:9)\n    at invokeCallback (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\raw-body\\index.js:238:16)\n    at done (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\raw-body\\index.js:227:7)\n    at IncomingMessage.onEnd (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\raw-body\\index.js:287:7)\n    at IncomingMessage.emit (node:events:519:28)\n    at IncomingMessage.emit (node:domain:488:12)\n    at endReadableNT (node:internal/streams/readable:1696:12)"},"stack":"InternalError: Expected double-quoted property name in JSON at position 81\n    at D:\\SAP_BACKEND\\Sap_Backend\\backend\\shared\\utils\\errorHandler.ts:104:9\n    at Layer.handle_error (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\express\\lib\\router\\layer.js:71:5)\n    at trim_prefix (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\express\\lib\\router\\index.js:326:13)\n    at D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Layer.handle_error (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\express\\lib\\router\\layer.js:67:12)\n    at trim_prefix (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\express\\lib\\router\\index.js:326:13)\n    at D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\express\\lib\\router\\index.js:286:9\n    at Function.process_params (D:\\SAP_BACKEND\\Sap_Backend\\backend\\api-gateway\\node_modules\\express\\lib\\router\\index.js:346:12)"},"level":"error","message":"POST /api/auth/password-reset/request - 500","request":{"headers":{"user-agent":"PostmanRuntime/7.44.0"},"ip":"::1","method":"POST","params":{},"path":"/api/auth/password-reset/request","query":{}},"service":"api-gateway","timestamp":"2025-06-05T05:20:02.436Z"}
+{"duration":1652,"level":"info","message":"Request completed: req-1749100810669-2vqiuurev","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749100810669-2vqiuurev","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T05:20:12.324Z"}
+{"duration":1585,"level":"info","message":"Request completed: req-1749100967778-gk6ydskvl","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749100967778-gk6ydskvl","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T05:22:49.365Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:25:00.836Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T05:25:00.839Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:25:00.848Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T05:25:00.875Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:25:00.937Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T05:25:00.947Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T05:25:01.106Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:25:01.114Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:25:01.126Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:25:01.151Z"}
+{"duration":1887,"level":"info","message":"Request completed: req-1749101164791-xd996i1g7","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749101164791-xd996i1g7","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T05:26:06.679Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:27:21.076Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T05:27:21.078Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:27:21.084Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T05:27:21.086Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:27:21.087Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T05:27:21.088Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T05:27:21.137Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:27:21.139Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:27:21.139Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:27:21.145Z"}
+{"duration":2439,"level":"info","message":"Request completed: req-1749101259636-8v48naykg","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749101259636-8v48naykg","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T05:27:42.077Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:34:24.411Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T05:34:24.493Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:34:24.534Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T05:34:24.549Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:34:24.573Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T05:34:24.653Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T05:34:24.754Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T05:34:24.755Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T05:34:24.756Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T05:34:24.760Z"}
+{"duration":4143,"level":"info","message":"Request completed: req-1749102065863-dq850183y","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749102065863-dq850183y","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T05:41:10.013Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:31:37.310Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:31:37.320Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:31:37.336Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:31:37.353Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:31:37.364Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:31:37.389Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:31:37.465Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:31:37.466Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:31:37.527Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:31:37.540Z"}
+{"duration":1806,"level":"info","message":"Request completed: req-1749105232794-pbnjyjaz4","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749105232794-pbnjyjaz4","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T06:33:54.603Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:37:03.185Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:37:03.231Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:37:03.245Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:37:03.258Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:37:03.277Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:37:03.386Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:37:03.553Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:37:03.555Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:37:03.558Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:37:03.559Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:38:01.937Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:38:02.006Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:38:02.030Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:38:02.080Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:38:02.100Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:38:02.112Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:38:02.167Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:38:02.171Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:38:02.174Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:38:02.177Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:38:25.834Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:38:25.837Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:38:25.845Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:38:25.847Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:38:25.857Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:38:25.860Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:38:25.925Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:38:25.930Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:38:25.932Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:38:25.934Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:41:03.513Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:41:03.515Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:41:03.520Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:41:03.522Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:41:03.531Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:41:03.532Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:41:03.588Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:41:03.591Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:41:03.595Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:41:03.597Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:44:41.552Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:44:41.560Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:44:41.574Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:44:41.576Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:44:41.579Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:44:41.582Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:44:41.721Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:44:41.728Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:44:41.730Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:44:41.733Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:46:24.772Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:46:24.792Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:46:24.835Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:46:24.846Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:46:24.848Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:46:24.885Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:46:25.085Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:46:25.100Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:46:25.102Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:46:25.106Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:46:39.840Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:46:39.854Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:46:39.879Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:46:39.886Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:46:39.898Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:46:39.930Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:46:40.028Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:46:40.037Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:46:40.041Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:46:40.046Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:47:01.288Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:47:01.301Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:47:01.351Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:47:01.360Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:47:01.364Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:47:01.390Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:47:01.443Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:47:01.445Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:47:01.446Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:47:01.448Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:47:18.937Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:47:18.953Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:47:18.966Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:47:18.983Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:47:18.984Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:47:18.988Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:47:19.042Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:47:19.049Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:47:19.051Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:47:19.064Z"}
+{"duration":2547,"level":"info","message":"Request completed: req-1749106077344-jgo0274gf","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749106077344-jgo0274gf","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T06:47:59.919Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:49:05.151Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:49:05.153Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:49:05.160Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:49:05.164Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:49:05.166Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:49:05.167Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:49:05.215Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:49:05.217Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:49:05.219Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:49:05.219Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:49:23.689Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:49:23.694Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:49:23.701Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:49:23.704Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:49:23.709Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:49:23.716Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:49:23.786Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:49:23.787Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:49:23.792Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:49:23.794Z"}
+{"duration":2389,"level":"info","message":"Request completed: req-1749106245632-pzq0bghxc","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749106245632-pzq0bghxc","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T06:50:48.030Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:56:21.443Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:56:21.455Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:56:21.479Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:56:21.488Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:56:21.500Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:56:21.507Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:56:21.585Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:56:21.598Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:56:21.612Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:56:21.615Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:56:35.856Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:56:35.919Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:56:35.960Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:56:36.006Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:56:36.025Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:56:36.044Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:56:36.143Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:56:36.156Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:56:36.179Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:56:36.209Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:57:53.739Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:57:53.799Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:57:53.973Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:57:54.132Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:57:54.174Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:57:54.192Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:57:54.329Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:57:54.361Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:57:54.389Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:57:54.415Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:58:12.653Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:58:12.696Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:58:12.707Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:58:12.709Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:58:12.711Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:58:12.712Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:58:12.764Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:58:12.766Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:58:12.767Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:58:12.768Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:58:27.919Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:58:27.936Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:58:27.944Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:58:27.948Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:58:27.951Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:58:27.953Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:58:28.021Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:58:28.022Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:58:28.032Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:58:28.033Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:59:28.769Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T06:59:28.773Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:59:28.802Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T06:59:28.819Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:59:28.841Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T06:59:28.862Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T06:59:28.921Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T06:59:28.927Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T06:59:28.937Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T06:59:28.940Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:00:14.764Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T07:00:14.822Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:00:14.834Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T07:00:14.859Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:00:14.879Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T07:00:15.014Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T07:00:15.250Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:00:15.436Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:00:15.631Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:00:15.718Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:00:56.698Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T07:00:56.700Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:00:56.705Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T07:00:56.709Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:00:56.711Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T07:00:56.722Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T07:00:56.779Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:00:56.779Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:00:56.782Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:00:56.783Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:02:06.817Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T07:02:06.826Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:02:06.834Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T07:02:06.835Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:02:06.837Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T07:02:06.838Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T07:02:06.937Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:02:06.960Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:02:06.971Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:02:06.972Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:02:24.550Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T07:02:24.555Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:02:24.560Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T07:02:24.562Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:02:24.564Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T07:02:24.567Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T07:02:24.625Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:02:24.631Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:02:24.632Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:02:24.633Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:03:14.296Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T07:03:14.360Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:03:14.385Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T07:03:14.407Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:03:14.482Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T07:03:14.520Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T07:03:14.734Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T07:03:14.739Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T07:03:14.744Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T07:03:14.755Z"}
+{"duration":1443,"level":"info","message":"Request completed: req-1749112911414-dzc10oo7c","method":"POST","path":"/api/auth/login","requestId":"req-1749112911414-dzc10oo7c","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T08:41:52.862Z"}
+{"error":{"code":"ECONNREFUSED"},"level":"error","message":"Proxy error to Content Service: ","service":"api-gateway","timestamp":"2025-06-05T08:42:35.126Z"}
+{"duration":41,"level":"warn","message":"Request completed: req-1749112955104-6b7b7v7i2","method":"GET","path":"/api/content/articles","requestId":"req-1749112955104-6b7b7v7i2","service":"api-gateway","statusCode":503,"timestamp":"2025-06-05T08:42:35.150Z"}
+{"level":"error","message":"[HPM] Error occurred while proxying request localhost:5001/api/content/articles?page=1&limit=10 to http://localhost:3005/ [ECONNREFUSED] (https://nodejs.org/api/errors.html#errors_common_system_errors)","service":"api-gateway","timestamp":"2025-06-05T08:42:35.157Z"}
+{"error":{"code":"ECONNREFUSED"},"level":"error","message":"Proxy error to Content Service: ","service":"api-gateway","timestamp":"2025-06-05T08:42:35.189Z"}
+{"duration":20,"level":"warn","message":"Request completed: req-1749112955169-qnp4085d4","method":"GET","path":"/api/content/articles","requestId":"req-1749112955169-qnp4085d4","service":"api-gateway","statusCode":503,"timestamp":"2025-06-05T08:42:35.190Z"}
+{"level":"error","message":"[HPM] Error occurred while proxying request localhost:5001/api/content/articles?page=1&limit=10 to http://localhost:3005/ [ECONNREFUSED] (https://nodejs.org/api/errors.html#errors_common_system_errors)","service":"api-gateway","timestamp":"2025-06-05T08:42:35.192Z"}
+{"duration":166,"level":"info","message":"Request completed: req-1749113192989-4xgf4r6zp","method":"POST","path":"/api/auth/login","requestId":"req-1749113192989-4xgf4r6zp","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T08:46:33.157Z"}
+{"duration":2312,"level":"info","message":"Request completed: req-1749114829689-mezady62d","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749114829689-mezady62d","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T09:13:52.006Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:19:25.872Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:19:25.876Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:19:25.887Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:19:25.888Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:19:25.892Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:19:25.895Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:19:26.030Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:19:26.106Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:19:26.181Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:19:26.189Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:20:46.448Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:20:46.462Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:20:46.467Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:20:46.468Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:20:46.472Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:20:46.496Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:20:46.616Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:20:46.625Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:20:46.679Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:20:46.726Z"}
+{"duration":10086,"level":"info","message":"Request completed: req-1749115295282-yldipqbed","method":"POST","path":"/api/auth/password-reset/request","requestId":"req-1749115295282-yldipqbed","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T09:21:45.397Z"}
+{"duration":18,"level":"info","message":"Request completed: req-1749115423910-5yl3j785b","method":"POST","path":"/api/auth/password-reset/verify-otp","requestId":"req-1749115423910-5yl3j785b","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T09:23:43.931Z"}
+{"duration":21,"level":"warn","message":"Request completed: req-1749115437177-945xlyw62","method":"POST","path":"/api/auth/password-reset/verify-otp","requestId":"req-1749115437177-945xlyw62","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:23:57.206Z"}
+{"duration":12,"level":"warn","message":"Request completed: req-1749115445628-b4zxdnr5y","method":"POST","path":"/api/auth/password-reset/verify-otp","requestId":"req-1749115445628-b4zxdnr5y","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:24:05.641Z"}
+{"duration":224,"level":"info","message":"Request completed: req-1749115501334-194t6fhay","method":"POST","path":"/api/auth/password-reset/change","requestId":"req-1749115501334-194t6fhay","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T09:25:01.567Z"}
+{"duration":7,"level":"warn","message":"Request completed: req-1749115518537-jxkbn4ryw","method":"POST","path":"/api/auth/login","requestId":"req-1749115518537-jxkbn4ryw","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:25:18.547Z"}
+{"duration":21,"level":"warn","message":"Request completed: req-1749115528547-nu8mcj0r6","method":"POST","path":"/api/auth/login","requestId":"req-1749115528547-nu8mcj0r6","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:25:28.569Z"}
+{"duration":6,"level":"warn","message":"Request completed: req-1749115542983-s7m4c58p3","method":"POST","path":"/api/auth/login","requestId":"req-1749115542983-s7m4c58p3","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:25:42.991Z"}
+{"duration":9,"level":"warn","message":"Request completed: req-1749115596923-fmbo6ce9x","method":"POST","path":"/api/auth/login","requestId":"req-1749115596923-fmbo6ce9x","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:26:36.934Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:36:54.702Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:36:54.766Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:36:54.833Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:36:54.886Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:36:54.948Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:36:55.016Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:36:55.226Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:36:55.283Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:36:55.312Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:36:55.372Z"}
+{"duration":85,"level":"warn","message":"Request completed: req-1749116313205-ic70ha52u","method":"POST","path":"/api/auth/password-reset/change","requestId":"req-1749116313205-ic70ha52u","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:38:33.293Z"}
+{"duration":12,"level":"warn","message":"Request completed: req-1749116337548-wrq0bkcdx","method":"POST","path":"/api/auth/password-reset/change","requestId":"req-1749116337548-wrq0bkcdx","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:38:57.567Z"}
+{"duration":5,"level":"warn","message":"Request completed: req-1749116402217-782w1a7zr","method":"POST","path":"/api/auth/password-reset/change","requestId":"req-1749116402217-782w1a7zr","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:40:02.227Z"}
+{"duration":338,"level":"info","message":"Request completed: req-1749116595607-gc1swlydg","method":"POST","path":"/api/auth/password-reset/change","requestId":"req-1749116595607-gc1swlydg","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T09:43:15.947Z"}
+{"duration":8,"level":"warn","message":"Request completed: req-1749116616006-rta5i5uls","method":"POST","path":"/api/auth/login","requestId":"req-1749116616006-rta5i5uls","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:43:36.016Z"}
+{"duration":7,"level":"warn","message":"Request completed: req-1749116623858-yrpoiq3sn","method":"POST","path":"/api/auth/login","requestId":"req-1749116623858-yrpoiq3sn","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:43:43.869Z"}
+{"duration":6,"level":"warn","message":"Request completed: req-1749116628583-kazwuhycv","method":"POST","path":"/api/auth/login","requestId":"req-1749116628583-kazwuhycv","service":"api-gateway","statusCode":400,"timestamp":"2025-06-05T09:43:48.596Z"}
+{"duration":196,"level":"warn","message":"Request completed: req-1749116639588-gtgu8qb2l","method":"POST","path":"/api/auth/login","requestId":"req-1749116639588-gtgu8qb2l","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T09:43:59.786Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:49:26.070Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:49:26.073Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:49:26.077Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:49:26.080Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:49:26.081Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:49:26.082Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:49:26.129Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:49:26.131Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:49:26.132Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:49:26.144Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:50:24.246Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:50:24.248Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:50:24.252Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:50:24.255Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:50:24.267Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:50:24.268Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:50:24.327Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:50:24.329Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:50:24.330Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:50:24.331Z"}
+{"error":{"code":"ECONNREFUSED"},"level":"error","message":"Proxy error to Auth Service: ","service":"api-gateway","timestamp":"2025-06-05T09:50:26.045Z"}
+{"duration":125,"level":"warn","message":"Request completed: req-1749117025923-2x2t8sbhk","method":"POST","path":"/api/auth/login","requestId":"req-1749117025923-2x2t8sbhk","service":"api-gateway","statusCode":503,"timestamp":"2025-06-05T09:50:26.077Z"}
+{"level":"error","message":"[HPM] Error occurred while proxying request localhost:5001/api/auth/login to http://localhost:3001/ [ECONNREFUSED] (https://nodejs.org/api/errors.html#errors_common_system_errors)","service":"api-gateway","timestamp":"2025-06-05T09:50:26.107Z"}
+{"duration":180,"level":"warn","message":"Request completed: req-1749117040817-vdnjyf7fv","method":"POST","path":"/api/auth/login","requestId":"req-1749117040817-vdnjyf7fv","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T09:50:40.998Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:52:02.144Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:52:02.146Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:52:02.151Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:52:02.153Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:52:02.154Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:52:02.155Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:52:02.221Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:52:02.228Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:52:02.229Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:52:02.230Z"}
+{"duration":256,"level":"warn","message":"Request completed: req-1749117181839-w50yilbbd","method":"POST","path":"/api/auth/login","requestId":"req-1749117181839-w50yilbbd","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T09:53:02.100Z"}
+{"duration":176,"level":"warn","message":"Request completed: req-1749117184551-6wwpubeu4","method":"POST","path":"/api/auth/login","requestId":"req-1749117184551-6wwpubeu4","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T09:53:04.728Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:53:24.775Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:53:24.780Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:53:24.787Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:53:24.793Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:53:24.794Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:53:24.798Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:53:24.856Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:53:24.870Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:53:24.876Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:53:24.880Z"}
+{"duration":267,"level":"warn","message":"Request completed: req-1749117239625-pkydv9eb8","method":"POST","path":"/api/auth/login","requestId":"req-1749117239625-pkydv9eb8","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T09:53:59.894Z"}
+{"duration":174,"level":"info","message":"Request completed: req-1749117282777-owxchqrno","method":"POST","path":"/api/auth/login","requestId":"req-1749117282777-owxchqrno","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T09:54:42.952Z"}
+{"duration":116,"level":"warn","message":"Request completed: req-1749117332576-zaskjz8c1","method":"POST","path":"/api/auth/login","requestId":"req-1749117332576-zaskjz8c1","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T09:55:32.694Z"}
+{"duration":242,"level":"warn","message":"Request completed: req-1749117338842-1trtzx5du","method":"POST","path":"/api/auth/login","requestId":"req-1749117338842-1trtzx5du","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T09:55:39.085Z"}
+{"duration":144,"level":"warn","message":"Request completed: req-1749117368971-kw8ynt3yg","method":"POST","path":"/api/auth/login","requestId":"req-1749117368971-kw8ynt3yg","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T09:56:09.117Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:58:43.881Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:58:43.886Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:58:43.933Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:58:44.027Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:58:44.121Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:58:44.184Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:58:44.303Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:58:44.315Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:58:44.336Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:58:44.351Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:59:06.478Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:59:06.479Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:59:06.487Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:59:06.491Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:59:06.495Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:59:06.497Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:59:06.541Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:59:06.542Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:59:06.543Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:59:06.544Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:59:27.363Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:59:27.366Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:59:27.372Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:59:27.375Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:59:27.454Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:59:27.521Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:59:27.757Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:59:27.763Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:59:27.780Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:59:27.790Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:59:53.337Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T09:59:53.347Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:59:53.363Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T09:59:53.368Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:59:53.375Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T09:59:53.393Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T09:59:53.510Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T09:59:53.531Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T09:59:53.540Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T09:59:53.549Z"}
+{"duration":459,"level":"info","message":"Request completed: req-1749117648279-b30dg2qhx","method":"POST","path":"/api/auth/password-reset/change","requestId":"req-1749117648279-b30dg2qhx","service":"api-gateway","statusCode":200,"timestamp":"2025-06-05T10:00:48.739Z"}
+{"duration":183,"level":"warn","message":"Request completed: req-1749117671069-1a9gnae7m","method":"POST","path":"/api/auth/login","requestId":"req-1749117671069-1a9gnae7m","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:01:11.254Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:02:37.199Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:02:37.224Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:02:37.255Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:02:37.312Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:02:37.427Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:02:37.541Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:02:37.599Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:02:37.605Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:02:37.607Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:02:37.609Z"}
+{"duration":260,"level":"warn","message":"Request completed: req-1749117830648-v3njlpsz7","method":"POST","path":"/api/auth/login","requestId":"req-1749117830648-v3njlpsz7","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:03:50.910Z"}
+{"duration":121,"level":"warn","message":"Request completed: req-1749117834909-bm9ralqrt","method":"POST","path":"/api/auth/login","requestId":"req-1749117834909-bm9ralqrt","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:03:55.031Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:04:14.673Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:04:14.710Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:04:14.743Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:04:14.755Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:04:14.758Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:04:14.792Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:04:14.919Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:04:14.973Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:04:14.986Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:04:14.998Z"}
+{"duration":219,"level":"warn","message":"Request completed: req-1749117861456-d6esh2dx7","method":"POST","path":"/api/auth/login","requestId":"req-1749117861456-d6esh2dx7","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:04:21.679Z"}
+{"duration":190,"level":"warn","message":"Request completed: req-1749117939907-eymh294fw","method":"POST","path":"/api/auth/login","requestId":"req-1749117939907-eymh294fw","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:05:40.099Z"}
+{"duration":177,"level":"warn","message":"Request completed: req-1749117943178-0nsvfk751","method":"POST","path":"/api/auth/login","requestId":"req-1749117943178-0nsvfk751","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:05:43.357Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:06:32.014Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:06:32.038Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:06:32.118Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:06:32.217Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:06:32.290Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:06:32.348Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:06:32.720Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:06:32.800Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:06:32.844Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:06:32.887Z"}
+{"duration":218,"level":"warn","message":"Request completed: req-1749118008947-rutj4xs44","method":"POST","path":"/api/auth/login","requestId":"req-1749118008947-rutj4xs44","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:06:49.168Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:08:35.010Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:08:35.073Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:08:35.165Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:08:35.197Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:08:35.311Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:08:35.349Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:08:35.472Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:08:35.476Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:08:35.479Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:08:35.482Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:08:56.467Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:08:56.472Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:08:56.477Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:08:56.481Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:08:56.483Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:08:56.486Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:08:56.594Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:08:56.610Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:08:56.620Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:08:56.625Z"}
+{"duration":379,"level":"warn","message":"Request completed: req-1749118160961-hllgewxve","method":"POST","path":"/api/auth/login","requestId":"req-1749118160961-hllgewxve","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:09:21.346Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:10:21.079Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:10:21.081Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:10:21.090Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:10:21.092Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:10:21.095Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:10:21.096Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:10:21.226Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:10:21.230Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:10:21.232Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:10:21.266Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:11:15.311Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:11:15.313Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:11:15.317Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:11:15.318Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:11:15.320Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:11:15.321Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:11:15.366Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:11:15.368Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:11:15.369Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:11:15.370Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:11:40.078Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:11:40.085Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:11:40.092Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:11:40.095Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:11:40.100Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:11:40.125Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:11:40.210Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:11:40.215Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:11:40.223Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:11:40.234Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:11:53.873Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:11:53.875Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:11:53.880Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:11:53.882Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:11:53.883Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:11:53.892Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:11:53.944Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:11:53.945Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:11:53.946Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:11:53.947Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:12:07.415Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:12:07.416Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:12:07.420Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:12:07.423Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:12:07.424Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:12:07.427Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:12:07.481Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:12:07.483Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:12:07.484Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:12:07.484Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:14:11.712Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:14:11.726Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:14:11.731Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:14:11.733Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:14:11.736Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:14:11.737Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:14:11.825Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:14:11.827Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:14:11.828Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:14:11.829Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:14:53.613Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:14:53.627Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:14:53.632Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:14:53.635Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:14:53.637Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:14:53.639Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:14:53.787Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:14:53.836Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:14:53.846Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:14:53.848Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:17:51.645Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:17:51.703Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:17:51.742Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:17:51.761Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:17:51.765Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:17:51.767Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:17:51.902Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:17:51.921Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:17:51.926Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:17:51.928Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:27:27.900Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:27:27.902Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:27:27.906Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:27:27.908Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:27:27.912Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:27:27.917Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:27:27.961Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:27:27.968Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:27:27.978Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:27:27.979Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:30:52.419Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:30:52.449Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:30:52.498Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:30:52.530Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:30:52.547Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:30:52.550Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:30:52.642Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:30:52.645Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:30:52.653Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:30:52.673Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:31:34.307Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:31:34.314Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:31:34.330Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:31:34.342Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:31:34.344Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:31:34.347Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:31:34.409Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:31:34.410Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:31:34.412Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:31:34.413Z"}
+{"duration":438,"level":"warn","message":"Request completed: req-1749119509524-npfi2ppiv","method":"POST","path":"/api/auth/login","requestId":"req-1749119509524-npfi2ppiv","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:31:49.970Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:33:04.080Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:33:04.084Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:33:04.089Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:33:04.092Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:33:04.095Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:33:04.097Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:33:04.149Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:33:04.151Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:33:04.152Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:33:04.153Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:34:39.813Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:34:39.822Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:34:39.832Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:34:39.835Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:34:39.836Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:34:39.838Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:34:39.907Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:34:39.909Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:34:39.910Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:34:39.912Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:35:15.115Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:35:15.120Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:35:15.179Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:35:15.231Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:35:15.260Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:35:15.341Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:35:15.570Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:35:15.600Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:35:15.623Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:35:15.630Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:35:48.145Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:35:48.177Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:35:48.184Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:35:48.188Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:35:48.198Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:35:48.208Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:35:48.282Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:35:48.289Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:35:48.291Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:35:48.299Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:37:00.062Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:37:00.105Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:37:00.111Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:37:00.124Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:37:00.129Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:37:00.140Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:37:00.213Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:37:00.214Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:37:00.216Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:37:00.222Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:39:04.000Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:39:04.008Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:39:04.020Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:39:04.059Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:39:04.068Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:39:04.088Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:39:04.201Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:39:04.219Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:39:04.220Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:39:04.234Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:39:52.505Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:39:52.525Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:39:52.539Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:39:52.543Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:39:52.553Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:39:52.634Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:39:52.786Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:39:52.810Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:39:52.812Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:39:52.847Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:41:24.952Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:41:24.954Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:41:24.957Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:41:24.959Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:41:24.960Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:41:24.961Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:41:25.013Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:41:25.015Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:41:25.018Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:41:25.018Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:42:28.940Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:42:28.950Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:42:28.959Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:42:28.960Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:42:28.964Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:42:28.971Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:42:29.086Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:42:29.105Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:42:29.108Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:42:29.111Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:43:51.348Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:43:51.349Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:43:51.354Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:43:51.356Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:43:51.357Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:43:51.358Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:43:51.413Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:43:51.415Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:43:51.416Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:43:51.416Z"}
+{"error":{"code":"ECONNREFUSED"},"level":"error","message":"Proxy error to Auth Service: ","service":"api-gateway","timestamp":"2025-06-05T10:46:43.703Z"}
+{"duration":55,"level":"warn","message":"Request completed: req-1749120403650-fpvp0a561","method":"POST","path":"/api/auth/login","requestId":"req-1749120403650-fpvp0a561","service":"api-gateway","statusCode":503,"timestamp":"2025-06-05T10:46:43.707Z"}
+{"level":"error","message":"[HPM] Error occurred while proxying request localhost:5001/api/auth/login to http://localhost:3001/ [ECONNREFUSED] (https://nodejs.org/api/errors.html#errors_common_system_errors)","service":"api-gateway","timestamp":"2025-06-05T10:46:43.710Z"}
+{"error":{"code":"ECONNREFUSED"},"level":"error","message":"Proxy error to Auth Service: ","service":"api-gateway","timestamp":"2025-06-05T10:47:45.607Z"}
+{"duration":5,"level":"warn","message":"Request completed: req-1749120465603-qb7symygb","method":"POST","path":"/api/auth/login","requestId":"req-1749120465603-qb7symygb","service":"api-gateway","statusCode":503,"timestamp":"2025-06-05T10:47:45.613Z"}
+{"level":"error","message":"[HPM] Error occurred while proxying request localhost:5001/api/auth/login to http://localhost:3001/ [ECONNREFUSED] (https://nodejs.org/api/errors.html#errors_common_system_errors)","service":"api-gateway","timestamp":"2025-06-05T10:47:45.621Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:48:42.562Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:48:42.673Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:48:42.747Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:48:42.791Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:48:42.812Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:48:42.828Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:48:42.912Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:48:42.915Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:48:42.930Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:48:42.935Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:49:12.600Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:49:12.627Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:49:12.750Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:49:12.771Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:49:12.780Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:49:12.796Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:49:12.906Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:49:12.933Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:49:12.953Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:49:13.114Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:49:32.112Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:49:32.130Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:49:32.167Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:49:32.218Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:49:32.231Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:49:32.246Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:49:32.335Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:49:32.337Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:49:32.344Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:49:32.346Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:50:31.236Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/auth\" ~> \"/api/auth\"","service":"api-gateway","timestamp":"2025-06-05T10:50:31.244Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:50:31.250Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/users\" ~> \"/api/users\"","service":"api-gateway","timestamp":"2025-06-05T10:50:31.267Z"}
+{"level":"info","message":"[HPM] Proxy created: /  -> http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:50:31.273Z"}
+{"level":"info","message":"[HPM] Proxy rewrite rule created: \"^/api/content\" ~> \"/api/content\"","service":"api-gateway","timestamp":"2025-06-05T10:50:31.275Z"}
+{"level":"info","message":"API Gateway running on port 5001","service":"api-gateway","timestamp":"2025-06-05T10:50:31.357Z"}
+{"level":"info","message":"Auth Service proxy: http://localhost:3001","service":"api-gateway","timestamp":"2025-06-05T10:50:31.359Z"}
+{"level":"info","message":"User Service proxy: http://localhost:3002","service":"api-gateway","timestamp":"2025-06-05T10:50:31.360Z"}
+{"level":"info","message":"Content Service proxy: http://localhost:3005","service":"api-gateway","timestamp":"2025-06-05T10:50:31.361Z"}
+{"duration":224,"level":"warn","message":"Request completed: req-1749120640146-q2d8o73kb","method":"POST","path":"/api/auth/login","requestId":"req-1749120640146-q2d8o73kb","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:50:40.374Z"}
+{"duration":116,"level":"warn","message":"Request completed: req-1749120700755-4e08u92vu","method":"POST","path":"/api/auth/login","requestId":"req-1749120700755-4e08u92vu","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:51:40.872Z"}
+{"duration":121,"level":"warn","message":"Request completed: req-1749120761729-2avxp8834","method":"POST","path":"/api/auth/login","requestId":"req-1749120761729-2avxp8834","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T10:52:41.851Z"}
+{"duration":371,"level":"warn","message":"Request completed: req-1749128064154-xslqcd6n0","method":"POST","path":"/api/auth/login","requestId":"req-1749128064154-xslqcd6n0","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T12:54:24.549Z"}
+{"duration":143,"level":"warn","message":"Request completed: req-1749128066860-hsy8f4fgx","method":"POST","path":"/api/auth/login","requestId":"req-1749128066860-hsy8f4fgx","service":"api-gateway","statusCode":401,"timestamp":"2025-06-05T12:54:27.005Z"}

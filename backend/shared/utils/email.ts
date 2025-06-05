@@ -3,6 +3,15 @@
  * Provides email sending functionality for the application
  */
 
+// Add this at the beginning of email.ts
+console.log('Email Configuration:', {
+  host: process.env.EMAIL_HOST,
+  port: process.env.EMAIL_PORT,
+  secure: process.env.EMAIL_SECURE,
+  user: process.env.EMAIL_USER,
+  from: process.env.EMAIL_FROM
+});
+
 import nodemailer from 'nodemailer';
 import { createServiceLogger } from './logger';
 import config from '../config/index';
@@ -37,15 +46,20 @@ interface EmailOptions {
 
 // Default email configuration
 const defaultConfig: EmailConfig = {
-  host: config.get('email.host', 'smtp.example.com'),
-  port: config.get('email.port', 587),
-  secure: config.get('email.secure', false),
+  host: process.env.EMAIL_HOST || 'smtp.example.com',
+  port: parseInt(process.env.EMAIL_PORT) || 587,
+  secure: process.env.EMAIL_SECURE === 'true',
   auth: {
-    user: config.get('email.user', 'user@example.com'),
-    pass: config.get('email.password', 'password')
+    user: process.env.EMAIL_USER || 'noreply@example.com',
+    pass: process.env.EMAIL_PASS || 'your-password'
   },
-  from: config.get('email.from', 'SAP Corp Astro <noreply@example.com>')
+  from: process.env.EMAIL_FROM || 'noreply@example.com'
 };
+
+// Add validation for required environment variables
+if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+  throw new Error('Email configuration is missing required environment variables');
+}
 
 /**
  * Email service class
@@ -61,42 +75,21 @@ class EmailService {
   constructor(options: Partial<EmailConfig> = {}) {
     this.config = { ...defaultConfig, ...options };
     
-    // Use mock transport in development mode if SMTP settings are defaults
-    if (process.env.NODE_ENV === 'development' && 
-        this.config.host === 'smtp.example.com') {
-      logger.info('Using mock email transport in development mode');
-      this.transporter = nodemailer.createTransport({
-        name: 'mock',
-        version: '1.0.0',
-        send: (mail, callback) => {
-          const info = {
-            messageId: `mock-email-${Date.now()}`,
-            envelope: mail.message.getEnvelope(),
-            accepted: [mail.data.to],
-            rejected: [],
-            pending: [],
-            response: 'Mock email sent successfully'
-          };
-          logger.info('Mock email sent', { to: mail.data.to, subject: mail.data.subject });
-          callback(null, info);
-        }
-      } as any);
-    } else {
-      // Create real transporter
-      this.transporter = nodemailer.createTransport({
-        host: this.config.host,
-        port: this.config.port,
-        secure: this.config.secure,
-        auth: {
-          user: this.config.auth.user,
-          pass: this.config.auth.pass
-        }
-      });
-      
-      // Verify connection
-      if (process.env.NODE_ENV !== 'test') {
-        this.verifyConnection();
+    // Always use real email transport
+    logger.info('Creating email transporter with standard SMTP settings');
+    this.transporter = nodemailer.createTransport({
+      host: this.config.host,
+      port: this.config.port,
+      secure: this.config.secure,
+      auth: {
+        user: this.config.auth.user,
+        pass: this.config.auth.pass
       }
+    });
+
+    // Verify connection
+    if (process.env.NODE_ENV !== 'test') {
+      this.verifyConnection();
     }
   }
 
@@ -144,28 +137,39 @@ class EmailService {
   }
 
   /**
-   * Send password reset email
+   * Send password reset OTP email
    * @param email - Recipient email
-   * @param token - Reset token
+   * @param otp - One-time password
    * @returns Information about the sent email
    */
-  async sendPasswordResetEmail(email: string, token: string): Promise<any> {
-    const resetUrl = `${config.get('app.frontendUrl', 'http://localhost:3000')}/reset-password?token=${token}`;
+  async sendPasswordResetOTP(email: string, otp: string): Promise<void> {
+    try {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS
+        }
+      });
+
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: 'Password Reset OTP',
+        text: `You have requested a password reset. Here is your one-time password (OTP):\n${otp}\n\nPlease use this OTP to reset your password within 5 minutes.\n\nIf you did not request this, please ignore this email.\n\nThis OTP will expire in 5 minutes.`,
+        html: `<p>You have requested a password reset.</p><p>Here is your one-time password (OTP): <strong>${otp}</strong></p><p>Please use this OTP to reset your password within 5 minutes.</p><p>If you did not request this, please ignore this email.</p><p>This OTP will expire in 5 minutes.</p>`
+      };
+
+      await transporter.sendMail(mailOptions);
+    } catch (error) {
+      logger.error('Error sending password reset OTP:', error);
+      throw error;
+    }
     
-    const subject = 'Password Reset Request';
-    const text = `You requested a password reset. Please click the following link to reset your password: ${resetUrl}. This link will expire in 1 hour.`;
-    const html = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2>Password Reset Request</h2>
-        <p>You requested a password reset for your SAP Corp Astro account.</p>
-        <p>Please click the button below to reset your password. This link will expire in 1 hour.</p>
-        <div style="text-align: center; margin: 30px 0;">
-          <a href="${resetUrl}" style="background-color: #4CAF50; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">Reset Password</a>
-        </div>
-        <p>If you didn't request this password reset, please ignore this email or contact support if you have concerns.</p>
-        <p>Best regards,<br>The SAP Corp Astro Team</p>
-      </div>
-    `;
+    // Define variables for sendEmail call
+    const subject = 'Password Reset OTP';
+    const text = `You have requested a password reset. Here is your one-time password (OTP): ${otp}\n\nPlease use this OTP to reset your password within 5 minutes.\n\nIf you did not request this, please ignore this email.\n\nThis OTP will expire in 5 minutes.`;
+    const html = `<p>You have requested a password reset.</p><p>Here is your one-time password (OTP): <strong>${otp}</strong></p><p>Please use this OTP to reset your password within 5 minutes.</p><p>If you did not request this, please ignore this email.</p><p>This OTP will expire in 5 minutes.</p>`;
     
     return this.sendEmail({
       to: email,

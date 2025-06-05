@@ -554,3 +554,415 @@
 {"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-05-30T06:56:06.244Z"}
 {"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:56:06.266Z"}
 {"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-05-30T06:56:06.282Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:38.834Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:38.859Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.953Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.958Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.988Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:40.066Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:09.778Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:09.792Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.444Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.449Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.497Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.623Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.140Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.153Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.638Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.640Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.656Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.699Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:17.463Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:17.477Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.135Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.147Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.354Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.370Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:08.625Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:08.638Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.271Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.273Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.292Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.352Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:08.910Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:08.976Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.890Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.892Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.909Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.965Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:46.562Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:46.576Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.322Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.325Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.342Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.385Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:25.520Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:25.536Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.188Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.208Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.295Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.308Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:44.569Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:44.588Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.420Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.441Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.550Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.574Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.116Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.130Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.982Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.985Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:27.006Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:27.072Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:50.993Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:51.330Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:51.706Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:52.043Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:52.408Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:52.509Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:19.837Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:19.856Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.468Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.488Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.606Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.636Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:09.555Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:09.639Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.271Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.282Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.373Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.389Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:26.678Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:26.692Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.461Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.472Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.549Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.558Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:31.832Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:31.848Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.556Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.569Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.644Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.658Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:47.194Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:47.375Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.068Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.076Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.100Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.195Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:10.073Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:10.099Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.056Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.058Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.075Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.133Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.289Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.303Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.653Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.668Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.756Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.770Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:31.855Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:31.868Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.490Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.495Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.526Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.575Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:10.255Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:10.272Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.031Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.034Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.050Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.109Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:48.607Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:48.623Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.184Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.196Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.315Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.325Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:25.825Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:25.928Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.855Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.870Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.969Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.987Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:12.663Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:12.679Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.252Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.255Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.278Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.350Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.332Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.348Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.868Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.880Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.951Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.962Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:44.629Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:44.649Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.384Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.397Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.481Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.492Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:34.636Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:34.650Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.204Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.215Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.315Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.328Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:59:36.415Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:59:36.433Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.636Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.674Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.965Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.977Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:23.015Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:23.119Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:01.965Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:01.978Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.408Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.411Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.428Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.484Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:12.816Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:12.830Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.355Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.357Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.375Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.421Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:29.619Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:29.633Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.074Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.087Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.196Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.205Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.646Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.720Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.983Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.995Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:21.064Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:21.078Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:35.770Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:35.785Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.559Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.590Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.676Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.691Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:52.677Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:52.695Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.117Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.130Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.226Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.242Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:04.677Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:04.696Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.418Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.436Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.560Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.582Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.093Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.115Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.675Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.678Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.699Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.782Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.243Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.260Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.938Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.944Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.995Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:34.111Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:08.508Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:08.522Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.277Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.279Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.307Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.367Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:32.681Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:32.697Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.009Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.016Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.048Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.143Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:51.911Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:51.958Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.579Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.582Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.605Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.681Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.267Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.303Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.732Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.735Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.771Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.849Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.678Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.730Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.925Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.938Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:36.024Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:36.056Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:01.233Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:01.360Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:01.921Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:02.204Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:02.372Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:02.390Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:44.090Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:44.105Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.614Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.618Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.643Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.704Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:21.767Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:21.792Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.080Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.092Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.268Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.280Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:40.218Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:40.351Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.373Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.393Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.493Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.508Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:08:45.924Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:08:45.965Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.131Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.186Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.443Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.456Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.722Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.737Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:27.815Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:27.862Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.199Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.204Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.244Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.325Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:21.524Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:21.537Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.509Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.558Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.593Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.679Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:13.822Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:13.840Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.324Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.336Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.411Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.420Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:18.364Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:18.382Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.095Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.115Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.209Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.225Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:59.658Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:59.676Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.301Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.314Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.443Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.457Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:17:59.402Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:17:59.415Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.158Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.160Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.181Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.245Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.277Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.293Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.920Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.932Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:35.071Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:35.081Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:59.240Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:59.252Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.003Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.006Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.025Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.080Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:43.478Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:43.499Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.032Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.036Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.100Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.184Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:10.893Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:10.923Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.044Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.057Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.299Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.311Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.023Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.036Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.312Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.323Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.468Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.479Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.133Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.146Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.711Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.714Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.742Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.808Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:54.767Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:54.782Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.050Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.064Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.152Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.164Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:07.859Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:07.873Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.396Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.398Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.417Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.464Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:11.353Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:11.369Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.207Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.209Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.229Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.286Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:59.860Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:59.873Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.141Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.144Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.162Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.222Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.261Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.272Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.937Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.954Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:31.029Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:31.040Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:34.700Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:34.713Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.068Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.079Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.147Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.159Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:58.970Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:58.995Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.967Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.969Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.987Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:44:00.054Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:50.486Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:50.502Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.060Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.071Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.338Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.348Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.539Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.553Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.905Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.909Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.953Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:41.063Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:38.924Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:38.941Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.502Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.513Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.863Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.883Z"}

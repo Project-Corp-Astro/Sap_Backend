@@ -1267,3 +1267,967 @@
 {"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-30T08:27:10.916Z"}
 {"level":"info","message":"Elasticsearch connection check successful","service":"elasticsearch-client","timestamp":"2025-05-30T08:27:11.011Z"}
 {"level":"info","message":"Elasticsearch client closed","service":"elasticsearch-client","timestamp":"2025-05-30T08:42:21.726Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:36.699Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:36.702Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:36.710Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:38.834Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:38.835Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:38.859Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.930Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.934Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.953Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.956Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.958Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.959Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:39.988Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:52:40.066Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:08.104Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:08.106Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:08.110Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:09.778Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:09.779Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:09.792Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.395Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.414Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.445Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.446Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.449Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.452Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.497Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:10.623Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:44.501Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:44.503Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:44.507Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.140Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.140Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.153Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.626Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.628Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.638Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.639Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.640Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.641Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.656Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T03:53:46.699Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:15.016Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:15.018Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:15.024Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:17.463Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:17.463Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:17.477Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.123Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.136Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.136Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.147Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.337Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.354Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.355Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:25:18.370Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:06.949Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:06.951Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:06.955Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:08.625Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:08.626Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:08.638Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.257Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.259Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.271Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.272Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.273Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.274Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.293Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:26:09.352Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:06.635Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:06.637Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:06.642Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:08.910Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:08.913Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:08.976Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.871Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.874Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.890Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.891Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.892Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.893Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.910Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:34:09.965Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:45.054Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:45.055Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:45.059Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:46.563Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:46.563Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:46.576Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.310Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.312Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.322Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.323Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.325Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.325Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.342Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:36:47.386Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:23.314Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:23.316Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:23.321Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:25.520Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:25.521Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:25.536Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.174Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.189Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.189Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.208Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.285Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.295Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.296Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T04:48:26.308Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:41.294Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:41.299Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:41.306Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:44.569Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:44.570Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:44.589Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.393Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.421Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.425Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.441Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.535Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.550Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.552Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:09:45.575Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:24.112Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:24.114Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:24.118Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.116Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.116Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.130Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.965Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.969Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.982Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.984Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.985Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:26.986Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:27.006Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:12:27.072Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:46.564Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:46.569Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:46.580Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:50.994Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:50.999Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:51.332Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:51.683Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:51.706Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:51.781Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:51.893Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:52.043Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:52.408Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:52.449Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:15:52.510Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:16.132Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:16.137Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:16.148Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:19.837Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:19.838Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:19.857Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.449Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.468Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.469Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.488Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.589Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.606Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.607Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:16:20.636Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:05.661Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:05.666Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:05.672Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:09.556Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:09.557Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:09.639Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.254Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.271Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.272Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.282Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.357Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.373Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.374Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:25:10.390Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:24.866Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:24.868Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:24.872Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:26.678Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:26.679Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:26.692Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.451Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.461Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.462Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.472Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.538Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.549Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.549Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:27:27.558Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:29.187Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:29.189Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:29.193Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:31.833Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:31.833Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:31.848Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.538Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.556Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.557Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.569Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.634Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.645Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.647Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T05:34:32.658Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:44.341Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:44.345Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:44.350Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:47.194Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:47.205Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:47.376Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.045Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.055Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.068Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.070Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.076Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.078Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.100Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:31:48.195Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:07.361Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:07.372Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:07.378Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:10.073Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:10.074Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:10.099Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.036Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.041Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.056Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.057Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.058Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.058Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.075Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:37:11.133Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:06.224Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:06.227Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:06.233Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.289Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.290Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.304Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.630Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.654Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.655Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.669Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.744Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.756Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.757Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:08.770Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:30.284Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:30.286Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:30.290Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:31.855Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:31.856Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:31.868Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.450Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.472Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.491Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.492Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.495Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.496Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.526Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:38:32.575Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:07.907Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:07.910Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:07.920Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:10.255Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:10.256Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:10.272Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.019Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.021Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.032Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.032Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.034Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.034Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.051Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:41:11.109Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:45.946Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:45.948Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:45.953Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:48.607Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:48.608Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:48.623Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.172Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.184Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.185Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.196Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.305Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.315Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.316Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:44:49.325Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:22.599Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:22.602Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:22.607Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:25.825Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:25.839Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:25.929Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.840Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.855Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.856Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.870Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.958Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.969Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.971Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:47:26.988Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:10.314Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:10.316Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:10.330Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:12.663Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:12.664Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:12.680Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.236Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.239Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.252Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.253Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.255Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.255Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.278Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:13.350Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:28.259Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:28.261Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:28.266Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.332Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.333Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.348Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.857Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.868Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.869Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.880Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.941Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.951Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.952Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:49:30.962Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:41.088Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:41.091Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:41.095Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:44.629Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:44.630Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:44.650Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.365Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.385Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.386Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.397Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.471Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.481Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.482Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:56:45.492Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:32.354Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:32.356Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:32.361Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:34.636Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:34.637Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:34.650Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.186Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.204Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.205Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.215Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.303Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.315Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.316Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:58:35.328Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T06:59:33.481Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T06:59:33.488Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T06:59:33.500Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T06:59:36.415Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T06:59:36.415Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T06:59:36.434Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:20.087Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:20.090Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:20.095Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.636Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.639Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.674Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.948Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.953Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.965Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.967Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.978Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:22.985Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:23.016Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:23.119Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:59.872Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:59.874Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:00:59.879Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:01.965Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:01.966Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:01.978Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.387Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.398Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.409Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.409Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.411Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.411Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.428Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:01:02.485Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:10.876Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:10.878Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:10.883Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:12.817Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:12.817Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:12.831Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.342Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.344Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.355Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.356Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.357Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.358Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.375Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:13.421Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:27.901Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:27.903Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:27.907Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:29.619Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:29.620Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:29.633Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.043Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.074Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.075Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.087Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.187Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.196Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.197Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:02:30.205Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:18.333Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:18.343Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:18.360Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.647Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.648Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.720Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.971Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.983Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.985Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:20.995Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:21.053Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:21.064Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:21.065Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T07:03:21.078Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:32.417Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:32.419Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:32.423Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:35.770Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:35.771Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:35.786Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.543Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.559Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.561Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.569Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.591Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.676Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.677Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:19:36.691Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:50.261Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:50.264Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:50.272Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:52.678Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:52.678Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:52.695Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.106Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.118Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.119Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.130Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.216Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.226Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.230Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:20:53.242Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:00.150Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:00.154Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:00.161Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:04.677Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:04.677Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:04.696Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.405Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.418Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.419Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.437Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.540Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.560Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.566Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:37:05.582Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:34.212Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:34.216Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:34.223Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.093Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.094Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.116Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.656Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.660Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.675Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.676Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.678Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.679Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.700Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:49:38.783Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:30.068Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:30.193Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:30.238Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.243Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.244Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.260Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.882Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.894Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.938Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.939Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.944Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.945Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:33.995Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:50:34.111Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:06.386Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:06.389Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:06.393Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:08.508Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:08.509Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:08.522Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.257Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.260Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.277Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.278Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.279Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.280Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.307Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:52:09.367Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:30.198Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:30.200Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:30.205Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:32.681Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:32.682Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:32.697Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:32.980Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:32.990Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.009Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.010Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.016Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.017Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.048Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:53:33.143Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:48.923Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:48.925Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:48.930Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:51.912Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:51.913Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:51.958Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.559Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.568Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.580Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.580Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.582Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.582Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.606Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:58:52.681Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:11.962Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:11.964Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:11.972Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.267Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.268Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.304Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.704Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.708Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.733Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.733Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.735Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.736Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.771Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:14.849Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:32.850Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:32.907Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:32.947Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.679Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.680Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.730Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.909Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.925Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.927Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:35.939Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:36.008Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:36.024Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:36.026Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:36.056Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:58.583Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:58.599Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T09:59:58.606Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:01.233Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:01.237Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:01.360Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:01.811Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:01.921Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:01.962Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:02.111Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:02.204Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:02.372Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:02.373Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:00:02.391Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:42.170Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:42.172Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:42.177Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:44.090Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:44.090Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:44.106Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.593Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.599Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.615Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.616Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.618Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.619Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.643Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:02:45.704Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:18.368Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:18.370Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:18.374Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:21.767Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:21.768Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:21.793Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.066Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.080Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.081Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.092Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.254Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.268Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.269Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:04:22.280Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:37.614Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:37.616Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:37.621Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:40.219Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:40.271Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:40.351Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.355Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.374Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.375Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.393Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.479Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.493Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.494Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:06:41.508Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:08:42.811Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:08:42.817Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:08:42.825Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:08:45.925Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:08:45.926Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:08:45.966Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:02.810Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:02.813Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:02.818Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.131Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.132Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.187Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.429Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.443Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.444Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.457Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.707Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.722Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.723Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:09:07.737Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:25.128Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:25.132Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:25.137Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:27.815Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:27.818Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:27.862Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.157Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.182Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.199Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.201Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.204Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.205Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.244Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:10:28.326Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:19.472Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:19.474Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:19.479Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:21.524Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:21.525Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:21.537Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.467Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.477Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.510Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.549Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.558Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.567Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.593Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:11:22.679Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:11.941Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:11.943Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:11.948Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:13.822Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:13.823Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:13.840Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.313Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.324Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.325Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.336Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.400Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.411Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.411Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:12:14.421Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:16.307Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:16.310Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:16.315Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:18.365Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:18.366Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:18.382Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.078Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.095Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.097Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.115Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.199Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.210Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.211Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:19.225Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:57.484Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:57.486Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:57.491Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:59.658Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:59.660Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:14:59.676Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.289Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.302Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.302Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.314Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.431Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.443Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.443Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:15:00.457Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:17:57.254Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:17:57.256Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:17:57.260Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:17:59.402Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:17:59.403Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:17:59.415Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.144Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.146Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.158Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.159Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.161Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.161Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.181Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:18:00.245Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:32.056Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:32.058Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:32.063Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.277Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.278Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.294Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.906Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.920Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.921Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:34.932Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:35.061Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:35.071Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:35.071Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:27:35.081Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:56.832Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:56.834Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:56.848Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:59.240Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:59.240Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:59.252Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:59.992Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:30:59.994Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.003Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.004Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.006Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.009Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.025Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:00.080Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:40.200Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:40.202Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:40.213Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:43.478Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:43.479Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:43.499Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:43.978Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.016Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.033Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.033Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.036Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.074Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.100Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:31:44.184Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:07.699Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:07.701Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:07.707Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:10.893Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:10.895Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:10.924Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.031Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.044Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.045Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.058Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.287Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.300Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.300Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:33:12.311Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:43.415Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:43.417Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:43.420Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.023Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.024Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.036Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.299Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.313Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.314Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.324Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.459Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.469Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.469Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:34:45.479Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:19.496Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:19.499Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:19.503Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.133Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.134Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.147Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.691Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.696Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.711Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.712Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.714Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.714Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.743Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:22.808Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:52.675Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:52.677Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:52.682Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:54.767Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:54.767Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:54.782Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.035Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.050Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.050Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.064Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.141Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.153Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.153Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:35:55.164Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:05.439Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:05.441Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:05.452Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:07.859Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:07.860Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:07.873Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.379Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.385Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.396Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.397Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.398Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.399Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.417Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:37:08.464Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:08.526Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:08.528Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:08.533Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:11.354Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:11.355Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:11.369Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.193Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.197Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.207Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.208Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.209Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.210Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.229Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:12.286Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:58.013Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:58.016Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:58.020Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:59.860Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:59.861Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:39:59.873Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.109Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.127Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.142Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.143Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.144Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.145Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.162Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:40:00.223Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:28.639Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:28.641Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:28.645Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.261Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.262Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.273Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.926Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.937Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.938Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:30.954Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:31.020Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:31.029Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:31.030Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:41:31.040Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:32.855Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:32.858Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:32.863Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:34.701Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:34.701Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:34.713Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.057Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.068Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.069Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.079Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.138Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.147Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.148Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:42:35.159Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:56.943Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:56.946Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:56.951Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:58.970Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:58.971Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:58.995Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.939Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.952Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.967Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.968Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.970Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.970Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:43:59.988Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:44:00.054Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:47.262Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:47.268Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:47.278Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:50.487Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:50.487Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:50.502Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.048Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.060Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.061Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.071Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.328Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.338Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.338Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:48:51.348Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:38.096Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:38.101Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:38.110Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.539Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.540Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.553Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.875Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.880Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.906Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.907Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.909Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.912Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:40.954Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:49:41.064Z"}
+{"level":"info","message":"Elasticsearch environment variables","node":"http://localhost:9200","password":"provided","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:36.046Z","useElasticsearch":"not set","username":"provided"}
+{"level":"info","message":"Using Elasticsearch with authentication","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:36.048Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:36.052Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:38.924Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:38.925Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:38.942Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.490Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.502Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.502Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.513Z"}
+{"auth":"provided","level":"info","message":"Attempting to connect to Elasticsearch","node":"http://localhost:9200","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.848Z"}
+{"error":"Connection Error","level":"error","message":"Elasticsearch connection timed out","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.863Z"}
+{"level":"info","message":"Attempting alternate connection check with info API","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.864Z"}
+{"error":"Connection Error","level":"error","message":"Alternate connection check also failed","service":"elasticsearch-client","timestamp":"2025-06-05T10:50:39.883Z"}

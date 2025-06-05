@@ -223,29 +223,44 @@ export const generateRecoveryCodes = async (req: AuthenticatedRequest, res: Resp
   }
 };
 
-export const requestPasswordReset = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const requestPasswordResetOTP = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { email } = req.body;
     if (!email) {
       res.status(400).json({ success: false, message: 'Email is required' });
       return;
     }
-    await authService.requestPasswordReset(email);
-    res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
+    await authService.generatePasswordResetOTP(email);
+    res.status(200).json({ success: true, message: 'OTP sent to your email if account exists' });
   } catch (error) {
-    logger.error('Password reset request error:', error);
-    res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
+    logger.error('Password reset OTP request error:', error);
+    res.status(200).json({ success: true, message: 'OTP sent to your email if account exists' });
   }
 };
 
-export const resetPassword = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const verifyPasswordResetOTP = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const { token, newPassword } = req.body;
-    if (!token || !newPassword) {
-      res.status(400).json({ success: false, message: 'Token and new password are required' });
+    const { email, otp } = req.body;
+    if (!email || !otp) {
+      res.status(400).json({ success: false, message: 'Email and OTP are required' });
       return;
     }
-    await authService.resetPassword(token, newPassword);
+    const isValid = await authService.verifyPasswordResetOTP(email, otp);
+    res.status(200).json({ success: true, message: 'OTP verified successfully' });
+  } catch (error) {
+    logger.error('Password reset OTP verification error:', error);
+    res.status(400).json({ success: false, message: 'Invalid OTP' });
+  }
+};
+
+export const resetPasswordWithOTP = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const { email, newPassword } = req.body;
+    if (!email || !newPassword) {
+      res.status(400).json({ success: false, message: 'Email and new password are required' });
+      return;
+    }
+    await authService.resetPasswordWithOTP(email, newPassword);
     res.status(200).json({ success: true, message: 'Password has been reset successfully' });
   } catch (error: any) {
     if (error.message.includes('expired') || error.message.includes('invalid')) {
@@ -256,22 +271,22 @@ export const resetPassword = async (req: Request, res: Response, next: NextFunct
   }
 };
 
-export const forgotPassword = async (req: Request, res: Response): Promise<void> => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    res.status(400).json({ success: false, message: 'Validation failed', errors: errors.array() });
-    return;
-  }
-  try {
-    const { email } = req.body;
-    if (!email) {
-      res.status(400).json({ success: false, message: 'Email is required' });
-      return;
-    }
-    await authService.requestPasswordReset(email);
-    res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
-  } catch (error) {
-    logger.error('Password reset request error:', error);
-    res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
-  }
-};
+// export const forgotPassword = async (req: Request, res: Response): Promise<void> => {
+//   const errors = validationResult(req);
+//   if (!errors.isEmpty()) {
+//     res.status(400).json({ success: false, message: 'Validation failed', errors: errors.array() });
+//     return;
+//   }
+//   try {
+//     const { email } = req.body;
+//     if (!email) {
+//       res.status(400).json({ success: false, message: 'Email is required' });
+//       return;
+//     }
+//     await authService.requestPasswordReset(email);
+//     res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
+//   } catch (error) {
+//     logger.error('Password reset request error:', error);
+//     res.status(200).json({ success: true, message: 'Password reset link sent if email exists' });
+//   }
+// };
