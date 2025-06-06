@@ -203,8 +203,8 @@ router.post('/password-reset/verify-otp', validateRequest([
   {
     field: 'otp',
     validations: [{
-      validator: validators.isLength(6),
-      message: 'OTP must be 6 digits'
+      validator: validators.isLength(4),
+      message: 'OTP must be 4 digits'
     }]
   }
 ]), authController.verifyPasswordResetOTP);
