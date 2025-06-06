@@ -1,5 +1,5 @@
 import jwt, { Secret, SignOptions } from 'jsonwebtoken';
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 import crypto from 'crypto';
 import { authenticator } from 'otplib';
 import QRCode from 'qrcode';
@@ -89,14 +89,32 @@ export const register = async (userData: UserData): Promise<any> => {
       }
     }
     
-    // Hash the password before saving
-    const hashedPassword = await bcrypt.hash(userData.password, 10);
+    // Create user instance with plain password
     const user = new User({
       ...userData,
-      password: hashedPassword
+      password: userData.password,
+      isActive: true,
+      role: 'user'
     });
+    
+    // Log the password before saving (for debugging only - remove in production)
+    console.log('Registering password:', userData.password);
+    
+    // Save user with proper password handling
     await user.save();
     
+    // Log the saved password hash (for debugging only - remove in production)
+    console.log('Saved password hash:', user.password);
+    
+    // Send welcome email
+    try {
+      await emailService.sendWelcomeEmail(user.email, user.firstName);
+      logger.info(`Welcome email sent to ${user.email}`);
+    } catch (emailError) {
+      logger.error('Failed to send welcome email:', emailError);
+      // Don't throw error here as it shouldn't prevent registration
+    }
+
     // Return user without password
     const userObject = user.toObject();
     delete userObject.password;
@@ -578,21 +596,26 @@ export const resetPasswordWithOTP = async (email: string, newPassword: string): 
       throw new Error('User not found');
     }
 
-    // Log the current password hash (for debugging only - remove in production)
-    console.log('Current password hash:', user.password);
-
-    // Hash the new password
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
-    console.log('New password hash:', hashedPassword);
-
-    // Update user document directly
-    user.password = hashedPassword;
+    // Clear existing password reset data
+    user.passwordReset = null;
+    
+    // Set the new password and timestamps
+    user.password = newPassword;
     user.passwordLastChanged = new Date();
     user.passwordChangedAt = new Date();
+    user.isActive = true;
     
-    // Save the document with validation
+    // Clear password reset data
+    user.passwordReset = null;
+    
+    // Clear login attempts
+    user.loginAttempts = [];
+    
+    // Save user without validation first to ensure password is hashed properly
+    await user.save();
+    
+    // Then save with validation
     const savedUser = await user.save({ validateBeforeSave: true });
-    console.log('Saved password hash:', savedUser.password);
 
     // Invalidate all existing tokens
     // This is done by updating passwordChangedAt
