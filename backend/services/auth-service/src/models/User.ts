@@ -240,23 +240,23 @@ userSchema.pre('save', async function(next) {
 // Method to compare passwords
 userSchema.methods.comparePassword = async function(candidatePassword: string): Promise<boolean> {
   try {
-    // Get the password value (which may be encrypted)
+    // Get the password value
     const storedPassword = this.password;
     
-    // If the password is encrypted, decrypt it first
-    if (this._encrypted && this._encrypted.password) {
-      const decryptedPassword = await decrypt(this._encrypted.password, {
-        key: process.env.ENCRYPTION_KEY || 'your-secret-key',
-        iv: process.env.ENCRYPTION_IV || 'your-initialization-vector',
-        algorithm: 'aes-256-gcm'
-      });
-      return await bcrypt.compare(candidatePassword, decryptedPassword);
+    // Ensure we have a valid stored password
+    if (!storedPassword) {
+      return false;
     }
     
-    // If not encrypted, compare directly
-    return await bcrypt.compare(candidatePassword, storedPassword);
+    // Trim whitespace from candidate password
+    const trimmedPassword = candidatePassword.trim();
+    
+    // Compare with bcrypt
+    const isMatch = await bcrypt.compare(trimmedPassword, storedPassword);
+    
+    return isMatch;
   } catch (error) {
-    throw error;
+    return false;
   }
 };
 
@@ -295,13 +295,45 @@ userSchema.methods.shouldChangePassword = function(): boolean {
 userSchema.pre('save', async function(this: UserDocument, next) {
   // Only hash password if it's modified
   if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 10);
+    // Get the current password value
+    const currentPassword = this.password;
+    
+    // Ensure password is a string
+    if (typeof currentPassword !== 'string') {
+      next(new Error('Password must be a string'));
+      return;
+    }
+    
+    // Only hash if password is not already hashed
+    if (!currentPassword.startsWith('$2b$')) {
+      try {
+        // Hash the password
+        this.password = await bcrypt.hash(currentPassword, 10);
+        
+        // Update password timestamps
+        this.passwordLastChanged = new Date();
+        this.passwordChangedAt = new Date();
+        
+        // Clear password reset data
+        if (this.passwordReset) {
+          this.passwordReset = null;
+        }
+        
+        // Clear login attempts
+        if (this.loginAttempts && this.loginAttempts.length > 0) {
+          this.loginAttempts = [];
+        }
+      } catch (error) {
+        next(error);
+        return;
+      }
+    }
   }
   next();
 });
 
 // Apply encryption plugin to encrypt sensitive fields
-// We don't need to exclude password since it's already handled by bcrypt
+// The plugin is already configured with default options
 userSchema.plugin(encryptionPlugin);
 
 // Create and export the User model

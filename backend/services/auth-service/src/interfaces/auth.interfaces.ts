@@ -228,10 +228,9 @@ export interface UserDocument extends Document {
   accountLockedUntil?: Date;
   passwordLastChanged?: Date;
   passwordChangedAt?: Date;
-  subscriptionId?: string;
-  createdAt: Date;
-  updatedAt: Date;
-  
+  _encrypted?: {
+    password?: string;
+  };
   // Methods
   comparePassword(candidatePassword: string): Promise<boolean>;
   isAccountLocked(): boolean;
