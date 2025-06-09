@@ -230,11 +230,32 @@ export const requestPasswordResetOTP = async (req: Request, res: Response, next:
       res.status(400).json({ success: false, message: 'Email is required' });
       return;
     }
-    await authService.generatePasswordResetOTP(email);
-    res.status(200).json({ success: true, message: 'OTP sent to your email if account exists' });
+
+    try {
+      const { expiresIn } = await authService.generatePasswordResetOTP(email);
+      res.status(200).json({ 
+        success: true, 
+        message: 'OTP has been sent to your email',
+        data: {
+          expiresIn // This will be the number of seconds until OTP expires
+        }
+      });
+    } catch (error: any) {
+      if (error.message === 'User not exist') {
+        res.status(404).json({ 
+          success: false, 
+          message: 'User does not exist' 
+        });
+      } else {
+        throw error; // Re-throw other errors to be caught by the outer catch
+      }
+    }
   } catch (error) {
     logger.error('Password reset OTP request error:', error);
-    res.status(200).json({ success: true, message: 'OTP sent to your email if account exists' });
+    res.status(500).json({ 
+      success: false, 
+      message: 'An error occurred while processing your request' 
+    });
   }
 };
 
