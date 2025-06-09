@@ -26,7 +26,7 @@ const JWT_REFRESH_EXPIRES_IN = process.env.JWT_REFRESH_EXPIRES_IN || '7d';
 const MFA_APP_NAME = process.env.MFA_APP_NAME || 'SAP Corp Astro';
 
 // Password reset settings
-const PASSWORD_RESET_EXPIRES = 60 * 5; // 5 minutes in seconds
+const PASSWORD_RESET_EXPIRES = 90; // 5 minutes in seconds
 const OTP_LENGTH = 4;
 
 // Login attempt settings
@@ -519,14 +519,13 @@ export const trackLoginAttempt = async (userId: string, ip: string, success: boo
  * Request password reset
  * @param email - User email
  */
-export const generatePasswordResetOTP = async (email: string): Promise<void> => {
+export const generatePasswordResetOTP = async (email: string): Promise<{ expiresIn: number }> => {
   try {
     // Find user
     const user = await User.findOne({ email });
     
     if (!user) {
-      // Don't reveal that user doesn't exist
-      return;
+      throw new Error('User not exist');
     }
     
     // Generate OTP (4 digits)
@@ -541,7 +540,11 @@ export const generatePasswordResetOTP = async (email: string): Promise<void> => 
     
     // Send email with OTP
     await emailService.sendPasswordResetOTP(user.email, otp);
+
+    // Return the expiration time in seconds
+    return { expiresIn: PASSWORD_RESET_EXPIRES };
   } catch (error) {
+    logger.error('Error in generatePasswordResetOTP:', error);
     throw error;
   }
 };
@@ -554,25 +557,50 @@ export const generatePasswordResetOTP = async (email: string): Promise<void> => 
  */
 export const verifyPasswordResetOTP = async (email: string, otp: string): Promise<boolean> => {
   try {
+    // Validate input
+    if (!email || !otp) {
+      throw new Error('Email and OTP are required');
+    }
+
     // Find user
     const user = await User.findOne({ email });
     
     if (!user) {
+      logger.warn(`OTP verification failed: User not found for email: ${email}`);
       throw new Error('User not found');
     }
     
     // Get stored OTP
     const storedOTP = await redisClient.get(`password_reset_otp:${user._id}`);
+
+    // Log the OTPs for debugging (remove in production)
+    logger.debug(`OTP Verification - Stored: "${storedOTP}" (${typeof storedOTP}), Received: "${otp}" (${typeof otp})`);
+
+    if (!storedOTP) {
+      logger.warn(`No OTP found for user: ${email}`);
+      throw new Error('OTP expired or invalid');
+    }
+
+    // Trim and compare OTPs
+    const cleanStoredOTP = storedOTP.toString().trim();
+    const cleanOTP = otp.toString().trim();
     
-    if (!storedOTP || storedOTP !== otp) {
+    if (cleanStoredOTP !== cleanOTP) {
+      logger.warn(`OTP mismatch for user ${email}. Expected: "${cleanStoredOTP}", Got: "${cleanOTP}"`);
       throw new Error('Invalid OTP');
     }
     
-    // Delete OTP from Redis
+    // Clean up the OTP from Redis
     await redisClient.del(`password_reset_otp:${user._id}`);
+    logger.info(`OTP verified successfully for user: ${email}`);
     
     return true;
   } catch (error) {
+    logger.error('Error in OTP verification:', {
+      error: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : undefined,
+      email
+    });
     throw error;
   }
 };
