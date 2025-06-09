@@ -1,4 +1,0 @@
-{"error":"connect ECONNREFUSED ::1:27017","level":"error","message":"Error connecting directly to MongoDB","service":"direct-mongo","timestamp":"2025-05-23T11:29:27.618Z"}
-{"level":"info","message":"Disconnected from MongoDB","service":"direct-mongo","timestamp":"2025-05-23T11:29:27.630Z"}
-{"error":"connect ECONNREFUSED ::1:27017","level":"error","message":"Error connecting directly to MongoDB","service":"direct-mongo","timestamp":"2025-05-23T11:30:56.944Z"}
-{"level":"info","message":"Disconnected from MongoDB","service":"direct-mongo","timestamp":"2025-05-23T11:30:56.958Z"}
