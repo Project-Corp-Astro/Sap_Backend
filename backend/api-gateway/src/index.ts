@@ -124,48 +124,57 @@ app.use('/api/auth', createProxyMiddleware({
   }
 }));
 
-// Configure proxy middleware for User Service
-app.use('/api/users', createProxyMiddleware({
-  target: SERVICES.USER_SERVICE,
-  changeOrigin: true,
-  pathRewrite: {
-    '^/api/users': '/api/users',  // Keep the prefix intact
-  },
-  // Add timeout settings (in milliseconds)
-  proxyTimeout: 60000,    // Increase to 60 seconds
-  timeout: 60000,         // Increase to 60 seconds
-  // Connection handling
-  secure: false,          // Don't verify SSL certificates
-  xfwd: true,             // Add x-forwarded headers
-  ws: true,               // Enable WebSocket proxying
-  followRedirects: true,  // Follow any redirects
-  // Error handling
-  logLevel: 'debug',      // Increase logging for troubleshooting
-  // Add important body parsing options
-  onProxyReq: (proxyReq, req, res) => {
-    // Add additional request handling if needed
-    if (req.body && Object.keys(req.body).length > 0) {
-      // If content-type is application/json, stringify the body
-      const contentType = proxyReq.getHeader('Content-Type');
-      if (contentType && contentType.toString().includes('application/json')) {
-        const bodyData = JSON.stringify(req.body);
-        // Update content-length
-        proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
-        // Write body data to the proxy request
-        proxyReq.write(bodyData);
+// Helper function to create proxy middleware for User Service endpoints
+const createUserServiceProxy = (path: string) => {
+  return createProxyMiddleware({
+    target: SERVICES.USER_SERVICE,
+    changeOrigin: true,
+    pathRewrite: {
+      [`^${path}`]: path,  // Keep the prefix intact
+    },
+    // Add timeout settings (in milliseconds)
+    proxyTimeout: 60000,    // Increase to 60 seconds
+    timeout: 60000,         // Increase to 60 seconds
+    // Connection handling
+    secure: false,          // Don't verify SSL certificates
+    xfwd: true,             // Add x-forwarded headers
+    ws: true,               // Enable WebSocket proxying
+    followRedirects: true,  // Follow any redirects
+    // Error handling
+    logLevel: 'debug',      // Increase logging for troubleshooting
+    // Add important body parsing options
+    onProxyReq: (proxyReq, req, res) => {
+      // Add additional request handling if needed
+      if (req.body && Object.keys(req.body).length > 0) {
+        // If content-type is application/json, stringify the body
+        const contentType = proxyReq.getHeader('Content-Type');
+        if (contentType && contentType.toString().includes('application/json')) {
+          const bodyData = JSON.stringify(req.body);
+          // Update content-length
+          proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+          // Write body data to the proxy request
+          proxyReq.write(bodyData);
+        }
       }
+    },
+    logProvider: () => logger,
+    onError: (err: Error, req: Request, res: Response) => {
+      logger.error(`Proxy error to User Service: ${err.message}`, { error: err });
+      res.status(503).json({
+        success: false,
+        message: 'User Service unavailable',
+        error: config.get('nodeEnv') === 'development' ? err.message : undefined
+      });
     }
-  },
-  logProvider: () => logger,
-  onError: (err: Error, req: Request, res: Response) => {
-    logger.error(`Proxy error to User Service: ${err.message}`, { error: err });
-    res.status(503).json({
-      success: false,
-      message: 'User Service unavailable',
-      error: config.get('nodeEnv') === 'development' ? err.message : undefined
-    });
-  }
-}));
+  });
+};
+
+// Configure proxy middleware for User Service
+app.use('/api/users', createUserServiceProxy('/api/users'));
+app.use('/api/permissions', createUserServiceProxy('/api/permissions'));
+app.use('/api/roles', createUserServiceProxy('/api/roles'));
+app.use('/api/user-permissions', createUserServiceProxy('/api/user-permissions'));
+app.use('/api/monitoring', createUserServiceProxy('/api/monitoring'));
 
 // Configure proxy middleware for Content Service
 app.use('/api/content', createProxyMiddleware({

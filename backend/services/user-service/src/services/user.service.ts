@@ -13,62 +13,80 @@ import {
   ActivityFilter,
   ActivityPaginationResult
 } from '../interfaces/shared-types';
-// Import shared types
-import { UserRole } from '@corp-astro/shared-types';
+import { UserRole, VALID_PERMISSIONS, Permission } from '@corp-astro/shared-types';
 import redisClient from '../../../../shared/utils/redis';
 
-// Initialize logger
 const logger = userServiceLogger;
 
-/**
- * User management service
- */
+// Temporary fallback to match User.ts
+const PERMISSION_IDS = [
+  'system.view',
+  'system.configure',
+  'system.manage_roles',
+  'system.view_logs',
+  'users.view',
+  'users.create',
+  'users.edit',
+  'users.delete',
+  'users.impersonate',
+  'content.view',
+  'content.create',
+  'content.edit',
+  'content.delete',
+  'content.publish',
+  'content.approve',
+  'analytics.view',
+  'analytics.export',
+  'analytics.configure',
+  'app.corpastra.manage',
+  'app.grahvani.manage',
+  'app.tellmystars.manage'
+];
+
 class UserService {
-  /**
-   * Create a new user
-   * @param userData - User data
-   * @returns Newly created user
-   */
+  constructor() {
+    // Clear users cache on service initialization to prevent issues with corrupted cache
+    this.clearUsersCache().catch(err => {
+      logger.error('Failed to clear users cache on initialization:', { error: err.message });
+    });
+  }
+
   async createUser(userData: Partial<UserDocument>): Promise<UserDocument> {
     try {
-      const cacheKey = `user:check:${userData.email}:${userData.username}`;
+      const cacheKey = `user:check:${userData.email}`;
       const cachedCheck = await redisClient.get(cacheKey);
       
       if (cachedCheck) {
         const check = JSON.parse(cachedCheck);
         if (check.email === userData.email) throw new Error('Email already in use');
-        if (check.username === userData.username) throw new Error('Username already taken');
       }
 
       const existingUser = await trackDatabaseOperation<UserDocument | null>('findUser', () =>
-        User.findOne({ $or: [{ email: userData.email }, { username: userData.username }] }).exec()
+        User.findOne({ email: userData.email }).exec()
       );
 
       if (existingUser) {
         await redisClient.set(cacheKey, JSON.stringify({
-          email: existingUser.email,
-          username: existingUser.username
+          email: existingUser.email
         }), 300);
-        if (existingUser.email === userData.email) throw new Error('Email already in use');
-        else throw new Error('Username already taken');
+        throw new Error('Email already in use');
       }
 
       const user = new User({
         ...userData,
-        role: userData.role ?? 'user',
-        password: userData.password ?? 'Temp123!',
+        role: userData.role ?? UserRole.USER,
+        password: userData.password ? await bcrypt.hash(userData.password, 10) : await bcrypt.hash('Temp123!', 10),
         preferences: userData.preferences ?? {
           theme: 'system',
-          notifications: { email: true, push: true },
-          language: 'en',
-          timezone: 'UTC'
+          notifications: { email: true, push: true }
         },
         securityPreferences: userData.securityPreferences ?? {
           twoFactorEnabled: false,
           loginNotifications: true,
           activityAlerts: true
         },
-        isActive: true
+        isActive: true,
+        isMfaEnabled: false
       });
 
       logger.debug('Attempting to save user:', user.toObject());
@@ -84,7 +102,6 @@ class UserService {
         throw saveError;
       }
 
-      // Invalidate user list and user-specific caches
       await redisClient.del('users:*');
       await redisClient.del(`user:${user._id}`);
       await redisClient.del(cacheKey);
@@ -95,21 +112,74 @@ class UserService {
     }
   }
 
-  async getUsers(filters: UserFilter = {}, page = 1, limit = 10, sortBy = 'createdAt', sortOrder = 'desc'): Promise<UserPaginationResult> {
+  /**
+   * Clear all users cache entries
+   */
+  async clearUsersCache(): Promise<void> {
     try {
-      const cacheKey = `users:${JSON.stringify({ filters, page, limit, sortBy, sortOrder })}`;
-      const cached = await redisClient.get(cacheKey);
-      if (cached) {
-        return JSON.parse(cached);
+      const keys = await redisClient.keys('users:*');
+      if (keys.length > 0) {
+        await Promise.all(keys.map(key => redisClient.del(key)));
+        logger.info(`Cleared ${keys.length} users cache entries`);
+      }
+    } catch (error) {
+      logger.error('Error clearing users cache:', { error: (error as Error).message });
+    }
+  }
+
+  async getUsers(filters: UserFilter, page = 1, limit = 10, sortBy = 'createdAt', sortOrder = 'desc'): Promise<UserPaginationResult> {
+    try {
+      // Create a serializable version of the filters object
+      const serializableFilters: Record<string, any> = {};
+      
+      // Only include primitive values that can be safely serialized
+      if (filters) {
+        Object.keys(filters).forEach(key => {
+          const value = filters[key as keyof UserFilter];
+          if (value !== undefined && value !== null && 
+              (typeof value === 'string' || 
+               typeof value === 'number' || 
+               typeof value === 'boolean')) {
+            serializableFilters[key] = value;
+          }
+        });
+      }
+      
+      const cacheKey = `users:${JSON.stringify({ 
+        filters: serializableFilters, 
+        page, 
+        limit, 
+        sortBy, 
+        sortOrder 
+      })}`;
+      
+      // Try to get from cache, but handle any errors
+      let cachedData = null;
+      try {
+        const cached = await redisClient.get(cacheKey);
+        if (cached) {
+          cachedData = JSON.parse(cached);
+        }
+      } catch (cacheError) {
+        logger.error('Error retrieving or parsing cached users data:', { error: (cacheError as Error).message });
+        // Clear the problematic cache entry
+        try {
+          await redisClient.del(cacheKey);
+          logger.info(`Cleared problematic cache entry: ${cacheKey}`);
+        } catch (clearError) {
+          logger.error('Error clearing problematic cache:', { error: (clearError as Error).message });
+        }
+      }
+      
+      if (cachedData) {
+        return cachedData;
       }
 
       const query: Record<string, any> = { ...filters };
       
-      // Build search query if search param is provided
       if (query.search) {
         const regex = new RegExp(query.search, 'i');
         query.$or = [
-          { username: regex },
           { email: regex },
           { firstName: regex },
           { lastName: regex }
@@ -117,20 +187,45 @@ class UserService {
         delete query.search;
       }
 
-      // Count total documents
       const totalUsers = await trackDatabaseOperation<number>('countUsers', () => 
         User.countDocuments(query).exec()
       );
       
-      // Calculate skip for pagination
       const skip = (page - 1) * limit;
       const sort: Record<string, 1 | -1> = { [sortBy]: sortOrder === 'asc' ? 1 : -1 };
       const users = await trackDatabaseOperation<UserDocument[]>('findUsers', () =>
         User.find(query).sort(sort).skip(skip).limit(limit).exec()
       );
 
-      const result = { users, totalUsers, totalPages: Math.ceil(totalUsers / limit), currentPage: page, usersPerPage: limit };
-      await redisClient.set(cacheKey, JSON.stringify(result), 300);
+      // We need to maintain the original users array for the return type
+      // but create a serializable version for caching
+      const serializableUsers = users.map(user => user.toObject ? user.toObject() : user);
+      
+      // Create a serializable result for caching
+      const cacheResult = { 
+        users: serializableUsers, 
+        totalUsers, 
+        totalPages: Math.ceil(totalUsers / limit), 
+        currentPage: page, 
+        usersPerPage: limit 
+      };
+      
+      // Create the actual result that matches UserPaginationResult type
+      const result: UserPaginationResult = {
+        users, // Use the original Mongoose documents
+        totalUsers,
+        totalPages: Math.ceil(totalUsers / limit),
+        currentPage: page,
+        usersPerPage: limit
+      };
+      
+      try {
+        await redisClient.set(cacheKey, JSON.stringify(cacheResult), 300);
+      } catch (cacheError) {
+        logger.error('Error caching users data:', { error: (cacheError as Error).message });
+        // Continue even if caching fails
+      }
+      
       return result;
     } catch (error) {
       logger.error('Error getting users:', { error: (error as Error).message });
@@ -190,41 +285,146 @@ class UserService {
 
   async updateUser(userId: string, updateData: Partial<UserDocument>): Promise<UserDocument> {
     try {
-      const cacheKey = `user:check:${updateData.email}:${updateData.username}`;
-      if (updateData.username || updateData.email) {
+      // Log the incoming update data for debugging
+      logger.debug('Updating user with data:', { userId, updateData: JSON.stringify(updateData) });
+      
+      // Handle email check if email is being updated
+      const cacheKey = `user:check:${updateData.email}`;
+      if (updateData.email) {
         const cachedCheck = await redisClient.get(cacheKey);
         if (cachedCheck) {
           const check = JSON.parse(cachedCheck);
           if (updateData.email === check.email) throw new Error('Email already in use');
-          if (updateData.username === check.username) throw new Error('Username already taken');
         }
 
-        const query: any = { _id: { $ne: userId }, $or: [] };
-        if (updateData.username) query.$or.push({ username: updateData.username });
-        if (updateData.email) query.$or.push({ email: updateData.email });
-        if (query.$or.length) {
-          const existing = await User.findOne(query);
-          if (existing) {
-            await redisClient.set(cacheKey, JSON.stringify({
-              email: existing.email,
-              username: existing.username
-            }), 300);
-            if (updateData.email === existing.email) throw new Error('Email already in use');
-            if (updateData.username === existing.username) throw new Error('Username already taken');
-          }
+        const existing = await User.findOne({ email: updateData.email, _id: { $ne: userId } });
+        if (existing) {
+          await redisClient.set(cacheKey, JSON.stringify({
+            email: existing.email
+          }), 300);
+          throw new Error('Email already in use');
         }
       }
-
-      const user = await User.findByIdAndUpdate(userId, { $set: updateData }, { new: true });
+      
+      // Create a copy of the update data to modify
+      const updateFields: Record<string, any> = {};
+      
+      // Copy all fields from updateData to updateFields
+      Object.keys(updateData).forEach(key => {
+        if (updateData[key as keyof Partial<UserDocument>] !== undefined) {
+          updateFields[key] = updateData[key as keyof Partial<UserDocument>];
+        }
+      });
+      
+      // Special handling for username field
+      // If firstName or lastName is updated but username isn't explicitly set,
+      // update the username to match firstName + lastName
+      if ((updateData.firstName || updateData.lastName) && !updateData.username) {
+        // Get the current user to combine with any updated fields
+        const currentUser = await User.findById(userId);
+        if (!currentUser) throw new Error('User not found');
+        
+        const firstName = updateData.firstName || currentUser.firstName;
+        const lastName = updateData.lastName || currentUser.lastName;
+        
+        // Set the username based on firstName and lastName
+        updateFields.username = `${firstName} ${lastName}`.trim();
+        logger.debug('Automatically updating username:', { username: updateFields.username });
+      }
+      
+      logger.debug('Final update fields:', { updateFields });
+      
+      // Use findByIdAndUpdate with the prepared update fields
+      const user = await User.findByIdAndUpdate(
+        userId, 
+        { $set: updateFields }, 
+        { new: true, runValidators: true }
+      );
+      
       if (!user) throw new Error('User not found');
 
-      // Invalidate caches
+      // Clear cache entries
       await redisClient.del(`user:${userId}`);
       await redisClient.del('users:*');
-      await redisClient.del(cacheKey);
+      if (updateData.email) await redisClient.del(cacheKey);
+      
       return user;
     } catch (error) {
       logger.error('Error updating user:', { error: (error as Error).message, userId });
+      throw error;
+    }
+  }
+
+  async updateUserPermissions(userId: string, permissions: string[]): Promise<UserDocument> {
+    try {
+      if (!Array.isArray(permissions)) {
+        throw new Error('Permissions must be an array');
+      }
+
+      // Use PERMISSION_IDS as fallback until VALID_PERMISSIONS import is fixed
+      const validPermissionIds = PERMISSION_IDS; // VALID_PERMISSIONS.map(p => p.id);
+      const invalidPermissions = permissions.filter(perm => !validPermissionIds.includes(perm));
+      if (invalidPermissions.length > 0) {
+        throw new Error(`Invalid permissions: ${invalidPermissions.join(', ')}`);
+      }
+
+      const user = await trackDatabaseOperation<UserDocument | null>('updateUserPermissions', () =>
+        User.findByIdAndUpdate(userId, { $set: { permissions } }, { new: true }).exec()
+      );
+      if (!user) {
+        logger.warn(`User not found with ID: ${userId}`, { userId });
+        throw new Error('User not found');
+      }
+
+      await this.logUserActivity(userId, ActivityType.PERMISSIONS_UPDATE, 'User permissions updated', {
+        permissionsCount: permissions.length,
+        permissions
+      });
+
+      await redisClient.del(`user:${userId}`);
+      await redisClient.del('users:*');
+
+      logger.info('User permissions updated successfully', { userId, permissionsCount: permissions.length });
+      return user;
+    } catch (error) {
+      logger.error('Error updating user permissions:', { error: (error as Error).message, userId });
+      throw error;
+    }
+  }
+
+  async getAllPermissions(): Promise<Permission[]> {
+    try {
+      const cacheKey = 'permissions:all';
+      const cached = await redisClient.get(cacheKey);
+      if (cached) {
+        // Handle case where cached is already an object or a JSON string
+        if (typeof cached === 'string') {
+          try {
+            return JSON.parse(cached);
+          } catch (parseError) {
+            logger.error('Error parsing cached permissions:', { error: (parseError as Error).message });
+            // Continue to generate fresh permissions if parsing fails
+          }
+        } else if (Array.isArray(cached)) {
+          // If it's already an array (in case Redis client parses JSON automatically)
+          return cached as Permission[];
+        }
+      }
+
+      // Use PERMISSION_IDS to generate Permission objects until VALID_PERMISSIONS import is fixed
+      const permissions: Permission[] = PERMISSION_IDS.map(id => ({
+        id,
+        name: id.split('.').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+        description: `Allows ${id.split('.')[1]} action on ${id.split('.')[0]}`,
+        resource: id.split('.')[0],
+        action: id.split('.')[1] as 'create' | 'read' | 'update' | 'delete' | 'manage'
+      }));
+
+      // Cache permissions for 1 hour
+      await redisClient.set(cacheKey, JSON.stringify(permissions), 3600);
+      return permissions;
+    } catch (error) {
+      logger.error('Error getting all permissions:', { error: (error as Error).message });
       throw error;
     }
   }
@@ -234,7 +434,6 @@ class UserService {
       const user = await User.findByIdAndDelete(userId);
       if (!user) throw new Error('User not found');
 
-      // Invalidate caches
       await redisClient.del(`user:${userId}`);
       await redisClient.del('users:*');
       await redisClient.del(`user:${userId}:devices`);
@@ -251,7 +450,6 @@ class UserService {
       const user = await User.findByIdAndUpdate(userId, { $set: { isActive } }, { new: true });
       if (!user) throw new Error('User not found');
 
-      // Invalidate caches
       await redisClient.del(`user:${userId}`);
       await redisClient.del('users:*');
       return user;
@@ -269,7 +467,7 @@ class UserService {
         lastName: profileData.lastName,
         phoneNumber: profileData.phoneNumber,
         address: profileData.address,
-        avatar: profileData.avatar,
+        profileImage: profileData.profileImage,
         preferences: profileData.preferences
       };
       Object.keys(allowed).forEach(k => allowed[k] === undefined && delete allowed[k]);
@@ -277,7 +475,6 @@ class UserService {
       if (!updatedUser) throw new Error('User not found');
       await this.logUserActivity(userId, ActivityType.PROFILE_UPDATE, 'Profile updated');
 
-      // Invalidate caches
       await redisClient.del(`user:${userId}`);
       await redisClient.del('users:*');
       return updatedUser;
@@ -292,15 +489,14 @@ class UserService {
       const user = await User.findById(userId).select('+password');
       if (!user) throw new Error('User not found');
 
-      const isMatch = await bcrypt.compare(currentPassword, (user as any).password);
+      const isMatch = await bcrypt.compare(currentPassword, user.password);
       if (!isMatch) throw new Error('Current password is incorrect');
 
-      (user as any).password = newPassword;
+      user.password = await bcrypt.hash(newPassword, 10);
       await user.save();
 
       await this.logUserActivity(userId, ActivityType.PASSWORD_CHANGE, 'Password changed');
       
-      // Invalidate user cache
       await redisClient.del(`user:${userId}`);
       return true;
     } catch (error) {
@@ -316,7 +512,6 @@ class UserService {
       if (!updatedUser) throw new Error('User not found');
       await this.logUserActivity(userId, ActivityType.SECURITY_UPDATE, 'Security preferences updated');
 
-      // Invalidate caches
       await redisClient.del(`user:${userId}`);
       await redisClient.del('users:*');
       return updatedUser;
@@ -338,7 +533,6 @@ class UserService {
       });
       await activity.save();
 
-      // Invalidate activity cache
       await redisClient.del(`user:${userId}:activity:*`);
       return activity;
     } catch (error) {
@@ -403,7 +597,6 @@ class UserService {
 
       await this.logUserActivity(userId, ActivityType.DEVICE_REMOVED, 'Device removed', { deviceId, deviceName: device.deviceName });
 
-      // Invalidate caches
       await redisClient.del(`user:${userId}:devices`);
       await redisClient.del(`user:${userId}:activity:*`);
       return true;

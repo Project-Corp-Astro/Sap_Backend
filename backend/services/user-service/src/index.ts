@@ -4,6 +4,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
 import userRoutes from './routes/user.routes';
+import permissionRoutes from './routes/permission.routes';
+import roleRoutes from './routes/role.routes';
+import userPermissionRoutes from './routes/user-permission.routes';
 import monitoringRoutes from './routes/monitoring.routes';
 import logger, { requestLogger, errorLogger } from './utils/logger';
 import { performanceMiddleware } from './utils/performance';
@@ -33,10 +36,18 @@ const mongooseOptions: mongoose.ConnectOptions = {
 };
 
 // Connect to MongoDB
+// Import services for initialization
+import permissionService from './services/permission.service';
+import roleService from './services/role.service';
+
 async function connectToDatabase() {
   try {
     await mongoose.connect(MONGO_URI, mongooseOptions);
     logger.info(`MongoDB Connected to ${MONGO_URI}`);
+    
+    // Initialize permissions and roles
+    await permissionService.initializePermissions();
+    await roleService.initializeRoles();
 
     mongoose.connection.on('error', (err) => {
       logger.error('MongoDB connection error after initial connection:', { error: err.message });
@@ -59,6 +70,9 @@ connectToDatabase();
 
 // Routes
 app.use('/api/users', userRoutes);
+app.use('/api/permissions', permissionRoutes);
+app.use('/api/roles', roleRoutes);
+app.use('/api/user-permissions', userPermissionRoutes); // User permission routes
 app.use('/api/monitoring', monitoringRoutes);
 
 app.get('/health', (req: Request, res: Response) => {
