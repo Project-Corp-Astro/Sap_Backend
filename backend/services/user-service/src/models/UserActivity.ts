@@ -18,7 +18,8 @@ export enum ActivityType {
   PASSWORD_RESET = 'password_reset',
   EMAIL_CHANGE = 'email_change',
   ACCOUNT_LOCKED = 'account_locked',
-  ACCOUNT_UNLOCKED = 'account_unlocked'
+  ACCOUNT_UNLOCKED = 'account_unlocked',
+  PERMISSIONS_UPDATE = 'permissions_update'
 }
 
 /**

@@ -1,31 +1,17 @@
 import { Request, Response, NextFunction } from 'express';
-// Import logger directly to avoid path issues in tests
 import logger from '../utils/logger';
 import userService from '../services/user.service';
-// Import from our shared-types file that extends the shared package
 import { UserDocument, SecurityPreferences, ExtendedUser, UserFilter, UserPaginationResult, JwtPayload } from '../interfaces/shared-types';
-// Import shared types
 import { User, UserRole, Permission, ApiResponse, PaginatedResponse } from '@corp-astro/shared-types';
 
-// Use logger directly
 const serviceLogger = logger;
 
-/**
- * User management controller
- */
 class UserController {
-  /**
-   * Create a new user
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async createUser(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const userData = req.body;
       
-      // Validate required fields
-      if (!userData.username || !userData.email || !userData.firstName || !userData.lastName) {
+      if (!userData.email || !userData.firstName || !userData.lastName) {
         return res.status(400).json({
           success: false,
           message: 'Required fields missing'
@@ -51,12 +37,6 @@ class UserController {
     }
   }
   
-  /**
-   * Get all users with pagination and filtering
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async getUsers(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const {
@@ -69,7 +49,6 @@ class UserController {
         isActive
       } = req.query;
       
-      // Build filters
       const filters: UserFilter = {};
       if (search) filters.search = search as string;
       if (role) filters.role = role as string;
@@ -93,12 +72,6 @@ class UserController {
     }
   }
   
-  /**
-   * Get user by ID
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async getUserById(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const { userId } = req.params;
@@ -122,21 +95,16 @@ class UserController {
     }
   }
   
-  /**
-   * Update user
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async updateUser(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const { userId } = req.params;
       const userData = req.body;
       
-      // Prevent updating critical fields directly
       delete userData.password;
       
       const user = await userService.updateUser(userId, userData);
+
+      console.log("updated user data"+user)
       
       return res.status(200).json({
         success: true,
@@ -155,12 +123,6 @@ class UserController {
     }
   }
   
-  /**
-   * Delete user
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async deleteUser(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const { userId } = req.params;
@@ -183,12 +145,6 @@ class UserController {
     }
   }
   
-  /**
-   * Update user active status
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async updateUserStatus(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const { userId } = req.params;
@@ -220,19 +176,9 @@ class UserController {
     }
   }
   
-  /**
-   * Update user profile
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async updateProfile(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
-      // Manual validation instead of using express-validator
-      // Basic validation for required fields can be done here if needed
-      
-      // Get user ID from authenticated user
-      // @ts-ignore - User type doesn't have _id property in TypeScript definitions
+      // @ts-ignore
       const userId = req.user?._id;
       if (!userId) {
         return res.status(401).json({
@@ -243,9 +189,8 @@ class UserController {
       
       const profileData = req.body;
       
-      // Prevent updating critical fields through this endpoint
       delete profileData.password;
-      delete profileData.email; // Email change should be a separate process with verification
+      delete profileData.email;
       delete profileData.role;
       delete profileData.permissions;
       
@@ -262,15 +207,8 @@ class UserController {
     }
   }
   
-  /**
-   * Change user password
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async changePassword(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
-      // Manual validation instead of using express-validator
       const { currentPassword, newPassword } = req.body;
       
       if (!currentPassword || !newPassword) {
@@ -287,7 +225,7 @@ class UserController {
         });
       }
       
-      // @ts-ignore - User type doesn't have _id property in TypeScript definitions
+      // @ts-ignore
       const userId = req.user?._id;
       if (!userId) {
         return res.status(401).json({
@@ -315,15 +253,9 @@ class UserController {
     }
   }
   
-  /**
-   * Update user security preferences
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async updateSecurityPreferences(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
-      // @ts-ignore - User type doesn't have _id property in TypeScript definitions
+      // @ts-ignore
       const userId = req.user?._id;
       if (!userId) {
         return res.status(401).json({
@@ -334,7 +266,6 @@ class UserController {
       
       const securityPreferences: SecurityPreferences = req.body;
       
-      // Validate security preferences
       if (typeof securityPreferences.twoFactorEnabled !== 'boolean' ||
           typeof securityPreferences.loginNotifications !== 'boolean' ||
           typeof securityPreferences.activityAlerts !== 'boolean') {
@@ -357,15 +288,9 @@ class UserController {
     }
   }
   
-  /**
-   * Get user devices
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async getUserDevices(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
-      // @ts-ignore - User type doesn't have _id property in TypeScript definitions
+      // @ts-ignore
       const userId = req.user?._id;
       if (!userId) {
         return res.status(401).json({
@@ -387,15 +312,9 @@ class UserController {
     }
   }
   
-  /**
-   * Remove user device
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async removeUserDevice(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
-      // @ts-ignore - User type doesn't have _id property in TypeScript definitions
+      // @ts-ignore
       const userId = req.user?._id;
       if (!userId) {
         return res.status(401).json({
@@ -432,21 +351,14 @@ class UserController {
     }
   }
   
-  /**
-   * Get user activity log
-   * @param req - Express request object
-   * @param res - Express response object
-   * @param next - Express next middleware function
-   */
   async getUserActivity(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const { userId } = req.params;
       const { page = 1, limit = 20, type } = req.query;
       
-      // Check if user has permission to view activity
-      // @ts-ignore - User type doesn't have _id property in TypeScript definitions
+      // @ts-ignore
       const isOwnActivity = req.user?._id.toString() === userId;
-      // @ts-ignore - User type doesn't have role property in TypeScript definitions
+      // @ts-ignore
       const isAdmin = req.user?.role === UserRole.ADMIN;
       
       if (!isOwnActivity && !isAdmin) {
@@ -483,12 +395,95 @@ class UserController {
       return next(error);
     }
   }
+
+  async updateUserPermissions(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+    try {
+      const { userId } = req.params;
+      const { permissions } = req.body;
+
+      if (!Array.isArray(permissions)) {
+        return res.status(400).json({
+          success: false,
+          message: 'Permissions must be an array'
+        });
+      }
+
+      // @ts-ignore
+      const requesterId = req.user?._id;
+      // @ts-ignore
+      const requesterRole = req.user?.role;
+      // @ts-ignore
+      const requesterPermissions = req.user?.permissions || [];
+
+      if (requesterId !== userId && requesterRole !== UserRole.ADMIN && !requesterPermissions.includes('system.manage_roles')) {
+        return res.status(403).json({
+          success: false,
+          message: 'Not authorized to update permissions'
+        });
+      }
+
+      const user = await userService.updateUserPermissions(userId, permissions);
+
+      return res.status(200).json({
+        success: true,
+        message: 'Permissions updated successfully',
+        data: user.permissions
+      });
+    } catch (error) {
+      if ((error as Error).message === 'User not found') {
+        return res.status(404).json({
+          success: false,
+          message: 'User not found'
+        });
+      }
+      if ((error as Error).message.includes('Invalid permissions')) {
+        return res.status(400).json({
+          success: false,
+          message: (error as Error).message
+        });
+      }
+
+      serviceLogger.error('Permissions update error:', { error: (error as Error).message });
+      return next(error);
+    }
+  }
+
+  /**
+   * Get all available permissions
+   * @param req - Express request object
+   * @param res - Express response object
+   * @param next - Express next middleware function
+   */
+  async getAllPermissions(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+    try {
+      // @ts-ignore
+      const requesterRole = req.user?.role;
+      // @ts-ignore
+      const requesterPermissions = req.user?.permissions || [];
+
+      if (requesterRole !== UserRole.ADMIN && !requesterPermissions.includes('system.manage_roles')) {
+        return res.status(403).json({
+          success: false,
+          message: 'Not authorized to access permissions'
+        });
+      }
+
+      const permissions = await userService.getAllPermissions();
+
+      return res.status(200).json({
+        success: true,
+        message: 'Permissions retrieved successfully',
+        data: permissions
+      });
+    } catch (error) {
+      serviceLogger.error('Get permissions error:', { error: (error as Error).message });
+      return next(error);
+    }
+  }
 }
 
-// Create controller instance
 const userController = new UserController();
 
-// Export controller methods
 export const {
   createUser,
   getUsers,
@@ -501,5 +496,7 @@ export const {
   updateSecurityPreferences,
   getUserDevices,
   removeUserDevice,
-  getUserActivity
+  getUserActivity,
+  updateUserPermissions,
+  getAllPermissions
 } = userController;

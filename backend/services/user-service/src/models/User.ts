@@ -1,36 +1,44 @@
 import mongoose, { Schema, model } from 'mongoose';
 import { UserDocument, ThemePreference, AppAccess } from '../interfaces/shared-types';
+import { UserRole /*, VALID_PERMISSIONS */ } from '@corp-astro/shared-types';
 
-// Try to import UserRole from shared types, but provide a fallback if it fails
-let UserRole;
-try {
-  // Attempt to import from shared types
-  UserRole = require('@corp-astro/shared-types').UserRole;
-} catch (error) {
-  // Fallback definition if import fails
-  UserRole = {
-    SUPER_ADMIN: 'super_admin',
-    ADMIN: 'admin',
-    MANAGER: 'manager',
-    EDITOR: 'editor',
-    USER: 'user',
-    GUEST: 'guest'
-  };
-}
+// Temporary hardcoded permissions to bypass VALID_PERMISSIONS undefined error
+// TODO: Revert to `enum: VALID_PERMISSIONS.map(p => p.id)` after fixing import
+const PERMISSION_IDS = [
+  'system.view',
+  'system.configure',
+  'system.manage_roles',
+  'system.view_logs',
+  'users.view',
+  'users.create',
+  'users.edit',
+  'users.delete',
+  'users.impersonate',
+  'content.view',
+  'content.create',
+  'content.edit',
+  'content.delete',
+  'content.publish',
+  'content.approve',
+  'analytics.view',
+  'analytics.export',
+  'analytics.configure',
+  'app.corpastra.manage',
+  'app.grahvani.manage',
+  'app.tellmystars.manage'
+];
 
 const userSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true
-  },
   email: {
     type: String,
     required: true,
     unique: true,
     trim: true,
     lowercase: true
+  },
+  username: {
+    type: String,
+    trim: true
   },
   firstName: {
     type: String,
@@ -44,25 +52,63 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: Object.values(UserRole || {}),
-    default: UserRole ? UserRole.USER : 'user'
+    enum: Object.values(UserRole),
+    default: UserRole.USER
   },
-  permissions: [{
-    type: String
+  password: {
+    type: String,
+    required: true
+  },
+  // Legacy permissions field (for backward compatibility)
+  permissionsLegacy: [{
+    type: String,
+    enum: PERMISSION_IDS
   }],
+  // New references to Permission model
+  permissions: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Permission'
+  }],
+  // References to Role model
+  roles: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Role'
+  }],
+  department: {
+    type: String
+  },
+  position: {
+    type: String
+  },
   isActive: {
     type: Boolean,
     default: true
   },
+  isMfaEnabled: {
+    type: Boolean,
+    default: false
+  },
   lastLogin: {
     type: Date
   },
-  avatar: {
+  profileImage: {
     type: String
   },
   metadata: {
     type: Map,
     of: mongoose.Schema.Types.Mixed
+  },
+  managedDepartments: {
+    type: [String],
+    default: undefined
+  },
+  securityLevel: {
+    type: Number,
+    default: 0
+  },
+  canImpersonate: {
+    type: Boolean,
+    default: false
   },
   preferences: {
     theme: {
@@ -119,21 +165,16 @@ const userSchema = new Schema({
   appAccess: [{
     type: String,
     enum: Object.values(AppAccess),
-    default: [AppAccess.CORP_ASTRO] // Default to corpAstro access
+    default: [AppAccess.CORP_ASTRO]
   }]
 }, {
   timestamps: true
 });
 
-// Create indexes for faster queries
-userSchema.index({ username: 1 }, { unique: true });
 userSchema.index({ email: 1 }, { unique: true });
 userSchema.index({ role: 1 });
 userSchema.index({ isActive: 1 });
 userSchema.index({ 'devices.deviceId': 1 });
-
-// Note: Password management is handled by auth-service, 
-// this service only deals with user data
 
 const User = model<UserDocument>('User', userSchema);
 
