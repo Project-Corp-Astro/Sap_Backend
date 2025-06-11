@@ -3,6 +3,8 @@ import { createProxyMiddleware, Options as ProxyOptions } from 'http-proxy-middl
 import helmet from 'helmet';
 import compression from 'compression';
 import cors from 'cors';
+import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
 
 // Import shared modules
 import config from '../../shared/config';
@@ -38,12 +40,15 @@ interface ServiceConfig {
   CONTENT_SERVICE: string;   // Content management service
   ASTRO_ENGINE_SERVICE?: string; // Astrological calculation engine service
   ASTRO_RATAN_SERVICE?: string;  // AI astrologer service
+  SUBSCRIPTION_SERVICE?: string; // Subscription service
 }
 
 const SERVICES: ServiceConfig = {
   AUTH_SERVICE: config.get('services.auth', 'http://localhost:3001'),
   USER_SERVICE: config.get('services.user', 'http://localhost:3002'),
-  CONTENT_SERVICE: config.get('services.content', 'http://localhost:3003'),
+  SUBSCRIPTION_SERVICE: config.get('services.subscription', 'http://localhost:3003'),
+  CONTENT_SERVICE: config.get('services.content', 'http://localhost:3005'),
+
   // Add optional services if configured
   ...(config.get('services.astroEngine') ? { ASTRO_ENGINE_SERVICE: config.get('services.astroEngine') } : {}),
   ...(config.get('services.astroRatan') ? { ASTRO_RATAN_SERVICE: config.get('services.astroRatan') } : {}),
@@ -60,8 +65,10 @@ serviceHealth.registerService(SERVICE_NAME, {
     '/api/content',
     ...(SERVICES.ASTRO_ENGINE_SERVICE ? ['/api/astro-engine'] : []),
     ...(SERVICES.ASTRO_RATAN_SERVICE ? ['/api/astro-ratan'] : []),
+    ...(SERVICES.SUBSCRIPTION_SERVICE ? ['/api/subscription'] : []),
     '/health',
-    '/api-docs'
+    '/api-docs',
+    '/api/subscription'
   ]
 });
 
@@ -246,23 +253,92 @@ if (SERVICES.ASTRO_RATAN_SERVICE) {
   logger.info(`Astro Ratan AI Service proxy configured: ${SERVICES.ASTRO_RATAN_SERVICE}`);
 }
 
-// Setup Swagger documentation
-setupSwagger(app as any, {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'SAP API Gateway',
-      version: '1.0.0',
-      description: 'API Gateway for SAP backend services'
-    },
-    servers: [
-      {
-        url: `http://localhost:${PORT}`,
-        description: 'Local API Gateway'
+// Configure proxy middleware for Subscription Service
+app.use('/api/subscription', createProxyMiddleware({
+  target: SERVICES.SUBSCRIPTION_SERVICE,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/api/subscription': '/api/subscription',  // Keep the prefix intact
+  },
+  // Add timeout settings (in milliseconds)
+  proxyTimeout: 60000,    // Increase to 60 seconds
+  timeout: 60000,         // Increase to 60 seconds
+  // Connection handling
+  secure: false,          // Don't verify SSL certificates
+  xfwd: true,             // Add x-forwarded headers
+  ws: true,               // Enable WebSocket proxying
+  followRedirects: true,  // Follow any redirects
+  // Error handling
+  logLevel: 'debug',      // Increase logging for troubleshooting
+  // Add important body parsing options
+  onProxyReq: (proxyReq, req, res) => {
+    // Set headers first
+    const host = req.headers.host || 'localhost';
+    proxyReq.setHeader('x-forwarded-host', host);
+    proxyReq.setHeader('x-forwarded-proto', 'https');
+  
+    // Then handle body if needed
+    if (req.body && Object.keys(req.body).length > 0) {
+      const contentType = proxyReq.getHeader('Content-Type');
+      if (contentType && contentType.toString().includes('application/json')) {
+        const bodyData = JSON.stringify(req.body);
+        proxyReq.setHeader('Content-Length', Buffer.byteLength(bodyData));
+        proxyReq.write(bodyData);
       }
-    ]
+    }
+  },
+  logProvider: () => logger,
+  onError: (err: Error, req: Request, res: Response) => {
+    logger.error(`Proxy error to Subscription Service: ${err.message}`, { error: err });
+    res.status(503).json({
+      success: false,
+      message: 'Subscription Service unavailable',
+      error: config.get('nodeEnv') === 'development' ? err.message : undefined
+    });
   }
-});
+}));
+
+// Setup Swagger documentation
+// Setup Swagger using shared utility
+try {
+  setupSwagger(app as Express, {
+    definition: {
+      openapi: '3.0.0',
+      info: {
+        title: 'SAP Backend Services',
+        version: '1.0.0',
+        description: 'API documentation for all SAP backend services'
+      },
+      servers: [
+        {
+          url: `http://localhost:${PORT}`,
+          description: 'Local API Gateway'
+        }
+      ]
+    },
+    apis: [
+      // Auth service routes
+      '../services/auth-service/src/routes/**/*.ts',
+      '../services/auth-service/src/controllers/**/*.ts',
+      '../services/auth-service/src/services/**/*.ts',
+      // User service routes
+      '../services/user-service/src/routes/**/*.ts',
+      '../services/user-service/src/controllers/**/*.ts',
+      '../services/user-service/src/services/**/*.ts',
+      // Content service routes
+      '../services/content-service/src/routes/**/*.ts',
+      '../services/content-service/src/controllers/**/*.ts',
+      '../services/content-service/src/services/**/*.ts',
+      // Subscription service routes
+      '../services/subscription-service/src/routes/**/*.ts',
+      '../services/subscription-service/src/controllers/**/*.ts',
+      '../services/subscription-service/src/services/**/*.ts'
+    ]
+  });
+} catch (error) {
+  logger.error('Failed to setup Swagger documentation', { error });
+  throw error;
+}
 
 /**
  * Health check route
@@ -379,6 +455,7 @@ findAvailablePort(PORT)
       logger.info(`Auth Service proxy: ${SERVICES.AUTH_SERVICE}`);
       logger.info(`User Service proxy: ${SERVICES.USER_SERVICE}`);
       logger.info(`Content Service proxy: ${SERVICES.CONTENT_SERVICE}`);
+      logger.info(`Subscription Service proxy: ${SERVICES.SUBSCRIPTION_SERVICE}`);
       
       // Log optional services
       if (SERVICES.ASTRO_ENGINE_SERVICE) {
