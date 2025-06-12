@@ -10,9 +10,12 @@ import detectPort from 'detect-port';
 // Initialize Express app
 const app = express();
 
+// Define standard service configuration
+const SERVICE_NAME = 'auth-service';
+const DEFAULT_PORT = 3001;
+
 // Determine preferred port
-const PORT = process.env.AUTH_SERVICE_PORT ||
-  (process.env.AUTH_SERVICE_URL ? new URL(process.env.AUTH_SERVICE_URL).port : 3001);
+const PORT = process.env.AUTH_SERVICE_PORT || DEFAULT_PORT;
 
 // Middleware
 app.use(cors());
