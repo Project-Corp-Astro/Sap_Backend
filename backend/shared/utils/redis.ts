@@ -34,17 +34,17 @@ const defaultConfig: RedisOptions = {
   password: config.get('redis.password', ''),
   db: parseInt(config.get('redis.db', '0')),
   keyPrefix: config.get('redis.keyPrefix', 'sap:'),
-  maxRetriesPerRequest: 3,
-  connectTimeout: 5000, // 5 seconds timeout
-  commandTimeout: 3000, // 3 seconds timeout
+  maxRetriesPerRequest: 5,  // Increased from 3 to 5
+  connectTimeout: 10000,    // Increased from 5s to 10s
+  commandTimeout: 8000,     // Increased from 3s to 8s
   retryStrategy: (times: number) => {
-    // Limit retry attempts to 3
-    if (times > 3) {
+    // Limit retry attempts to 5
+    if (times > 5) {
       logger.warn('Redis connection retry limit reached, stopping reconnection attempts');
       return null; // Stop retrying
     }
     
-    const delay = Math.min(times * 50, 1000);
+    const delay = Math.min(times * 200, 2000); // Increased delay
     logger.info(`Redis connection retry in ${delay}ms (attempt ${times})`);
     return delay;
   }

@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction, Router } from 'express';
 import * as userController from '../controllers/user.controller';
 import { authMiddleware, roleAuthorization } from '../middlewares/auth.middleware';
-import  { Permission, UserRole } from '@corp-astro/shared-types';
+import { Permission, UserRole } from '@corp-astro/shared-types';
 
 // Export controllers for testing purposes
 export { userController };
@@ -22,14 +22,28 @@ export const wrapController = (controller: any): express.RequestHandler => {
 
 const router: Router = express.Router();
 
+
+/**
+ * @route GET /api/permissions
+ * @desc Get all available permissions
+ * @access Private (Admin or system.manage_roles permission)
+ */
+router.get('/permissions',
+  asRequestHandler(authMiddleware),
+  asRequestHandler(roleAuthorization([UserRole.ADMIN])),
+  wrapController(userController.getAllPermissions)
+);
+
+
+
 /**
  * @route GET /api/users
  * @desc Get all users with pagination and filtering
- * @access Private (Admin, Content Manager)
+ * @access Private (Admin)
  */
 router.get('/', 
   asRequestHandler(authMiddleware), 
-  asRequestHandler(roleAuthorization([UserRole.ADMIN])),  // Removed CONTENT_MANAGER as it doesn't exist 
+  asRequestHandler(roleAuthorization([UserRole.ADMIN])),
   wrapController(userController.getUsers)
 );
 
@@ -49,14 +63,20 @@ router.post('/',
  * @desc Get user by ID
  * @access Private (Admin or Self)
  */
-router.get('/:userId', asRequestHandler(authMiddleware), wrapController(userController.getUserById));
+router.get('/:userId', 
+  asRequestHandler(authMiddleware), 
+  wrapController(userController.getUserById)
+);
 
 /**
  * @route PUT /api/users/:userId
  * @desc Update user
  * @access Private (Admin or Self)
  */
-router.put('/:userId', asRequestHandler(authMiddleware), wrapController(userController.updateUser));
+router.put('/:userId', 
+  asRequestHandler(authMiddleware), 
+  wrapController(userController.updateUser)
+);
 
 /**
  * @route DELETE /api/users/:userId
@@ -78,6 +98,17 @@ router.patch('/:userId/status',
   asRequestHandler(authMiddleware), 
   asRequestHandler(roleAuthorization([UserRole.ADMIN])), 
   wrapController(userController.updateUserStatus)
+);
+
+/**
+ * @route PUT /api/users/:userId/permissions
+ * @desc Update user permissions
+ * @access Private (Admin or system.manage_roles permission)
+ */
+router.put('/:userId/permissions',
+  asRequestHandler(authMiddleware),
+  asRequestHandler(roleAuthorization([UserRole.ADMIN])),
+  wrapController(userController.updateUserPermissions)
 );
 
 /**
