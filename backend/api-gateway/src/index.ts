@@ -43,15 +43,30 @@ interface ServiceConfig {
   SUBSCRIPTION_SERVICE?: string; // Subscription service
 }
 
+// Define default ports for each service
+const DEFAULT_PORTS = {
+  AUTH: 3001,
+  USER: 3002,
+  SUBSCRIPTION: 3003,
+  CONTENT: 3005,
+  ASTRO_ENGINE: 3006,
+  ASTRO_RATAN: 3007
+};
+
+// Get URLs from environment variables with fallbacks using default ports
 const SERVICES: ServiceConfig = {
-  AUTH_SERVICE: config.get('services.auth', 'http://localhost:3001'),
-  USER_SERVICE: config.get('services.user', 'http://localhost:3002'),
-  SUBSCRIPTION_SERVICE: config.get('services.subscription', 'http://localhost:3003'),
-  CONTENT_SERVICE: config.get('services.content', 'http://localhost:3005'),
+  AUTH_SERVICE: process.env.AUTH_SERVICE_URL || `http://localhost:${DEFAULT_PORTS.AUTH}`,
+  USER_SERVICE: process.env.USER_SERVICE_URL || `http://localhost:${DEFAULT_PORTS.USER}`,
+  SUBSCRIPTION_SERVICE: process.env.SUBSCRIPTION_SERVICE_URL || `http://localhost:${DEFAULT_PORTS.SUBSCRIPTION}`,
+  CONTENT_SERVICE: process.env.CONTENT_SERVICE_URL || `http://localhost:${DEFAULT_PORTS.CONTENT}`,
 
   // Add optional services if configured
-  ...(config.get('services.astroEngine') ? { ASTRO_ENGINE_SERVICE: config.get('services.astroEngine') } : {}),
-  ...(config.get('services.astroRatan') ? { ASTRO_RATAN_SERVICE: config.get('services.astroRatan') } : {}),
+  ...(process.env.ASTRO_ENGINE_SERVICE_URL ? { 
+    ASTRO_ENGINE_SERVICE: process.env.ASTRO_ENGINE_SERVICE_URL 
+  } : {}),
+  ...(process.env.ASTRO_RATAN_SERVICE_URL ? { 
+    ASTRO_RATAN_SERVICE: process.env.ASTRO_RATAN_SERVICE_URL 
+  } : {}),
 };
 
 // Register service with health monitoring

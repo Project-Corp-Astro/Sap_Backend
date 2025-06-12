@@ -3,11 +3,16 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
 // import { subscriptionRoutes } from './routes/subscription.routes';
-
 dotenv.config();
 
+// Define standard service configuration
+const SERVICE_NAME = 'subscription-service';
+const DEFAULT_PORT = 3003;
+
+// Get port from environment variable with fallback to default
+const port = process.env.SUBSCRIPTION_SERVICE_PORT || DEFAULT_PORT;
+
 const app = express();
-const port = process.env.PORT || 3003;
 
 // Middleware
 app.use(cors());
