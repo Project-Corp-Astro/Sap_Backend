@@ -8,6 +8,8 @@
 import { Request, Response } from 'express';
 import performanceMonitor from '../utils/performance';
 import { cacheService } from '../utils/cache';
+import { contentCache } from '../utils/redis';
+import mongoose from 'mongoose';
 import os from 'os';
 
 class MonitoringController {
@@ -86,8 +88,20 @@ class MonitoringController {
     // Check if CPU load is critical (load average > CPU count)
     const cpuStatus = os.loadavg()[0] > os.cpus().length ? 'critical' : 'healthy';
     
+    // Check Redis health
+    const redisConnected = await contentCache.ping();
+    const redisStatus = redisConnected ? 'healthy' : 'critical';
+    
+    // Check Database health
+    const dbStatus = mongoose.connection.readyState === 1 ? 'healthy' : 'critical';
+    
     // Overall status is the worst of the individual statuses
-    const status = memoryStatus === 'critical' || cpuStatus === 'critical' ? 'critical' : 'healthy';
+    const status = [
+      memoryStatus,
+      cpuStatus,
+      redisStatus,
+      dbStatus
+    ].includes('critical') ? 'critical' : 'healthy';
     
     res.status(status === 'healthy' ? 200 : 503).json({
       success: true,
@@ -101,6 +115,17 @@ class MonitoringController {
           status: cpuStatus,
           loadAverage: os.loadavg()[0],
           cpuCount: os.cpus().length
+        },
+        redis: {
+          status: redisStatus,
+          connected: redisConnected,
+          caches: ['contentCache']
+        },
+        database: {
+          status: dbStatus,
+          name: mongoose.connection.name || 'undefined',
+          host: mongoose.connection.host || 'undefined',
+          readyState: mongoose.connection.readyState
         }
       },
       system: systemInfo,

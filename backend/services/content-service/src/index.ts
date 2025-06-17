@@ -9,7 +9,7 @@ import { Server as SocketServer } from 'socket.io';
 import logger, { requestLogger, errorLogger } from './utils/logger';
 import { trackResponseTime, trackDatabasePerformance } from './middlewares/performance.middleware';
 import config from './config';
-
+import { redisUtils, contentCache, mediaCache, videoCache, categoryCache } from './utils/redis';
 
 // Logger is imported from ./utils/logger
 
@@ -163,18 +163,35 @@ mongoose.connect(config.mongodb.uri, mongooseOptions)
 const gracefulShutdown = async (signal: string) => {
   logger.info(`${signal} signal received: closing HTTP server`);
 
-  if (activeServer) {
-    await new Promise<void>((resolve) => {
-      activeServer.close(() => {
-        logger.info('HTTP server closed');
-        resolve();
+  try {
+    if (activeServer) {
+      await new Promise<void>((resolve) => {
+        activeServer.close(() => {
+          logger.info('HTTP server closed');
+          resolve();
+        });
       });
-    });
-  }
+    }
 
-  await mongoose.connection.close();
-  logger.info('MongoDB connection closed');
-  process.exit(0);
+    // Close Redis connections
+    logger.info('Closing Redis connections...');
+    await redisUtils.close();
+    logger.info('Redis connections closed successfully');
+
+    // Close MongoDB connections
+    if (mongoose.connection.readyState !== 0) {
+      await mongoose.connection.close();
+      logger.info('MongoDB connection closed');
+    }
+    
+    logger.info('Graceful shutdown completed');
+    process.exit(0);
+  } catch (error) {
+    logger.error('Error during graceful shutdown', {
+      error: error instanceof Error ? error.message : String(error)
+    });
+    process.exit(1);
+  }
 };
 
 // Handle signals for graceful shutdown

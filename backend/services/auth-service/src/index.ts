@@ -3,8 +3,11 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
 import authRoutes from './routes/auth.routes';
+import debugRoutes from './routes/debug.routes';
 import logger, { requestLogger, errorLogger } from './utils/logger';
 import type { ErrorRequestHandler } from 'express';
+// Import Redis utilities with service isolation
+import { redisUtils, sessionCache, otpCache } from './utils/redis';
 import detectPort from 'detect-port';
 
 // Initialize Express app
@@ -87,9 +90,31 @@ connectToDatabase();
 // Routes
 app.use('/api/auth', authRoutes);
 
-// Health route
-app.get('/health', (req: Request, res: Response) => {
-  res.status(200).json({ status: 'ok', service: 'auth-service' });
+// Debug routes - only available in development mode
+if (process.env.NODE_ENV === 'development' || process.env.DEBUG === 'true') {
+  logger.info('Debug routes enabled');
+  app.use('/api/debug', debugRoutes);
+}
+
+// Enhanced health route with Redis connectivity check
+app.get('/health', async (req: Request, res: Response) => {
+  try {
+    // Check Redis connectivity
+    const redisConnected = await redisUtils.pingRedis();
+    
+    res.status(200).json({
+      status: 'ok',
+      service: 'auth-service',
+      redis: redisConnected ? 'connected' : 'disconnected'
+    });
+  } catch (error) {
+    logger.error('Health check error:', { error: error instanceof Error ? error.message : String(error) });
+    res.status(500).json({
+      status: 'error',
+      service: 'auth-service',
+      message: 'Error performing health check'
+    });
+  }
 });
 
 // Error logging and handling
@@ -106,6 +131,43 @@ app.use(((err: Error, req: Request, res: Response, next: NextFunction) => {
 // Start server safely
 const startServer = async () => {
   try {
+    // Check Redis connectivity before starting server
+    try {
+      const redisConnected = await redisUtils.pingRedis();
+      if (redisConnected) {
+        logger.info('Redis connection established successfully using service-isolated DB');
+        
+        // Check purpose-specific caches
+        try {
+          const sessionCachePong = await sessionCache.getClient().ping();
+          if (sessionCachePong === 'PONG') {
+            logger.info('Session cache connected');
+          } else {
+            logger.warn('Session cache not connected properly');
+          }
+        } catch (err) {
+          logger.warn('Session cache error during ping:', { error: err instanceof Error ? err.message : String(err) });
+        }
+        
+        try {
+          const otpCachePong = await otpCache.getClient().ping();
+          if (otpCachePong === 'PONG') {
+            logger.info('OTP cache connected');
+          } else {
+            logger.warn('OTP cache not connected properly');
+          }
+        } catch (err) {
+          logger.warn('OTP cache error during ping:', { error: err instanceof Error ? err.message : String(err) });
+        }
+        
+      } else {
+        logger.warn('Redis connection failed, but proceeding with service startup');
+      }
+    } catch (error) {
+      logger.error('Redis connection error:', { error: error instanceof Error ? error.message : String(error) });
+      logger.warn('Continuing without Redis - functionality will be limited');
+    }
+    
     // Use port 3001 for Auth Service
     const fixedPort = 3001;
     logger.info(`Starting Auth Service on fixed port ${fixedPort}`);
@@ -115,14 +177,32 @@ const startServer = async () => {
       logger.info(`MongoDB Connected to ${MONGO_URI}`);
     });
 
-    const gracefulShutdown = () => {
-      logger.info('Received shutdown signal, closing server...');
-      server.close(() => {
-        logger.info('Server closed successfully');
-        process.exit(0);
+    const gracefulShutdown = async () => {
+      logger.info('Received shutdown signal, closing server and connections...');
+      
+      server.close(async () => {
+        logger.info('HTTP server closed successfully');
+        
+        try {
+          // Close Redis connections
+          await redisUtils.close();
+          logger.info('Redis connections closed successfully');
+          
+          // Close MongoDB connection
+          await mongoose.connection.close();
+          logger.info('MongoDB connection closed successfully');
+          
+          logger.info('All connections closed successfully');
+          process.exit(0);
+        } catch (error) {
+          logger.error('Error during graceful shutdown:', { error: error instanceof Error ? error.message : String(error) });
+          process.exit(1);
+        }
       });
+      
+      // Safety timeout
       setTimeout(() => {
-        logger.error('Could not close server gracefully, forcing shutdown');
+        logger.error('Could not close connections gracefully within timeout, forcing shutdown');
         process.exit(1);
       }, 10000);
     };

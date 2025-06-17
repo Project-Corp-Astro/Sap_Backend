@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator/src/validation-result';
-import redisClient from '../../../../shared/utils/redis';
+import { sessionCache, otpCache } from '../utils/redis';
 import logger from '../../../../shared/utils/logger';
 import * as authService from '../services/auth.service';
 import { IUser } from '../../../../shared/interfaces/user.interface';
@@ -65,7 +65,7 @@ export const oauthLogin = async (req: AuthenticatedRequest, res: Response, next:
       return;
     }
     const authData = await authService.generateTokens(user as any);
-    await redisClient.set(`refresh_token:${user._id.toString()}`, authData.refreshToken, 60 * 60 * 24 * 7);
+    await sessionCache.set(`refresh:${user._id.toString()}`, authData.refreshToken, 60 * 60 * 24 * 7); // 7 days
     res.status(200).json({ success: true, message: 'OAuth login successful', data: { user, ...authData } });
   } catch (error) {
     logger.error('OAuth login error:', error);
@@ -107,7 +107,7 @@ export const verifyMFA = async (req: Request, res: Response, next: NextFunction)
         return;
       }
       const authData = await authService.generateTokens(user);
-      await redisClient.set(`mfa_session:${userId}`, JSON.stringify({ userId, token }), 60 * 10);
+      await sessionCache.set(`mfa:${userId}`, JSON.stringify({ userId, token }), 60 * 10); // 10 minutes
       res.status(200).json({ success: true, message: 'Verification code sent', requiresMfa: true, mfaToken: token });
       return;
     }
@@ -122,7 +122,7 @@ export const sendVerificationCode = async (req: Request, res: Response): Promise
   try {
     const { userId } = req.body;
     const code = Math.floor(100000 + Math.random() * 900000).toString();
-    await redisClient.set(`verification:${userId}`, code, 60 * 10);
+    await otpCache.set(`verification:${userId}`, code, 60 * 10); // 10 minutes
     const token = await authService.generateTokens({ _id: userId } as any);
     if (req.query.login === 'true') {
       const user = await authService.getUserById(userId);
@@ -131,7 +131,7 @@ export const sendVerificationCode = async (req: Request, res: Response): Promise
         return;
       }
       const authData = await authService.generateTokens(user);
-      await redisClient.set(`mfa_session:${userId}`, JSON.stringify({ userId, token }), 60 * 10);
+      await sessionCache.set(`mfa:${userId}`, JSON.stringify({ userId, token }), 60 * 10); // 10 minutes
       res.status(200).json({ success: true, message: 'Verification code sent', requiresMfa: true, mfaToken: token });
       return;
     }
@@ -154,7 +154,7 @@ export const login = async (req: Request, res: Response, next: NextFunction): Pr
       res.status(200).json({ success: true, message: 'MFA verification required', data: { requireMFA: true, userId: authData.user._id } });
       return;
     }
-    await redisClient.set(`refresh_token:${authData.user._id.toString()}`, authData.refreshToken, 60 * 60 * 24 * 7);
+    await sessionCache.set(`refresh:${authData.user._id.toString()}`, authData.refreshToken, 60 * 60 * 24 * 7); // 7 days
     await authService.trackLoginAttempt(authData.user._id.toString(), req.ip || 'unknown', true);
     res.status(200).json({ success: true, message: 'Login successful', data: authData });
   } catch (error: any) {
@@ -177,7 +177,7 @@ export const refreshToken = async (req: Request, res: Response, next: NextFuncti
       return;
     }
     const decoded = await authService.decodeRefreshToken(refreshToken);
-    const storedToken = await redisClient.get(`refresh_token:${decoded.userId}`);
+    const storedToken = await sessionCache.get(`refresh:${decoded.userId}`);
     if (storedToken !== refreshToken) {
       res.status(401).json({ success: false, message: 'Invalid refresh token' });
       return;
@@ -203,7 +203,7 @@ export const logout = async (req: AuthenticatedRequest, res: Response, next: Nex
       res.status(401).json({ success: false, message: 'Authentication required' });
       return;
     }
-    await redisClient.del(`refresh_token:${req.user._id}`);
+    await sessionCache.del(`refresh:${req.user._id}`);
     res.status(200).json({ success: true, message: 'Logout successful' });
   } catch {
     res.status(500).json({ success: false, message: 'Error during logout' });

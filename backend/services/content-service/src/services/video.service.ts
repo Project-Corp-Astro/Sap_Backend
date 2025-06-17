@@ -10,7 +10,7 @@ import {
 } from '../interfaces/video.interfaces';
 import { Error } from 'mongoose';
 import slugifyPkg from 'slugify';
-import redisClient from '../../../../shared/utils/redis';
+import { videoCache } from '../utils/redis';
 import esClient from '../../../../shared/utils/elasticsearch';
 
 const slugify = (typeof slugifyPkg === 'function') ? slugifyPkg : (slugifyPkg as any).default;
@@ -53,7 +53,7 @@ class VideoService {
     });
 
     if (video.status === 'published' && !video.isPrivate) {
-      await redisClient.del(`video:featured:limit:5`);
+      await videoCache.del(`featured:limit:5`);
     }
 
     return video;
@@ -101,27 +101,27 @@ class VideoService {
   }
 
   async getVideoById(id: string): Promise<VideoDocument | null> {
-    const key = `video:id:${id}`;
-    const cached = await redisClient.get(key);
+    const key = `id:${id}`;
+    const cached = await videoCache.get(key);
     if (cached) {
-      console.log('✅ Served from Redis cache'+cached.title);
-      return cached;
+      console.log('✅ Served from Redis cache');
+      return JSON.parse(cached);
     }
     
     console.log('🗄️ Fetched from MongoDB');
 
     const video = await Video.findById(id);
-    if (video) await redisClient.set(key, video, 600);
+    if (video) await videoCache.set(key, JSON.stringify(video), { ttl: 600 });
     return video;
   }
 
   async getVideoBySlug(slug: string): Promise<VideoDocument | null> {
-    const key = `video:slug:${slug}`;
-    const cached = await redisClient.get(key);
-    if (cached) return cached;
+    const key = `slug:${slug}`;
+    const cached = await videoCache.get(key);
+    if (cached) return JSON.parse(cached);
 
     const video = await Video.findOne({ slug });
-    if (video) await redisClient.set(key, video, 600);
+    if (video) await videoCache.set(key, JSON.stringify(video), { ttl: 600 });
     return video;
   }
 
@@ -142,10 +142,10 @@ class VideoService {
     const updatedVideo = await Video.findByIdAndUpdate(id, { $set: updateData }, { new: true });
     if (!updatedVideo) return null;
 
-    await redisClient.del(`video:id:${id}`);
-    if (video.slug) await redisClient.del(`video:slug:${video.slug}`);
+    await videoCache.del(`id:${id}`);
+    if (video.slug) await videoCache.del(`slug:${video.slug}`);
     if (updatedVideo.slug && updatedVideo.slug !== video.slug) {
-      await redisClient.del(`video:slug:${updatedVideo.slug}`);
+      await videoCache.del(`slug:${updatedVideo.slug}`);
     }
 
     await esClient.indexDocument(VIDEO_INDEX, updatedVideo._id.toString(), {
@@ -165,8 +165,8 @@ class VideoService {
     if (!video) return null;
 
     await Video.findByIdAndDelete(id);
-    await redisClient.del(`video:id:${id}`);
-    if (video.slug) await redisClient.del(`video:slug:${video.slug}`);
+    await videoCache.del(`id:${id}`);
+    if (video.slug) await videoCache.del(`slug:${video.slug}`);
     await esClient.deleteDocument(VIDEO_INDEX, id);
 
     return video;
@@ -175,8 +175,8 @@ class VideoService {
   async incrementViewCount(id: string): Promise<VideoDocument | null> {
     const video = await Video.findByIdAndUpdate(id, { $inc: { viewCount: 1 } }, { new: true });
     if (!video) return null;
-    await redisClient.set(`video:id:${id}`, video, 600);
-    if (video.slug) await redisClient.set(`video:slug:${video.slug}`, video, 600);
+    await videoCache.set(`id:${id}`, JSON.stringify(video), { ttl: 600 });
+    if (video.slug) await videoCache.set(`slug:${video.slug}`, JSON.stringify(video), { ttl: 600 });
     return video;
   }
 
@@ -190,28 +190,28 @@ class VideoService {
     const video = await Video.findByIdAndUpdate(id, { $set: update }, { new: true });
     if (!video) return null;
 
-    await redisClient.set(`video:id:${id}`, video, 600);
-    if (video.slug) await redisClient.set(`video:slug:${video.slug}`, video, 600);
+    await videoCache.set(`id:${id}`, JSON.stringify(video), { ttl: 600 });
+    if (video.slug) await videoCache.set(`slug:${video.slug}`, JSON.stringify(video), { ttl: 600 });
     return video;
   }
 
   async getFeaturedVideos(limit: number = 5): Promise<VideoDocument[]> {
-    const key = `video:featured:limit:${limit}`;
-    const cached = await redisClient.get(key);
-    if (cached) return cached;
+    const key = `featured:limit:${limit}`;
+    const cached = await videoCache.get(key);
+    if (cached) return JSON.parse(cached);
 
     const videos = await Video.find({ status: 'published', isPrivate: false })
       .sort({ viewCount: -1, createdAt: -1 })
       .limit(limit);
 
-    await redisClient.set(key, videos, 300);
+    await videoCache.set(key, JSON.stringify(videos), { ttl: 300 });
     return videos;
   }
 
   async getRelatedVideos(videoId: string, limit: number = 5): Promise<VideoDocument[]> {
-    const key = `video:related:${videoId}:limit:${limit}`;
-    const cached = await redisClient.get(key);
-    if (cached) return cached;
+    const key = `related:${videoId}:limit:${limit}`;
+    const cached = await videoCache.get(key);
+    if (cached) return JSON.parse(cached);
 
     const video = await Video.findById(videoId);
     if (!video) return [];
@@ -223,7 +223,7 @@ class VideoService {
       $or: [{ category: video.category }, { tags: { $in: video.tags } }]
     }).sort({ viewCount: -1, createdAt: -1 }).limit(limit);
 
-    await redisClient.set(key, related, 600);
+    await videoCache.set(key, JSON.stringify(related), { ttl: 600 });
     return related;
   }
 }

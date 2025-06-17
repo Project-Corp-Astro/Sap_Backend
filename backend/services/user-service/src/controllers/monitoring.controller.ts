@@ -8,17 +8,27 @@ import mongoose from 'mongoose';
 import os from 'os';
 import performanceMonitor from '../utils/performance';
 import logger from '../utils/logger';
+import redisUtils from '../utils/redis';
 
 /**
  * Get service health status
  * @param req - Express request
  * @param res - Express response
  */
-export const getHealth = (req: Request, res: Response) => {
+export const getHealth = async (req: Request, res: Response) => {
   const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
   
+  // Check Redis health
+  let redisStatus = 'disconnected';
+  try {
+    const redisConnected = await redisUtils.redisUtils.pingRedis();
+    redisStatus = redisConnected ? 'connected' : 'disconnected';
+  } catch (error) {
+    logger.error('Redis health check failed', { error });
+  }
+  
   res.status(200).json({ 
-    status: 'ok', 
+    status: dbStatus === 'connected' && redisStatus === 'connected' ? 'ok' : 'degraded', 
     service: 'user-service',
     timestamp: new Date().toISOString(),
     database: {
@@ -26,6 +36,11 @@ export const getHealth = (req: Request, res: Response) => {
       name: mongoose.connection.name,
       host: mongoose.connection.host,
       port: mongoose.connection.port,
+    },
+    cache: {
+      status: redisStatus,
+      type: 'redis',
+      name: 'userCache'
     },
     uptime: process.uptime(),
   });
