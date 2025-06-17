@@ -131,6 +131,14 @@ export interface ActivityPaginationResult {
   activitiesPerPage: number;
 }
 
+export interface UserActivityPaginationResult {
+  activities: IUserActivity[];
+  totalActivities: number;
+  totalPages: number;
+  currentPage: number;
+  activitiesPerPage: number;
+}
+
 export enum AppAccess {
   CORP_ASTRO = 'corpAstro',
   GRAHVANI = 'grahvani',

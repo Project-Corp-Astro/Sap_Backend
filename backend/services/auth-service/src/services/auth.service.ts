@@ -4,18 +4,11 @@ import crypto from 'crypto';
 import { authenticator } from 'otplib';
 import QRCode from 'qrcode';
 import User from '../models/User';
-import redisClient from '../../../../shared/utils/redis';
+import { otpCache } from '../utils/redis';
 import emailService from '../../../../shared/utils/email';
 import logger from '../../../../shared/utils/logger';
-import { IUser, UserDocument } from '../../../../shared/interfaces/user.interface';
-// Import type assertion helpers
-import { asIUser, anyToIUser } from '../utils/type-assertions';
-
-// Import type extensions
-import '../types/mongoose-extensions';
-
-// Use the extended UserDocument interface from our type extensions
-import * as encryptionService from '../../../../shared/utils/encryption';
+import { IUser } from '../../../../shared/interfaces/user.interface';
+import { asIUser } from '../utils/type-assertions';
 // JWT secret key - should be stored in environment variables in production
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '1h';
@@ -396,7 +389,7 @@ export const enableMFA = async (userId: string): Promise<IUser> => {
     delete userObject.mfaSecret;
     
     // Use type assertion to fix TypeScript error
-    return anyToIUser(userObject);
+    return asIUser(userObject);
   } catch (error) {
     throw error;
   }
@@ -532,8 +525,8 @@ export const generatePasswordResetOTP = async (email: string): Promise<{ expires
     const otp = Math.floor(1000 + Math.random() * 9000).toString();
     
     // Store OTP in Redis with expiration
-    await redisClient.set(
-      `password_reset_otp:${user._id}`,
+    await otpCache.set(
+      `password_reset:${user._id}`,
       otp,
       PASSWORD_RESET_EXPIRES
     );
@@ -571,7 +564,7 @@ export const verifyPasswordResetOTP = async (email: string, otp: string): Promis
     }
     
     // Get stored OTP
-    const storedOTP = await redisClient.get(`password_reset_otp:${user._id}`);
+    const storedOTP = await otpCache.get(`password_reset:${user._id}`);
 
     // Log the OTPs for debugging (remove in production)
     logger.debug(`OTP Verification - Stored: "${storedOTP}" (${typeof storedOTP}), Received: "${otp}" (${typeof otp})`);
@@ -591,7 +584,7 @@ export const verifyPasswordResetOTP = async (email: string, otp: string): Promis
     }
     
     // Clean up the OTP from Redis
-    await redisClient.del(`password_reset_otp:${user._id}`);
+    await otpCache.del(`password_reset:${user._id}`);
     logger.info(`OTP verified successfully for user: ${email}`);
     
     return true;

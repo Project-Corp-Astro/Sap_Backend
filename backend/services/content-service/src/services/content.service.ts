@@ -1,6 +1,6 @@
 // content.service.ts
 
-import redisClient from '../../../../shared/utils/redis';
+import { contentCache } from '../utils/redis';
 import esClient from '../../../../shared/utils/elasticsearch';
 import Content from '../models/Content';
 import Category from '../models/Category';
@@ -31,7 +31,7 @@ export const createContent = async (
   const content = new Content(contentData);
   const saved = await content.save();
 
-  await redisClient.set(`content:${saved._id}`, saved, 3600);
+  await contentCache.set(`${saved._id}`, JSON.stringify(saved), { ttl: 3600 });
 
   await esClient.indexDocument('content', saved._id.toString(), {
     title: saved.title,
@@ -66,11 +66,11 @@ export const getAllContent = async (filters = {}, page = 1, limit = 10, sortBy =
 };
 
 export const getContentById = async (id: string): Promise<ContentDocument> => {
-  const cacheKey = `content:${id}`;
-  const cached = await redisClient.get(cacheKey);
+  const cacheKey = `${id}`;
+  const cached = await contentCache.get(cacheKey);
   if (cached) {
     console.log('✅ Served from Redis cache');
-    return cached;
+    return JSON.parse(cached);
   }
   
   console.log('🗄️ Fetched from MongoDB');
@@ -78,19 +78,19 @@ export const getContentById = async (id: string): Promise<ContentDocument> => {
   const content = await Content.findById(id);
   if (!content) throw new Error('Content not found');
 
-  await redisClient.set(cacheKey, content, 3600);
+  await contentCache.set(cacheKey, JSON.stringify(content), { ttl: 3600 });
   return content;
 };
 
 export const getContentBySlug = async (slug: string): Promise<ContentDocument> => {
-  const cacheKey = `content:slug:${slug}`;
-  const cached = await redisClient.get(cacheKey);
-  if (cached) return cached;
+  const cacheKey = `slug:${slug}`;
+  const cached = await contentCache.get(cacheKey);
+  if (cached) return JSON.parse(cached);
 
   const content = await Content.findOne({ slug });
   if (!content) throw new Error('Content not found');
 
-  await redisClient.set(cacheKey, content, 3600);
+  await contentCache.set(cacheKey, JSON.stringify(content), { ttl: 3600 });
   return content;
 };
 
@@ -101,7 +101,7 @@ export const updateContent = async (id: string, updateData: Partial<ExtendedCont
   Object.assign(content, updateData);
   const updated = await content.save();
 
-  await redisClient.set(`content:${id}`, updated, 3600);
+  await contentCache.set(`${id}`, JSON.stringify(updated), { ttl: 3600 });
   await esClient.indexDocument('content', id, updated);
 
   return updated;
@@ -111,7 +111,7 @@ export const deleteContent = async (id: string, user: RequestUser): Promise<Cont
   const content = await Content.findByIdAndDelete(id);
   if (!content) throw new Error('Content not found');
 
-  await redisClient.del(`content:${id}`);
+  await contentCache.del(`${id}`);
   await esClient.deleteDocument('content', id);
 
   return content;
@@ -127,7 +127,7 @@ export const updateContentStatus = async (id: string, status: ContentStatus | st
   }
 
   const updated = await content.save();
-  await redisClient.set(`content:${id}`, updated, 3600);
+  await contentCache.set(`${id}`, JSON.stringify(updated), { ttl: 3600 });
   await esClient.indexDocument('content', id, updated);
 
   return updated;
@@ -142,17 +142,17 @@ export const incrementViewCount = async (id: string): Promise<number> => {
 
   if (!content) throw new Error('Content not found');
 
-  await redisClient.set(`content:${id}`, content, 3600);
+  await contentCache.set(`${id}`, JSON.stringify(content), { ttl: 3600 });
   return content.viewCount || 0;
 };
 
 export const getAllCategories = async (): Promise<CategoryDocument[]> => {
-  const cacheKey = 'content:categories';
-  const cached = await redisClient.get(cacheKey);
-  if (cached) return cached;
+  const cacheKey = 'categories';
+  const cached = await contentCache.get(cacheKey);
+  if (cached) return JSON.parse(cached);
 
   const categories = await Category.find().sort({ name: 1 });
-  await redisClient.set(cacheKey, categories, 3600);
+  await contentCache.set(cacheKey, JSON.stringify(categories), { ttl: 3600 });
   return categories;
 };
 
@@ -164,7 +164,7 @@ export const createCategory = async (data: Partial<CategoryDocument>): Promise<C
   const category = new Category(data);
   const saved = await category.save();
 
-  await redisClient.del('content:categories');
+  await contentCache.del('categories');
   return saved;
 };
 

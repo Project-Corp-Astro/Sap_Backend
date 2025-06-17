@@ -1,33 +1,359 @@
+import 'reflect-metadata';
 import express from 'express';
-import dotenv from 'dotenv';
+import { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-// import { subscriptionRoutes } from './routes/subscription.routes';
-dotenv.config();
+import compression from 'compression';
+import http from 'http';
+import detectPort from 'detect-port';
+import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import { createServiceSwaggerConfig } from '../../../shared/utils/swagger';
+// Import database configuration
+import { AppDataSource, initializeDatabase } from './db/data-source';
+import config from './config';
+import logger, { errorLoggerMiddleware } from './utils/logger';
+import { redisClient, redisUtils, planCache, userSubsCache } from './utils/redis';
+import { elasticsearchClient, elasticsearchUtils, checkElasticsearchConnection } from './utils/elasticsearch';
+import { supabaseClient, checkSupabaseConnection, supabaseUtils } from './utils/supabase';
+import * as path from 'path';
 
-// Define standard service configuration
-const SERVICE_NAME = 'subscription-service';
-const DEFAULT_PORT = 3003;
+// Import routes
+import adminRoutes from './routes/admin.routes';
+import appRoutes from './routes/app.routes';
 
-// Get port from environment variable with fallback to default
-const port = process.env.SUBSCRIPTION_SERVICE_PORT || DEFAULT_PORT;
+// Import middleware (to be created later)
+// import { authMiddleware } from './middlewares/auth.middleware';
+// import { validateRequest } from './middlewares/validation.middleware';
 
+// We import AppDataSource from our data-source file to avoid duplicate declarations
+
+// Initialize Express app
 const app = express();
+const PREFERRED_PORT = config.port;
 
-// Middleware
-app.use(cors());
+// Set up middleware directly
+// Enable CORS
+// @ts-ignore: Express middleware type error
+app.use(cors({
+  origin: process.env.FRONTEND_URL || '*',
+  credentials: true,
+}));
+
+// Security middleware
+// @ts-ignore: Express middleware type error
 app.use(helmet());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// Routes
-// app.use('/api/subscription', subscriptionRoutes);
+// Compression middleware
+// @ts-ignore: Express middleware type error
+app.use(compression());
 
-// Health check
-app.get('/api/subscription/health', (req, res) => {
-  res.json({ status: 'healthy' });
+// Body parser middleware
+// @ts-ignore: Express middleware type error
+app.use(express.json({ limit: '10mb' }));
+// @ts-ignore: Express middleware type error
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+// Custom request logging middleware
+const customRequestLogger = (req: Request, res: Response, next: NextFunction): void => {
+  // Skip logging for health check routes
+  if (req.originalUrl === '/health' || req.originalUrl === '/api/subscription/health') {
+    return next();
+  }
+  
+  // Log request with timestamp
+  const startTime = Date.now();
+  
+  // Log response when finished
+  res.on('finish', () => {
+    const responseTime = Date.now() - startTime;
+    const message = `${req.method} ${req.originalUrl} ${res.statusCode} ${responseTime}ms`;
+    
+    if (res.statusCode >= 500) {
+      logger.error(message, { path: req.path, query: req.query });
+    } else if (res.statusCode >= 400) {
+      logger.warn(message, { path: req.path });
+    } else {
+      logger.info(message);
+    }
+  });
+  
+  next();
+};
+
+// Apply the custom request logger middleware
+app.use(customRequestLogger as express.RequestHandler);
+
+// Initialize service
+async function initializeService() {
+  logger.info(`Initializing ${config.serviceName} in ${config.env} mode...`);
+  
+  // Initialize TypeORM connection using our data-source module
+  try {
+    await initializeDatabase();
+    
+    // Set global typeorm connection reference for backward compatibility with getRepository()
+    // @ts-ignore - we need this for compatibility with existing code
+    global.typeormConnection = AppDataSource;
+    logger.info('Database connection established via data-source module');
+    
+    // Run migrations if in production mode
+    if (config.env === 'production' && AppDataSource.migrations.length > 0) {
+      await AppDataSource.runMigrations();
+      logger.info('Database migrations executed successfully');
+    } else {
+      logger.info('Skipping migrations in development mode');
+    }
+  } catch (error) {
+    logger.error('Failed to connect to database:', error);
+    throw new Error('Database connection failed');
+  }
+  
+  // Check Redis connection with the new service-isolated implementation
+  try {
+    const redisConnected = await redisUtils.pingRedis();
+    if (redisConnected) {
+      logger.info('Redis connection established successfully using service-isolated DB');
+      
+      // Test purpose-specific caches
+      try {
+        // Test plan cache
+        const planCacheConnected = await planCache.getClient().ping() === 'PONG';
+        logger.info(`Plan-specific cache ${planCacheConnected ? 'connected' : 'failed'}`);
+        
+        // Test user subscription cache
+        const userSubsCacheConnected = await userSubsCache.getClient().ping() === 'PONG';
+        logger.info(`User subscription cache ${userSubsCacheConnected ? 'connected' : 'failed'}`);
+      } catch (cacheError) {
+        logger.warn('Purpose-specific caches test failed, fallback to default cache', { error: cacheError instanceof Error ? cacheError.message : String(cacheError) });
+      }
+    } else {
+      logger.warn('Redis connection test failed, service may have limited functionality');
+    }
+  } catch (error: unknown) {
+    logger.error('Failed to connect to Redis:', { error: error instanceof Error ? error.message : String(error) });
+    // We continue without Redis - the service can still work
+    // but with reduced functionality/performance
+  }
+  
+  // Check Elasticsearch connection
+  try {
+    const esConnected = await checkElasticsearchConnection();
+    if (esConnected) {
+      logger.info('Elasticsearch connection established successfully');
+    } else {
+      logger.warn('Elasticsearch connection failed, service will run with limited search functionality');
+    }
+  } catch (error) {
+    logger.error('Error checking Elasticsearch connection:', error);
+    logger.warn('Service will continue with limited Elasticsearch functionality');
+  }
+  
+  // Check Supabase connection
+  try {
+    const supabaseConnected = await checkSupabaseConnection();
+    if (supabaseConnected) {
+      logger.info('Supabase connection established successfully');
+    } else {
+      logger.warn('Supabase connection failed, service will run with limited Supabase functionality');
+    }
+  } catch (error) {
+    logger.error('Error checking Supabase connection:', error);
+    logger.warn('Service will continue with limited Supabase functionality');
+  }
+}
+
+// Routes setup
+app.use('/api/subscription/admin', adminRoutes);
+app.use('/api/subscription/app', appRoutes);
+
+// Health check route handler
+const handleHealthCheck = async (_req: Request, res: Response) => {
+  try {
+    // Check database connectivity
+    const dbStatus = {
+      connected: false
+    };
+    
+    // Check Supabase connection
+    try {
+      dbStatus.connected = await checkSupabaseConnection();
+    } catch (error) {
+      dbStatus.connected = false;
+    }
+    
+    // Check Redis connectivity
+    const redisStatus = {
+      connected: false
+    };
+    
+    try {
+      redisStatus.connected = await redisUtils.pingRedis();
+    } catch (error) {
+      redisStatus.connected = false;
+    }
+    
+    // Check Elasticsearch connectivity
+    const esStatus = {
+      connected: false
+    };
+    
+    try {
+      esStatus.connected = await checkElasticsearchConnection();
+    } catch (error) {
+      esStatus.connected = false;
+    }
+    
+    // Check Supabase connectivity
+    const supabaseStatus = {
+      connected: false
+    };
+    
+    try {
+      supabaseStatus.connected = await checkSupabaseConnection();
+    } catch (error) {
+      supabaseStatus.connected = false;
+    }
+    
+    // Return response with status of all connections
+    res.status(200).json({
+      status: 'OK',
+      service: config.serviceName,
+      environment: config.env,
+      timestamp: new Date().toISOString(),
+      connections: {
+        database: dbStatus,
+        redis: redisStatus,
+        elasticsearch: esStatus,
+        supabase: supabaseStatus,
+      },
+    });
+  } catch (error: any) {
+    logger.error('Health check error:', error);
+    res.status(500).json({
+      status: 'ERROR',
+      message: error.message || 'Health check failed',
+      timestamp: new Date().toISOString(),
+    });
+  }
+};
+
+// Register health check routes
+app.get('/health', handleHealthCheck);
+app.get('/api/subscription/health', handleHealthCheck);
+
+// Setup Swagger documentation
+// Use absolute paths for file patterns to ensure they're found correctly
+const swaggerOptions = createServiceSwaggerConfig(
+  'Subscription Management Service',
+  'API for managing subscription plans, user subscriptions, and promo codes',
+  config.port,
+  [
+    // Make sure paths are relative to current directory
+    `${__dirname}/controllers/**/*.ts`,
+    `${__dirname}/routes/**/*.ts`,
+    `${__dirname}/entities/**/*.ts`,
+    `${__dirname}/models/**/*.ts`
+  ]
+);
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+// Use type assertion to fix TypeScript compatibility issue
+app.use('/api-docs', swaggerUi.serve as any, swaggerUi.setup(swaggerSpec) as any);
+
+// Expose swagger.json for API Gateway aggregation
+app.get('/swagger.json', (req: Request, res: Response) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
 });
 
-app.listen(port, () => {
-  console.log(`Subscription Management Service running on port ${port}`);
+// Error handling middleware
+app.use(errorLoggerMiddleware);
+app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
+  logger.error('Unhandled error:', { error: err.message, stack: err.stack, path: req.path });
+  res.status(500).json({
+    success: false,
+    message: 'Internal Server Error',
+    error: config.env === 'development' ? err.message : undefined,
+  });
+  // No need to call next() since this is the final error handler
 });
+
+// Not found handler - should be the last non-error middleware
+app.use((req: Request, res: Response) => {
+  res.status(404).json({
+    success: false,
+    message: `Route ${req.originalUrl} not found`,
+  });
+});
+
+// Start server
+let server: http.Server;
+const startServer = async () => {
+  try {
+    const availablePort = await detectPort(PREFERRED_PORT);
+    
+    if (availablePort !== PREFERRED_PORT) {
+      logger.warn(`Preferred port ${PREFERRED_PORT} is in use, using available port ${availablePort}`);
+    }
+    
+    // Initialize services before starting the server
+    await initializeService();
+    
+    server = app.listen(availablePort, () => {
+      logger.info(`${config.serviceName} running on port ${availablePort}`);
+      logger.info(`Health check available at http://localhost:${availablePort}/health`);
+    });
+    
+  } catch (error: any) {
+    logger.error('Failed to start server:', { error: error.message, stack: error.stack });
+    process.exit(1);
+  }
+};
+
+startServer();
+
+// Graceful shutdown handler
+const gracefulShutdown = async (signal: string) => {
+  logger.info(`${signal} signal received: closing HTTP server`);
+  
+  if (server) {
+    server.close(() => {
+      logger.info('HTTP server closed');
+      
+      // Close database connections
+      Promise.all([
+        redisUtils.close(),
+        elasticsearchUtils.close(),
+        supabaseUtils.close()
+      ])
+        .then(() => {
+          logger.info('All connections closed successfully');
+          process.exit(0);
+        })
+        .catch((error) => {
+          logger.error('Error during cleanup:', error);
+          process.exit(1);
+        });
+    });
+  }
+};
+
+// Register shutdown handlers
+process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+
+// Handle uncaught errors
+process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
+  logger.error('Unhandled Rejection at:', { reason: String(reason) });
+});
+
+process.on('uncaughtException', (error: Error) => {
+  if ((error as any).code === 'EADDRINUSE') {
+    logger.error(`Port ${PREFERRED_PORT} is already in use. Please use a different port or stop the process using this port.`, { error: error.message });
+    setTimeout(() => process.exit(1), 1000);
+  } else {
+    logger.error('Uncaught Exception:', { error: error.message, stack: error.stack });
+  }
+});
+
+export default app;

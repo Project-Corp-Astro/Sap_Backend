@@ -163,9 +163,108 @@ const setupSwagger = (app: any, options: SwaggerOptions = {}, path = '/api-docs'
   console.log(`Swagger UI available at ${path}`);
 };
 
+/**
+ * Creates service-specific Swagger configuration
+ * @param serviceName Name of the service
+ * @param serviceDescription Description of the service's purpose
+ * @param port Port the service runs on
+ * @param apiPaths Glob patterns for finding API documentation in code (default: controllers, routes, and models)
+ * @returns Swagger configuration object
+ */
+const createServiceSwaggerConfig = (
+  serviceName: string, 
+  serviceDescription: string, 
+  port: number,
+  apiPaths: string[] = ['./src/routes/**/*.ts', './src/controllers/**/*.ts', './src/models/**/*.ts', './src/entities/**/*.ts']
+): SwaggerOptions => {
+  return {
+    definition: {
+      openapi: '3.0.0',
+      info: {
+        title: `${serviceName} API Documentation`,
+        version: '1.0.0',
+        description: serviceDescription,
+        license: {
+          name: 'MIT',
+          url: 'https://opensource.org/licenses/MIT',
+        },
+      },
+      servers: [
+        {
+          url: `http://localhost:${port}`,
+          description: 'Development Server'
+        }
+      ],
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: 'http',
+            scheme: 'bearer',
+            bearerFormat: 'JWT'
+          }
+        },
+        responses: {
+          UnauthorizedError: {
+            description: 'Authentication failed or token is invalid',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    success: { type: 'boolean', example: false },
+                    message: { type: 'string', example: 'Unauthorized' },
+                    error: { type: 'string', example: 'Invalid or expired token' }
+                  }
+                }
+              }
+            }
+          },
+          ServerError: {
+            description: 'Internal server error',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    success: { type: 'boolean', example: false },
+                    message: { type: 'string', example: 'Internal Server Error' },
+                    error: { type: 'string', example: 'An unexpected error occurred' }
+                  }
+                }
+              }
+            }
+          },
+          ForbiddenError: {
+            description: 'Access denied due to insufficient permissions',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'object',
+                  properties: {
+                    success: { type: 'boolean', example: false },
+                    message: { type: 'string', example: 'Forbidden' },
+                    error: { type: 'string', example: 'Insufficient permissions' }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      security: [
+        {
+          bearerAuth: []
+        }
+      ]
+    },
+    apis: apiPaths,
+  };
+};
+
 export {
   generateSwaggerSpec,
   setupSwagger,
   SwaggerOptions,
-  SwaggerDefinition
+  SwaggerDefinition,
+  createServiceSwaggerConfig
 };

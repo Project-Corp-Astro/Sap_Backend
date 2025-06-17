@@ -10,6 +10,7 @@ import userPermissionRoutes from './routes/user-permission.routes';
 import monitoringRoutes from './routes/monitoring.routes';
 import logger, { requestLogger, errorLogger } from './utils/logger';
 import { performanceMiddleware } from './utils/performance';
+import redisUtils from './utils/redis';
 import detectPort from 'detect-port';
 
 // Initialize Express app
@@ -75,20 +76,29 @@ app.use('/api/roles', roleRoutes);
 app.use('/api/user-permissions', userPermissionRoutes); // User permission routes
 app.use('/api/monitoring', monitoringRoutes);
 
-app.get('/health', (req: Request, res: Response) => {
-  const dbStatus = mongoose.connection.readyState === 1 ? 'connected' : 'disconnected';
-  res.status(200).json({
-    status: 'ok',
-    service: 'user-service',
-    timestamp: new Date().toISOString(),
-    database: {
-      status: dbStatus,
-      name: mongoose.connection.name,
-      host: mongoose.connection.host,
-      port: mongoose.connection.port,
-    },
-    uptime: process.uptime(),
-  });
+app.get('/health', async (req: Request, res: Response) => {
+  try {
+    // Check MongoDB connection
+    const dbConnected = mongoose.connection.readyState === 1;
+    
+    // Check Redis connection
+    const redisConnected = await redisUtils.redisUtils.pingRedis();
+    
+    res.json({
+      status: 'healthy',
+      timestamp: new Date().toISOString(),
+      service: 'user-service',
+      db: { connected: dbConnected },
+      redis: { connected: redisConnected }
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: 'unhealthy',
+      timestamp: new Date().toISOString(),
+      service: 'user-service',
+      error: error instanceof Error ? error.message : 'Health check failed'
+    });
+  }
 });
 
 // Error Logging
@@ -126,21 +136,27 @@ const startServer = async () => {
 startServer();
 
 // Graceful Shutdown
-const gracefulShutdown = (signal: string) => {
-  logger.info(`${signal} signal received: closing HTTP server`);
+async function gracefulShutdown(signal: string) {
+  logger.info(`Received ${signal}. Closing server...`);
 
-  server.close(() => {
-    logger.info('HTTP server closed');
-
-    if (mongoose.connection.readyState !== 0) {
-      mongoose.connection.close(false, () => {
-        logger.info('MongoDB connection closed');
-        process.exit(0);
-      });
-    } else {
+  try {
+    // Close Redis connection
+    await redisUtils.redisUtils.close();
+    
+    // Close MongoDB connection
+    await mongoose.connection.close();
+    
+    // Close server
+    server.close(() => {
+      logger.info('Server closed successfully');
       process.exit(0);
-    }
-  });
+    });
+  } catch (error) {
+    logger.error('Error during graceful shutdown', {
+      error: error instanceof Error ? error.message : String(error)
+    });
+    process.exit(1);
+  }
 };
 
 process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));

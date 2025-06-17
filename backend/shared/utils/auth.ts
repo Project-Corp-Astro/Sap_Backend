@@ -3,7 +3,7 @@
  * Provides enhanced authentication functionality including OAuth2 and MFA
  */
 
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import passport from 'passport';
 import { Strategy as JwtStrategy, ExtractJwt, VerifiedCallback } from 'passport-jwt';
 import { Strategy as LocalStrategy } from 'passport-local';
@@ -142,10 +142,13 @@ const initializeAuth = (userModel: Model<UserDocument>): void => {
   }));
 
   // Local Strategy
-  passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password'
-  }, async (email: string, password: string, done: VerifiedCallback) => {
+  // Using type assertion to work around strict TypeScript definitions
+  passport.use(new LocalStrategy(
+    {
+      usernameField: 'email',
+      passwordField: 'password'
+    } as any,
+    async (email: string, password: string, done: any) => {
     try {
       // Find user by email
       const user = await userModel.findOne({ email });
@@ -208,12 +211,15 @@ const initializeAuth = (userModel: Model<UserDocument>): void => {
 
   // Google OAuth Strategy
   if (oauthConfig.google.clientID && oauthConfig.google.clientSecret) {
-    passport.use(new GoogleStrategy({
-      clientID: oauthConfig.google.clientID,
-      clientSecret: oauthConfig.google.clientSecret,
-      callbackURL: oauthConfig.google.callbackURL,
-      scope: ['profile', 'email']
-    }, async (accessToken: string, refreshToken: string, profile: any, done: VerifiedCallback) => {
+    // Using type assertion to work around strict TypeScript definitions
+    passport.use(new GoogleStrategy(
+      {
+        clientID: oauthConfig.google.clientID,
+        clientSecret: oauthConfig.google.clientSecret,
+        callbackURL: oauthConfig.google.callbackURL,
+        scope: ['profile', 'email']
+      } as any,
+      async (accessToken: string, refreshToken: string, profile: any, done: any) => {
       try {
         // Check if user exists
         const email = profile.emails[0].value;
@@ -267,29 +273,34 @@ const generateTokens = (user: UserDocument): TokenPair => {
     };
 
     // Generate access token
+    // Convert string time values to appropriate type for JWT
+    const accessTokenOptions: SignOptions = {
+      expiresIn: jwtConfig.accessExpiresIn as any, // Type casting to avoid TS errors with string format
+      subject: user._id.toString(),
+      issuer: jwtConfig.issuer,
+      audience: jwtConfig.audience,
+      jwtid: accessTokenId
+    };
+    
     const accessToken = jwt.sign(
       { ...payload },
       jwtConfig.secret,
-      {
-        expiresIn: jwtConfig.accessExpiresIn,
-        subject: user._id.toString(),
-        issuer: jwtConfig.issuer,
-        audience: jwtConfig.audience,
-        jwtid: accessTokenId
-      }
+      accessTokenOptions
     );
 
     // Generate refresh token
+    const refreshTokenOptions: SignOptions = {
+      expiresIn: jwtConfig.refreshExpiresIn as any, // Type casting to avoid TS errors with string format
+      subject: user._id.toString(),
+      issuer: jwtConfig.issuer,
+      audience: jwtConfig.audience,
+      jwtid: refreshTokenId
+    };
+    
     const refreshToken = jwt.sign(
       { ...payload },
       jwtConfig.secret,
-      {
-        expiresIn: jwtConfig.refreshExpiresIn,
-        subject: user._id.toString(),
-        issuer: jwtConfig.issuer,
-        audience: jwtConfig.audience,
-        jwtid: refreshTokenId
-      }
+      refreshTokenOptions
     );
 
     // Store refresh token in Redis
@@ -394,19 +405,21 @@ const refreshAccessToken = async (refreshToken: string): Promise<{ accessToken: 
     // Generate new access token
     const accessTokenId = crypto.randomBytes(16).toString('hex');
     
+    const newAccessTokenOptions: SignOptions = {
+      expiresIn: jwtConfig.accessExpiresIn as any, // Type casting to avoid TS errors with string format
+      subject: decoded.sub,
+      issuer: jwtConfig.issuer,
+      audience: jwtConfig.audience,
+      jwtid: accessTokenId
+    };
+    
     const accessToken = jwt.sign(
       {
         email: decoded.email,
         role: decoded.role
       },
       jwtConfig.secret,
-      {
-        expiresIn: jwtConfig.accessExpiresIn,
-        subject: decoded.sub,
-        issuer: jwtConfig.issuer,
-        audience: jwtConfig.audience,
-        jwtid: accessTokenId
-      }
+      newAccessTokenOptions
     );
 
     return { accessToken };
