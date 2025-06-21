@@ -3,23 +3,16 @@ import { createProxyMiddleware, Options as ProxyOptions } from 'http-proxy-middl
 import helmet from 'helmet';
 import compression from 'compression';
 import cors from 'cors';
-import swaggerUi from 'swagger-ui-express';
-import { aggregateSwaggerSpecs, type ServiceInfo, type SwaggerSpec, swaggerEvents, SWAGGER_EVENTS } from './utils/swagger-aggregator';
+
 
 // Import shared modules
 import config from '../../shared/config';
 import { createServiceLogger } from '../../shared/utils/logger';
 import { errorMiddleware } from '../../shared/utils/errorHandler';
-import { 
-  serviceHealth, 
-  systemMetrics, 
-  RequestTracker, 
-  requestTrackerMiddleware 
-} from '../../shared/utils/monitoring';
+import { serviceHealth, systemMetrics, RequestTracker, requestTrackerMiddleware } from '../../shared/utils/monitoring';
 import { applySecurityMiddleware } from '../../shared/middleware/security';
-import { setupSwagger } from '../../shared/utils/swagger';
-import { rateLimit, serviceDiscovery, stats, swagger, statsCache } from './utils/redis';
-import { rateLimitMiddleware } from './middleware/rate-limit.middleware';
+
+import { serviceDiscovery, stats, statsCache } from './utils/redis';
 
 // Service routes configuration
 interface ServiceConfig {
@@ -113,12 +106,6 @@ const initRedis = async () => {
 
 initRedis().catch(error => logger.error('Failed to initialize Redis:', error));
 
-// Configure rate limiting
-app.set('rateLimit', {
-  window: config.get('rateLimit.windowMs', 60000) / 1000,  // Convert ms to seconds
-  max: config.get('rateLimit.max', 100)
-});
-
 // Initialize service discovery
 Object.entries(SERVICES).forEach(([serviceName, url]) => {
   if (url) {
@@ -144,14 +131,6 @@ serviceHealth.registerService(SERVICE_NAME, {
   ]
 });
 
-// Apply middlewares
-applySecurityMiddleware(app);
-app.use(rateLimitMiddleware as any);
-
-// Additional middleware
-app.use(express.json({ limit: '50mb' })); // Increased limit for large data payloads
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-app.use(compression() as any); // Compress responses - need type assertion due to Express typing issues
 app.use(requestTrackerMiddleware(requestTracker) as any); // Track requests for monitoring
 
 // Register service with health monitoring
@@ -176,7 +155,7 @@ serviceHealth.registerService(SERVICE_NAME, {
 applySecurityMiddleware(app);
 
 // Apply rate limiting middleware
-app.use(rateLimitMiddleware as any);
+// app.use(rateLimitMiddleware as any);
 
 // Health check endpoint
 app.get('/health', async (req: Request, res: Response) => {
@@ -250,12 +229,10 @@ app.get('/health', async (req: Request, res: Response) => {
 // Periodic health monitoring
 const checkServiceHealth = async () => {
   try {
-    for (const [serviceName, url] of Object.entries(SERVICES)) {
-      if (!url) {
-        updateHealthStatus(serviceName, 'unknown', 'Service not configured');
-        continue;
-      }
-
+    // Only check services that are actually configured
+    const activeServices = Object.entries(SERVICES).filter(([_, url]) => url);
+    
+    for (const [serviceName, url] of activeServices) {
       try {
         const response = await fetch(`${url}/health`);
         const status = response.ok ? 'ok' : 'down';
@@ -273,7 +250,7 @@ const checkServiceHealth = async () => {
         });
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Health check failed';
-        logger.error(`Health check failed for ${serviceName}:`, { error: errorMessage });
+        logger.warn(`Health check failed for ${serviceName}:`, { error: errorMessage });
         
         updateHealthStatus(serviceName, 'down', errorMessage);
         await serviceDiscovery.setServiceInfo(serviceName, url, 'down');
@@ -291,18 +268,19 @@ const checkServiceHealth = async () => {
     // Update API Gateway's own health status
     updateHealthStatus('API_GATEWAY', 'ok', 'API Gateway is healthy');
     await serviceDiscovery.setServiceInfo('API_GATEWAY', `http://localhost:${PORT}`, 'ok');
+    
     serviceHealth.updateServiceHealth('API_GATEWAY', {
       status: 'ok',
       metrics: {
         lastCheck: new Date().toISOString()
       }
     });
-
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Health check failed';
     logger.error('Error in periodic health check:', { error: errorMessage });
     updateHealthStatus('API_GATEWAY', 'down', errorMessage);
     await serviceDiscovery.setServiceInfo('API_GATEWAY', `http://localhost:${PORT}`, 'down');
+    
     serviceHealth.updateServiceHealth('API_GATEWAY', {
       status: 'down',
       metrics: {
@@ -326,7 +304,7 @@ app.use(compression() as any); // Compress responses - need type assertion due t
 app.use(requestTrackerMiddleware(requestTracker) as any); // Track requests for monitoring
 
 // Configure proxy middleware for Auth Service
-app.use('/api/auth', rateLimitMiddleware, createProxyMiddleware({
+app.use('/api/auth',  createProxyMiddleware({
   target: SERVICES.AUTH_SERVICE,
   changeOrigin: true,
   pathRewrite: {
@@ -462,6 +440,7 @@ app.use('/api/content', createProxyMiddleware({
     });
   }
 }));
+
 // Configure proxy middleware for Astro Engine Service (if configured)
 if (SERVICES.ASTRO_ENGINE_SERVICE) {
   app.use('/api/astro-engine', createProxyMiddleware({
@@ -551,394 +530,6 @@ app.use('/api/subscription', createProxyMiddleware({
   }
 }));
 
-/**
- * Setup Swagger documentation by aggregating specs from all microservices
- * Includes dynamic updating when services come online after initial startup
- */
-async function setupGatewaySwagger(): Promise<void> {
-  try {
-    // Define services for Swagger aggregation
-    const services: ServiceInfo[] = [
-      // Core services
-      {
-        name: 'Auth Service',
-        url: SERVICES.AUTH_SERVICE,
-        swaggerPath: '/swagger.json'
-      },
-      {
-        name: 'User Service',
-        url: SERVICES.USER_SERVICE,
-        swaggerPath: '/swagger.json'
-      },
-      {
-        name: 'Content Service',
-        url: SERVICES.CONTENT_SERVICE,
-        swaggerPath: '/swagger.json'
-      }
-    ];
-    
-    // Add subscription service if available
-    if (SERVICES.SUBSCRIPTION_SERVICE) {
-      services.push({ 
-        name: 'Subscription', 
-        url: SERVICES.SUBSCRIPTION_SERVICE, 
-        swaggerPath: '/swagger.json' 
-      });
-    }
-
-    // Base OpenAPI configuration
-    const mainInfo = {
-      title: 'SAP Backend Services',
-      version: '1.0.0',
-      description: 'API documentation for all SAP backend services'
-    };
-    
-    // Use the aggregator utility to fetch and merge all specs
-    let gatewaySwaggerConfig = await aggregateSwaggerSpecs(services, mainInfo);
-    
-    // Add health check endpoint to all configurations and handle empty specs gracefully
-    hasServiceSpecs = gatewaySwaggerConfig.paths && Object.keys(gatewaySwaggerConfig.paths).length > 0;
-    
-    // If no services are available or we have partial specs, ensure we add our core endpoints
-    logger.info(`${hasServiceSpecs ? 'Some' : 'No'} service specs were aggregated successfully`);
-    
-    // Ensure we always have a properly structured spec
-    if (!gatewaySwaggerConfig.paths) {
-      gatewaySwaggerConfig.paths = {};
-    }
-    
-    // Always add the health endpoint
-    gatewaySwaggerConfig.paths['/health'] = {
-      get: {
-        tags: ['Health'],
-        summary: 'Health check endpoint',
-        description: 'Returns the health status of the API Gateway',
-        operationId: 'getHealth',
-        responses: {
-          '200': {
-            description: 'Successful operation',
-            content: {
-              'application/json': {
-                schema: {
-                  type: 'object',
-                  properties: {
-                    status: {
-                      type: 'string',
-                      example: 'healthy'
-                    },
-                    version: {
-                      type: 'string',
-                      example: '1.0.0'
-                    },
-                    services: {
-                      type: 'object'
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    };
-    
-    // If nothing was available, provide a completely new spec
-    if (!hasServiceSpecs) {
-      logger.warn('No service specs available, using fallback OpenAPI specification');
-      gatewaySwaggerConfig = {
-        openapi: '3.0.0',
-        info: {
-          ...mainInfo,
-          description: `${mainInfo.description}\n\n**NOTE: This is a fallback API specification because no microservices are currently available.**\n\nTo see the complete API documentation, please ensure the following services are running:\n- Auth Service (port ${DEFAULT_PORTS.AUTH})\n- User Service (port ${DEFAULT_PORTS.USER})\n- Subscription Service (port ${DEFAULT_PORTS.SUBSCRIPTION})\n- Content Service (port ${DEFAULT_PORTS.CONTENT})`,
-        },
-        servers: [{
-          url: `http://localhost:${PORT}`,
-          description: 'API Gateway Server'
-        }],
-        paths: {
-          '/health': {
-            get: {
-              tags: ['Health'],
-              summary: 'Health check endpoint',
-              description: 'Returns the health status of the API Gateway',
-              operationId: 'getHealth',
-              responses: {
-                '200': {
-                  description: 'Successful operation',
-                  content: {
-                    'application/json': {
-                      schema: {
-                        type: 'object',
-                        properties: {
-                          status: {
-                            type: 'string',
-                            example: 'healthy'
-                          },
-                          version: {
-                            type: 'string',
-                            example: '1.0.0'
-                          },
-                          services: {
-                            type: 'object'
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          '/api/auth/login': {
-            post: {
-              tags: ['Auth (Sample)'],
-              summary: 'User login (SAMPLE - Auth service not available)',
-              description: 'Sample login endpoint that would be available from the Auth service',
-              operationId: 'login',
-              requestBody: {
-                content: {
-                  'application/json': {
-                    schema: {
-                      type: 'object',
-                      required: ['email', 'password'],
-                      properties: {
-                        email: {
-                          type: 'string',
-                          format: 'email'
-                        },
-                        password: {
-                          type: 'string',
-                          format: 'password'
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              responses: {
-                '200': {
-                  description: 'Successful operation',
-                  content: {
-                    'application/json': {
-                      schema: {
-                        type: 'object',
-                        properties: {
-                          token: {
-                            type: 'string'
-                          },
-                          user: {
-                            type: 'object'
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                '401': {
-                  description: 'Invalid credentials'
-                }
-              }
-            }
-          },
-          '/api/subscription/plans': {
-            get: {
-              tags: ['Subscription (Sample)'],
-              summary: 'Get subscription plans (SAMPLE - Subscription service not available)',
-              description: 'Sample subscription plans endpoint that would be available from the Subscription service',
-              operationId: 'getSubscriptionPlans',
-              security: [{
-                bearerAuth: []
-              }],
-              responses: {
-                '200': {
-                  description: 'Successful operation',
-                  content: {
-                    'application/json': {
-                      schema: {
-                        type: 'array',
-                        items: {
-                          type: 'object',
-                          properties: {
-                            id: {
-                              type: 'string'
-                            },
-                            name: {
-                              type: 'string'
-                            },
-                            price: {
-                              type: 'number'
-                            },
-                            features: {
-                              type: 'array',
-                              items: {
-                                type: 'string'
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                '401': {
-                  description: 'Unauthorized'
-                }
-              }
-            }
-          }
-        },
-        components: {
-          securitySchemes: {
-            bearerAuth: {
-              type: 'http',
-              scheme: 'bearer',
-              bearerFormat: 'JWT'
-            }
-          }
-        }
-      };
-    }
-
-    // Add API Gateway server URL
-    gatewaySwaggerConfig.servers = [
-      {
-        url: `http://localhost:${PORT}`,
-        description: 'API Gateway'
-      }
-    ];
-    
-    // Ensure security scheme is available
-    if (!gatewaySwaggerConfig.components) {
-      gatewaySwaggerConfig.components = {};
-    }
-    
-    if (!gatewaySwaggerConfig.components.securitySchemes) {
-      gatewaySwaggerConfig.components.securitySchemes = {};
-    }
-    
-    gatewaySwaggerConfig.components.securitySchemes.bearerAuth = {
-      type: 'http',
-      scheme: 'bearer',
-      bearerFormat: 'JWT'
-    };
-
-    // Save the config globally for later updates
-    globalGatewaySwaggerConfig = gatewaySwaggerConfig;
-    
-    // Setup Swagger UI with the combined specification
-    app.use('/api-docs', swaggerUi.serve as any[]);
-    app.get('/api-docs', (_req: Request, res: Response) => {
-      // Always use the latest global config
-      res.send(swaggerUi.generateHTML(globalGatewaySwaggerConfig as any, { explorer: true }));
-    });
-
-    // Expose the combined Swagger spec as JSON for other tools to consume
-    app.get('/swagger.json', (_req: Request, res: Response) => {
-      res.setHeader('Content-Type', 'application/json');
-      // Always use the latest global config
-      res.send(globalGatewaySwaggerConfig);
-    });
-
-    // Endpoint to manually refresh Swagger specs (useful for debugging)
-    app.post('/api/internal/refresh-swagger', async (_req: Request, res: Response) => {
-      try {
-        await setupGatewaySwagger();
-        res.status(200).json({
-          success: true,
-          message: 'Swagger documentation refreshed successfully',
-          hasSpecs: hasServiceSpecs
-        });
-      } catch (error: any) {
-        res.status(500).json({
-          success: false,
-          message: 'Failed to refresh Swagger documentation',
-          error: error.message
-        });
-      }
-    });
-
-    logger.info('Swagger UI available at /api-docs');
-  } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    logger.error('Failed to setup Swagger documentation', { error: errorMessage });
-    // Don't throw error - allow gateway to start even if Swagger setup fails
-  }
-};
-
-// Call the setup function for Swagger aggregation
-let globalGatewaySwaggerConfig: SwaggerSpec | null = null; // Store the current Swagger configuration
-
-setupGatewaySwagger().catch((err: Error) => {
-  logger.error('Failed to initialize Swagger aggregation', { error: err.message });
-});
-
-// Setup event listener for dynamic swagger spec updates when services become available after initial startup
-swaggerEvents.on(SWAGGER_EVENTS.NEW_SPECS_AVAILABLE, async (newSpecs: SwaggerSpec[]) => {
-  try {
-    logger.info(`Received ${newSpecs.length} new service specs, updating Swagger documentation`);
-    
-    if (!globalGatewaySwaggerConfig) {
-      logger.warn('Cannot update Swagger docs: no base configuration available');
-      return;
-    }
-    
-    // Merge the new specs into our existing configuration
-    const mainInfo = globalGatewaySwaggerConfig.info;
-    
-    // Custom merge logic for new specs with existing configuration
-    for (const newSpec of newSpecs) {
-      // Merge paths
-      if (newSpec.paths) {
-        globalGatewaySwaggerConfig.paths = { 
-          ...globalGatewaySwaggerConfig.paths || {}, 
-          ...newSpec.paths 
-        };
-      }
-      
-      // Merge components
-      if (newSpec.components) {
-        if (!globalGatewaySwaggerConfig.components) {
-          globalGatewaySwaggerConfig.components = {};
-        }
-        
-        for (const componentType in newSpec.components) {
-          if (Object.prototype.hasOwnProperty.call(newSpec.components, componentType)) {
-            const componentKey = componentType as keyof SwaggerSpec['components'];
-            if (!globalGatewaySwaggerConfig.components[componentKey]) {
-              // @ts-ignore - Initialize component type with empty object
-              globalGatewaySwaggerConfig.components[componentKey] = {};
-            }
-            // @ts-ignore - Dynamic property access
-            globalGatewaySwaggerConfig.components[componentKey] = {
-              // @ts-ignore - Dynamic property access
-              ...globalGatewaySwaggerConfig.components[componentKey],
-              // @ts-ignore - Dynamic property access
-              ...newSpec.components[componentKey]
-            };
-          }
-        }
-      }
-      
-      // Merge tags
-      if (newSpec.tags && newSpec.tags.length) {
-        if (!globalGatewaySwaggerConfig.tags) {
-          globalGatewaySwaggerConfig.tags = [];
-        }
-        globalGatewaySwaggerConfig.tags = [...globalGatewaySwaggerConfig.tags, ...newSpec.tags];
-      }
-    }
-    
-    // Mark that we now have service specs
-    hasServiceSpecs = true;
-    
-    logger.info('Successfully updated Swagger documentation with newly available service specs');
-    
-    // The updated specs will be automatically used since we're referencing the global object
-  } catch (error: any) {
-    logger.error('Failed to update Swagger documentation with new specs', { error: error.message });
-  }
-});
-
 // Error handling middleware
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   const errorHandler = errorMiddleware(logger);
@@ -950,38 +541,60 @@ const server = app.listen(PORT, () => {
   logger.info(`Auth Service proxy: ${SERVICES.AUTH_SERVICE}`);
   logger.info(`User Service proxy: ${SERVICES.USER_SERVICE}`);
   logger.info(`Content Service proxy: ${SERVICES.CONTENT_SERVICE}`);
+  logger.info(`Subscription Service proxy: ${SERVICES.SUBSCRIPTION_SERVICE}`);
+  // Register services for health monitoring
+  serviceHealth.registerService('API_GATEWAY', {
+    name: 'API Gateway',
+    description: 'API Gateway Service',
+    version: '1.0.0'
+  });
   
-  // Log optional services if configured
+  serviceHealth.registerService('AUTH_SERVICE', {
+    name: 'Auth Service',
+    description: 'Authentication Service',
+    version: '1.0.0'
+  });
+  
+  serviceHealth.registerService('USER_SERVICE', {
+    name: 'User Service',
+    description: 'User Management Service',
+    version: '1.0.0'
+  });
+  
+  serviceHealth.registerService('CONTENT_SERVICE', {
+    name: 'Content Service',
+    description: 'Content Management Service',
+    version: '1.0.0'
+  });
+  
   if (SERVICES.SUBSCRIPTION_SERVICE) {
     logger.info(`Subscription Service proxy: ${SERVICES.SUBSCRIPTION_SERVICE}`);
+    serviceHealth.registerService('SUBSCRIPTION_SERVICE', {
+      name: 'Subscription Service',
+      description: 'Subscription Management Service',
+      version: '1.0.0'
+    });
   }
-  
-
   
   if (SERVICES.ASTRO_ENGINE_SERVICE) {
     logger.info(`Astro Engine Service proxy: ${SERVICES.ASTRO_ENGINE_SERVICE}`);
+    serviceHealth.registerService('ASTRO_ENGINE_SERVICE', {
+      name: 'Astro Engine Service',
+      description: 'Astro Engine Service',
+      version: '1.0.0'
+    });
   }
+  
   if (SERVICES.ASTRO_RATAN_SERVICE) {
     logger.info(`Astro Ratan Service proxy: ${SERVICES.ASTRO_RATAN_SERVICE}`);
+    serviceHealth.registerService('ASTRO_RATAN_SERVICE', {
+      name: 'Astro Ratan Service',
+      description: 'Astro Ratan Service',
+      version: '1.0.0'
+    });
   }
   
-  logger.info(`API Docs available at: http://localhost:${PORT}/api-docs`);
-  logger.info(`Swagger JSON available at: http://localhost:${PORT}/swagger.json`);
-  
-  // Show summary message regarding service status
-  if (!hasServiceSpecs) {
-    logger.warn('========================================================');
-    logger.warn('⚠️  NOTICE: API Gateway is running but no microservices were detected');
-    logger.warn('To see the complete API documentation, please ensure microservices are running:');
-    logger.warn(`- Auth Service: ${DEFAULT_PORTS.AUTH} → http://localhost:${DEFAULT_PORTS.AUTH}/swagger.json`);
-    logger.warn(`- User Service: ${DEFAULT_PORTS.USER} → http://localhost:${DEFAULT_PORTS.USER}/swagger.json`);
-    logger.warn(`- Subscription Service: ${DEFAULT_PORTS.SUBSCRIPTION} → http://localhost:${DEFAULT_PORTS.SUBSCRIPTION}/swagger.json`);
-    logger.warn(`- Content Service: ${DEFAULT_PORTS.CONTENT} → http://localhost:${DEFAULT_PORTS.CONTENT}/swagger.json`);
-    logger.warn('After starting these services, restart the API Gateway to aggregate their Swagger specs');
-    logger.warn('========================================================');
-  } else {
-    logger.info('API Gateway successfully connected to all available microservices');
-  }
+  logger.info(`API Gateway successfully connected to all available microservices`);
 });
 
 // Graceful shutdown

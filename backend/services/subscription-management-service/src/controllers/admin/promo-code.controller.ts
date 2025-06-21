@@ -3,14 +3,13 @@ import { formatErrorResponse } from '../../utils/error-handler';
 import promoCodeService from '../../services/promo-code.service';
 import logger from '../../utils/logger';
 
-/**
- * Admin controller for promo code management
- * 
- * @swagger
- * tags:
- *   name: AdminPromoCodes
- *   description: Promo code management for administrators
- */
+interface PromoCodesResponse {
+  items: any[];
+  totalPages: number;
+  currentPage: number;
+  totalItems: number;
+}
+
 export class AdminPromoCodeController {
   /**
    * Get all promo codes
@@ -19,41 +18,91 @@ export class AdminPromoCodeController {
    * /api/subscription/admin/promo-codes:
    *   get:
    *     summary: Get all promo codes
-   *     description: Retrieves a list of all promo codes with optional filtering
+   *     description: Retrieves a paginated list of promo codes with optional filtering and sorting
    *     tags: [AdminPromoCodes]
    *     security:
    *       - bearerAuth: []
    *     parameters:
    *       - in: query
-   *         name: isActive
+   *         name: page
    *         schema:
-   *           type: boolean
-   *         description: Filter by active status
+   *           type: integer
+   *           default: 1
+   *         description: Page number for pagination
    *       - in: query
-   *         name: code
+   *         name: status
    *         schema:
    *           type: string
-   *         description: Filter by promo code text
+   *           enum: [active, expired, percentage, fixed]
+   *         description: Filter by status or discount type
+   *       - in: query
+   *         name: search
+   *         schema:
+   *           type: string
+   *         description: Search by promo code or description
+   *       - in: query
+   *         name: sort
+   *         schema:
+   *           type: string
+   *           default: createdAt_desc
+   *           enum: [createdAt_asc, createdAt_desc, code_asc, code_desc]
+   *         description: Sort order (field_direction)
    *     responses:
    *       200:
-   *         description: List of promo codes
+   *         description: Paginated list of promo codes
    *         content:
    *           application/json:
    *             schema:
-   *               type: array
-   *               items:
-   *                 $ref: '#/components/schemas/PromoCode'
+   *               type: object
+   *               properties:
+   *                 items:
+   *                   type: array
+   *                   items:
+   *                     $ref: '#/components/schemas/PromoCode'
+   *                 totalPages:
+   *                   type: integer
+   *                   description: Total number of pages
+   *                 currentPage:
+   *                   type: integer
+   *                   description: Current page number
+   *                 totalItems:
+   *                   type: integer
+   *                   description: Total number of promo codes
+   *       400:
+   *         description: Invalid query parameters
    *       401:
    *         $ref: '#/components/responses/UnauthorizedError'
-   *       403:
-   *         $ref: '#/components/responses/ForbiddenError'
    *       500:
    *         $ref: '#/components/responses/ServerError'
    */
   async getAllPromoCodes(req: Request, res: Response) {
     try {
-      const filters = req.query;
-      const promoCodes = await promoCodeService.getAllPromoCodes(filters as any);
+      const { page = '1', status, search, sort = 'createdAt_desc' } = req.query;
+
+      // Validate query parameters
+      const pageNum = parseInt(page as string, 10);
+      if (isNaN(pageNum) || pageNum < 1) {
+        return res.status(400).json({ error: 'Invalid page parameter' });
+      }
+
+      const validStatuses = ['active', 'expired', 'percentage', 'fixed', ''];
+      if (status && !validStatuses.includes(status as string)) {
+        return res.status(400).json({ error: `Invalid status. Must be one of: ${validStatuses.join(', ')}` });
+      }
+
+      const validSorts = ['createdAt_asc', 'createdAt_desc', 'code_asc', 'code_desc'];
+      if (sort && !validSorts.includes(sort as string)) {
+        return res.status(400).json({ error: `Invalid sort. Must be one of: ${validSorts.join(', ')}` });
+      }
+
+      const filters = {
+        page: pageNum,
+        status: status as string || '',
+        search: search as string || '',
+        sort: sort as string,
+      };
+
+      const promoCodes: PromoCodesResponse = await promoCodeService.getAllPromoCodes(filters);
       return res.json(promoCodes);
     } catch (error) {
       logger.error('Error in getAllPromoCodes:', error);
@@ -63,48 +112,16 @@ export class AdminPromoCodeController {
 
   /**
    * Get a specific promo code by ID
-   * 
-   * @swagger
-   * /api/subscription/admin/promo-codes/{id}:
-   *   get:
-   *     summary: Get a specific promo code
-   *     description: Retrieves details of a specific promo code by ID
-   *     tags: [AdminPromoCodes]
-   *     security:
-   *       - bearerAuth: []
-   *     parameters:
-   *       - in: path
-   *         name: id
-   *         required: true
-   *         schema:
-   *           type: string
-   *           format: uuid
-   *         description: Promo code ID
-   *     responses:
-   *       200:
-   *         description: Promo code details
-   *         content:
-   *           application/json:
-   *             schema:
-   *               $ref: '#/components/schemas/PromoCode'
-   *       401:
-   *         $ref: '#/components/responses/UnauthorizedError'
-   *       403:
-   *         $ref: '#/components/responses/ForbiddenError'
-   *       404:
-   *         description: Promo code not found
-   *       500:
-   *         $ref: '#/components/responses/ServerError'
    */
   async getPromoCodeById(req: Request, res: Response) {
     try {
       const { id } = req.params;
       const promoCode = await promoCodeService.getPromoCodeById(id);
-      
+
       if (!promoCode) {
         return res.status(404).json({ message: 'Promo code not found' });
       }
-      
+
       return res.json(promoCode);
     } catch (error) {
       logger.error(`Error in getPromoCodeById for id ${req.params.id}:`, error);
@@ -114,118 +131,42 @@ export class AdminPromoCodeController {
 
   /**
    * Create a new promo code
-   * 
-   * @swagger
-   * /api/subscription/admin/promo-codes:
-   *   post:
-   *     summary: Create a new promo code
-   *     description: Creates a new promotional code with specified discount and validity
-   *     tags: [AdminPromoCodes]
-   *     security:
-   *       - bearerAuth: []
-   *     requestBody:
-   *       required: true
-   *       content:
-   *         application/json:
-   *           schema:
-   *             type: object
-   *             required:
-   *               - code
-   *               - description
-   *               - discountType
-   *               - discountValue
-   *               - maxUses
-   *               - validFrom
-   *               - validTo
-   *             properties:
-   *               code:
-   *                 type: string
-   *                 description: The promo code text users will input
-   *                 example: SUMMER2025
-   *               description:
-   *                 type: string
-   *                 description: Description for admin reference
-   *                 example: Summer 2025 promotion
-   *               discountType:
-   *                 $ref: '#/components/schemas/DiscountType'
-   *               discountValue:
-   *                 type: number
-   *                 format: float
-   *                 description: Discount amount (percentage or fixed amount)
-   *                 example: 20.00
-   *               maxUses:
-   *                 type: integer
-   *                 description: Maximum number of times this code can be used
-   *                 example: 100
-   *               maxUsesPerUser:
-   *                 type: integer
-   *                 description: Maximum times a single user can use this code
-   *                 example: 1
-   *               applicableType:
-   *                 $ref: '#/components/schemas/ApplicableType'
-   *               validFrom:
-   *                 type: string
-   *                 format: date-time
-   *                 description: Start date when code becomes valid
-   *               validTo:
-   *                 type: string
-   *                 format: date-time
-   *                 description: End date when code expires
-   *               isActive:
-   *                 type: boolean
-   *                 description: Whether the promo code is active
-   *                 default: true
-   *     responses:
-   *       201:
-   *         description: Promo code created successfully
-   *         content:
-   *           application/json:
-   *             schema:
-   *               $ref: '#/components/schemas/PromoCode'
-   *       400:
-   *         description: Invalid request data
-   *       401:
-   *         $ref: '#/components/responses/UnauthorizedError'
-   *       403:
-   *         $ref: '#/components/responses/ForbiddenError'
-   *       500:
-   *         $ref: '#/components/responses/ServerError'
    */
   async createPromoCode(req: Request, res: Response) {
     try {
       const promoCodeData = req.body;
-      
+
       // Validate required fields
       const requiredFields = ['code', 'discountType', 'discountValue'];
       const missingFields = requiredFields.filter(field => !promoCodeData[field]);
-      
+
       if (missingFields.length > 0) {
-        return res.status(400).json({ 
-          message: `Missing required fields: ${missingFields.join(', ')}` 
+        return res.status(400).json({
+          message: `Missing required fields: ${missingFields.join(', ')}`
         });
       }
-      
+
       // Validate discount type
       const validDiscountTypes = ['percentage', 'fixed'];
       if (!validDiscountTypes.includes(promoCodeData.discountType)) {
-        return res.status(400).json({ 
-          message: `Invalid discount type. Must be one of: ${validDiscountTypes.join(', ')}` 
+        return res.status(400).json({
+          message: `Invalid discount type. Must be one of: ${validDiscountTypes.join(', ')}`
         });
       }
-      
+
       // Validate discount value
       if (promoCodeData.discountType === 'percentage' && (promoCodeData.discountValue < 0 || promoCodeData.discountValue > 100)) {
-        return res.status(400).json({ 
-          message: 'Percentage discount must be between 0 and 100' 
+        return res.status(400).json({
+          message: 'Percentage discount must be between 0 and 100'
         });
       }
-      
+
       if (promoCodeData.discountValue < 0) {
-        return res.status(400).json({ 
-          message: 'Discount value cannot be negative' 
+        return res.status(400).json({
+          message: 'Discount value cannot be negative'
         });
       }
-      
+
       const promoCode = await promoCodeService.createPromoCode(promoCodeData);
       return res.status(201).json(promoCode);
     } catch (error) {
@@ -241,38 +182,38 @@ export class AdminPromoCodeController {
     try {
       const { id } = req.params;
       const promoCodeData = req.body;
-      
+
       // Validate discount type if provided
       if (promoCodeData.discountType) {
         const validDiscountTypes = ['percentage', 'fixed'];
         if (!validDiscountTypes.includes(promoCodeData.discountType)) {
-          return res.status(400).json({ 
-            message: `Invalid discount type. Must be one of: ${validDiscountTypes.join(', ')}` 
+          return res.status(400).json({
+            message: `Invalid discount type. Must be one of: ${validDiscountTypes.join(', ')}`
           });
         }
       }
-      
+
       // Validate discount value if provided
       if (promoCodeData.discountType === 'percentage' && 
           promoCodeData.discountValue !== undefined && 
           (promoCodeData.discountValue < 0 || promoCodeData.discountValue > 100)) {
-        return res.status(400).json({ 
-          message: 'Percentage discount must be between 0 and 100' 
+        return res.status(400).json({
+          message: 'Percentage discount must be between 0 and 100'
         });
       }
-      
+
       if (promoCodeData.discountValue !== undefined && promoCodeData.discountValue < 0) {
-        return res.status(400).json({ 
-          message: 'Discount value cannot be negative' 
+        return res.status(400).json({
+          message: 'Discount value cannot be negative'
         });
       }
-      
+
       const promoCode = await promoCodeService.updatePromoCode(id, promoCodeData);
-      
+
       if (!promoCode) {
         return res.status(404).json({ message: 'Promo code not found' });
       }
-      
+
       return res.json(promoCode);
     } catch (error) {
       logger.error(`Error in updatePromoCode for id ${req.params.id}:`, error);
@@ -301,13 +242,13 @@ export class AdminPromoCodeController {
     try {
       const { promoCodeId } = req.params;
       const { planIds } = req.body;
-      
+
       if (!planIds || !Array.isArray(planIds) || planIds.length === 0) {
-        return res.status(400).json({ 
-          message: 'planIds must be a non-empty array' 
+        return res.status(400).json({
+          message: 'planIds must be a non-empty array'
         });
       }
-      
+
       const result = await promoCodeService.addApplicablePlans(promoCodeId, planIds);
       return res.status(201).json(result);
     } catch (error) {
@@ -323,13 +264,13 @@ export class AdminPromoCodeController {
     try {
       const { promoCodeId } = req.params;
       const { userIds } = req.body;
-      
+
       if (!userIds || !Array.isArray(userIds) || userIds.length === 0) {
-        return res.status(400).json({ 
-          message: 'userIds must be a non-empty array' 
+        return res.status(400).json({
+          message: 'userIds must be a non-empty array'
         });
       }
-      
+
       const result = await promoCodeService.addApplicableUsers(promoCodeId, userIds);
       return res.status(201).json(result);
     } catch (error) {

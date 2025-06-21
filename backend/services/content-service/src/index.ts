@@ -130,7 +130,14 @@ const createAndStartServer = (port: number) => {
   });
   
   server.on('listening', () => {
-    logger.info(`Content Service running on port ${port} in ${config.env} mode`);
+    logger.info(`
+      ==============================================
+      Content Service Configuration
+      ==============================================
+      Service Port: ${port}
+      ==============================================
+      Health check available at http://localhost:${port}/health
+      `);
   });
   
   server.listen(port);

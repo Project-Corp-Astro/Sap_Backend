@@ -435,7 +435,7 @@ async function seedPostgres() {
   
   try {
     // Initialize TypeORM
-    await dbManager.connectPostgres();
+    // await dbManager.connectPostgres();
     await dbManager.initializeTypeORM();
     
     // Seed PostgreSQL data

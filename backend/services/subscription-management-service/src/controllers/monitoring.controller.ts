@@ -6,7 +6,7 @@
  */
 
 import { Request, Response } from 'express';
-import { redisUtils, contentCache, mediaCache, videoCache, categoryCache } from '../utils/redis';
+import { redisUtils } from '../utils/redis';
 import { getRedisHealthMetrics } from '../../../../shared/utils/redis-manager';
 import performanceMonitor from '../utils/performance';
 import mongoose from 'mongoose';
@@ -127,7 +127,7 @@ class MonitoringController {
         redis: {
           status: redisStatus,
           connected: redisConnected,
-          caches: ['contentCache', 'mediaCache', 'videoCache', 'categoryCache'],
+          caches: ['promoCache', 'userSubsCache', 'planCache', 'defaultCache'],
           metrics: redisMetrics
         },
         database: {
