@@ -15,7 +15,7 @@ import detectPort from 'detect-port';
 
 // Initialize Express app
 const app = express();
-const PREFERRED_PORT = parseInt(process.env.USER_SERVICE_PORT || '3002', 10);
+const PREFERRED_PORT = parseInt(process.env.USER_SERVICE_PORT || '3002', 10); // Use port from .env file (3002)
 
 // Middleware
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
@@ -123,7 +123,14 @@ const startServer = async () => {
     }
 
     server = app.listen(availablePort, () => {
-      logger.info(`User Service running on port ${availablePort}`);
+      logger.info(`
+      ==============================================
+      User Service Configuration
+      ==============================================
+      Service Port: ${availablePort}
+      MongoDB URI: ${MONGO_URI}
+      ==============================================
+      `);
       logger.info(`Health check available at http://localhost:${availablePort}/health`);
     });
 

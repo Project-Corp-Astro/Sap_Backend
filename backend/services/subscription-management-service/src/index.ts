@@ -21,10 +21,9 @@ import * as path from 'path';
 // Import routes
 import adminRoutes from './routes/admin.routes';
 import appRoutes from './routes/app.routes';
+import monitoringRoutes from './routes/monitoring.routes';
 
-// Import middleware (to be created later)
-// import { authMiddleware } from './middlewares/auth.middleware';
-// import { validateRequest } from './middlewares/validation.middleware';
+
 
 // We import AppDataSource from our data-source file to avoid duplicate declarations
 
@@ -165,6 +164,7 @@ async function initializeService() {
 // Routes setup
 app.use('/api/subscription/admin', adminRoutes);
 app.use('/api/subscription/app', appRoutes);
+app.use('/api/subscription/monitoring', monitoringRoutes);
 
 // Health check route handler
 const handleHealthCheck = async (_req: Request, res: Response) => {
@@ -238,7 +238,9 @@ const handleHealthCheck = async (_req: Request, res: Response) => {
 };
 
 // Register health check routes
-app.get('/health', handleHealthCheck);
+app.get('/health', (req, res) => {
+  res.redirect('/api/monitoring/health');
+});
 app.get('/api/subscription/health', handleHealthCheck);
 
 // Setup Swagger documentation
