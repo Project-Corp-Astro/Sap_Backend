@@ -214,12 +214,32 @@ export class PromoCodeAnalyticsService {
         .orderBy('month', 'ASC')
         .getRawMany();
 
-      return trends.map((trend) => ({
-        month: trend.month,
-        redemptions: Number(trend.redemptions),
-        discountValue: Number(trend.discountValue),
-        conversionRate: Number(trend.averageDiscount) / 100,
-      }));
+      // Get unique users and total exposures for conversion rate calculation
+      const exposureStats = await this.subscriptionAnalyticsRepository
+        .createQueryBuilder('sa')
+        .select('DATE_TRUNC(:interval, sa.exposureDate)', 'month')
+        .addSelect('COUNT(DISTINCT sa.userId)', 'uniqueUsers')
+        .addSelect('COUNT(sa.id)', 'totalExposures')
+        .setParameter('interval', 'month')
+        .groupBy('DATE_TRUNC(:interval, sa.exposureDate)')
+        .getRawMany();
+
+      // Combine exposure stats with redemption trends
+      const combinedTrends = trends.map((trend) => {
+        const exposure = exposureStats.find(e => e.month === trend.month);
+        const uniqueRedemptions = Number(trend.redemptions);
+        const totalExposures = exposure ? Number(exposure.totalExposures) : 0;
+        const conversionRate = totalExposures > 0 ? (uniqueRedemptions / totalExposures) * 100 : 0;
+
+        return {
+          month: trend.month,
+          redemptions: uniqueRedemptions,
+          discountValue: Number(trend.discountValue),
+          conversionRate: conversionRate,
+        };
+      });
+
+      return combinedTrends;
     } catch (error) {
       // Type-safe error handling
       if (error instanceof Error) {

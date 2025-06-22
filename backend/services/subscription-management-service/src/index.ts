@@ -175,11 +175,14 @@ const handleHealthCheck = async (_req: Request, res: Response) => {
     const esStatus = { connected: false, error: '' };
     const supabaseStatus = { connected: false, error: '' };
 
-    // Check database connectivity
+    // Check database connectivity using TypeORM
     try {
-      dbStatus.connected = await checkSupabaseConnection();
+      // Test the connection by running a simple query
+      const connection = await AppDataSource.query('SELECT 1');
+      dbStatus.connected = true;
     } catch (error) {
-      dbStatus.error = error instanceof Error ? error.message : 'Connection failed';
+      dbStatus.connected = false;
+      dbStatus.error = error instanceof Error ? error.message : 'Database connection failed';
     }
 
     // Check Redis connectivity

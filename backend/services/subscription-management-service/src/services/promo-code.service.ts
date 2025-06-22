@@ -109,31 +109,24 @@ export class PromoCodeService {
 
       await promoCache.set(debounceKey, Date.now(), debounceTime);
 
-      const patterns: string[] = [
-        `promo:${promoCodeId || '*'}:details`, // Specific promo code details
-        `promo:validate:${promoCodeId || '*'}:*`, // Validation results for specific promo
-        `promos:filters:${filters?.status || '*'}:${filters?.search || '*'}:${filters?.sort || '*'}:page:*`, // Specific pagination
-        `promos:filters:${filters?.status || '*'}:${filters?.search || '*'}:${filters?.sort || '*'}:list`, // Specific filtered list
-        promoCodeId ? `subscriptions:*:promo:${promoCodeId}:*` : 'subscriptions:*:promo:*', // Specific or all subscription promo
-        `subscriptions:*:promo:*:page:*`      // Subscription pagination
-      ];
-
-      let totalDeleted = 0;
-      for (const pattern of patterns) {
-        const deletedCount = await promoCache.deleteByPattern(pattern);
-        totalDeleted += deletedCount;
-        logger.debug(`Deleted ${deletedCount} cache keys for pattern: ${pattern} in Redis DB${this.redisDb}`);
-      }
-
-      logger.info(`Total invalidated ${totalDeleted} cache keys in Redis DB${this.redisDb}`);
-
+      // Only invalidate if we haven't invalidated recently
       const now = Date.now();
       const lastInvalidationKey = `last:invalidation:${promoCodeId || 'all'}`;
       const cacheTime = await promoCache.get<number>(lastInvalidationKey);
 
       if (!cacheTime || (now - cacheTime) > 1000) {
         await promoCache.set(lastInvalidationKey, now, 1); // Cache for 1 second
-        totalDeleted = 0;
+
+        const patterns: string[] = [
+          `promo:${promoCodeId || '*'}:details`, // Specific promo code details
+          `promo:validate:${promoCodeId || '*'}:*`, // Validation results for specific promo
+          `promos:filters:${filters?.status || '*'}:${filters?.search || '*'}:${filters?.sort || '*'}:page:*`, // Specific pagination
+          `promos:filters:${filters?.status || '*'}:${filters?.search || '*'}:${filters?.sort || '*'}:list`, // Specific filtered list
+          promoCodeId ? `subscriptions:*:promo:${promoCodeId}:*` : 'subscriptions:*:promo:*', // Specific or all subscription promo
+          `subscriptions:*:promo:*:page:*`      // Subscription pagination
+        ];
+
+        let totalDeleted = 0;
         for (const pattern of patterns) {
           const deletedCount = await promoCache.deleteByPattern(pattern);
           totalDeleted += deletedCount;
