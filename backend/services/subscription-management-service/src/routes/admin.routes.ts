@@ -2,6 +2,7 @@ import express from 'express';
 import adminSubscriptionController from '../controllers/admin/subscription.controller';
 import adminSubscriptionPlanController from '../controllers/admin/subscription-plan.controller';
 import adminPromoCodeController from '../controllers/admin/promo-code.controller';
+import promoCodeAnalyticsController from '../controllers/admin/promo-code-analytics.controller';
 import authMiddleware from '../middlewares/auth.middleware';
 
 const router = express.Router();
@@ -30,6 +31,9 @@ router.delete('/plans/:id/permanent', adminSubscriptionPlanController.hardDelete
 router.post('/plans/:planId/features', adminSubscriptionPlanController.addFeature);
 router.put('/features/:featureId', adminSubscriptionPlanController.updateFeature);
 router.delete('/features/:featureId', adminSubscriptionPlanController.deleteFeature);
+
+// Promo code analytics routes
+router.get('/promo-codes/analytics', promoCodeAnalyticsController.getAnalytics);
 
 // Promo code routes
 router.get('/promo-codes', adminPromoCodeController.getAllPromoCodes);

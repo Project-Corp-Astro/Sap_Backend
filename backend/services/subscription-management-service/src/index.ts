@@ -169,54 +169,48 @@ app.use('/api/subscription/monitoring', monitoringRoutes);
 // Health check route handler
 const handleHealthCheck = async (_req: Request, res: Response) => {
   try {
+    // Initialize connection statuses
+    const dbStatus = { connected: false, error: '' };
+    const redisStatus = { connected: false, error: '' };
+    const esStatus = { connected: false, error: '' };
+    const supabaseStatus = { connected: false, error: '' };
+
     // Check database connectivity
-    const dbStatus = {
-      connected: false
-    };
-    
-    // Check Supabase connection
     try {
       dbStatus.connected = await checkSupabaseConnection();
     } catch (error) {
-      dbStatus.connected = false;
+      dbStatus.error = error instanceof Error ? error.message : 'Connection failed';
     }
-    
+
     // Check Redis connectivity
-    const redisStatus = {
-      connected: false
-    };
-    
     try {
       redisStatus.connected = await redisUtils.pingRedis();
     } catch (error) {
-      redisStatus.connected = false;
+      redisStatus.error = error instanceof Error ? error.message : 'Connection failed';
     }
-    
+
     // Check Elasticsearch connectivity
-    const esStatus = {
-      connected: false
-    };
-    
     try {
       esStatus.connected = await checkElasticsearchConnection();
     } catch (error) {
-      esStatus.connected = false;
+      esStatus.error = error instanceof Error ? error.message : 'Connection failed';
     }
-    
+
     // Check Supabase connectivity
-    const supabaseStatus = {
-      connected: false
-    };
-    
     try {
       supabaseStatus.connected = await checkSupabaseConnection();
     } catch (error) {
-      supabaseStatus.connected = false;
+      supabaseStatus.error = error instanceof Error ? error.message : 'Connection failed';
     }
-    
-    // Return response with status of all connections
-    res.status(200).json({
-      status: 'OK',
+
+    // Determine overall status based on critical services
+    const criticalServices = [dbStatus, supabaseStatus];
+    const isHealthy = criticalServices.every(service => service.connected);
+    const status = isHealthy ? 'OK' : 'WARNING';
+
+    // Return response with detailed status
+    res.status(isHealthy ? 200 : 503).json({
+      status,
       service: config.serviceName,
       environment: config.env,
       timestamp: new Date().toISOString(),
@@ -226,6 +220,7 @@ const handleHealthCheck = async (_req: Request, res: Response) => {
         elasticsearch: esStatus,
         supabase: supabaseStatus,
       },
+      healthy: isHealthy
     });
   } catch (error: any) {
     logger.error('Health check error:', error);
@@ -233,13 +228,14 @@ const handleHealthCheck = async (_req: Request, res: Response) => {
       status: 'ERROR',
       message: error.message || 'Health check failed',
       timestamp: new Date().toISOString(),
+      error: error instanceof Error ? error.message : 'Unknown error'
     });
   }
 };
 
 // Register health check routes
 app.get('/health', (req, res) => {
-  res.redirect('/api/monitoring/health');
+  res.redirect('/api/subscription/monitoring/health');
 });
 app.get('/api/subscription/health', handleHealthCheck);
 

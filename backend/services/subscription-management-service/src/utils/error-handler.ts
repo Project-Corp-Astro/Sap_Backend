@@ -29,6 +29,14 @@ export const getErrorMessage = (error: unknown): string => {
  * @returns Object with message and error details
  */
 export const formatErrorResponse = (error: unknown, defaultMessage: string = 'An error occurred') => {
+  if (error instanceof Error && 'message' in error && 'error' in error) {
+    // Handle custom error format with both message and error fields
+    return {
+      message: error.message as string,
+      error: error.error as string
+    };
+  }
+  
   return {
     message: defaultMessage,
     error: getErrorMessage(error)

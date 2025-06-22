@@ -1,3 +1,4 @@
+
 import { Request, Response } from 'express';
 import { formatErrorResponse } from '../../utils/error-handler';
 import promoCodeService from '../../services/promo-code.service';
@@ -82,17 +83,17 @@ export class AdminPromoCodeController {
       // Validate query parameters
       const pageNum = parseInt(page as string, 10);
       if (isNaN(pageNum) || pageNum < 1) {
-        return res.status(400).json({ error: 'Invalid page parameter' });
+        return res.status(400).json(formatErrorResponse('Invalid page parameter', 'INVALID_PAGE'));
       }
 
       const validStatuses = ['active', 'expired', 'percentage', 'fixed', ''];
       if (status && !validStatuses.includes(status as string)) {
-        return res.status(400).json({ error: `Invalid status. Must be one of: ${validStatuses.join(', ')}` });
+        return res.status(400).json(formatErrorResponse(`Invalid status. Must be one of: ${validStatuses.join(', ')}`, 'INVALID_STATUS'));
       }
 
       const validSorts = ['createdAt_asc', 'createdAt_desc', 'code_asc', 'code_desc'];
       if (sort && !validSorts.includes(sort as string)) {
-        return res.status(400).json({ error: `Invalid sort. Must be one of: ${validSorts.join(', ')}` });
+        return res.status(400).json(formatErrorResponse(`Invalid sort. Must be one of: ${validSorts.join(', ')}`, 'INVALID_SORT'));
       }
 
       const filters = {
@@ -105,8 +106,12 @@ export class AdminPromoCodeController {
       const promoCodes: PromoCodesResponse = await promoCodeService.getAllPromoCodes(filters);
       return res.json(promoCodes);
     } catch (error) {
+      if (error instanceof Error && error.name === 'PromoCodeError') {
+        logger.error(`Error in getAllPromoCodes: ${error.message}`, error);
+        return res.status(400).json(formatErrorResponse(error.message, (error as any).error || 'INVALID_REQUEST'));
+      }
       logger.error('Error in getAllPromoCodes:', error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to fetch promo codes'));
+      return res.status(500).json(formatErrorResponse('Failed to fetch promo codes', 'SERVER_ERROR'));
     }
   }
 
@@ -119,13 +124,17 @@ export class AdminPromoCodeController {
       const promoCode = await promoCodeService.getPromoCodeById(id);
 
       if (!promoCode) {
-        return res.status(404).json({ message: 'Promo code not found' });
+        return res.status(404).json(formatErrorResponse('Promo code not found', 'NOT_FOUND'));
       }
 
       return res.json(promoCode);
     } catch (error) {
+      if (error instanceof Error && error.name === 'PromoCodeError') {
+        logger.error(`Error in getPromoCodeById for id ${req.params.id}: ${error.message}`, error);
+        return res.status(error.message.includes('NOT_FOUND') ? 404 : 400).json(formatErrorResponse(error.message, (error as any).error || 'INVALID_REQUEST'));
+      }
       logger.error(`Error in getPromoCodeById for id ${req.params.id}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to fetch promo code'));
+      return res.status(500).json(formatErrorResponse('Failed to fetch promo code', 'SERVER_ERROR'));
     }
   }
 
@@ -141,37 +150,33 @@ export class AdminPromoCodeController {
       const missingFields = requiredFields.filter(field => !promoCodeData[field]);
 
       if (missingFields.length > 0) {
-        return res.status(400).json({
-          message: `Missing required fields: ${missingFields.join(', ')}`
-        });
+        return res.status(400).json(formatErrorResponse(`Missing required fields: ${missingFields.join(', ')}`, 'MISSING_FIELDS'));
       }
 
       // Validate discount type
       const validDiscountTypes = ['percentage', 'fixed'];
       if (!validDiscountTypes.includes(promoCodeData.discountType)) {
-        return res.status(400).json({
-          message: `Invalid discount type. Must be one of: ${validDiscountTypes.join(', ')}`
-        });
+        return res.status(400).json(formatErrorResponse(`Invalid discount type. Must be one of: ${validDiscountTypes.join(', ')}`, 'INVALID_DISCOUNT_TYPE'));
       }
 
       // Validate discount value
       if (promoCodeData.discountType === 'percentage' && (promoCodeData.discountValue < 0 || promoCodeData.discountValue > 100)) {
-        return res.status(400).json({
-          message: 'Percentage discount must be between 0 and 100'
-        });
+        return res.status(400).json(formatErrorResponse('Percentage discount must be between 0 and 100', 'INVALID_PERCENTAGE'));
       }
 
       if (promoCodeData.discountValue < 0) {
-        return res.status(400).json({
-          message: 'Discount value cannot be negative'
-        });
+        return res.status(400).json(formatErrorResponse('Discount value cannot be negative', 'INVALID_DISCOUNT_VALUE'));
       }
 
       const promoCode = await promoCodeService.createPromoCode(promoCodeData);
       return res.status(201).json(promoCode);
     } catch (error) {
+      if (error instanceof Error && error.name === 'PromoCodeError') {
+        logger.error(`Error in createPromoCode: ${error.message}`, error);
+        return res.status(400).json(formatErrorResponse(error.message, (error as any).error || 'INVALID_REQUEST'));
+      }
       logger.error('Error in createPromoCode:', error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to create promo code'));
+      return res.status(500).json(formatErrorResponse('Failed to create promo code', 'SERVER_ERROR'));
     }
   }
 
@@ -187,9 +192,7 @@ export class AdminPromoCodeController {
       if (promoCodeData.discountType) {
         const validDiscountTypes = ['percentage', 'fixed'];
         if (!validDiscountTypes.includes(promoCodeData.discountType)) {
-          return res.status(400).json({
-            message: `Invalid discount type. Must be one of: ${validDiscountTypes.join(', ')}`
-          });
+          return res.status(400).json(formatErrorResponse(`Invalid discount type. Must be one of: ${validDiscountTypes.join(', ')}`, 'INVALID_DISCOUNT_TYPE'));
         }
       }
 
@@ -197,27 +200,27 @@ export class AdminPromoCodeController {
       if (promoCodeData.discountType === 'percentage' && 
           promoCodeData.discountValue !== undefined && 
           (promoCodeData.discountValue < 0 || promoCodeData.discountValue > 100)) {
-        return res.status(400).json({
-          message: 'Percentage discount must be between 0 and 100'
-        });
+        return res.status(400).json(formatErrorResponse('Percentage discount must be between 0 and 100', 'INVALID_PERCENTAGE'));
       }
 
       if (promoCodeData.discountValue !== undefined && promoCodeData.discountValue < 0) {
-        return res.status(400).json({
-          message: 'Discount value cannot be negative'
-        });
+        return res.status(400).json(formatErrorResponse('Discount value cannot be negative', 'INVALID_DISCOUNT_VALUE'));
       }
 
       const promoCode = await promoCodeService.updatePromoCode(id, promoCodeData);
 
       if (!promoCode) {
-        return res.status(404).json({ message: 'Promo code not found' });
+        return res.status(404).json(formatErrorResponse('Promo code not found', 'NOT_FOUND'));
       }
 
       return res.json(promoCode);
     } catch (error) {
+      if (error instanceof Error && error.name === 'PromoCodeError') {
+        logger.error(`Error in updatePromoCode for id ${req.params.id}: ${error.message}`, error);
+        return res.status(error.message.includes('NOT_FOUND') ? 404 : 400).json(formatErrorResponse(error.message, (error as any).error || 'INVALID_REQUEST'));
+      }
       logger.error(`Error in updatePromoCode for id ${req.params.id}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to update promo code'));
+      return res.status(500).json(formatErrorResponse('Failed to update promo code', 'SERVER_ERROR'));
     }
   }
 
@@ -230,8 +233,12 @@ export class AdminPromoCodeController {
       await promoCodeService.deletePromoCode(id);
       return res.status(200).json({ message: 'Promo code deleted successfully' });
     } catch (error) {
+      if (error instanceof Error && error.name === 'PromoCodeError') {
+        logger.error(`Error in deletePromoCode for id ${req.params.id}: ${error.message}`, error);
+        return res.status(error.message.includes('NOT_FOUND') ? 404 : 400).json(formatErrorResponse(error.message, (error as any).error || 'INVALID_REQUEST'));
+      }
       logger.error(`Error in deletePromoCode for id ${req.params.id}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to delete promo code'));
+      return res.status(500).json(formatErrorResponse('Failed to delete promo code', 'SERVER_ERROR'));
     }
   }
 
@@ -244,16 +251,18 @@ export class AdminPromoCodeController {
       const { planIds } = req.body;
 
       if (!planIds || !Array.isArray(planIds) || planIds.length === 0) {
-        return res.status(400).json({
-          message: 'planIds must be a non-empty array'
-        });
+        return res.status(400).json(formatErrorResponse('planIds must be a non-empty array', 'INVALID_PLAN_IDS'));
       }
 
       const result = await promoCodeService.addApplicablePlans(promoCodeId, planIds);
       return res.status(201).json(result);
     } catch (error) {
+      if (error instanceof Error && error.name === 'PromoCodeError') {
+        logger.error(`Error in addApplicablePlans for promoCodeId ${req.params.promoCodeId}: ${error.message}`, error);
+        return res.status(error.message.includes('NOT_FOUND') ? 404 : 400).json(formatErrorResponse(error.message, (error as any).error || 'INVALID_REQUEST'));
+      }
       logger.error(`Error in addApplicablePlans for promoCodeId ${req.params.promoCodeId}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to add applicable plans'));
+      return res.status(500).json(formatErrorResponse('Failed to add applicable plans', 'SERVER_ERROR'));
     }
   }
 
@@ -266,16 +275,18 @@ export class AdminPromoCodeController {
       const { userIds } = req.body;
 
       if (!userIds || !Array.isArray(userIds) || userIds.length === 0) {
-        return res.status(400).json({
-          message: 'userIds must be a non-empty array'
-        });
+        return res.status(400).json(formatErrorResponse('userIds must be a non-empty array', 'INVALID_USER_IDS'));
       }
 
       const result = await promoCodeService.addApplicableUsers(promoCodeId, userIds);
       return res.status(201).json(result);
     } catch (error) {
+      if (error instanceof Error && error.name === 'PromoCodeError') {
+        logger.error(`Error in addApplicableUsers for promoCodeId ${req.params.promoCodeId}: ${error.message}`, error);
+        return res.status(error.message.includes('NOT_FOUND') ? 404 : 400).json(formatErrorResponse(error.message, (error as any).error || 'INVALID_REQUEST'));
+      }
       logger.error(`Error in addApplicableUsers for promoCodeId ${req.params.promoCodeId}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to add applicable users'));
+      return res.status(500).json(formatErrorResponse('Failed to add applicable users', 'SERVER_ERROR'));
     }
   }
 }
