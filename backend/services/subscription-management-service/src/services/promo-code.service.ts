@@ -1,3 +1,4 @@
+
 import { FindOptionsWhere, Repository, Like } from 'typeorm';
 import { AppDataSource } from '../db/data-source';
 import { PromoCode } from '../entities/PromoCode.entity';
@@ -7,6 +8,13 @@ import { PromoCodeApplicableUser } from '../entities/PromoCodeApplicableUser.ent
 import { SubscriptionPlan } from '../entities/SubscriptionPlan.entity';
 import logger from '../utils/logger';
 import { promoCache } from '../utils/redis';
+
+class PromoCodeError extends Error {
+  constructor(public message: string, public error: string) {
+    super(message);
+    this.name = 'PromoCodeError';
+  }
+}
 
 interface QueryFilters {
   page?: number;
@@ -44,6 +52,7 @@ export class PromoCodeService {
       logger.info(`Initialized repositories for PromoCodeService, using Redis DB${this.redisDb}`);
     } catch (error) {
       logger.error('Failed to initialize repositories in PromoCodeService:', error);
+      throw new PromoCodeError('Failed to initialize repositories', 'INITIALIZATION_ERROR');
     }
   }
 
@@ -85,14 +94,58 @@ export class PromoCodeService {
   /**
    * Invalidate cache for all promo codes
    */
-  private async invalidatePromoCache(): Promise<void> {
+  private async invalidatePromoCache(promoCodeId?: string, filters?: QueryFilters): Promise<void> {
     try {
-      // Use a pattern that matches all promo-related keys, accounting for the prefix
-      const pattern = `*`; // Match all keys under subscription:promos:
-      const deletedCount = await promoCache.deleteByPattern(pattern);
-      logger.info(`Invalidated ${deletedCount} cache keys for pattern: subscription:promos:* in Redis DB${this.redisDb}`);
+      // Check if we should debounce cache invalidation
+      const debounceKey = `debounce:invalidation:${promoCodeId || 'all'}:${filters?.search || 'all'}:${filters?.status || 'all'}:${filters?.sort || 'all'}`;
+      const debounceTime = 2000; // 2 seconds debounce time
+      
+      // Check if we've invalidated this exact combination recently
+      const lastInvalidationTime = await promoCache.get<number>(debounceKey);
+      if (lastInvalidationTime) {
+        logger.debug(`Cache invalidation debounced for promo code ${promoCodeId || 'all'} with filters ${JSON.stringify(filters)}`);
+        return;
+      }
+
+      await promoCache.set(debounceKey, Date.now(), debounceTime);
+
+      const patterns: string[] = [
+        `promo:${promoCodeId || '*'}:details`, // Specific promo code details
+        `promo:validate:${promoCodeId || '*'}:*`, // Validation results for specific promo
+        `promos:filters:${filters?.status || '*'}:${filters?.search || '*'}:${filters?.sort || '*'}:page:*`, // Specific pagination
+        `promos:filters:${filters?.status || '*'}:${filters?.search || '*'}:${filters?.sort || '*'}:list`, // Specific filtered list
+        promoCodeId ? `subscriptions:*:promo:${promoCodeId}:*` : 'subscriptions:*:promo:*', // Specific or all subscription promo
+        `subscriptions:*:promo:*:page:*`      // Subscription pagination
+      ];
+
+      let totalDeleted = 0;
+      for (const pattern of patterns) {
+        const deletedCount = await promoCache.deleteByPattern(pattern);
+        totalDeleted += deletedCount;
+        logger.debug(`Deleted ${deletedCount} cache keys for pattern: ${pattern} in Redis DB${this.redisDb}`);
+      }
+
+      logger.info(`Total invalidated ${totalDeleted} cache keys in Redis DB${this.redisDb}`);
+
+      const now = Date.now();
+      const lastInvalidationKey = `last:invalidation:${promoCodeId || 'all'}`;
+      const cacheTime = await promoCache.get<number>(lastInvalidationKey);
+
+      if (!cacheTime || (now - cacheTime) > 1000) {
+        await promoCache.set(lastInvalidationKey, now, 1); // Cache for 1 second
+        totalDeleted = 0;
+        for (const pattern of patterns) {
+          const deletedCount = await promoCache.deleteByPattern(pattern);
+          totalDeleted += deletedCount;
+          logger.debug(`Deleted ${deletedCount} cache keys for pattern: ${pattern} in Redis DB${this.redisDb}`);
+        }
+        logger.info(`Total invalidated ${totalDeleted} cache keys in Redis DB${this.redisDb}`);
+      } else {
+        logger.debug(`Cache invalidation throttled - last invalidation was too recent`);
+      } 
     } catch (error) {
       logger.warn(`Failed to invalidate promo cache in Redis DB${this.redisDb}:`, error);
+      throw new PromoCodeError('Failed to invalidate cache', 'CACHE_INVALIDATION_ERROR');
     }
   }
 
@@ -101,20 +154,25 @@ export class PromoCodeService {
    */
   private async invalidateSinglePromoCache(promoCodeId: string): Promise<void> {
     try {
-      const cacheKey = `promo:${promoCodeId}`;
-      const success = await promoCache.del(cacheKey);
-      if (success) {
-        logger.debug(`Deleted cache key: ${cacheKey} in Redis DB${this.redisDb}`);
-      } else {
-        logger.debug(`Cache key not found for deletion: ${cacheKey} in Redis DB${this.redisDb}`);
+      // Invalidate all related cache keys for this promo code
+      const patterns = [
+        `promo:${promoCodeId}`,
+        `promo:validate:*:${promoCodeId}:*`,
+        `promos:filters:*:promo:${promoCodeId}`,
+        `subscriptions:*:promo:${promoCodeId}`
+      ];
+
+      let totalDeleted = 0;
+      for (const pattern of patterns) {
+        const deletedCount = await promoCache.deleteByPattern(pattern);
+        totalDeleted += deletedCount;
+        logger.debug(`Deleted ${deletedCount} cache keys for pattern: ${pattern} in Redis DB${this.redisDb}`);
       }
-      const validationPattern = `promo:validate:*:${promoCodeId}:*`;
-      const deletedValidationCount = await promoCache.deleteByPattern(validationPattern);
-      logger.debug(`Deleted ${deletedValidationCount} validation cache keys for pattern: subscription:promos:${validationPattern} in Redis DB${this.redisDb}`);
 
-
+      logger.info(`Total invalidated ${totalDeleted} cache keys for promo code ${promoCodeId} in Redis DB${this.redisDb}`);
     } catch (error) {
       logger.warn(`Failed to invalidate cache for promo ${promoCodeId} in Redis DB${this.redisDb}:`, error);
+      throw new PromoCodeError(`Failed to invalidate cache for promo code ${promoCodeId}`, 'CACHE_INVALIDATION_ERROR');
     }
   }
 
@@ -195,22 +253,22 @@ export class PromoCodeService {
         totalItems,
       };
 
-      // Cache the results for 1 hour
+      // Cache the results with appropriate TTL based on data type
       try {
-        const success = await promoCache.set(cacheKey, result, 60 * 60);
+        const success = await promoCache.set(cacheKey, result, 60 * 5); // Cache for 5 minutes
         if (success) {
-          logger.debug(`Stored promo codes in cache key: ${fullCacheKey} with TTL 1 hour in Redis DB${this.redisDb}`);
+          logger.debug(`Stored promo codes in cache key: ${fullCacheKey} with TTL 5 minutes in Redis DB${this.redisDb}`);
         } else {
           logger.warn(`Failed to store promo codes in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
         }
       } catch (cacheError) {
-        logger.warn(`Error caching promo codes for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
+        logger.error(`Error caching promo codes for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
       }
 
       return result;
-    } catch (error: unknown) {
+    } catch (error) {
       logger.error('Error getting all promo codes:', error);
-      throw new Error(`Failed to fetch promo codes: ${error instanceof Error ? error.message : String(error)}`);
+      throw new PromoCodeError(`Failed to fetch promo codes: ${error instanceof Error ? error.message : String(error)}`, 'FETCH_ERROR');
     }
   }
 
@@ -237,16 +295,16 @@ export class PromoCodeService {
       });
 
       if (promoCode) {
-        // Cache the result for 1 hour
+        // Cache the result with appropriate TTL
         try {
-          const success = await promoCache.set(cacheKey, promoCode, 60 * 60);
+          const success = await promoCache.set(cacheKey, promoCode, 60 * 5); // Cache for 5 minutes
           if (success) {
-            logger.debug(`Stored promo code in cache key: ${fullCacheKey} with TTL 1 hour in Redis DB${this.redisDb}`);
+            logger.debug(`Stored promo code in cache key: ${fullCacheKey} with TTL 5 minutes in Redis DB${this.redisDb}`);
           } else {
             logger.warn(`Failed to store promo code in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
           }
         } catch (cacheError) {
-          logger.warn(`Error caching promo code for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
+          logger.error(`Error caching promo code for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
         }
       } else {
         logger.debug(`No promo code found for ID ${id}, not caching in Redis DB${this.redisDb}`);
@@ -255,7 +313,7 @@ export class PromoCodeService {
       return promoCode;
     } catch (error) {
       logger.error(`Error getting promo code ${id}:`, error);
-      throw error;
+      throw new PromoCodeError(`Failed to fetch promo code ${id}: ${error instanceof Error ? error.message : String(error)}`, 'FETCH_ERROR');
     }
   }
 
@@ -264,6 +322,18 @@ export class PromoCodeService {
    */
   async createPromoCode(promoCodeData: Partial<PromoCode>): Promise<PromoCode> {
     try {
+      // Check if promo code already exists
+      const existingPromoCode = await this.getPromoCodeRepository().findOne({
+        where: {
+          code: promoCodeData.code,
+          isActive: true
+        }
+      });
+
+      if (existingPromoCode) {
+        throw new PromoCodeError(`Promo code ${promoCodeData.code} already exists`, 'DUPLICATE_CODE');
+      }
+
       const promoCode = this.getPromoCodeRepository().create({
         ...promoCodeData,
         isActive: promoCodeData.isActive ?? true,
@@ -275,13 +345,17 @@ export class PromoCodeService {
       const savedPromoCode = await this.getPromoCodeRepository().save(promoCode);
 
       // Invalidate cache to ensure fresh data
-      await this.invalidatePromoCache();
+      await this.invalidatePromoCache(undefined, { status: undefined, search: undefined, sort: undefined });
       logger.info(`Created promo code with ID ${savedPromoCode.id}, invalidated cache in Redis DB${this.redisDb}`);
 
       return savedPromoCode;
     } catch (error) {
+      if (error instanceof PromoCodeError) {
+        logger.error(`Error creating promo code: ${error.message}`, error);
+        throw error;
+      }
       logger.error('Error creating promo code:', error);
-      throw error;
+      throw new PromoCodeError(`Failed to create promo code: ${error instanceof Error ? error.message : String(error)}`, 'CREATE_ERROR');
     }
   }
 
@@ -327,16 +401,19 @@ export class PromoCodeService {
       const updatedPromoCode = await this.getPromoCodeById(id);
 
       if (updatedPromoCode) {
-        // Invalidate caches
-        await this.invalidatePromoCache();
-        await this.invalidateSinglePromoCache(id);
+        // Invalidate caches - only invalidate once with specific promo code ID
+        await this.invalidatePromoCache(id);
         logger.info(`Updated promo code with ID ${id}, invalidated caches in Redis DB${this.redisDb}`);
       }
 
       return updatedPromoCode;
     } catch (error) {
+      if (error instanceof PromoCodeError) {
+        logger.error(`Error updating promo code ${id}: ${error.message}`, error);
+        throw error;
+      }
       logger.error(`Error updating promo code ${id}:`, error);
-      throw error;
+      throw new PromoCodeError(`Failed to update promo code ${id}: ${error instanceof Error ? error.message : String(error)}`, 'UPDATE_ERROR');
     }
   }
 
@@ -347,7 +424,7 @@ export class PromoCodeService {
     try {
       const promoCode = await this.getPromoCodeById(id);
       if (!promoCode) {
-        throw new Error('Promo code not found');
+        throw new PromoCodeError(`Promo code ${id} not found`, 'NOT_FOUND');
       }
   
       // Delete related records first to maintain referential integrity
@@ -359,12 +436,16 @@ export class PromoCodeService {
       await this.getPromoCodeRepository().delete(id);
   
       // Invalidate all promo-related caches
-      await this.invalidatePromoCache();
+      await this.invalidatePromoCache(undefined, { status: undefined, search: undefined, sort: undefined });
       await this.invalidateSinglePromoCache(id);
       logger.info(`Deleted promo code with ID ${id} and related records, invalidated caches in Redis DB${this.redisDb}`);
     } catch (error) {
+      if (error instanceof PromoCodeError) {
+        logger.error(`Error deleting promo code ${id}: ${error.message}`, error);
+        throw error;
+      }
       logger.error(`Error deleting promo code ${id}:`, error);
-      throw error;
+      throw new PromoCodeError(`Failed to delete promo code ${id}: ${error instanceof Error ? error.message : String(error)}`, 'DELETE_ERROR');
     }
   }
 
@@ -387,8 +468,12 @@ export class PromoCodeService {
 
       return savedEntries;
     } catch (error) {
+      if (error instanceof PromoCodeError) {
+        logger.error(`Error adding applicable plans to promo code ${promoCodeId}: ${error.message}`, error);
+        throw error;
+      }
       logger.error(`Error adding applicable plans to promo code ${promoCodeId}:`, error);
-      throw error;
+      throw new PromoCodeError(`Failed to add applicable plans to promo code ${promoCodeId}: ${error instanceof Error ? error.message : String(error)}`, 'ADD_PLANS_ERROR');
     }
   }
 
@@ -411,8 +496,12 @@ export class PromoCodeService {
 
       return savedEntries;
     } catch (error) {
+      if (error instanceof PromoCodeError) {
+        logger.error(`Error adding applicable users to promo code ${promoCodeId}: ${error.message}`, error);
+        throw error;
+      }
       logger.error(`Error adding applicable users to promo code ${promoCodeId}:`, error);
-      throw error;
+      throw new PromoCodeError(`Failed to add applicable users to promo code ${promoCodeId}: ${error instanceof Error ? error.message : String(error)}`, 'ADD_USERS_ERROR');
     }
   }
 
@@ -427,7 +516,7 @@ export class PromoCodeService {
     message: string;
   }> {
     try {
-      const cacheKey = `promo:validate:${code}:${userId}:${planId}`;
+      const cacheKey = `promo:validate:${userId}:${planId}:${code}`;
       const fullCacheKey = `subscription:promos:${cacheKey}`;
 
       // Try to get from cache first
@@ -441,7 +530,7 @@ export class PromoCodeService {
         logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
         return cachedResult;
       }
-      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, validating promo code`);
+      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
 
       // Find the promo code
       const promoCode = await this.getPromoCodeRepository().findOne({
@@ -450,21 +539,24 @@ export class PromoCodeService {
 
       if (!promoCode) {
         const result = { isValid: false, message: 'Invalid promo code' };
-        await this.cacheValidationResult(cacheKey, fullCacheKey, result);
+        await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
+        logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
         return result;
       }
 
       // Check if expired
       if (promoCode.endDate && new Date() > new Date(promoCode.endDate)) {
         const result = { isValid: false, message: 'Promo code has expired' };
-        await this.cacheValidationResult(cacheKey, fullCacheKey, result);
+        await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
+        logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
         return result;
       }
 
       // Check usage limit
       if (promoCode.usageLimit && (promoCode.usageCount || 0) >= promoCode.usageLimit) {
         const result = { isValid: false, message: 'Promo code usage limit reached' };
-        await this.cacheValidationResult(cacheKey, fullCacheKey, result);
+        await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
+        logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
         return result;
       }
 
@@ -476,7 +568,8 @@ export class PromoCodeService {
 
         if (!planMatch) {
           const result = { isValid: false, message: 'Promo code not applicable to this plan' };
-          await this.cacheValidationResult(cacheKey, fullCacheKey, result);
+          await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
+          logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
           return result;
         }
       }
@@ -488,7 +581,8 @@ export class PromoCodeService {
 
         if (!userMatch) {
           const result = { isValid: false, message: 'Promo code not applicable to this user' };
-          await this.cacheValidationResult(cacheKey, fullCacheKey, result);
+          await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
+          logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
           return result;
         }
       }
@@ -501,7 +595,8 @@ export class PromoCodeService {
 
         if (previousUsage) {
           const result = { isValid: false, message: 'Promo code can only be used once per user' };
-          await this.cacheValidationResult(cacheKey, fullCacheKey, result);
+          await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
+          logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
           return result;
         }
       }
@@ -510,7 +605,8 @@ export class PromoCodeService {
       const plan = await this.getPlanRepository().findOne({ where: { id: planId } });
       if (!plan) {
         const result = { isValid: false, message: 'Invalid subscription plan' };
-        await this.cacheValidationResult(cacheKey, fullCacheKey, result);
+        await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
+        logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
         return result;
       }
 
@@ -522,34 +618,18 @@ export class PromoCodeService {
         message: 'Promo code applied successfully',
       };
 
-      // Cache the result for 5 minutes
-      await this.cacheValidationResult(cacheKey, fullCacheKey, result, 60 * 5);
+      // Cache the result for 2 minutes
+      await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
+      logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
 
       return result;
     } catch (error) {
-      logger.error(`Error validating promo code ${code}:`, error);
-      throw error;
-    }
-  }
-
-  /**
-   * Helper method to cache validation results
-   */
-  private async cacheValidationResult(
-    cacheKey: string,
-    fullCacheKey: string,
-    result: { isValid: boolean; promoCode?: PromoCode; discountAmount?: number; message: string },
-    ttl: number = 60 * 5
-  ): Promise<void> {
-    try {
-      const success = await promoCache.set(cacheKey, result, ttl);
-      if (success) {
-        logger.debug(`Stored validation result in cache key: ${fullCacheKey} with TTL ${ttl / 60} minutes in Redis DB${this.redisDb}`);
-      } else {
-        logger.warn(`Failed to store validation result in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
+      if (error instanceof PromoCodeError) {
+        logger.error(`Error validating promo code ${code}: ${error.message}`, error);
+        throw error;
       }
-    } catch (cacheError) {
-      logger.warn(`Error caching validation result for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
+      logger.error(`Error validating promo code ${code}:`, error);
+      throw new PromoCodeError(`Failed to validate promo code ${code}: ${error instanceof Error ? error.message : String(error)}`, 'VALIDATION_ERROR');
     }
   }
 
@@ -582,8 +662,12 @@ export class PromoCodeService {
 
       return savedPromoCode;
     } catch (error) {
+      if (error instanceof PromoCodeError) {
+        logger.error(`Error applying promo code ${promoCodeId} to subscription ${subscriptionId}: ${error.message}`, error);
+        throw error;
+      }
       logger.error(`Error applying promo code ${promoCodeId} to subscription ${subscriptionId}:`, error);
-      throw error;
+      throw new PromoCodeError(`Failed to apply promo code ${promoCodeId} to subscription ${subscriptionId}: ${error instanceof Error ? error.message : String(error)}`, 'APPLY_ERROR');
     }
   }
 
@@ -591,16 +675,25 @@ export class PromoCodeService {
    * Calculate discount amount based on promo code type and plan price
    */
   private calculateDiscount(promoCode: PromoCode, planPrice: number): number {
-    if (promoCode.discountType === 'percentage') {
-      let discount = (planPrice * promoCode.discountValue) / 100;
-      if (promoCode.maxDiscountAmount) {
-        discount = Math.min(discount, promoCode.maxDiscountAmount);
+    try {
+      if (promoCode.discountType === 'percentage') {
+        let discount = (planPrice * promoCode.discountValue) / 100;
+        if (promoCode.maxDiscountAmount) {
+          discount = Math.min(discount, promoCode.maxDiscountAmount);
+        }
+        return discount;
+      } else if (promoCode.discountType === 'fixed') {
+        return Math.min(promoCode.discountValue, planPrice);
       }
-      return discount;
-    } else if (promoCode.discountType === 'fixed') {
-      return Math.min(promoCode.discountValue, planPrice);
+      throw new PromoCodeError(`Invalid discount type for promo code ${promoCode.code}`, 'INVALID_DISCOUNT_TYPE');
+    } catch (error) {
+      if (error instanceof PromoCodeError) {
+        logger.error(`Error calculating discount for promo code ${promoCode.code}: ${error.message}`, error);
+        throw error;
+      }
+      logger.error(`Error calculating discount for promo code ${promoCode.code}:`, error);
+      throw new PromoCodeError(`Failed to calculate discount for promo code ${promoCode.code}: ${error instanceof Error ? error.message : String(error)}`, 'CALCULATION_ERROR');
     }
-    return 0;
   }
 }
 
