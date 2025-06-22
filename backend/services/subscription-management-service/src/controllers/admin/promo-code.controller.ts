@@ -83,17 +83,17 @@ export class AdminPromoCodeController {
       // Validate query parameters
       const pageNum = parseInt(page as string, 10);
       if (isNaN(pageNum) || pageNum < 1) {
-        return res.status(400).json(formatErrorResponse('Invalid page parameter', 'INVALID_PAGE'));
+        return res.status(400).json(formatErrorResponse(new Error('Invalid page parameter'), 'INVALID_PAGE'));
       }
 
       const validStatuses = ['active', 'expired', 'percentage', 'fixed', ''];
       if (status && !validStatuses.includes(status as string)) {
-        return res.status(400).json(formatErrorResponse(`Invalid status. Must be one of: ${validStatuses.join(', ')}`, 'INVALID_STATUS'));
+        return res.status(400).json(formatErrorResponse(new Error(`Invalid status. Must be one of: ${validStatuses.join(', ')}`), 'INVALID_STATUS'));
       }
 
       const validSorts = ['createdAt_asc', 'createdAt_desc', 'code_asc', 'code_desc'];
       if (sort && !validSorts.includes(sort as string)) {
-        return res.status(400).json(formatErrorResponse(`Invalid sort. Must be one of: ${validSorts.join(', ')}`, 'INVALID_SORT'));
+        return res.status(400).json(formatErrorResponse(new Error(`Invalid sort. Must be one of: ${validSorts.join(', ')}`), 'INVALID_SORT'));
       }
 
       const filters = {
