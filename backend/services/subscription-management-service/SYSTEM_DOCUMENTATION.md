@@ -26,37 +26,65 @@ The Subscription Management Service follows a modular architecture with clear se
 
 ## API Routes Overview
 
-The service provides two main route groups:
+The service provides two main route groups, each with a specific purpose.
 
-### 1. App Routes (`/api/subscription/app/*`)
+---
 
-For end-users and applications consuming the subscription service.
+### **Admin Routes (`/api/subscription/admin`)**
 
-| Method | Endpoint                                  | Description                            | Authentication |
-|--------|-------------------------------------------|----------------------------------------|----------------|
-| GET    | `/apps/:appId/plans`                      | Get available plans for an app         | Required       |
-| GET    | `/apps/:appId/subscriptions`              | Get user's subscription for an app     | Required       |
-| POST   | `/apps/:appId/subscriptions`              | Create a new subscription              | Required       |
-| POST   | `/apps/:appId/validate-promo-code`        | Validate promo code for a plan         | Required       |
-| POST   | `/subscriptions/:subscriptionId/cancel`   | Cancel a subscription                  | Required       |
+These routes are designed for your internal admin panel and provide full control over the system. All are protected and require an admin role.
 
-### 2. Admin Routes (`/api/subscription/admin/*`)
+#### Subscription Management
+| Method | Route | Description |
+| :--- | :--- | :--- |
+| `GET` | `/subscriptions` | Retrieves a list of all subscriptions across all apps and users. |
+| `GET` | `/subscriptions/app/:appId` | Gets all subscriptions for a single, specific application. |
+| `GET` | `/subscriptions/user/:userId` | Gets all subscriptions for a single, specific user. |
+| `GET` | `/subscriptions/:id` | Fetches the complete details of one specific subscription by its ID. |
+| `POST` | `/subscriptions` | Manually creates a new subscription for a user. Can include a promo code. |
+| `PATCH`| `/subscriptions/:id/status` | Updates the status of a subscription (e.g., to `active`, `suspended`). |
+| `POST` | `/subscriptions/:id/renew` | Forces an immediate renewal of an existing subscription. |
 
-For management of subscriptions, plans, and promo codes.
+#### Subscription Plan Management
+| Method | Route | Description |
+| :--- | :--- | :--- |
+| `GET` | `/plans` | Retrieves a list of all subscription plans. |
+| `GET` | `/plans/:id` | Gets the details of a single subscription plan by its ID. |
+| `POST` | `/plans` | Creates a new subscription plan. |
+| `PUT` | `/plans/:id` | Updates the details of an existing subscription plan. |
+| `DELETE`| `/plans/:id` | Soft-deletes a plan (marks it as inactive). |
+| `DELETE`| `/plans/:id/permanent` | Permanently deletes a plan from the database. |
 
-| Method | Endpoint                                   | Description                           | Authentication |
-|--------|-------------------------------------------|---------------------------------------|----------------|
-| GET    | `/subscriptions`                           | Get all subscriptions                 | Admin only     |
-| GET    | `/subscriptions/app/:appId`                | Get subscriptions by app              | Admin only     |
-| GET    | `/subscriptions/user/:userId`              | Get user's subscriptions              | Admin only     |
-| GET    | `/subscriptions/:id`                       | Get subscription by ID                | Admin only     |
-| PATCH  | `/subscriptions/:id/status`                | Update subscription status            | Admin only     |
-| POST   | `/subscriptions/:id/renew`                 | Renew a subscription                  | Admin only     |
-| GET    | `/plans`                                   | Get all subscription plans            | Admin only     |
-| GET    | `/plans/:id`                               | Get plan by ID                        | Admin only     |
-| POST   | `/plans`                                   | Create new subscription plan          | Admin only     |
-| PUT    | `/plans/:id`                               | Update subscription plan              | Admin only     |
-| DELETE | `/plans/:id`                               | Delete plan (soft)                    | Admin only     |
+#### Plan Feature Management
+| Method | Route | Description |
+| :--- | :--- | :--- |
+| `POST` | `/plans/:planId/features` | Adds a new feature to a specific subscription plan. |
+| `PUT` | `/features/:featureId` | Updates an existing feature. |
+| `DELETE`| `/features/:featureId` | Deletes a feature from a plan. |
+
+#### Promo Code Management
+| Method | Route | Description |
+| :--- | :--- | :--- |
+| `GET` | `/promo-codes` | Retrieves a list of all promotional codes. |
+| `GET` | `/promo-codes/:id` | Gets the details of a single promo code by its ID. |
+| `POST` | `/promo-codes` | Creates a new promotional code. |
+| `PUT` | `/promo-codes/:id` | Updates an existing promotional code. |
+| `DELETE`| `/promo-codes/:id` | Deletes a promotional code. |
+| `GET` | `/promo-codes/analytics` | Gets usage analytics and statistics for promo codes. |
+
+---
+
+### **User-Facing App Routes (`/api/subscription/app`)**
+
+These routes are designed to be called from your user-facing astrology apps. They are for users to manage their own subscriptions.
+
+| Method | Route | Description |
+| :--- | :--- | :--- |
+| `GET` | `/:appId/plans` | Gets the list of all **active** subscription plans available for a specific app. |
+| `GET` | `/:appId/user` | Gets the current logged-in user's subscription(s) for a specific app. |
+| `POST` | `/:appId/subscribe` | Creates a new subscription for the logged-in user for a specific plan. |
+| `POST` | `/:appId/promo-code/validate` | Validates a promo code for a specific plan to check its validity and discount. |
+| `POST` | `/subscriptions/:subscriptionId/cancel` | Cancels the logged-in user's own subscription. |
 | DELETE | `/plans/:id/permanent`                     | Delete plan permanently               | Admin only     |
 | POST   | `/plans/:planId/features`                  | Add feature to plan                   | Admin only     |
 | PUT    | `/features/:featureId`                     | Update plan feature                   | Admin only     |

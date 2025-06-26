@@ -39,7 +39,11 @@ const defaultConfig: TypeORMConfig = {
       ? 'dist/entities/**/*.entity.js'
       : 'src/entities/**/*.entity.ts'
   ],
-  migrations: [], // Disabled migrations to avoid TypeORM errors
+  migrations: [
+    process.env.NODE_ENV === 'production'
+      ? 'dist/migrations/**/*.ts'
+      : 'src/migrations/**/*.ts'
+  ], // Enable migrations for schema management
   synchronize: false, // Disable auto-synchronization to prevent conflicts with existing Supabase schema
   logging: process.env.NODE_ENV !== 'production' ? ['error', 'warn', 'schema', 'migration'] : ['error'],
   maxQueryExecutionTime: 1000, // Log queries taking longer than 1 second

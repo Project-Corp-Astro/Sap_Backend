@@ -110,8 +110,8 @@ const defaults = {
   
   // Rate limiting
   rateLimit: {
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // limit each IP to 100 requests per windowMs
+    windowMs: 24 * 60 * 60 * 1000, // 24 hours
+    max: 999999, // effectively unlimited
   },
 };
 

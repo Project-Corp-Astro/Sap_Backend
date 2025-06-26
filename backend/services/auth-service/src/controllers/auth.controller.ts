@@ -3,7 +3,6 @@ import { validationResult } from 'express-validator/src/validation-result';
 import { sessionCache, otpCache } from '../utils/redis';
 import logger from '../../../../shared/utils/logger';
 import * as authService from '../services/auth.service';
-import { IUser } from '../../../../shared/interfaces/user.interface';
 // Import type fixes and assertion helpers
 import { asIUser } from '../utils/type-assertions';
 // Import type fixes
@@ -200,13 +199,45 @@ export const getProfile = (req: AuthenticatedRequest, res: Response): void => {
 export const logout = async (req: AuthenticatedRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     if (!req.user) {
+      logger.error('Logout attempt failed - user not authenticated', { userId: req.user?._id });
       res.status(401).json({ success: false, message: 'Authentication required' });
       return;
     }
+
+    logger.info('Logout attempt started', { userId: req.user._id });
+
+    // Get the access token from headers
+    const authHeader = req.headers.authorization;
+    const accessToken = authHeader?.split(' ')[1];
+
+    // Invalidate both access and refresh tokens
+    if (accessToken) {
+      logger.info('Invalidating access token', { tokenPrefix: accessToken.slice(0, 5) });
+      await sessionCache.del(`access:${accessToken}`);
+    }
+    logger.info('Invalidating refresh token', { userId: req.user._id });
     await sessionCache.del(`refresh:${req.user._id}`);
-    res.status(200).json({ success: true, message: 'Logout successful' });
-  } catch {
-    res.status(500).json({ success: false, message: 'Error during logout' });
+
+    // Clear any session data
+    logger.info('Clearing session data', { userId: req.user._id });
+    await sessionCache.del(`session:${req.user._id}`);
+
+    logger.info('Logout successful', { userId: req.user._id });
+    
+    res.status(200).json({ 
+      success: true, 
+      message: 'Logout successful',
+      data: {
+        message: 'All tokens have been invalidated'
+      }
+    });
+  } catch (error: any) {
+    logger.error('Logout error:', { 
+      error: error.message,
+      stack: error.stack,
+      userId: req.user?._id
+    });
+    next(error);
   }
 };
 

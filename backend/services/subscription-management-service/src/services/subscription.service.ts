@@ -1,27 +1,32 @@
 import { FindOneOptions, FindManyOptions, DeepPartial, FindOptionsWhere, Repository } from 'typeorm';
-import { getAppRepository, AppDataSource } from '../db/data-source';
-import { Subscription } from '../entities/Subscription.entity';
+import { AppDataSource } from '../db/data-source';
+import { Subscription, SubscriptionStatus } from '../entities/Subscription.entity';
 import { SubscriptionEvent } from '../entities/SubscriptionEvent.entity';
-import { SubscriptionPlan } from '../entities/SubscriptionPlan.entity';
+import { SubscriptionPlan, BillingCycle } from '../entities/SubscriptionPlan.entity';
 import { Payment } from '../entities/Payment.entity';
+import { PromoCode, DiscountType } from '../entities/PromoCode.entity';
+import { SubscriptionPromoCode } from '../entities/SubscriptionPromoCode.entity';
 import logger from '../utils/logger';
 import { userSubsCache } from '../utils/redis';
-import {
-  SubscriptionStatus,
-  SubscriptionWhere,
-  BillingCycle,
-  SubscriptionCreationData
-} from '../interfaces/types';
+import { PromoCodeValidationService, PromoCodeValidationResult } from './promo-code-validation.service';
+import { NotFoundError, BadRequestError } from '../errors/api-error';
 
 export class SubscriptionService {
+  private promoCodeValidationService: PromoCodeValidationService;
   private subscriptionRepository!: Repository<Subscription>;
   private subscriptionEventRepository!: Repository<SubscriptionEvent>;
   private planRepository!: Repository<SubscriptionPlan>;
   private paymentRepository!: Repository<Payment>;
-  private readonly redisDb: number = 3; // Subscription service uses DB3
+  private promoCodeRepository!: Repository<PromoCode>;
+  private subscriptionPromoCodeRepository!: Repository<SubscriptionPromoCode>;
 
   constructor() {
     this.initializeRepositories();
+    this.promoCodeValidationService = new PromoCodeValidationService(
+      this.getPromoCodeRepository(),
+      this.getSubscriptionPromoCodeRepository(),
+      this.getSubscriptionRepository()
+    );
   }
 
   private initializeRepositories() {
@@ -30,7 +35,9 @@ export class SubscriptionService {
       this.subscriptionEventRepository = AppDataSource.getRepository(SubscriptionEvent);
       this.planRepository = AppDataSource.getRepository(SubscriptionPlan);
       this.paymentRepository = AppDataSource.getRepository(Payment);
-      logger.info(`Initialized repositories for SubscriptionService, using Redis DB${this.redisDb}`);
+      this.promoCodeRepository = AppDataSource.getRepository(PromoCode);
+      this.subscriptionPromoCodeRepository = AppDataSource.getRepository(SubscriptionPromoCode);
+      logger.info(`Initialized repositories for SubscriptionService`);
     } catch (error) {
       logger.error('Failed to initialize repositories in SubscriptionService:', error);
     }
@@ -39,10 +46,6 @@ export class SubscriptionService {
   private getSubscriptionRepository(): Repository<Subscription> {
     if (!this.subscriptionRepository) {
       this.subscriptionRepository = AppDataSource.getRepository(Subscription);
-      if (!this.subscriptionRepository) {
-        logger.error('Failed to initialize subscription repository');
-        throw new Error('Subscription repository not initialized');
-      }
     }
     return this.subscriptionRepository;
   }
@@ -50,10 +53,6 @@ export class SubscriptionService {
   private getSubscriptionEventRepository(): Repository<SubscriptionEvent> {
     if (!this.subscriptionEventRepository) {
       this.subscriptionEventRepository = AppDataSource.getRepository(SubscriptionEvent);
-      if (!this.subscriptionEventRepository) {
-        logger.error('Failed to initialize subscription event repository');
-        throw new Error('Subscription event repository not initialized');
-      }
     }
     return this.subscriptionEventRepository;
   }
@@ -61,10 +60,6 @@ export class SubscriptionService {
   private getPlanRepository(): Repository<SubscriptionPlan> {
     if (!this.planRepository) {
       this.planRepository = AppDataSource.getRepository(SubscriptionPlan);
-      if (!this.planRepository) {
-        logger.error('Failed to initialize plan repository');
-        throw new Error('Plan repository not initialized');
-      }
     }
     return this.planRepository;
   }
@@ -72,453 +67,214 @@ export class SubscriptionService {
   private getPaymentRepository(): Repository<Payment> {
     if (!this.paymentRepository) {
       this.paymentRepository = AppDataSource.getRepository(Payment);
-      if (!this.paymentRepository) {
-        logger.error('Failed to initialize payment repository');
-        throw new Error('Payment repository not initialized');
-      }
     }
     return this.paymentRepository;
   }
 
-  /**
-   * Invalidate cache for all subscriptions or specific filters
-   */
+  private getPromoCodeRepository(): Repository<PromoCode> {
+    if (!this.promoCodeRepository) {
+      this.promoCodeRepository = AppDataSource.getRepository(PromoCode);
+    }
+    return this.promoCodeRepository;
+  }
+
+  private getSubscriptionPromoCodeRepository(): Repository<SubscriptionPromoCode> {
+    if (!this.subscriptionPromoCodeRepository) {
+      this.subscriptionPromoCodeRepository = AppDataSource.getRepository(SubscriptionPromoCode);
+    }
+    return this.subscriptionPromoCodeRepository;
+  }
+
   private async invalidateSubscriptionCache(filters?: Partial<Subscription>): Promise<void> {
-    try {
-      const pattern = filters ? `subscriptions:${JSON.stringify(filters)}` : `subscriptions:*`;
-      const fullPattern = `subscription:user-subscriptions:${pattern}`;
-      const deletedCount = await userSubsCache.deleteByPattern(pattern);
-      logger.info(`Invalidated ${deletedCount} cache keys for pattern: ${fullPattern} in Redis DB${this.redisDb}`);
-    } catch (error) {
-      logger.warn(`Failed to invalidate subscription cache in Redis DB${this.redisDb}:`, error);
-    }
+    const pattern = filters ? `subscriptions:${JSON.stringify(filters)}` : 'subscriptions:*';
+    await userSubsCache.deleteByPattern(pattern);
   }
 
-  /**
-   * Invalidate cache for a specific subscription
-   */
   private async invalidateSingleSubscriptionCache(subscriptionId: string, userId?: string): Promise<void> {
-    try {
-      const cacheKey = `subscription:${subscriptionId}:${userId || 'admin'}`;
-      const fullCacheKey = `subscription:user-subscriptions:${cacheKey}`;
-      const success = await userSubsCache.del(cacheKey);
-      if (success) {
-        logger.debug(`Deleted cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-      } else {
-        logger.debug(`Cache key not found for deletion: ${fullCacheKey} in Redis DB${this.redisDb}`);
-      }
-    } catch (error) {
-      logger.warn(`Failed to invalidate cache for subscription ${subscriptionId} in Redis DB${this.redisDb}:`, error);
-    }
+    const cacheKey = `subscription:${subscriptionId}:${userId || 'admin'}`;
+    await userSubsCache.del(cacheKey);
   }
 
-  /**
-   * Invalidate cache for user subscriptions
-   */
   private async invalidateUserSubscriptionsCache(userId: string, appId?: string): Promise<void> {
-    try {
-      const cacheKey = `subscriptions:user:${userId}:${appId || 'all'}`;
-      const fullCacheKey = `subscription:user-subscriptions:${cacheKey}`;
-      const success = await userSubsCache.del(cacheKey);
-      if (success) {
-        logger.debug(`Deleted cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-      } else {
-        logger.debug(`Cache key not found for deletion: ${fullCacheKey} in Redis DB${this.redisDb}`);
-      }
-    } catch (error) {
-      logger.warn(`Failed to invalidate cache for user ${userId} subscriptions in Redis DB${this.redisDb}:`, error);
-    }
+    const cacheKey = `subscriptions:user:${userId}:${appId || 'all'}`;
+    await userSubsCache.del(cacheKey);
   }
 
-  /**
-   * Get all subscriptions - Admin access
-   */
   async getAllSubscriptions(filters: Partial<Subscription> = {}): Promise<Subscription[]> {
-    try {
-      const cacheKey = `subscriptions:${JSON.stringify(filters)}`;
-      const fullCacheKey = `subscription:user-subscriptions:${cacheKey}`;
+    const cacheKey = `subscriptions:${JSON.stringify(filters)}`;
+    const cachedSubscriptions = await userSubsCache.get<Subscription[]>(cacheKey);
+    if (cachedSubscriptions) return cachedSubscriptions;
 
-      // Try to get from cache first
-      const cachedSubscriptions = await userSubsCache.get<Subscription[]>(cacheKey);
-      if (cachedSubscriptions) {
-        logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        return cachedSubscriptions;
-      }
-      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, querying database`);
-
-      // Fetch from database
-      const subscriptions = await this.getSubscriptionRepository().find({
-        where: filters,
-        relations: ['plan', 'payments', 'events'],
-      });
-
-      // Cache the results for 1 hour
-      try {
-        const success = await userSubsCache.set(cacheKey, subscriptions, 60 * 60); // Cache for 1 hour
-        if (success) {
-          logger.debug(`Stored ${subscriptions.length} subscriptions in cache key: ${fullCacheKey} with TTL 1 hour in Redis DB${this.redisDb}`);
-        } else {
-          logger.warn(`Failed to store subscriptions in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        }
-      } catch (cacheError) {
-        logger.warn(`Error caching subscriptions for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
-      }
-
-      return subscriptions;
-    } catch (error) {
-      logger.error('Error getting all subscriptions:', error);
-      throw error;
-    }
+    const subscriptions = await this.getSubscriptionRepository().find({
+      where: filters,
+      relations: ['plan', 'payments', 'events'],
+    });
+    await userSubsCache.set(cacheKey, subscriptions, 3600);
+    return subscriptions;
   }
 
-  /**
-   * Get subscriptions by app ID
-   */
   async getSubscriptionsByApp(appId: string): Promise<Subscription[]> {
-    try {
-      const cacheKey = `subscriptions:app:${appId}`;
-      const fullCacheKey = `subscription:user-subscriptions:${cacheKey}`;
+    const cacheKey = `subscriptions:app:${appId}`;
+    const cachedSubscriptions = await userSubsCache.get<Subscription[]>(cacheKey);
+    if (cachedSubscriptions) return cachedSubscriptions;
 
-      // Try to get from cache first
-      const cachedSubscriptions = await userSubsCache.get<Subscription[]>(cacheKey);
-      if (cachedSubscriptions) {
-        logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        return cachedSubscriptions;
-      }
-      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, querying database`);
-
-      // Fetch from database
-      const subscriptions = await this.getSubscriptionRepository().find({
-        where: { appId },
-        relations: ['plan', 'payments'],
-      });
-
-      // Cache the results for 1 hour
-      try {
-        const success = await userSubsCache.set(cacheKey, subscriptions, 60 * 60); // Cache for 1 hour
-        if (success) {
-          logger.debug(`Stored ${subscriptions.length} subscriptions in cache key: ${fullCacheKey} with TTL 1 hour in Redis DB${this.redisDb}`);
-        } else {
-          logger.warn(`Failed to store subscriptions in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        }
-      } catch (cacheError) {
-        logger.warn(`Error caching subscriptions for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
-      }
-
-      return subscriptions;
-    } catch (error) {
-      logger.error(`Error getting subscriptions for app ${appId}:`, error);
-      throw error;
-    }
+    const subscriptions = await this.getSubscriptionRepository().find({ where: { appId }, relations: ['plan', 'payments'] });
+    await userSubsCache.set(cacheKey, subscriptions, 3600);
+    return subscriptions;
   }
 
-  /**
-   * Get a user's subscriptions
-   */
   async getUserSubscriptions(userId: string, appId?: string): Promise<Subscription[]> {
-    try {
-      const cacheKey = `subscriptions:user:${userId}:${appId || 'all'}`;
-      const fullCacheKey = `subscription:user-subscriptions:${cacheKey}`;
+    const cacheKey = `subscriptions:user:${userId}:${appId || 'all'}`;
+    const cachedSubscriptions = await userSubsCache.get<Subscription[]>(cacheKey);
+    if (cachedSubscriptions) return cachedSubscriptions;
 
-      // Try to get from cache first
-      const cachedSubscriptions = await userSubsCache.get<Subscription[]>(cacheKey);
-      if (cachedSubscriptions) {
-        logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        return cachedSubscriptions;
-      }
-      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, querying database`);
+    const where: FindOptionsWhere<Subscription> = { userId };
+    if (appId) where.appId = appId;
 
-      // Fetch from database
-      const where: any = { userId };
-      if (appId) {
-        where.appId = appId;
-      }
-      const options: FindManyOptions<Subscription> = {
-        where,
-        relations: ['plan', 'payments', 'events'],
-      };
-      const subscriptions = await this.getSubscriptionRepository().find(options);
-
-      // Cache the results for 1 hour
-      try {
-        const success = await userSubsCache.set(cacheKey, subscriptions, 60 * 60); // Cache for 1 hour
-        if (success) {
-          logger.debug(`Stored ${subscriptions.length} subscriptions in cache key: ${fullCacheKey} with TTL 1 hour in Redis DB${this.redisDb}`);
-        } else {
-          logger.warn(`Failed to store subscriptions in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        }
-      } catch (cacheError) {
-        logger.warn(`Error caching subscriptions for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
-      }
-
-      return subscriptions;
-    } catch (error) {
-      logger.error(`Error getting subscriptions for user ${userId}:`, {
-        error: error instanceof Error ? {
-          message: error.message,
-          stack: error.stack,
-          name: error.name
-        } : error,
-        userId,
-        appId
-      });
-      return [];
-    }
+    const subscriptions = await this.getSubscriptionRepository().find({ where, relations: ['plan', 'payments', 'events'] });
+    await userSubsCache.set(cacheKey, subscriptions, 3600);
+    return subscriptions;
   }
 
-  /**
-   * Get a specific subscription by ID
-   */
   async getSubscriptionById(subscriptionId: string, userId?: string): Promise<Subscription | null> {
-    try {
-      const cacheKey = `subscription:${subscriptionId}:${userId || 'admin'}`;
-      const fullCacheKey = `subscription:user-subscriptions:${cacheKey}`;
+    const cacheKey = `subscription:${subscriptionId}:${userId || 'admin'}`;
+    const cachedSubscription = await userSubsCache.get<Subscription>(cacheKey);
+    if (cachedSubscription) return cachedSubscription;
 
-      // Try to get from cache first
-      const cachedSubscription = await userSubsCache.get<Subscription>(cacheKey);
-      if (cachedSubscription) {
-        logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        return cachedSubscription;
-      }
-      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, querying database`);
+    const where: FindOptionsWhere<Subscription> = { id: subscriptionId };
+    if (userId) where.userId = userId;
 
-      // Fetch from database
-      const where: any = { id: subscriptionId };
-      if (userId) {
-        where.userId = userId;
-      }
-      const subscription = await this.getSubscriptionRepository().findOne({
-        where,
-        relations: ['plan', 'payments', 'events', 'promoCodes', 'promoCodes.promoCode'],
-      });
+    const subscription = await this.getSubscriptionRepository().findOne({
+      where,
+      relations: ['plan', 'payments', 'events', 'promoCodes', 'promoCodes.promoCode'],
+    });
 
-      if (subscription) {
-        // Cache the result for 1 hour
-        try {
-          const success = await userSubsCache.set(cacheKey, subscription, 60 * 60); // Cache for 1 hour
-          if (success) {
-            logger.debug(`Stored subscription in cache key: ${fullCacheKey} with TTL 1 hour in Redis DB${this.redisDb}`);
-          } else {
-            logger.warn(`Failed to store subscription in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-          }
-        } catch (cacheError) {
-          logger.warn(`Error caching subscription for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
-        }
-      } else {
-        logger.debug(`No subscription found for ID ${subscriptionId}, not caching in Redis DB${this.redisDb}`);
-      }
-
-      return subscription;
-    } catch (error) {
-      logger.error(`Error getting subscription ${subscriptionId}:`, error);
-      throw error;
+    if (subscription) {
+      await userSubsCache.set(cacheKey, subscription, 3600);
     }
+    return subscription;
   }
 
-  /**
-   * Create a new subscription
-   */
   async createSubscription(planId: string, userId: string, appId: string, promoCodeId?: string): Promise<Subscription> {
-    try {
-      // Find the subscription plan
-      const plan = await this.getPlanRepository().findOne({
-        where: { id: planId, status: 'active' as any },
-        relations: ['features'],
-      });
+    return AppDataSource.transaction(async (transactionalEntityManager) => {
+      const planRepository = transactionalEntityManager.getRepository(SubscriptionPlan);
+      const subscriptionRepository = transactionalEntityManager.getRepository(Subscription);
+      const promoCodeRepository = transactionalEntityManager.getRepository(PromoCode);
+      const subscriptionPromoCodeRepository = transactionalEntityManager.getRepository(SubscriptionPromoCode);
 
+      const plan = await planRepository.findOne({ where: { id: planId, status: 'active' as any } });
       if (!plan) {
-        throw new Error('Subscription plan not found');
+        throw new NotFoundError('Subscription plan not found');
       }
 
-      // Create subscription
-      const subscription = this.getSubscriptionRepository().create({
+      let price = plan.price;
+      let promoCode: PromoCode | null = null;
+
+      if (promoCodeId) {
+        const validationResult = await this.promoCodeValidationService.validatePromoCode(promoCodeId, userId, planId);
+        if (!validationResult.isValid || !validationResult.promoCode) {
+          throw new BadRequestError(validationResult.message || 'Invalid promo code');
+        }
+        promoCode = validationResult.promoCode;
+        price = this.calculateDiscountedPrice(price, promoCode);
+      }
+
+      const subscriptionData: DeepPartial<Subscription> = {
         userId,
         appId,
         planId: plan.id,
-        plan,
-        billingCycle: plan.billingCycle,
-        price: plan.price,
+        status: plan.trialDays && plan.trialDays > 0 ? SubscriptionStatus.TRIAL : SubscriptionStatus.ACTIVE,
+        amount: price,
         currency: plan.currency,
-        status: plan.trialDays > 0 ? 'trialing' : 'active',
-        trialStart: plan.trialDays > 0 ? new Date() : undefined,
-        trialEnd: plan.trialDays > 0 ? new Date(Date.now() + plan.trialDays * 24 * 60 * 60 * 1000) : undefined,
-        currentPeriodStart: new Date(),
-        currentPeriodEnd: this.calculateEndDate(30, plan.billingCycle)
-      } as any);
+        billingCycle: plan.billingCycle,
+        startDate: new Date(),
+        endDate: this.calculateEndDate(30, plan.billingCycle),
+        trialEndDate: plan.trialDays && plan.trialDays > 0 ? new Date(Date.now() + plan.trialDays * 24 * 60 * 60 * 1000) : undefined,
+      };
 
-      const savedSubscription = await this.getSubscriptionRepository().save(subscription as any);
+      const newSubscription = subscriptionRepository.create(subscriptionData);
+      const savedSubscription = await subscriptionRepository.save(newSubscription);
 
-      // Log subscription event
-      const eventType = plan.trialDays > 0 ? 'trial_started' : 'created';
-      await this.getSubscriptionEventRepository().save({
-        subscriptionId: savedSubscription.id,
-        userId: savedSubscription.userId,
-        eventType,
-        eventData: {
-          planId: plan.id,
-          planName: plan.name,
-          billingCycle: plan.billingCycle
-        },
-        createdAt: new Date()
-      } as any);
+      if (promoCode) {
+        const subPromoCode = subscriptionPromoCodeRepository.create({
+          subscription: savedSubscription,
+          promoCode: promoCode,
+          discountAmount: plan.price - price,
+          appliedDate: new Date(),
+          isActive: true,
+        });
+        await subscriptionPromoCodeRepository.save(subPromoCode);
+        await transactionalEntityManager.increment(PromoCode, { id: promoCode.id }, 'usageCount', 1);
+      }
 
-      // Invalidate caches
-      await this.invalidateSubscriptionCache({ appId });
       await this.invalidateUserSubscriptionsCache(userId, appId);
-      logger.info(`Created subscription with ID ${savedSubscription.id} for user ${userId}, invalidated caches in Redis DB${this.redisDb}`);
-
+      logger.info(`Successfully created subscription ${savedSubscription.id} for user ${userId}`);
       return savedSubscription;
-    } catch (error) {
-      logger.error('Error creating subscription:', error);
-      throw error;
-    }
+    });
   }
 
-  /**
-   * Cancel a subscription
-   */
+  private calculateDiscountedPrice(originalPrice: number, promoCode: PromoCode): number {
+    if (promoCode.discountType === DiscountType.PERCENTAGE) {
+      const discount = originalPrice * (promoCode.discountValue / 100);
+      return Math.max(0, originalPrice - discount);
+    } else if (promoCode.discountType === DiscountType.FIXED) {
+      return Math.max(0, originalPrice - promoCode.discountValue);
+    }
+    return originalPrice;
+  }
+
   async cancelSubscription(subscriptionId: string, userId?: string, cancelImmediately = false): Promise<Subscription> {
-    try {
-      // Find the subscription
-      const subscription = await this.getSubscriptionRepository().findOne({
-        where: { id: subscriptionId },
-        relations: ['plan']
-      });
-
-      if (!subscription) {
-        throw new Error('Subscription not found');
-      }
-
-      // If userId is provided, ensure the subscription belongs to the user
-      if (userId && subscription.userId !== userId) {
-        throw new Error('Subscription does not belong to the user');
-      }
-
-      // Update subscription status
-      if (cancelImmediately) {
-        subscription.status = 'canceled' as any;
-        subscription.canceledAt = new Date();
-      } else {
-        subscription.cancelAtPeriodEnd = true;
-        subscription.canceledAt = new Date();
-      }
-
-      // Log cancellation event
-      await this.getSubscriptionEventRepository().save({
-        subscriptionId: subscription.id,
-        userId: subscription.userId,
-        eventType: 'canceled',
-        eventData: {
-          cancelImmediately,
-          canceledAt: new Date(),
-          cancelAt: subscription.canceledAt
-        },
-        createdAt: new Date()
-      } as any);
-
-      const updatedSubscription = await this.getSubscriptionRepository().save(subscription);
-
-      // Invalidate caches
-      await this.invalidateSubscriptionCache({ appId: subscription.appId });
-      await this.invalidateUserSubscriptionsCache(subscription.userId, subscription.appId);
-      await this.invalidateSingleSubscriptionCache(subscriptionId, userId);
-      logger.info(`Canceled subscription with ID ${subscriptionId}, invalidated caches in Redis DB${this.redisDb}`);
-
-      return updatedSubscription;
-    } catch (error) {
-      logger.error(`Error canceling subscription ${subscriptionId}:`, error);
-      throw error;
+    const subscription = await this.getSubscriptionById(subscriptionId, userId);
+    if (!subscription) {
+      throw new NotFoundError('Subscription not found');
     }
+
+    if (userId && subscription.userId !== userId) {
+      throw new BadRequestError('Subscription does not belong to the user');
+    }
+
+    subscription.status = cancelImmediately ? SubscriptionStatus.CANCELED : subscription.status;
+    subscription.cancelAtPeriodEnd = !cancelImmediately;
+    subscription.canceledAt = new Date();
+
+    await this.getSubscriptionRepository().save(subscription);
+    await this.invalidateSingleSubscriptionCache(subscriptionId, userId);
+    await this.invalidateUserSubscriptionsCache(subscription.userId, subscription.appId);
+
+    return subscription;
   }
 
-  /**
-   * Update subscription status (admin function)
-   */
   async updateSubscriptionStatus(subscriptionId: string, status: SubscriptionStatus): Promise<Subscription | null> {
-    try {
-      await this.getSubscriptionRepository().update({ id: subscriptionId }, { status: status as any });
-      const updatedSubscription = await this.getSubscriptionById(subscriptionId);
+    await this.getSubscriptionRepository().update({ id: subscriptionId }, { status: status as any });
+    const updatedSubscription = await this.getSubscriptionById(subscriptionId);
 
-      if (updatedSubscription) {
-        // Invalidate caches
-        await this.invalidateSubscriptionCache({ appId: updatedSubscription.appId });
-        await this.invalidateUserSubscriptionsCache(updatedSubscription.userId, updatedSubscription.appId);
-        await this.invalidateSingleSubscriptionCache(subscriptionId);
-        logger.info(`Updated status of subscription ${subscriptionId} to ${status}, invalidated caches in Redis DB${this.redisDb}`);
-      }
-
-      return updatedSubscription;
-    } catch (error) {
-      logger.error(`Error updating subscription status ${subscriptionId}:`, error);
-      throw error;
+    if (updatedSubscription) {
+      await this.invalidateSingleSubscriptionCache(subscriptionId);
+      await this.invalidateUserSubscriptionsCache(updatedSubscription.userId, updatedSubscription.appId);
     }
+
+    return updatedSubscription;
   }
 
-  /**
-   * Process renewal of subscription
-   */
   async renewSubscription(subscriptionId: string): Promise<Subscription> {
-    try {
-      const subscription = await this.getSubscriptionRepository().findOne({
-        where: { id: subscriptionId },
-        relations: ['plan', 'promoCodes', 'promoCodes.promoCode']
-      });
+    return AppDataSource.transaction(async (transactionalEntityManager) => {
+      const subscriptionRepository = transactionalEntityManager.getRepository(Subscription);
+      const subscription = await subscriptionRepository.findOne({ where: { id: subscriptionId }, relations: ['plan'] });
 
       if (!subscription) {
-        throw new Error(`Subscription ${subscriptionId} not found`);
+        throw new NotFoundError('Subscription not found for renewal');
       }
 
-      // Update subscription status to expired
-      subscription.status = 'expired' as any;
+      subscription.startDate = new Date();
+      subscription.endDate = this.calculateEndDate(30, subscription.plan.billingCycle);
+      subscription.status = SubscriptionStatus.ACTIVE;
 
-      // Log expiration event
-      await this.getSubscriptionEventRepository().save({
-        subscriptionId: subscription.id,
-        userId: subscription.userId,
-        eventType: 'expired',
-        eventData: {
-          expiredAt: new Date()
-        },
-        createdAt: new Date()
-      } as any);
-
-      // Process payment
-      const currentPeriodStart = new Date();
-      const currentPeriodEnd = this.calculateEndDate(30, subscription.plan.billingCycle);
-      await this.getPaymentRepository().save({
-        subscriptionId: subscription.id,
-        userId: subscription.userId,
-        amount: (subscription as any).price || 0,
-        currency: subscription.currency || 'USD',
-        status: 'succeeded',
-        billingPeriodStart: currentPeriodStart,
-        billingPeriodEnd: currentPeriodEnd,
-        paymentMethod: subscription.paymentMethod,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      } as any);
-
-      const updatedSubscription = await this.getSubscriptionRepository().save(subscription);
-
-      // Invalidate caches
-      await this.invalidateSubscriptionCache({ appId: subscription.appId });
-      await this.invalidateUserSubscriptionsCache(subscription.userId, subscription.appId);
-      await this.invalidateSingleSubscriptionCache(subscriptionId);
-      logger.info(`Renewed subscription with ID ${subscriptionId}, invalidated caches in Redis DB${this.redisDb}`);
-
-      return updatedSubscription;
-    } catch (error) {
-      logger.error(`Error renewing subscription ${subscriptionId}:`, error);
-      throw error;
-    }
+      return subscriptionRepository.save(subscription);
+    });
   }
 
-  /**
-   * Calculate the end date based on billing cycle and duration
-   */
   private calculateEndDate(durationDays: number, billingCycle: string, startDate = new Date()): Date {
     const endDate = new Date(startDate);
-    
     switch (billingCycle) {
       case 'quarterly':
         endDate.setMonth(endDate.getMonth() + 3);
@@ -538,24 +294,17 @@ export class SubscriptionService {
       default:
         endDate.setDate(endDate.getDate() + durationDays);
     }
-    
     return endDate;
   }
 
-  /**
-   * Calculate payment amount considering any active promo codes
-   */
   private calculatePaymentAmount(subscription: Subscription): number {
     let amount = subscription.plan.price;
-    
     if (subscription.promoCodes && subscription.promoCodes.length > 0) {
-      const activePromoCodes = subscription.promoCodes.filter(pc => pc.isActive);
-      
+      const activePromoCodes = subscription.promoCodes.filter((pc) => pc.isActive);
       for (const promoCodeLink of activePromoCodes) {
         amount -= promoCodeLink.discountAmount;
       }
     }
-    
     return Math.max(0, amount);
   }
 }

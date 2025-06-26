@@ -217,11 +217,11 @@ export class PromoCodeAnalyticsService {
       // Get unique users and total exposures for conversion rate calculation
       const exposureStats = await this.subscriptionAnalyticsRepository
         .createQueryBuilder('sa')
-        .select('DATE_TRUNC(:interval, sa.exposureDate)', 'month')
-        .addSelect('COUNT(DISTINCT sa.userId)', 'uniqueUsers')
+        .select('DATE_TRUNC(:interval, sa.date)', 'month')
+        .addSelect('COUNT(DISTINCT sa.appId)', 'uniqueUsers')
         .addSelect('COUNT(sa.id)', 'totalExposures')
         .setParameter('interval', 'month')
-        .groupBy('DATE_TRUNC(:interval, sa.exposureDate)')
+        .groupBy('DATE_TRUNC(:interval, sa.date)')
         .getRawMany();
 
       // Combine exposure stats with redemption trends

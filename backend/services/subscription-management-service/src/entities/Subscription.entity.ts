@@ -137,9 +137,11 @@ import { App } from './App.entity';
 
 export enum SubscriptionStatus {
   ACTIVE = 'active',
-  CANCELED = 'canceled',
-  EXPIRED = 'expired',
   TRIAL = 'trial',
+  CANCELED = 'canceled',
+  CANCELLED = 'canceled', // Alias for backward compatibility
+  EXPIRED = 'expired',
+  PAUSED = 'paused',
   PAST_DUE = 'past_due',
   UNPAID = 'unpaid',
   PENDING = 'pending'

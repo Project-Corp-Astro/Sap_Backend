@@ -169,6 +169,23 @@ export class AdminSubscriptionController {
   /**
    * Get a specific subscription by ID
    */
+  async createSubscription(req: Request, res: Response) {
+    try {
+      const { planId, userId, appId, promoCodeId } = req.body;
+      if (!planId || !userId || !appId) {
+        return res.status(400).json({ message: 'planId, userId, and appId are required' });
+      }
+      const subscription = await subscriptionService.createSubscription(planId, userId, appId, promoCodeId);
+      return res.status(201).json(subscription);
+    } catch (error) {
+      logger.error('Error in createSubscription:', error);
+      return res.status(500).json(formatErrorResponse(error, 'Failed to create subscription'));
+    }
+  }
+
+  /**
+   * Get a specific subscription by ID
+   */
   async getSubscriptionById(req: Request, res: Response) {
     try {
       const { id } = req.params;

@@ -1,7 +1,8 @@
 import express from 'express';
 import adminSubscriptionController from '../controllers/admin/subscription.controller';
 import adminSubscriptionPlanController from '../controllers/admin/subscription-plan.controller';
-import adminPromoCodeController from '../controllers/admin/promo-code.controller';
+import { AdminPromoCodeController } from '../controllers/admin/promo-code.controller';
+const adminPromoCodeController = new AdminPromoCodeController();
 import promoCodeAnalyticsController from '../controllers/admin/promo-code-analytics.controller';
 import authMiddleware from '../middlewares/auth.middleware';
 
@@ -15,6 +16,7 @@ router.use(authMiddleware.requireManagementRole); // This middleware checks for 
 router.get('/subscriptions', adminSubscriptionController.getAllSubscriptions);
 router.get('/subscriptions/app/:appId', adminSubscriptionController.getSubscriptionsByApp);
 router.get('/subscriptions/user/:userId', adminSubscriptionController.getUserSubscriptions);
+router.post('/subscriptions', adminSubscriptionController.createSubscription);
 router.get('/subscriptions/:id', adminSubscriptionController.getSubscriptionById);
 router.patch('/subscriptions/:id/status', adminSubscriptionController.updateSubscriptionStatus);
 router.post('/subscriptions/:id/renew', adminSubscriptionController.renewSubscription);
@@ -41,7 +43,8 @@ router.get('/promo-codes/:id', adminPromoCodeController.getPromoCodeById);
 router.post('/promo-codes', adminPromoCodeController.createPromoCode);
 router.put('/promo-codes/:id', adminPromoCodeController.updatePromoCode);
 router.delete('/promo-codes/:id', adminPromoCodeController.deletePromoCode);
-router.post('/promo-codes/:promoCodeId/plans', adminPromoCodeController.addApplicablePlans);
-router.post('/promo-codes/:promoCodeId/users', adminPromoCodeController.addApplicableUsers);
 
+
+
+router.get('/apps/dropdown', adminSubscriptionPlanController.getAppsForDropdown);
 export default router;

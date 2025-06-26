@@ -14,6 +14,9 @@ import { SubscriptionPlan, BillingCycle, PlanStatus } from '../entities/Subscrip
 import { SubscriptionPromoCode } from '../entities/SubscriptionPromoCode.entity';
 import logger from '../utils/logger';
 
+
+
+
 // Helper function to generate UUID v4
 function generateUUID(): string {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -22,6 +25,7 @@ function generateUUID(): string {
     return v.toString(16);
   });
 }
+
 
 // Generate fake user IDs for testing with proper UUID format
 const fakeUserIds = Array.from({ length: 10 }, generateUUID);
@@ -33,41 +37,121 @@ async function seedDatabase() {
     // Initialize the database connection
     await initializeDatabase();
     
-    // Clear existing data from tables
+    // Clear existing data from tables with proper foreign key handling
     try {
-      logger.info('Clearing existing data...');
-      await AppDataSource.query('TRUNCATE TABLE payment CASCADE');
-      await AppDataSource.query('TRUNCATE TABLE subscription_promo_code CASCADE');
-      await AppDataSource.query('TRUNCATE TABLE plan_feature CASCADE');
-      await AppDataSource.query('TRUNCATE TABLE subscription CASCADE');
-      await AppDataSource.query('TRUNCATE TABLE subscription_plan CASCADE');
-      await AppDataSource.query('TRUNCATE TABLE promo_code CASCADE');
-      await AppDataSource.query('TRUNCATE TABLE app CASCADE');
+      logger.info('Clearing existing data with proper foreign key handling...');
+      
+      // Get list of existing tables
+      interface TableInfo {
+        table_name: string;
+      }
+      const tables = await AppDataSource.query<TableInfo[]>(`
+        SELECT table_name 
+        FROM information_schema.tables 
+        WHERE table_schema = 'public'
+      `);
+
+      // Disable foreign key checks temporarily
+      await AppDataSource.query('SET CONSTRAINTS ALL DEFERRED');
+      
+      // Clear tables in reverse dependency order if they exist
+      const tableNames = tables.map(row => row.table_name);
+      
+      // Clear tables in reverse dependency order if they exist
+      if (tableNames.includes('payment')) await AppDataSource.query('TRUNCATE TABLE payment RESTART IDENTITY CASCADE');
+      if (tableNames.includes('plan_feature')) await AppDataSource.query('TRUNCATE TABLE plan_feature RESTART IDENTITY CASCADE');
+      if (tableNames.includes('subscription')) await AppDataSource.query('TRUNCATE TABLE subscription RESTART IDENTITY CASCADE');
+      if (tableNames.includes('subscription_plan')) await AppDataSource.query('TRUNCATE TABLE subscription_plan RESTART IDENTITY CASCADE');
+      if (tableNames.includes('promo_code')) await AppDataSource.query('TRUNCATE TABLE promo_code RESTART IDENTITY CASCADE');
+      if (tableNames.includes('app')) await AppDataSource.query('TRUNCATE TABLE app RESTART IDENTITY CASCADE');
+      
+      // Re-enable foreign key checks
+      await AppDataSource.query('SET CONSTRAINTS ALL IMMEDIATE');
+      
+      logger.info('Existing tables cleared successfully');
     } catch (error) {
-      logger.warn('Error clearing tables, continuing with seeding:', error);
+      logger.error('Error clearing tables:', error);
+      throw error;
     }
     
     // Create a timestamp to ensure unique names
     const timestamp = Date.now();
+
+    const mockAppsData = [
+      { 
+        name: 'Corp Astro', 
+        color: '#8952e0', 
+        logo: 'StarOutlined',
+        totalPlans: 3,
+        description: 'Corporate Astrology Platform',
+        owner: 'corpastro@example.com',
+        website: 'https://corpastro.com'
+      },
+      { 
+        name: 'Mobile Astrology', 
+        color: '#1890ff', 
+        logo: 'MobileOutlined',
+        totalPlans: 2,
+        description: 'Mobile Astrology App',
+        owner: 'mobileastro@example.com',
+        website: 'https://mobileastro.com'
+      },
+      { 
+        name: 'Vedic Calendar', 
+        color: '#fa8c16', 
+        logo: 'CalendarOutlined',
+        totalPlans: 2,
+        description: 'Vedic Calendar Application',
+        owner: 'vediccalendar@example.com',
+        website: 'https://vediccalendar.com'
+      },
+      { 
+        name: 'Astro Cloud', 
+        color: '#13c2c2', 
+        logo: 'CloudOutlined',
+        totalPlans: 2,
+        description: 'Cloud Astrology Services',
+        owner: 'astrocloud@example.com',
+        website: 'https://astrocloud.com'
+      },
+      { 
+        name: 'Astro Learn', 
+        color: '#52c41a', 
+        logo: 'BulbOutlined',
+        totalPlans: 2,
+        description: 'Astrology Learning Platform',
+        owner: 'astrolearn@example.com',
+        website: 'https://astrolearn.com'
+      },
+      { 
+        name: 'Astro Business', 
+        color: '#f5222d', 
+        logo: 'RocketOutlined',
+        totalPlans: 2,
+        description: 'Business Astrology Solutions',
+        owner: 'astrobusiness@example.com',
+        website: 'https://astrobusiness.com'
+      }
+    ];
     
-    // 1. Create Apps (10)
     logger.info('Creating App records...');
     const apps: App[] = [];
     
-    for (let i = 1; i <= 10; i++) {
+    for (const appData of mockAppsData) {
       const app = new App();
-      app.name = `Test App ${i}-${timestamp}`;
-      app.description = `Description for Test App ${i}-${timestamp}`;
-      app.owner = `owner${i}@example.com`;
-      app.logo = `https://example.com/logos/app${i}.png`;
-      app.website = `https://app${i}.example.com`;
-      app.totalPlans = 0;
-      
+      app.id = generateUUID();
+      app.name = appData.name;
+      app.description = appData.description;
+      app.owner = appData.owner;
+      app.logo = appData.logo;
+      app.website = appData.website;
+      app.color = appData.color;
+      app.totalPlans = appData.totalPlans;
+    
       const savedApp = await AppDataSource.manager.save(app);
       apps.push(savedApp);
       logger.info(`Created app: ${savedApp.name} (${savedApp.id})`);
     }
-    
     // 2. Create Subscription Plans (10)
     logger.info('Creating SubscriptionPlan records...');
     const plans: SubscriptionPlan[] = [];

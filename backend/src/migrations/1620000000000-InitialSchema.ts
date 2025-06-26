@@ -133,13 +133,14 @@ export class InitialSchema1620000000000 implements MigrationInterface {
           {
             name: 'roleId',
             type: 'uuid',
+            isPrimary: true,
           },
           {
             name: 'permissionId',
             type: 'uuid',
+            isPrimary: true,
           },
         ],
-        primaryColumns: ['roleId', 'permissionId'],
       }),
       true
     );
