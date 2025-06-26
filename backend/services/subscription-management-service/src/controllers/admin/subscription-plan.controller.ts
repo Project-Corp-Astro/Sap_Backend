@@ -1,7 +1,8 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { formatErrorResponse } from '../../utils/error-handler';
 import subscriptionPlanService from '../../services/subscription-plan.service';
 import logger from '../../utils/logger';
+import { PlanStatus, BillingCycle } from '../../entities/SubscriptionPlan.entity';
 
 /**
  * Admin controller for subscription plan management
@@ -14,93 +15,64 @@ import logger from '../../utils/logger';
 export class AdminSubscriptionPlanController {
   /**
    * Get all subscription plans
-   *
-   * @swagger
-   * /api/subscription/admin/plans:
-   *   get:
-   *     summary: Get all subscription plans
-   *     description: Retrieves a list of all subscription plans with optional filtering
-   *     tags: [AdminSubscriptionPlans]
-   *     security:
-   *       - bearerAuth: []
-   *     parameters:
-   *       - in: query
-   *         name: appId
-   *         schema:
-   *           type: string
-   *           format: uuid
-   *         description: Filter by application ID
-   *       - in: query
-   *         name: includeInactive
-   *         schema:
-   *           type: boolean
-   *         description: Whether to include inactive plans
-   *     responses:
-   *       200:
-   *         description: List of subscription plans
-   *         content:
-   *           application/json:
-   *             schema:
-   *               type: array
-   *               items:
-   *                 $ref: '#/components/schemas/SubscriptionPlan'
-   *       401:
-   *         $ref: '#/components/responses/UnauthorizedError'
-   *       403:
-   *         $ref: '#/components/responses/ForbiddenError'
-   *       500:
-   *         $ref: '#/components/responses/ServerError'
    */
-  async getAllPlans(req: Request, res: Response) {
+  async getAllPlans(req: Request, res: Response, next: NextFunction) {
     try {
-      const { appId } = req.query;
-      const includeInactive = req.query.includeInactive === 'true';
-      const plans = await subscriptionPlanService.getAllPlans(appId as string, includeInactive);
-      return res.json(plans);
+      const { 
+        appId, 
+        page = '1', 
+        limit = '10',
+        status,
+        name,
+        sortPosition,
+        highlight,
+        billingCycle
+      } = req.query;
+
+      const pageNum = parseInt(page as string, 10);
+      const limitNum = parseInt(limit as string, 10);
+      
+      if (isNaN(pageNum) || pageNum < 1 || isNaN(limitNum) || limitNum < 1) {
+        return res.status(400).json({ message: 'Invalid page or limit parameters' });
+      }
+
+      const filterParams = {
+        appId: appId as string | undefined,
+        status: status as PlanStatus | undefined,
+        name: name as string | undefined,
+        description: undefined as string | undefined,
+        price: undefined as number | undefined,
+        billingCycle: billingCycle as BillingCycle | undefined,
+        trialDays: undefined as number | undefined,
+        sortPosition: sortPosition ? parseInt(sortPosition as string) : undefined,
+        highlight: highlight as string | undefined,
+        includeInactive: req.query.includeInactive === 'true'
+      };
+
+      const result = await subscriptionPlanService.getAllPlans(
+        filterParams,
+        pageNum,
+        limitNum
+      );
+
+      const { plans, total } = result;
+
+      return res.json({ plans, total });
     } catch (error) {
-      logger.error('Error in getAllPlans:', error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to fetch subscription plans'));
+      next(error);
     }
   }
 
   /**
    * Get a specific plan by ID
-   *
-   * @swagger
-   * /api/subscription/admin/plans/{id}:
-   *   get:
-   *     summary: Get a specific subscription plan
-   *     description: Retrieves details of a specific subscription plan by ID
-   *     tags: [AdminSubscriptionPlans]
-   *     security:
-   *       - bearerAuth: []
-   *     parameters:
-   *       - in: path
-   *         name: id
-   *         required: true
-   *         schema:
-   *           type: string
-   *           format: uuid
-   *         description: Subscription plan ID
-   *     responses:
-   *       200:
-   *         description: Subscription plan details
-   *         content:
-   *           application/json:
-   *             schema:
-   *               $ref: '#/components/schemas/SubscriptionPlan'
-   *       401:
-   *         $ref: '#/components/responses/UnauthorizedError'
-   *       403:
-   *         $ref: '#/components/responses/ForbiddenError'
-   *       404:
-   *         description: Subscription plan not found
-   *       500:
-   *         $ref: '#/components/responses/ServerError'
    */
-  async getPlanById(req: Request, res: Response) {
+  async getPlanById(req: Request, res: Response, next: NextFunction) {
     try {
       const { id } = req.params;
+      if (!id || typeof id !== 'string') {
+        return res.status(400).json({ message: 'Invalid plan ID' });
+      }
+
       const plan = await subscriptionPlanService.getPlanById(id);
       
       if (!plan) {
@@ -109,96 +81,18 @@ export class AdminSubscriptionPlanController {
       
       return res.json(plan);
     } catch (error) {
-      logger.error(`Error in getPlanById for id ${req.params.id}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to fetch subscription plan'));
+      next(error);
     }
   }
 
   /**
    * Create a new subscription plan
-   *
-   * @swagger
-   * /api/subscription/admin/plans:
-   *   post:
-   *     summary: Create a new subscription plan
-   *     description: Creates a new subscription plan with specified details
-   *     tags: [AdminSubscriptionPlans]
-   *     security:
-   *       - bearerAuth: []
-   *     requestBody:
-   *       required: true
-   *       content:
-   *         application/json:
-   *           schema:
-   *             type: object
-   *             required:
-   *               - name
-   *               - description
-   *               - price
-   *               - billingCycle
-   *               - appId
-   *             properties:
-   *               name:
-   *                 type: string
-   *                 description: Name of the subscription plan
-   *                 example: Premium Plan
-   *               description:
-   *                 type: string
-   *                 description: Description of the plan features
-   *                 example: Access to all premium features
-   *               price:
-   *                 type: number
-   *                 format: float
-   *                 description: Regular price of the plan
-   *                 example: 19.99
-   *               annualPrice:
-   *                 type: number
-   *                 format: float
-   *                 description: Annual price (optional)
-   *                 example: 199.99
-   *               billingCycle:
-   *                 $ref: '#/components/schemas/BillingCycle'
-   *               trialDays:
-   *                 type: integer
-   *                 description: Number of trial days (optional)
-   *                 example: 14
-   *               status:
-   *                 $ref: '#/components/schemas/PlanStatus'
-   *               appId:
-   *                 type: string
-   *                 format: uuid
-   *                 description: ID of the app this plan belongs to
-   *               features:
-   *                 type: array
-   *                 items:
-   *                   type: object
-   *                   properties:
-   *                     name:
-   *                       type: string
-   *                     description:
-   *                       type: string
-   *     responses:
-   *       201:
-   *         description: Subscription plan created successfully
-   *         content:
-   *           application/json:
-   *             schema:
-   *               $ref: '#/components/schemas/SubscriptionPlan'
-   *       400:
-   *         description: Invalid request data
-   *       401:
-   *         $ref: '#/components/responses/UnauthorizedError'
-   *       403:
-   *         $ref: '#/components/responses/ForbiddenError'
-   *       500:
-   *         $ref: '#/components/responses/ServerError'
    */
-  async createPlan(req: Request, res: Response) {
+  async createPlan(req: Request, res: Response, next: NextFunction) {
     try {
       const planData = req.body;
       
-      // Validate required fields
-      const requiredFields = ['name', 'price', 'duration', 'billingCycle', 'appId'];
+      const requiredFields = ['name', 'price', 'billingCycle'];
       const missingFields = requiredFields.filter(field => !planData[field]);
       
       if (missingFields.length > 0) {
@@ -206,23 +100,36 @@ export class AdminSubscriptionPlanController {
           message: `Missing required fields: ${missingFields.join(', ')}` 
         });
       }
-      
+
       const plan = await subscriptionPlanService.createPlan(planData);
       return res.status(201).json(plan);
     } catch (error) {
-      logger.error('Error in createPlan:', error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to create subscription plan'));
+      next(error);
     }
   }
 
   /**
    * Update an existing subscription plan
    */
-  async updatePlan(req: Request, res: Response) {
+  async updatePlan(req: Request, res: Response, next: NextFunction) {
     try {
       const { id } = req.params;
       const planData = req.body;
       
+      if (!id || typeof id !== 'string') {
+        return res.status(400).json({ message: 'Invalid plan ID' });
+      }
+
+      // Validate appId if provided
+      if (planData.appId && typeof planData.appId !== 'string') {
+        return res.status(400).json({ message: 'appId must be a string' });
+      }
+
+      // Remove application field if present
+      if ('application' in planData) {
+        delete planData.application;
+      }
+
       const plan = await subscriptionPlanService.updatePlan(id, planData);
       
       if (!plan) {
@@ -231,48 +138,56 @@ export class AdminSubscriptionPlanController {
       
       return res.json(plan);
     } catch (error) {
-      logger.error(`Error in updatePlan for id ${req.params.id}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to update subscription plan'));
+      next(error);
     }
   }
 
   /**
    * Delete a subscription plan (mark as inactive)
    */
-  async deletePlan(req: Request, res: Response) {
+  async deletePlan(req: Request, res: Response, next: NextFunction) {
     try {
       const { id } = req.params;
+      if (!id || typeof id !== 'string') {
+        return res.status(400).json({ message: 'Invalid plan ID' });
+      }
+
       await subscriptionPlanService.deletePlan(id);
       return res.status(200).json({ message: 'Subscription plan marked as inactive' });
     } catch (error) {
-      logger.error(`Error in deletePlan for id ${req.params.id}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to delete subscription plan'));
+      next(error);
     }
   }
 
   /**
    * Hard delete a subscription plan (super admin only)
    */
-  async hardDeletePlan(req: Request, res: Response) {
+  async hardDeletePlan(req: Request, res: Response, next: NextFunction) {
     try {
       const { id } = req.params;
+      if (!id || typeof id !== 'string') {
+        return res.status(400).json({ message: 'Invalid plan ID' });
+      }
+
       await subscriptionPlanService.hardDeletePlan(id);
       return res.status(200).json({ message: 'Subscription plan permanently deleted' });
     } catch (error) {
-      logger.error(`Error in hardDeletePlan for id ${req.params.id}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to permanently delete subscription plan'));
+      next(error);
     }
   }
 
   /**
    * Add a feature to a subscription plan
    */
-  async addFeature(req: Request, res: Response) {
+  async addFeature(req: Request, res: Response, next: NextFunction) {
     try {
       const { planId } = req.params;
       const featureData = req.body;
       
-      // Validate required fields
+      if (!planId || typeof planId !== 'string') {
+        return res.status(400).json({ message: 'Invalid plan ID' });
+      }
+
       const requiredFields = ['name', 'description'];
       const missingFields = requiredFields.filter(field => !featureData[field]);
       
@@ -285,19 +200,22 @@ export class AdminSubscriptionPlanController {
       const feature = await subscriptionPlanService.addFeature(planId, featureData);
       return res.status(201).json(feature);
     } catch (error) {
-      logger.error(`Error in addFeature for planId ${req.params.planId}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to add feature to subscription plan'));
+      next(error);
     }
   }
 
   /**
    * Update a plan feature
    */
-  async updateFeature(req: Request, res: Response) {
+  async updateFeature(req: Request, res: Response, next: NextFunction) {
     try {
       const { featureId } = req.params;
       const featureData = req.body;
       
+      if (!featureId || typeof featureId !== 'string') {
+        return res.status(400).json({ message: 'Invalid feature ID' });
+      }
+
       const feature = await subscriptionPlanService.updateFeature(featureId, featureData);
       
       if (!feature) {
@@ -306,24 +224,36 @@ export class AdminSubscriptionPlanController {
       
       return res.json(feature);
     } catch (error) {
-      logger.error(`Error in updateFeature for featureId ${req.params.featureId}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to update plan feature'));
+      next(error);
+    }
+  }
+
+  async getAppsForDropdown(req: Request, res: Response, next: NextFunction) {
+    try {
+      const apps = await subscriptionPlanService.getAppsForDropdown();
+      res.status(200).json(apps);
+    } catch (error) {
+      next(error);
     }
   }
 
   /**
    * Delete a plan feature
    */
-  async deleteFeature(req: Request, res: Response) {
+  async deleteFeature(req: Request, res: Response, next: NextFunction) {
     try {
       const { featureId } = req.params;
+      if (!featureId || typeof featureId !== 'string') {
+        return res.status(400).json({ message: 'Invalid feature ID' });
+      }
+
       await subscriptionPlanService.deleteFeature(featureId);
       return res.status(200).json({ message: 'Feature deleted successfully' });
     } catch (error) {
-      logger.error(`Error in deleteFeature for featureId ${req.params.featureId}:`, error);
-      return res.status(500).json(formatErrorResponse(error, 'Failed to delete plan feature'));
+      next(error);
     }
   }
 }
+
 
 export default new AdminSubscriptionPlanController();

@@ -1,27 +1,100 @@
-import { FindOptionsWhere, Repository } from 'typeorm';
+import { FindOptionsWhere, Repository, EntityManager } from 'typeorm';
 import { AppDataSource } from '../db/data-source';
-import { PlanStatus } from '../entities/SubscriptionPlan.entity';
+import { PlanStatus, BillingCycle } from '../entities/SubscriptionPlan.entity';
 import { SubscriptionPlan } from '../entities/SubscriptionPlan.entity';
 import { PlanFeature } from '../entities/PlanFeature.entity';
 import logger from '../utils/logger';
 import { planCache } from '../utils/redis';
+import { SubscriptionPlanServiceError, SubscriptionPlanError } from '../types/subscription-plan.errors';
+import { App } from '../entities/App.entity';
+import { NotFoundError, BadRequestError } from '../errors/api-error';
 
 export class SubscriptionPlanService {
   private planRepository!: Repository<SubscriptionPlan>;
   private featureRepository!: Repository<PlanFeature>;
+  private appRepository!: Repository<App>;
   private readonly redisDb: number = 3; // Subscription service uses DB3
 
   constructor() {
     this.initializeRepositories();
   }
 
-  private initializeRepositories() {
+  private async initializeRepositories() {
     try {
+      if (!AppDataSource.isInitialized) {
+        await AppDataSource.initialize();
+        logger.info('Database connection initialized');
+      }
       this.planRepository = AppDataSource.getRepository(SubscriptionPlan);
       this.featureRepository = AppDataSource.getRepository(PlanFeature);
+      this.appRepository = AppDataSource.getRepository(App);
       logger.info(`Initialized repositories for SubscriptionPlanService, using Redis DB${this.redisDb}`);
-    } catch (error) {
-      logger.error('Failed to initialize repositories in SubscriptionPlanService:', error);
+    } catch (error: any) {
+      logger.error('Failed to initialize repositories in SubscriptionPlanService:', {
+        error: error.message,
+        stack: error.stack,
+      });
+      throw error;
+    }
+  }
+
+  /**
+   * Get all apps for dropdown
+   * @returns Array of {id, name} objects
+   */
+  async getAppsForDropdown(): Promise<{ id: string; name: string; color: string; logo: string }[]> {
+    try {
+      const cacheKey = 'apps:dropdown';
+      const fullCacheKey = `subscription:apps:${cacheKey}`;
+
+      // Try to get from cache first
+      const cachedResult = await planCache.get<{ id: string; name: string; color: string; logo: string }[]>(cacheKey).catch((cacheError: Error) => {
+        logger.warn(`Error fetching from cache for key ${fullCacheKey} in Redis DB${this.redisDb}:`, {
+          error: cacheError.message,
+          stack: cacheError.stack,
+        });
+        return null;
+      });
+
+      if (cachedResult) {
+        logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
+        return cachedResult;
+      }
+      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, querying database`);
+
+      // Get apps from database
+      const apps = await this.appRepository.find({
+        select: ['id', 'name', 'color', 'logo'],
+        order: { name: 'ASC' }
+      });
+
+      // Transform to dropdown format
+      const dropdownApps = apps.map(app => ({
+        id: app.id,
+        name: app.name,
+        color: app.color,
+        logo: app.logo
+      }));
+
+      // Cache the results for 1 hour
+      try {
+        const success = await planCache.set(cacheKey, dropdownApps, 60 * 60); // Cache for 1 hour
+        if (success) {
+          logger.debug(`Stored apps dropdown in cache key: ${fullCacheKey} with TTL 1 hour in Redis DB${this.redisDb}`);
+        } else {
+          logger.warn(`Failed to store apps dropdown in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
+        }
+      } catch (cacheError: any) {
+        logger.error(`Error caching apps dropdown for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
+      }
+
+      return dropdownApps;
+    } catch (error: any) {
+      logger.error('Error fetching apps for dropdown:', {
+        error: error.message,
+        stack: error.stack,
+      });
+      throw new SubscriptionPlanServiceError(SubscriptionPlanError.VALIDATION_FAILED, 'Failed to fetch apps');
     }
   }
 
@@ -42,14 +115,20 @@ export class SubscriptionPlanService {
   /**
    * Invalidate cache for all plans or a specific appId
    */
-  private async invalidatePlanCache(appId?: string): Promise<void> {
+  private async invalidatePlanCache(): Promise<void> {
     try {
-      const pattern = appId ? `plans:${appId}:*` : `plans:*`;
-      const fullPattern = `subscription:plans:${pattern}`;
+      const pattern = 'plans:*';
       const deletedCount = await planCache.deleteByPattern(pattern);
-      logger.info(`Invalidated ${deletedCount} cache keys for pattern: ${fullPattern} in Redis DB${this.redisDb}`);
-    } catch (error) {
-      logger.warn(`Failed to invalidate plan cache for appId=${appId || 'all'} in Redis DB${this.redisDb}:`, error);
+      logger.info(`Invalidated ${deletedCount} plan caches using pattern '${pattern}' in Redis DB${this.redisDb}`);
+
+      // Also invalidate the apps dropdown cache as plan changes might affect it
+      await planCache.del('apps:dropdown');
+      logger.debug(`Invalidated apps dropdown cache in Redis DB${this.redisDb}`);
+    } catch (error: any) {
+      logger.error(`Failed to invalidate plan cache in Redis DB${this.redisDb}:`, {
+        error: error.message,
+        stack: error.stack,
+      });
     }
   }
 
@@ -58,66 +137,169 @@ export class SubscriptionPlanService {
    */
   private async invalidateSinglePlanCache(planId: string): Promise<void> {
     try {
-      const cacheKey = `plan:${planId}`;
-      const fullCacheKey = `subscription:plans:${cacheKey}`;
-      const success = await planCache.del(cacheKey);
-      if (success) {
-        logger.debug(`Deleted cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-      } else {
-        logger.debug(`Cache key not found for deletion: ${fullCacheKey} in Redis DB${this.redisDb}`);
+      // Invalidate all cache patterns related to this plan
+      const patterns: string[] = [
+        `plan:${planId}`, // Single plan details
+        `plans:filters:*:${planId}`, // Filtered lists containing this plan
+        `plans:page:*:${planId}`, // Pagination containing this plan
+        `subscriptions:*:plan:${planId}` // Subscription relationships
+      ];
+
+      let totalDeleted = 0;
+      for (const pattern of patterns) {
+        const deletedCount = await planCache.deleteByPattern(pattern);
+        totalDeleted += deletedCount;
+        logger.debug(`Deleted ${deletedCount} cache keys for pattern: ${pattern} in Redis DB${this.redisDb}`);
       }
-    } catch (error) {
-      logger.warn(`Failed to invalidate cache for plan ${planId} in Redis DB${this.redisDb}:`, error);
+
+      logger.info(`Total invalidated ${totalDeleted} cache keys for plan ${planId} in Redis DB${this.redisDb}`);
+    } catch (error: any) {
+      logger.warn(`Failed to invalidate cache for plan ${planId} in Redis DB${this.redisDb}:`, {
+        error: error.message,
+        stack: error.stack,
+      });
     }
   }
 
   /**
-   * Get all subscription plans
-   * For admin access or filtered by appId for regular users
+   * Get all subscription plans with pagination and filtering
+   * @param filters - Object containing filter parameters
+   * @param page - Page number for pagination
+   * @param limit - Number of items per page
    */
-  async getAllPlans(appId?: string, includeInactive = false): Promise<SubscriptionPlan[]> {
+  async getAllPlans(
+    filters: {
+      appId?: string;
+      status?: PlanStatus;
+      name?: string;
+      description?: string;
+      price?: number;
+      billingCycle?: BillingCycle;
+      trialDays?: number;
+      sortPosition?: number;
+      highlight?: string;
+      includeInactive?: boolean;
+    } = {
+      includeInactive: false
+    },
+    page = 1,
+    limit = 10
+  ): Promise<{ plans: SubscriptionPlan[]; total: number }> {
     try {
-      const cacheKey = `plans:${appId || 'all'}:${includeInactive ? 'all' : 'active'}`;
+      // Initialize filters with default values
+      const finalFilters = {
+        appId: filters.appId,
+        status: filters.status,
+        name: filters.name,
+        sortPosition: filters.sortPosition,
+        highlight: filters.highlight,
+        billingCycle: filters.billingCycle,
+        includeInactive: filters.includeInactive || false
+      };
+
+      // Validate status if provided
+      const validStatuses = ['active', 'draft', 'archived'];
+      if (finalFilters.status) {
+        const lowerCaseStatus = finalFilters.status.toLowerCase() as PlanStatus;
+        if (!validStatuses.includes(lowerCaseStatus)) {
+          throw new Error(`Invalid status value. Must be one of: ${validStatuses.join(', ')}`);
+        }
+        finalFilters.status = lowerCaseStatus;
+      }
+
+      const cacheKey = `plans:${JSON.stringify(finalFilters)}:${page}:${limit}`;
       const fullCacheKey = `subscription:plans:${cacheKey}`;
 
       // Try to get from cache first
-      const cachedPlans = await planCache.get<SubscriptionPlan[]>(cacheKey);
-      if (cachedPlans) {
+      const cachedResult = await planCache.get<{ plans: SubscriptionPlan[]; total: number }>(cacheKey).catch((cacheError: Error) => {
+        logger.warn(`Error fetching from cache for key ${fullCacheKey} in Redis DB${this.redisDb}:`, {
+          error: cacheError.message,
+          stack: cacheError.stack,
+        });
+        return null;
+      });
+
+      if (cachedResult) {
         logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        return cachedPlans;
+        return cachedResult;
       }
       logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, querying database`);
 
-      const where: any = {};
-      if (appId) {
-        where.appId = appId;
+      // Build where clause
+      const where: FindOptionsWhere<SubscriptionPlan> = {};
+      
+      // Handle each filter parameter
+      if (filters.appId) {
+        where.appId = filters.appId;
       }
-      if (!includeInactive) {
+      if (filters.status) {
+        where.status = filters.status;
+      }
+      if (filters.name) {
+        where.name = filters.name;
+      }
+      if (filters.description) {
+        where.description = filters.description;
+      }
+      if (filters.price !== undefined) {
+        where.price = filters.price;
+      }
+      if (filters.billingCycle) {
+        where.billingCycle = filters.billingCycle;
+      }
+      if (filters.trialDays !== undefined) {
+        where.trialDays = filters.trialDays;
+      }
+      if (filters.sortPosition !== undefined) {
+        where.sortPosition = filters.sortPosition;
+      }
+      if (filters.highlight) {
+        where.highlight = filters.highlight;
+      }
+      if (!filters.includeInactive && !filters.status) {
         where.status = PlanStatus.ACTIVE;
       }
 
-      // Get plans with features from database
-      const plans = await this.getPlanRepository()
+      // Get plans with features from database with pagination
+      const [plans, total] = await this.getPlanRepository()
         .createQueryBuilder('plan')
         .leftJoinAndSelect('plan.features', 'features')
         .where(where)
-        .getMany();
+        .skip((page - 1) * limit)
+        .take(limit)
+        .getManyAndCount();
 
-      // Cache the results for 1 hour
+      const result = { plans, total };
+
+      // Cache the results for 5 minutes
       try {
-        const success = await planCache.set(cacheKey, plans, 60 * 60); // Cache for 1 hour
+        const success = await planCache.set(cacheKey, result, 60 * 5); // Cache for 5 minutes
         if (success) {
-          logger.debug(`Stored ${plans.length} plans in cache key: ${fullCacheKey} with TTL 1 hour in Redis DB${this.redisDb}`);
+          logger.debug(`Stored ${plans.length} plans in cache key: ${fullCacheKey} with TTL 5 minutes in Redis DB${this.redisDb}`);
         } else {
           logger.warn(`Failed to store plans in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
         }
-      } catch (cacheError) {
+      } catch (cacheError: any) {
         logger.warn(`Error caching plans for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
       }
 
-      return plans;
-    } catch (error) {
-      logger.error('Error in getAllPlans:', error);
+      return result;
+    } catch (error: any) {
+      logger.error('Error in getAllPlans:', {
+        error: error.message,
+        stack: error.stack,
+        filters: {
+          appId: filters.appId,
+          status: filters.status,
+          name: filters.name,
+          sortPosition: filters.sortPosition,
+          highlight: filters.highlight,
+          billingCycle: filters.billingCycle,
+          includeInactive: filters.includeInactive
+        },
+        page,
+        limit
+      });
       throw error;
     }
   }
@@ -131,12 +313,19 @@ export class SubscriptionPlanService {
       const fullCacheKey = `subscription:plans:${cacheKey}`;
 
       // Try to get from cache first
-      const cachedPlan = await planCache.get<SubscriptionPlan>(cacheKey);
+      const cachedPlan = await planCache.get<SubscriptionPlan>(cacheKey).catch((cacheError: Error) => {
+        logger.warn(`Error fetching from cache for key ${fullCacheKey} in Redis DB${this.redisDb}:`, {
+          error: cacheError.message,
+          stack: cacheError.stack,
+        });
+        return null;
+      });
+
       if (cachedPlan) {
         logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
         return cachedPlan;
       }
-      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, querying database`);
+      logger.debug(`Cache miss for key ${cacheKey} in Redis DB${this.redisDb}, querying database`);
 
       // Fetch from database
       const plan = await this.getPlanRepository().findOne({
@@ -145,24 +334,30 @@ export class SubscriptionPlanService {
       });
 
       if (plan) {
-        // Cache the result for 1 hour
+        // Cache the result for 5 minutes
         try {
-          const success = await planCache.set(cacheKey, plan, 60 * 60); // Cache for 1 hour
+          const success = await planCache.set(cacheKey, plan, 60 * 5); // Cache for 5 minutes
           if (success) {
-            logger.debug(`Stored plan in cache key: ${fullCacheKey} with TTL 1 hour in Redis DB${this.redisDb}`);
+            logger.debug(`Stored plan in cache key: ${fullCacheKey} with TTL 5 minutes in Redis DB${this.redisDb}`);
           } else {
             logger.warn(`Failed to store plan in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
           }
-        } catch (cacheError) {
-          logger.warn(`Error caching plan for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
+        } catch (cacheError: any) {
+          logger.warn(`Error caching plan for key ${fullCacheKey} in Redis DB${this.redisDb}:`, {
+            error: cacheError.message,
+            stack: cacheError.stack,
+          });
         }
       } else {
         logger.debug(`No plan found for ID ${id}, not caching in Redis DB${this.redisDb}`);
       }
 
       return plan;
-    } catch (error) {
-      logger.error(`Error getting subscription plan ${id}:`, error);
+    } catch (error: any) {
+      logger.error(`Error getting subscription plan ${id}:`, {
+        error: error.message,
+        stack: error.stack,
+      });
       throw error;
     }
   }
@@ -171,187 +366,312 @@ export class SubscriptionPlanService {
    * Create a new subscription plan - Admin access
    */
   async createPlan(planData: Partial<SubscriptionPlan>): Promise<SubscriptionPlan> {
-    try {
-      const plan = this.getPlanRepository().create({
-        ...planData,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      });
+    return AppDataSource.manager.transaction(async (transactionalEntityManager: EntityManager) => {
+      try {
+        const planRepository = transactionalEntityManager.getRepository(SubscriptionPlan);
+        const featureRepository = transactionalEntityManager.getRepository(PlanFeature);
 
-      const savedPlan = await this.getPlanRepository().save(plan);
+        // Business logic validation for creation
+        if (!planData.features || planData.features.length === 0) {
+          throw new BadRequestError('A subscription plan must have at least one feature.');
+        }
+        if (!planData.name || planData.name.trim() === '') {
+          throw new BadRequestError('Plan name cannot be empty.');
+        }
+        if (!planData.appId) {
+          throw new BadRequestError('A plan must be associated with an app.');
+        }
+        const existingPlan = await planRepository.findOne({ where: { name: planData.name, appId: planData.appId } });
+        if (existingPlan) {
+          throw new BadRequestError(`A plan with the name "${planData.name}" already exists for this app.`);
+        }
 
-      // Invalidate cache to ensure fresh data
-      await this.invalidatePlanCache(planData.appId);
-      logger.info(`Created plan with ID ${savedPlan.id}, invalidated cache for appId=${planData.appId || 'all'} in Redis DB${this.redisDb}`);
+        // Create the plan entity
+        const { features, ...planOnlyData } = planData;
+        const plan = planRepository.create(planOnlyData);
+        const savedPlan = await transactionalEntityManager.save(plan);
+        logger.debug(`Saved plan with ID ${savedPlan.id}`);
 
-      return savedPlan;
-    } catch (error) {
-      logger.error('Error creating subscription plan:', error);
-      throw error;
-    }
+        // Process features
+        const savedFeatures: PlanFeature[] = [];
+        for (const feature of features!) {
+          if (String(feature.id).startsWith('temp-')) {
+            // Omit the temporary ID to let TypeORM generate a UUID
+            logger.debug(`Omitting temporary feature ID ${feature.id} for new feature`);
+            const { id: tempId, ...featureData } = feature;
+            const featureToCreate = featureRepository.create({
+              ...featureData,
+              planId: savedPlan.id,
+              createdAt: new Date(),
+            });
+            const savedFeature = await transactionalEntityManager.save(featureToCreate);
+            savedFeatures.push(savedFeature);
+            logger.debug(`Saved new feature with ID ${savedFeature.id} for plan ${savedPlan.id}`);
+          } else {
+            // Existing feature (should not happen in create, but handle for robustness)
+            logger.warn(`Unexpected non-temporary feature ID ${feature.id} in createPlan, treating as new feature`);
+            const { id: featureId, ...featureData } = feature;
+            const featureToCreate = featureRepository.create({
+              ...featureData,
+              planId: savedPlan.id,
+              createdAt: new Date(),
+            });
+            const savedFeature = await transactionalEntityManager.save(featureToCreate);
+            savedFeatures.push(savedFeature);
+            logger.debug(`Saved new feature with ID ${savedFeature.id} for plan ${savedPlan.id}`);
+          }
+        }
+
+        // Attach saved features to the plan
+        savedPlan.features = savedFeatures;
+
+        // Invalidate caches
+        await this.invalidatePlanCache();
+        logger.info(`Created new subscription plan with ID ${savedPlan.id}, invalidated caches in Redis DB${this.redisDb}`);
+
+        return savedPlan;
+      } catch (error: any) {
+        logger.error(`Error creating subscription plan:`, {
+          error: error.message,
+          stack: error.stack,
+          planData: {
+            name: planData.name,
+            appId: planData.appId,
+            featureCount: planData.features?.length
+          }
+        });
+        throw error;
+      }
+    });
   }
 
   /**
    * Update an existing subscription plan - Admin access
    */
   async updatePlan(id: string, planData: Partial<SubscriptionPlan>): Promise<SubscriptionPlan | null> {
-    try {
-      const { createdAt, ...updateData } = planData as any;
-      updateData.updatedAt = new Date();
+    return AppDataSource.manager.transaction(async (transactionalEntityManager: EntityManager) => {
+      try {
+        const planRepository = transactionalEntityManager.getRepository(SubscriptionPlan);
+        const featureRepository = transactionalEntityManager.getRepository(PlanFeature);
 
-      await this.getPlanRepository().update({ id }, updateData);
-      const updatedPlan = await this.getPlanById(id);
+        const plan = await planRepository.findOne({ where: { id } });
+        if (!plan) {
+          throw new NotFoundError('Plan not found');
+        }
 
-      if (updatedPlan) {
+        // Prevent duplicate plan names within the same app
+        if (planData.name && planData.appId && (planData.name !== plan.name || planData.appId !== plan.appId)) {
+          const existingPlan = await planRepository.findOne({ where: { name: planData.name, appId: planData.appId } });
+          if (existingPlan) {
+            throw new BadRequestError(`A plan with the name "${planData.name}" already exists for this app.`);
+          }
+        }
+
+        // Separate features from the rest of the plan data
+        const { features, ...planOnlyData } = planData;
+
+        // 1. Update the plan's own properties
+        planRepository.merge(plan, planOnlyData);
+        await transactionalEntityManager.save(plan);
+        logger.debug(`Updated plan with ID ${id}`);
+
+        // 2. Handle features if they are part of the update
+        if (features) {
+          const existingFeatures = await featureRepository.findBy({ planId: id });
+          const existingFeatureIds = existingFeatures.map(f => f.id);
+          const incomingFeatureIds = features
+            .map(f => f.id)
+            .filter(fid => fid && !String(fid).startsWith('temp-'));
+
+          // Features to delete
+          const featuresToDelete = existingFeatureIds.filter(fid => !incomingFeatureIds.includes(fid));
+
+          // Calculate final feature count for logging (no longer used for validation)
+          const finalFeatureCount = existingFeatureIds.length - featuresToDelete.length + features.filter(f => String(f.id).startsWith('temp-')).length;
+          logger.debug(`Updating plan ${id} with ${finalFeatureCount} features`);
+          if (featuresToDelete.length > 0) {
+            await featureRepository.delete(featuresToDelete);
+            logger.debug(`Deleted ${featuresToDelete.length} features for plan ${id}`);
+          }
+
+          // Features to update or create
+          for (const feature of features) {
+            if (String(feature.id).startsWith('temp-')) {
+              // Omit the temporary ID to let TypeORM generate a UUID
+              logger.debug(`Omitting temporary feature ID ${feature.id} for new feature`);
+              const { id: tempId, ...featureData } = feature;
+              const featureToCreate = featureRepository.create({
+                ...featureData,
+                planId: id,
+                createdAt: new Date(),
+              });
+              const savedFeature = await transactionalEntityManager.save(featureToCreate);
+              logger.debug(`Saved new feature with ID ${savedFeature.id} for plan ${id}`);
+            } else {
+              // Update existing feature
+              const { id: featureId, ...featureUpdateData } = feature;
+              await featureRepository.update({ id: featureId, planId: id }, featureUpdateData);
+              logger.debug(`Updated feature with ID ${featureId} for plan ${id}`);
+            }
+          }
+        }
+
         // Invalidate caches
-        await this.invalidatePlanCache(updatedPlan.appId);
+        await this.invalidatePlanCache();
         await this.invalidateSinglePlanCache(id);
         logger.info(`Updated plan with ID ${id}, invalidated caches in Redis DB${this.redisDb}`);
-      }
 
-      return updatedPlan;
-    } catch (error) {
-      logger.error(`Error updating subscription plan ${id}:`, error);
-      throw error;
-    }
+        // Return the fully updated plan with its features
+        const updatedPlan = await planRepository.findOne({ where: { id }, relations: ['features'] });
+        return updatedPlan;
+      } catch (error: any) {
+        logger.error(`Error updating subscription plan ${id}:`, {
+          error: error.message,
+          stack: error.stack,
+          planData: {
+            name: planData.name,
+            appId: planData.appId,
+            featureCount: planData.features?.length
+          }
+        });
+        throw error;
+      }
+    });
   }
 
   /**
-   * Delete a subscription plan - Admin access
-   * Typically plans are just marked as inactive rather than deleted
+   * Delete a plan - Admin access (soft delete)
    */
   async deletePlan(id: string): Promise<void> {
-    try {
-      const plan = await this.getPlanById(id);
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      const planRepository = transactionalEntityManager.getRepository(SubscriptionPlan);
+      const plan = await planRepository.findOne({ where: { id } });
+
       if (!plan) {
-        throw new Error('Plan not found');
+        throw new NotFoundError('Plan not found');
       }
 
-      await this.getPlanRepository().update(
-        { id },
-        {
-          status: PlanStatus.ARCHIVED,
-          updatedAt: new Date(),
-        }
-      );
+      await transactionalEntityManager.update(SubscriptionPlan, { id }, {
+        status: PlanStatus.ARCHIVED,
+        updatedAt: new Date(),
+      });
 
       // Invalidate caches
-      await this.invalidatePlanCache(plan.appId);
+      await this.invalidatePlanCache();
       await this.invalidateSinglePlanCache(id);
-      logger.info(`Archived plan with ID ${id}, invalidated caches in Redis DB${this.redisDb}`);
-    } catch (error) {
-      logger.error(`Error deleting subscription plan ${id}:`, error);
-      throw error;
-    }
+      logger.info(`Soft deleted plan with ID ${id}, invalidated caches in Redis DB${this.redisDb}`);
+    });
   }
 
   /**
    * Hard delete a plan - Super Admin only
    */
   async hardDeletePlan(id: string): Promise<void> {
-    try {
-      const plan = await this.getPlanById(id);
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      const planRepository = transactionalEntityManager.getRepository(SubscriptionPlan);
+      const plan = await planRepository.findOne({ where: { id } });
+
       if (!plan) {
-        throw new Error('Plan not found');
+        throw new NotFoundError('Plan not found');
       }
 
-      await this.getPlanRepository().delete({ id });
+      await transactionalEntityManager.delete(SubscriptionPlan, { id });
 
-      // Invalidate caches
-      await this.invalidatePlanCache(plan.appId);
+      // Invalidate all plan list caches and the specific plan cache
+      await this.invalidatePlanCache();
       await this.invalidateSinglePlanCache(id);
       logger.info(`Hard deleted plan with ID ${id}, invalidated caches in Redis DB${this.redisDb}`);
-    } catch (error) {
-      logger.error(`Error hard deleting subscription plan ${id}:`, error);
-      throw error;
-    }
+    });
   }
 
   /**
    * Add a feature to a subscription plan - Admin access
    */
   async addFeature(planId: string, featureData: Partial<PlanFeature>): Promise<PlanFeature> {
-    try {
-      const plan = await this.getPlanRepository().findOne({ where: { id: planId } });
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      const planRepository = transactionalEntityManager.getRepository(SubscriptionPlan);
+      const featureRepository = transactionalEntityManager.getRepository(PlanFeature);
+
+      const plan = await planRepository.findOne({ where: { id: planId } });
       if (!plan) {
-        throw new Error('Subscription plan not found');
+        throw new NotFoundError('Subscription plan not found');
       }
 
-      const feature = this.getFeatureRepository().create({
-        ...featureData,
+      // Omit any provided ID to let TypeORM generate a UUID
+      const { id, ...featureDataWithoutId } = featureData;
+      const feature = featureRepository.create({
+        ...featureDataWithoutId,
         planId,
         createdAt: new Date(),
       });
 
-      const savedFeature = await this.getFeatureRepository().save(feature);
+      const savedFeature = await transactionalEntityManager.save(feature);
+      logger.debug(`Saved new feature with ID ${savedFeature.id} for plan ${planId}`);
 
       // Invalidate caches since features are included in plan data
-      await this.invalidatePlanCache(plan.appId);
+      await this.invalidatePlanCache();
       await this.invalidateSinglePlanCache(planId);
       logger.info(`Added feature to plan ${planId}, invalidated caches in Redis DB${this.redisDb}`);
 
       return savedFeature;
-    } catch (error) {
-      logger.error(`Error adding feature to plan ${planId}:`, error);
-      throw error;
-    }
+    });
   }
 
   /**
    * Update a plan feature - Admin access
    */
   async updateFeature(featureId: string, featureData: Partial<PlanFeature>): Promise<PlanFeature | null> {
-    try {
-      await this.getFeatureRepository().update({ id: featureId }, featureData);
-      const updatedFeature = await this.getFeatureRepository().findOne({ where: { id: featureId } });
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      const featureRepository = transactionalEntityManager.getRepository(PlanFeature);
+      const planRepository = transactionalEntityManager.getRepository(SubscriptionPlan);
+
+      const featureToUpdate = await featureRepository.findOne({ where: { id: featureId } });
+      if (!featureToUpdate) {
+        throw new NotFoundError('Feature not found');
+      }
+
+      // Omit any provided ID in featureData to prevent overwriting
+      const { id, ...featureUpdateData } = featureData;
+      await featureRepository.update({ id: featureId }, featureUpdateData);
+      const updatedFeature = await featureRepository.findOne({ where: { id: featureId } });
 
       if (updatedFeature) {
-        // Find the associated plan to invalidate caches
-        const feature = await this.getFeatureRepository().findOne({
-          where: { id: featureId },
-          relations: ['plan'],
-        });
-        if (feature?.planId) {
-          const plan = await this.getPlanRepository().findOne({ where: { id: feature.planId } });
-          await this.invalidatePlanCache(plan?.appId);
-          await this.invalidateSinglePlanCache(feature.planId);
+        const plan = await planRepository.findOne({ where: { id: updatedFeature.planId } });
+        if (plan) {
+          await this.invalidatePlanCache();
+          await this.invalidateSinglePlanCache(plan.id);
           logger.info(`Updated feature ${featureId}, invalidated caches in Redis DB${this.redisDb}`);
         }
       }
 
       return updatedFeature;
-    } catch (error) {
-      logger.error(`Error updating feature ${featureId}:`, error);
-      throw error;
-    }
+    });
   }
 
   /**
    * Delete a plan feature - Admin access
    */
   async deleteFeature(featureId: string): Promise<void> {
-    try {
-      const feature = await this.getFeatureRepository().findOne({
-        where: { id: featureId },
-        relations: ['plan'],
-      });
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      const featureRepository = transactionalEntityManager.getRepository(PlanFeature);
+      const planRepository = transactionalEntityManager.getRepository(SubscriptionPlan);
+
+      const feature = await featureRepository.findOne({ where: { id: featureId } });
       if (!feature) {
-        throw new Error('Feature not found');
+        throw new NotFoundError('Feature not found');
       }
 
-      await this.getFeatureRepository().delete({ id: featureId });
+      const planId = feature.planId;
+      await transactionalEntityManager.delete(PlanFeature, { id: featureId });
 
       // Invalidate caches
-      if (feature.planId) {
-        const plan = await this.getPlanRepository().findOne({ where: { id: feature.planId } });
-        await this.invalidatePlanCache(plan?.appId);
-        await this.invalidateSinglePlanCache(feature.planId);
+      const plan = await planRepository.findOne({ where: { id: planId } });
+      if (plan) {
+        await this.invalidatePlanCache();
+        await this.invalidateSinglePlanCache(plan.id);
         logger.info(`Deleted feature ${featureId}, invalidated caches in Redis DB${this.redisDb}`);
       }
-    } catch (error) {
-      logger.error(`Error deleting feature ${featureId}:`, error);
-      throw error;
-    }
+    });
   }
 }
 

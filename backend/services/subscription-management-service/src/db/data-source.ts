@@ -1,4 +1,14 @@
-import { DataSource, DataSourceOptions, LoggerOptions } from 'typeorm';
+import { DataSource, DataSourceOptions, Logger, LoggerOptions, LogLevel } from 'typeorm';
+
+// Custom logger that does nothing
+class NoopLogger implements Logger {
+  log(level: 'log' | 'info' | 'warn' | 'query', message: any) {}
+  logMigration(message: string) {}
+  logQuery(query: string, parameters?: any[], queryRunner?: any) {}
+  logQueryError(error: string, query: string, parameters?: any[], queryRunner?: any) {}
+  logQuerySlow(time: number, query: string, parameters?: any[], queryRunner?: any) {}
+  logSchemaBuild(message: string, queryRunner?: any) {}
+}
 import { Subscription } from '../entities/Subscription.entity';
 import { SubscriptionPlan } from '../entities/SubscriptionPlan.entity';
 import { PlanFeature } from '../entities/PlanFeature.entity';
@@ -49,7 +59,8 @@ const commonConfig = {
   ],
   // Set to false initially to prevent automatic enum creation
   synchronize: false,
-  logging: NODE_ENV === 'development',
+  logging: false, // Disable default logging
+  logger: new NoopLogger(), // Use our custom no-op logger
   ssl: {
     rejectUnauthorized: false // This allows self-signed certificates
   }, // Required for Supabase connection

@@ -8,6 +8,7 @@ import {
   RedisOptions
 } from '../../../../shared/utils/redis-manager';
 import type { Redis as IORedis } from 'ioredis';
+import { CacheKeyUtils } from './cache-key-utils';
 
 // Constants
 const SERVICE_NAME = 'subscription';
@@ -266,7 +267,7 @@ const redisUtils: RedisUtils = {
     }
   },
 
-  async cachePlan(planId: string, planData: any, ttlSeconds: number = 3600): Promise<boolean> {
+  async cachePlan(planId: string, planData: any, ttlSeconds: number = 240): Promise<boolean> {
     try {
       return await planCache.set(`plan:${planId}`, planData, ttlSeconds);
     } catch (error: unknown) {
@@ -287,7 +288,7 @@ const redisUtils: RedisUtils = {
     }
   },
 
-  async cacheUserSubscriptions(userId: string, subscriptions: any[], ttlSeconds: number = 1800): Promise<boolean> {
+  async cacheUserSubscriptions(userId: string, subscriptions: any[], ttlSeconds: number = 240): Promise<boolean> {
     try {
       return await userSubsCache.set(`user:${userId}:subscriptions`, subscriptions, ttlSeconds);
     } catch (error: unknown) {
@@ -308,7 +309,7 @@ const redisUtils: RedisUtils = {
     }
   },
 
-  async cachePromo(promoId: string, promoData: any, ttlSeconds: number = 3600): Promise<boolean> {
+  async cachePromo(promoId: string, promoData: any, ttlSeconds: number = CacheKeyUtils.getTTL()): Promise<boolean> {
     try {
       return await promoCache.set(`promo:${promoId}`, promoData, ttlSeconds);
     } catch (error: unknown) {

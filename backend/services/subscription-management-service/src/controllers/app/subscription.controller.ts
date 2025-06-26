@@ -2,8 +2,10 @@ import { Request, Response } from 'express';
 import { formatErrorResponse } from '../../utils/error-handler';
 import subscriptionService from '../../services/subscription.service';
 import subscriptionPlanService from '../../services/subscription-plan.service';
-import promoCodeService from '../../services/promo-code.service';
+import { promoCodeService } from '../../services/promo-code.service';
+
 import logger from '../../utils/logger';
+import { PlanStatus } from '../../entities/SubscriptionPlan.entity';
 
 /**
  * App-specific controller for subscription management
@@ -48,7 +50,10 @@ export class AppSubscriptionController {
       const { appId } = req.params;
       
       // Only return active plans for app users
-      const plans = await subscriptionPlanService.getAllPlans(appId);
+      const plans = await subscriptionPlanService.getAllPlans({
+        appId,
+        status: PlanStatus.ACTIVE
+      });
       return res.json(plans);
     } catch (error) {
       logger.error(`Error in getAvailablePlans for appId ${req.params.appId}:`, error);
@@ -214,46 +219,7 @@ export class AppSubscriptionController {
         status: 'pending' // Will be updated after payment or trial setup
       };
 
-      // Handle promo code if provided
-      if (promoCode && promoCode.trim() !== '') {
-        const validation = await promoCodeService.validatePromoCode(
-          promoCode,
-          userId,
-          planId
-        );
-
-        if (!validation.isValid) {
-          return res.status(400).json({ 
-            message: validation.message || 'Invalid promo code' 
-          });
-        }
-
-        // Save promo code information for later use
-        if (validation.promoCode) {
-          subscriptionData.promoCodeDetails = {
-            promoCodeId: validation.promoCode.id,
-            discountAmount: validation.discountAmount
-          };
-        }
-      }
-
-      // Create subscription
-      const subscription = await subscriptionService.createSubscription(
-        planId,
-        userId,
-        appId,
-        subscriptionData.promoCodeDetails?.promoCodeId
-      );
-
-      // Apply promo code if valid
-      if (subscriptionData.promoCodeDetails) {
-        await promoCodeService.applyPromoCode(
-          subscription.id,
-          userId,
-          subscriptionData.promoCodeDetails.promoCodeId,
-          subscriptionData.promoCodeDetails.discountAmount
-        );
-      }
+      const subscription = await subscriptionService.createSubscription(planId, userId, appId, promoCode);
 
       return res.status(201).json(subscription);
     } catch (error) {

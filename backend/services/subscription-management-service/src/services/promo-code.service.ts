@@ -1,26 +1,33 @@
-
-import { FindOptionsWhere, Repository, Like } from 'typeorm';
+  import { 
+  FindOptionsWhere, 
+  Repository, 
+  Like, 
+  In, 
+  EntityManager, 
+  Brackets,
+  SelectQueryBuilder 
+} from 'typeorm';
 import { AppDataSource } from '../db/data-source';
-import { PromoCode } from '../entities/PromoCode.entity';
+import { PromoCode, DiscountType } from '../entities/PromoCode.entity';
+import { CacheKeyUtils } from '../utils/cache-key-utils';
+import { Subscription } from '../entities/Subscription.entity';
 import { SubscriptionPromoCode } from '../entities/SubscriptionPromoCode.entity';
 import { PromoCodeApplicablePlan } from '../entities/PromoCodeApplicablePlan.entity';
 import { PromoCodeApplicableUser } from '../entities/PromoCodeApplicableUser.entity';
 import { SubscriptionPlan } from '../entities/SubscriptionPlan.entity';
 import logger from '../utils/logger';
 import { promoCache } from '../utils/redis';
+import { PromoCodeValidationService, PromoCodeValidationError } from './promo-code-validation.service';
+import { NotFoundError, BadRequestError } from '../errors/api-error';
 
-class PromoCodeError extends Error {
-  constructor(public message: string, public error: string) {
-    super(message);
-    this.name = 'PromoCodeError';
-  }
-}
 
 interface QueryFilters {
   page?: number;
+  pageSize?: number;
   status?: string;
   search?: string;
   sort?: string;
+  discountType?: 'percentage' | 'fixed';
 }
 
 interface PromoCodesResponse {
@@ -31,663 +38,488 @@ interface PromoCodesResponse {
 }
 
 export class PromoCodeService {
-  private promoCodeRepository!: Repository<PromoCode>;
-  private subscriptionPromoCodeRepository!: Repository<SubscriptionPromoCode>;
-  private applicablePlanRepository!: Repository<PromoCodeApplicablePlan>;
-  private applicableUserRepository!: Repository<PromoCodeApplicableUser>;
-  private planRepository!: Repository<SubscriptionPlan>;
-  private readonly redisDb: number = 3; // Subscription service uses DB3
+  private readonly redisDb: number = 3;
+  private validationService: PromoCodeValidationService;
 
   constructor() {
-    this.initializeRepositories();
+    this.validationService = new PromoCodeValidationService(
+      AppDataSource.getRepository(PromoCode),
+      AppDataSource.getRepository(SubscriptionPromoCode),
+      AppDataSource.getRepository(Subscription)
+    );
   }
 
-  private initializeRepositories() {
+  private async invalidatePromoCache(promoCodeId?: string): Promise<void> {
     try {
-      this.promoCodeRepository = AppDataSource.getRepository(PromoCode);
-      this.subscriptionPromoCodeRepository = AppDataSource.getRepository(SubscriptionPromoCode);
-      this.applicablePlanRepository = AppDataSource.getRepository(PromoCodeApplicablePlan);
-      this.applicableUserRepository = AppDataSource.getRepository(PromoCodeApplicableUser);
-      this.planRepository = AppDataSource.getRepository(SubscriptionPlan);
-      logger.info(`Initialized repositories for PromoCodeService, using Redis DB${this.redisDb}`);
-    } catch (error) {
-      logger.error('Failed to initialize repositories in PromoCodeService:', error);
-      throw new PromoCodeError('Failed to initialize repositories', 'INITIALIZATION_ERROR');
-    }
-  }
+      const client = promoCache.getClient();
+      const matchPattern = 'subscription:promos:all_promo_codes:*';
+      const keysToDelete: string[] = [];
+      let cursor = '0';
 
-  private getPromoCodeRepository(): Repository<PromoCode> {
-    if (!this.promoCodeRepository) {
-      this.promoCodeRepository = AppDataSource.getRepository(PromoCode);
-    }
-    return this.promoCodeRepository;
-  }
+      do {
+        const [nextCursor, keys] = await client.scan(cursor, 'MATCH', matchPattern, 'COUNT', '100');
+        cursor = nextCursor;
+        if (keys.length > 0) {
+          keysToDelete.push(...keys);
+        }
+      } while (cursor !== '0');
 
-  private getSubscriptionPromoCodeRepository(): Repository<SubscriptionPromoCode> {
-    if (!this.subscriptionPromoCodeRepository) {
-      this.subscriptionPromoCodeRepository = AppDataSource.getRepository(SubscriptionPromoCode);
-    }
-    return this.subscriptionPromoCodeRepository;
-  }
-
-  private getApplicablePlanRepository(): Repository<PromoCodeApplicablePlan> {
-    if (!this.applicablePlanRepository) {
-      this.applicablePlanRepository = AppDataSource.getRepository(PromoCodeApplicablePlan);
-    }
-    return this.applicablePlanRepository;
-  }
-
-  private getApplicableUserRepository(): Repository<PromoCodeApplicableUser> {
-    if (!this.applicableUserRepository) {
-      this.applicableUserRepository = AppDataSource.getRepository(PromoCodeApplicableUser);
-    }
-    return this.applicableUserRepository;
-  }
-
-  private getPlanRepository(): Repository<SubscriptionPlan> {
-    if (!this.planRepository) {
-      this.planRepository = AppDataSource.getRepository(SubscriptionPlan);
-    }
-    return this.planRepository;
-  }
-
-  /**
-   * Invalidate cache for all promo codes
-   */
-  private async invalidatePromoCache(promoCodeId?: string, filters?: QueryFilters): Promise<void> {
-    try {
-      // Check if we should debounce cache invalidation
-      const debounceKey = `debounce:invalidation:${promoCodeId || 'all'}:${filters?.search || 'all'}:${filters?.status || 'all'}:${filters?.sort || 'all'}`;
-      const debounceTime = 2000; // 2 seconds debounce time
-      
-      // Check if we've invalidated this exact combination recently
-      const lastInvalidationTime = await promoCache.get<number>(debounceKey);
-      if (lastInvalidationTime) {
-        logger.debug(`Cache invalidation debounced for promo code ${promoCodeId || 'all'} with filters ${JSON.stringify(filters)}`);
-        return;
+      if (keysToDelete.length > 0) {
+        await client.del(keysToDelete);
       }
 
-      await promoCache.set(debounceKey, Date.now(), debounceTime);
-
-      // Only invalidate if we haven't invalidated recently
-      const now = Date.now();
-      const lastInvalidationKey = `last:invalidation:${promoCodeId || 'all'}`;
-      const cacheTime = await promoCache.get<number>(lastInvalidationKey);
-
-      if (!cacheTime || (now - cacheTime) > 1000) {
-        await promoCache.set(lastInvalidationKey, now, 1); // Cache for 1 second
-
-        const patterns: string[] = [
-          `promo:${promoCodeId || '*'}:details`, // Specific promo code details
-          `promo:validate:${promoCodeId || '*'}:*`, // Validation results for specific promo
-          `promos:filters:${filters?.status || '*'}:${filters?.search || '*'}:${filters?.sort || '*'}:page:*`, // Specific pagination
-          `promos:filters:${filters?.status || '*'}:${filters?.search || '*'}:${filters?.sort || '*'}:list`, // Specific filtered list
-          promoCodeId ? `subscriptions:*:promo:${promoCodeId}:*` : 'subscriptions:*:promo:*', // Specific or all subscription promo
-          `subscriptions:*:promo:*:page:*`      // Subscription pagination
-        ];
-
-        let totalDeleted = 0;
-        for (const pattern of patterns) {
-          const deletedCount = await promoCache.deleteByPattern(pattern);
-          totalDeleted += deletedCount;
-          logger.debug(`Deleted ${deletedCount} cache keys for pattern: ${pattern} in Redis DB${this.redisDb}`);
-        }
-        logger.info(`Total invalidated ${totalDeleted} cache keys in Redis DB${this.redisDb}`);
-      } else {
-        logger.debug(`Cache invalidation throttled - last invalidation was too recent`);
-      } 
+      if (promoCodeId) {
+        await this.invalidateSinglePromoCache(promoCodeId);
+      }
     } catch (error) {
-      logger.warn(`Failed to invalidate promo cache in Redis DB${this.redisDb}:`, error);
-      throw new PromoCodeError('Failed to invalidate cache', 'CACHE_INVALIDATION_ERROR');
+      logger.error('Error invalidating promo cache:', error);
     }
   }
 
-  /**
-   * Invalidate cache for a specific promo code
-   */
   private async invalidateSinglePromoCache(promoCodeId: string): Promise<void> {
     try {
-      // Invalidate all related cache keys for this promo code
-      const patterns = [
-        `promo:${promoCodeId}`,
-        `promo:validate:*:${promoCodeId}:*`,
-        `promos:filters:*:promo:${promoCodeId}`,
-        `subscriptions:*:promo:${promoCodeId}`
-      ];
+      const cacheKey = `promo_code:${promoCodeId}`;
+      await promoCache.del(cacheKey);
 
-      let totalDeleted = 0;
-      for (const pattern of patterns) {
-        const deletedCount = await promoCache.deleteByPattern(pattern);
-        totalDeleted += deletedCount;
-        logger.debug(`Deleted ${deletedCount} cache keys for pattern: ${pattern} in Redis DB${this.redisDb}`);
+      const validationCacheKey = `promo_validation:${promoCodeId}:*`;
+      const keysToDelete = await promoCache.keys(validationCacheKey);
+      if (keysToDelete.length > 0) {
+        await promoCache.getClient().del(...keysToDelete);
       }
-
-      logger.info(`Total invalidated ${totalDeleted} cache keys for promo code ${promoCodeId} in Redis DB${this.redisDb}`);
     } catch (error) {
-      logger.warn(`Failed to invalidate cache for promo ${promoCodeId} in Redis DB${this.redisDb}:`, error);
-      throw new PromoCodeError(`Failed to invalidate cache for promo code ${promoCodeId}`, 'CACHE_INVALIDATION_ERROR');
+      logger.error(`Error invalidating single promo cache for ID ${promoCodeId}:`, error);
     }
   }
 
-  /**
-   * Get all promo codes - Admin access
-   */
+  private getTimestamp(): string {
+    return new Date().toISOString();
+  }
+
+  private log(message: string, data?: any): void {
+    // Removed console logging
+  }
+
+  private error(message: string, error?: any): void {
+    // Removed console error logging
+  }
+
   async getAllPromoCodes(filters: QueryFilters = {}): Promise<PromoCodesResponse> {
     try {
       const page = filters.page || 1;
-      const pageSize = 10; // Match frontend pageSize
+      const pageSize = 10;
       const skip = (page - 1) * pageSize;
-      const status = filters.status;
-      const search = filters.search;
-      const sort = filters.sort || 'createdAt_desc';
-
-      // Build cache key
-      const filterKey = JSON.stringify({ status, search, sort });
-      const cacheKey = `promos:filters:${filterKey}:page:${page}`;
-      const fullCacheKey = `subscription:promos:${cacheKey}`;
-
-      // Try to get from cache
-      const cachedResult = await promoCache.get<PromoCodesResponse>(cacheKey);
-      if (cachedResult) {
-        logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        return cachedResult;
+      const searchTerm = filters.search || '';
+      const sortOrder = filters.sort || 'createdAt_desc';
+  
+      let statusFilter = filters.status ? filters.status.toLowerCase() : undefined;
+      let discountTypeFilter = filters.discountType;
+  
+      if (statusFilter === 'percentage' || statusFilter === 'fixed') {
+        discountTypeFilter = statusFilter as 'percentage' | 'fixed';
+        statusFilter = undefined;
       }
-      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, querying database`);
-
-      // Build query
-      const queryBuilder = this.getPromoCodeRepository()
-        .createQueryBuilder('promoCode')
+      
+      // Generate cache key with all relevant filters and current date
+      const today = new Date().toISOString().split('T')[0];
+      const cacheKey = `promo_codes:${today}:${JSON.stringify({
+        status: statusFilter,
+        discountType: discountTypeFilter,
+        search: searchTerm,
+        sort: sortOrder,
+        page,
+        pageSize
+      })}`;
+  
+      const promoCodeRepo = AppDataSource.getRepository(PromoCode);
+      const queryBuilder = promoCodeRepo.createQueryBuilder('promoCode')
         .leftJoinAndSelect('promoCode.applicablePlans', 'applicablePlans')
         .leftJoinAndSelect('promoCode.applicableUsers', 'applicableUsers');
-
-      // Apply filters
-      if (status) {
-        if (status === 'active') {
+  
+      const now = new Date();
+      
+      if (statusFilter) {
+        if (statusFilter === 'active') {
           queryBuilder.andWhere('promoCode.isActive = :isActive', { isActive: true });
-          queryBuilder.andWhere(
-            '(promoCode.endDate IS NULL OR promoCode.endDate > :now)',
-            { now: new Date() }
-          );
-        } else if (status === 'expired') {
-          queryBuilder.andWhere(
-            '(promoCode.isActive = :isActive OR promoCode.endDate < :now)',
-            { isActive: false, now: new Date() }
-          );
-        } else if (status === 'percentage' || status === 'fixed') {
-          queryBuilder.andWhere('promoCode.discountType = :discountType', { discountType: status });
+        } else if (statusFilter === 'expired') {
+          queryBuilder.andWhere(new Brackets((qb) => {
+            qb.where('promoCode.isActive = :isActive', { isActive: false })
+              .orWhere('promoCode.endDate < :now', { now });
+          }));
         }
+      } 
+  
+      if (discountTypeFilter) {
+        const normalizedDiscountType = discountTypeFilter.toLowerCase();
+        if (normalizedDiscountType === 'percentage' || normalizedDiscountType === 'fixed') {
+          queryBuilder.andWhere('promoCode.discountType = :discountType', {
+            discountType: normalizedDiscountType
+          });
+        }
+        
+        
+        const sql = queryBuilder.getQueryAndParameters();
       }
-
-      if (search) {
+        
+       
+      
+  
+      if (searchTerm) {
+        const searchPattern = `%${searchTerm.toLowerCase()}%`;
         queryBuilder.andWhere(
-          '(promoCode.code LIKE :search OR promoCode.description LIKE :search)',
-          { search: `%${search}%` }
+          '(LOWER(promoCode.code) LIKE :search OR LOWER(promoCode.description) LIKE :search)',
+          { search: searchPattern }
         );
       }
+  
+      const total = await queryBuilder.getCount();
+  
+      logger.debug('Processing sort order:', { sortOrder, type: typeof sortOrder });
+      
+      // Default values
+      let field = 'createdAt';
+      let direction: 'ASC' | 'DESC' = 'DESC';
 
-      // Apply sorting
-      const [sortField, sortOrder] = sort.split('_');
-      const orderField = sortField === 'createdAt' ? 'promoCode.createdAt' : 'promoCode.code';
-      queryBuilder.orderBy(orderField, sortOrder.toUpperCase() as 'ASC' | 'DESC');
-
-      // Get total count for pagination
-      const totalItems = await queryBuilder.getCount();
-
-      // Apply pagination
-      queryBuilder.skip(skip).take(pageSize);
-
-      // Execute query
-      const promoCodes = await queryBuilder.getMany();
-
-      const result: PromoCodesResponse = {
-        items: promoCodes,
-        totalPages: Math.ceil(totalItems / pageSize),
-        currentPage: page,
-        totalItems,
-      };
-
-      // Cache the results with appropriate TTL based on data type
-      try {
-        const success = await promoCache.set(cacheKey, result, 60 * 5); // Cache for 5 minutes
-        if (success) {
-          logger.debug(`Stored promo codes in cache key: ${fullCacheKey} with TTL 5 minutes in Redis DB${this.redisDb}`);
-        } else {
-          logger.warn(`Failed to store promo codes in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        }
-      } catch (cacheError) {
-        logger.error(`Error caching promo codes for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
-      }
-
-      return result;
-    } catch (error) {
-      logger.error('Error getting all promo codes:', error);
-      throw new PromoCodeError(`Failed to fetch promo codes: ${error instanceof Error ? error.message : String(error)}`, 'FETCH_ERROR');
-    }
-  }
-
-  /**
-   * Get promo code by ID - Admin access
-   */
-  async getPromoCodeById(id: string): Promise<PromoCode | null> {
-    try {
-      const cacheKey = `promo:${id}`;
-      const fullCacheKey = `subscription:promos:${cacheKey}`;
-
-      // Try to get from cache first
-      const cachedPromoCode = await promoCache.get<PromoCode>(cacheKey);
-      if (cachedPromoCode) {
-        logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        return cachedPromoCode;
-      }
-      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}, querying database`);
-
-      // Fetch from database
-      const promoCode = await this.getPromoCodeRepository().findOne({
-        where: { id },
-        relations: ['applicablePlans', 'applicableUsers'],
-      });
-
-      if (promoCode) {
-        // Cache the result with appropriate TTL
-        try {
-          const success = await promoCache.set(cacheKey, promoCode, 60 * 5); // Cache for 5 minutes
-          if (success) {
-            logger.debug(`Stored promo code in cache key: ${fullCacheKey} with TTL 5 minutes in Redis DB${this.redisDb}`);
+      // Parse sort parameter if provided
+      if (sortOrder && typeof sortOrder === 'string') {
+        const parts = sortOrder.split('_');
+        
+        // Validate and set sort field
+        if (parts[0]) {
+          const validFields = ['id', 'code', 'createdAt', 'updatedAt', 'startDate', 'endDate', 'discountValue'];
+          if (validFields.includes(parts[0])) {
+            field = parts[0];
           } else {
-            logger.warn(`Failed to store promo code in cache key: ${fullCacheKey} in Redis DB${this.redisDb}`);
+            logger.warn(`Invalid sort field: ${parts[0]}, using default`);
           }
-        } catch (cacheError) {
-          logger.error(`Error caching promo code for key ${fullCacheKey} in Redis DB${this.redisDb}:`, cacheError);
         }
-      } else {
-        logger.debug(`No promo code found for ID ${id}, not caching in Redis DB${this.redisDb}`);
+        
+        // Validate and set sort direction
+        if (parts[1]) {
+          const dir = parts[1].toUpperCase();
+          if (dir === 'ASC' || dir === 'DESC') {
+            direction = dir;
+          } else {
+            logger.warn(`Invalid sort direction: ${parts[1]}, using default`);
+          }
+        }
       }
-
-      return promoCode;
+      
+      // Apply sorting with explicit string literals to ensure type safety
+      logger.debug('Applying sort:', { field, direction });
+      
+      // Use a type assertion to ensure TypeScript understands our direction is valid
+      type SortDirection = 'ASC' | 'DESC';
+      const sortDir: SortDirection = direction === 'ASC' ? 'ASC' : 'DESC';
+      
+      // Apply sorting using the safe field and direction
+      switch (field) {
+        case 'id':
+          queryBuilder.orderBy('promoCode.id', sortDir);
+          break;
+        case 'code':
+          queryBuilder.orderBy('promoCode.code', sortDir);
+          break;
+        case 'createdAt':
+          queryBuilder.orderBy('promoCode.createdAt', sortDir);
+          break;
+        case 'updatedAt':
+          queryBuilder.orderBy('promoCode.updatedAt', sortDir);
+          break;
+        case 'startDate':
+          queryBuilder.orderBy('promoCode.startDate', sortDir);
+          break;
+        case 'endDate':
+          queryBuilder.orderBy('promoCode.endDate', sortDir);
+          break;
+        case 'discountValue':
+          queryBuilder.orderBy('promoCode.discountValue', sortDir);
+          break;
+        default:
+          // Fallback to default sorting
+          queryBuilder.orderBy('promoCode.createdAt', 'DESC');
+      }
+  
+      queryBuilder.skip(skip).take(pageSize);
+      const promoCodes = await queryBuilder.getMany();
+  
+      // Prepare response
+      const result = {
+        items: promoCodes,
+        totalPages: Math.ceil(total / pageSize),
+        currentPage: page,
+        totalItems: total,
+      };
+  
+      const ttl = CacheKeyUtils.getTTL();
+      await promoCache.set(cacheKey, result, ttl);
+      return {
+        items: promoCodes,
+        totalPages: Math.ceil(total / pageSize),
+        currentPage: page,
+        totalItems: total,
+      };
     } catch (error) {
-      logger.error(`Error getting promo code ${id}:`, error);
-      throw new PromoCodeError(`Failed to fetch promo code ${id}: ${error instanceof Error ? error.message : String(error)}`, 'FETCH_ERROR');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      logger.error('Error executing promo code query:', error);
+      throw new Error(`Failed to fetch promo codes: ${errorMessage}`);
     }
   }
+  async getPromoCodeById(id: string): Promise<PromoCode | null> {
+    const cacheKey = `promo_code:${id}`;
+    const cachedData = await promoCache.get<PromoCode>(cacheKey);
+    if (cachedData) {
+      return cachedData;
+    }
 
-  /**
-   * Create a new promo code - Admin access
-   */
+    const promoCode = await AppDataSource.getRepository(PromoCode).findOne({
+      where: { id },
+      relations: ['applicablePlans', 'applicableUsers'],
+    });
+
+    if (promoCode) {
+      await promoCache.set(cacheKey, promoCode, 3600);
+    }
+
+    return promoCode;
+  }
+
   async createPromoCode(promoCodeData: Partial<PromoCode>): Promise<PromoCode> {
-    try {
-      // Check if promo code already exists
-      const existingPromoCode = await this.getPromoCodeRepository().findOne({
-        where: {
-          code: promoCodeData.code,
-          isActive: true
-        }
-      });
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      const promoCodeRepo = transactionalEntityManager.getRepository(PromoCode);
 
-      if (existingPromoCode) {
-        throw new PromoCodeError(`Promo code ${promoCodeData.code} already exists`, 'DUPLICATE_CODE');
+      // --- Business Logic and Validation ---
+      if (!promoCodeData.code || promoCodeData.code.trim() === '') {
+        throw new BadRequestError('Promo code cannot be empty.');
+      }
+      if (promoCodeData.discountType == null || promoCodeData.discountValue == null) {
+        throw new BadRequestError('Discount type and value are required.');
       }
 
-      const promoCode = this.getPromoCodeRepository().create({
+      const existingCode = await promoCodeRepo.findOne({ where: { code: promoCodeData.code } });
+      if (existingCode) {
+        throw new BadRequestError(`Promo code "${promoCodeData.code}" already exists.`);
+      }
+
+      if (promoCodeData.discountType === DiscountType.PERCENTAGE && (promoCodeData.discountValue < 1 || promoCodeData.discountValue > 100)) {
+        throw new BadRequestError('Percentage discount must be between 1 and 100.');
+      }
+      if (promoCodeData.discountType === DiscountType.FIXED && promoCodeData.discountValue <= 0) {
+        throw new BadRequestError('Fixed discount must be a positive number.');
+      }
+      if (promoCodeData.endDate && new Date(promoCodeData.endDate) <= new Date()) {
+        throw new BadRequestError('Expiration date must be in the future.');
+      }
+      if (promoCodeData.usageLimit != null && promoCodeData.usageLimit <= 0) {
+        throw new BadRequestError('Max uses must be a positive number.');
+      }
+      // --- End Validation ---
+
+      const promoCode = promoCodeRepo.create({
         ...promoCodeData,
         isActive: promoCodeData.isActive ?? true,
-        usageCount: promoCodeData.usageCount ?? 0,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        usageCount: 0,
       });
 
-      const savedPromoCode = await this.getPromoCodeRepository().save(promoCode);
+      const savedPromoCode = await promoCodeRepo.save(promoCode);
 
-      // Invalidate cache to ensure fresh data
-      await this.invalidatePromoCache(undefined, { status: undefined, search: undefined, sort: undefined });
-      logger.info(`Created promo code with ID ${savedPromoCode.id}, invalidated cache in Redis DB${this.redisDb}`);
+      if (promoCodeData.applicablePlans?.length) {
+        await this._addApplicablePlans(transactionalEntityManager, savedPromoCode.id, promoCodeData.applicablePlans.map(p => p.id));
+      }
+
+      if (promoCodeData.applicableUsers?.length) {
+        await this._addApplicableUsers(transactionalEntityManager, savedPromoCode.id, promoCodeData.applicableUsers.map(u => u.id));
+      }
+
+      await this.invalidatePromoCache();
+      logger.info(`Created promo code with ID ${savedPromoCode.id}, invalidated cache.`);
 
       return savedPromoCode;
-    } catch (error) {
-      if (error instanceof PromoCodeError) {
-        logger.error(`Error creating promo code: ${error.message}`, error);
-        throw error;
-      }
-      logger.error('Error creating promo code:', error);
-      throw new PromoCodeError(`Failed to create promo code: ${error instanceof Error ? error.message : String(error)}`, 'CREATE_ERROR');
-    }
+    });
   }
 
-  /**
-   * Update a promo code - Admin access
-   */
-  async updatePromoCode(id: string, promoCodeData: Partial<PromoCode>): Promise<PromoCode | null> {
-    try {
-      // First update the main promo code fields
-      await this.getPromoCodeRepository().update(id, {
-        ...promoCodeData,
-        updatedAt: new Date(),
-        // Remove relationship fields from update
-        applicablePlans: undefined,
-        applicableUsers: undefined
-      });
+  async updatePromoCode(id: string, promoCodeData: Partial<PromoCode>): Promise<PromoCode> {
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      const promoCodeRepo = transactionalEntityManager.getRepository(PromoCode);
+      const promoCode = await promoCodeRepo.findOne({ where: { id } });
 
-      // If applicablePlans were provided, update them separately
+      if (!promoCode) {
+        throw new NotFoundError('Promo code not found');
+      }
+
+      // --- Business Logic and Validation ---
+      if (promoCodeData.code && promoCodeData.code !== promoCode.code) {
+        const existingCode = await promoCodeRepo.findOne({ where: { code: promoCodeData.code } });
+        if (existingCode) {
+          throw new BadRequestError(`Promo code "${promoCodeData.code}" already exists.`);
+        }
+      }
+      if (promoCodeData.discountType && promoCodeData.discountType !== promoCode.discountType) {
+        throw new BadRequestError('Cannot change the discount type of an existing promo code.');
+      }
+
+      const finalType = promoCode.discountType;
+      const finalValue = promoCodeData.discountValue ?? promoCode.discountValue;
+
+      if (finalType === DiscountType.PERCENTAGE && (finalValue < 1 || finalValue > 100)) {
+        throw new BadRequestError('Percentage discount must be between 1 and 100.');
+      }
+      if (finalType === DiscountType.FIXED && finalValue <= 0) {
+        throw new BadRequestError('Fixed discount must be a positive number.');
+      }
+
+      if (promoCodeData.endDate && new Date(promoCodeData.endDate) <= new Date()) {
+        throw new BadRequestError('Expiration date must be in the future.');
+      }
+      // --- End Validation ---
+
+      promoCodeRepo.merge(promoCode, promoCodeData);
+      const updatedPromoCode = await promoCodeRepo.save(promoCode);
+
       if (promoCodeData.applicablePlans) {
-        // First remove existing plans
-        await this.getApplicablePlanRepository().delete({ promoCodeId: id });
-        // Then add new plans
-        const newPlans = promoCodeData.applicablePlans.map(plan => ({
-          promoCodeId: id,
-          planId: plan.id
-        }));
-        await this.getApplicablePlanRepository().save(newPlans);
+        await transactionalEntityManager.getRepository(PromoCodeApplicablePlan).delete({ promoCodeId: id });
+        if (promoCodeData.applicablePlans.length > 0) {
+          await this._addApplicablePlans(transactionalEntityManager, id, promoCodeData.applicablePlans.map(p => p.id));
+        }
       }
 
-      // If applicableUsers were provided, update them separately
       if (promoCodeData.applicableUsers) {
-        // First remove existing users
-        await this.getApplicableUserRepository().delete({ promoCodeId: id });
-        // Then add new users
-        const newUsers = promoCodeData.applicableUsers.map(user => ({
-          promoCodeId: id,
-          userId: user.id
-        }));
-        await this.getApplicableUserRepository().save(newUsers);
+        await transactionalEntityManager.getRepository(PromoCodeApplicableUser).delete({ promoCodeId: id });
+        if (promoCodeData.applicableUsers.length > 0) {
+          await this._addApplicableUsers(transactionalEntityManager, id, promoCodeData.applicableUsers.map(u => u.id));
+        }
       }
 
-      // Get the updated promo code
-      const updatedPromoCode = await this.getPromoCodeById(id);
-
-      if (updatedPromoCode) {
-        // Invalidate caches - only invalidate once with specific promo code ID
-        await this.invalidatePromoCache(id);
-        logger.info(`Updated promo code with ID ${id}, invalidated caches in Redis DB${this.redisDb}`);
-      }
+      await this.invalidatePromoCache(id);
+      logger.info(`Updated promo code with ID ${id}, invalidated caches.`);
 
       return updatedPromoCode;
-    } catch (error) {
-      if (error instanceof PromoCodeError) {
-        logger.error(`Error updating promo code ${id}: ${error.message}`, error);
-        throw error;
-      }
-      logger.error(`Error updating promo code ${id}:`, error);
-      throw new PromoCodeError(`Failed to update promo code ${id}: ${error instanceof Error ? error.message : String(error)}`, 'UPDATE_ERROR');
-    }
+    });
   }
 
-  /**
-   * Delete a promo code - Admin access
-   */
   async deletePromoCode(id: string): Promise<void> {
-    try {
-      const promoCode = await this.getPromoCodeById(id);
-      if (!promoCode) {
-        throw new PromoCodeError(`Promo code ${id} not found`, 'NOT_FOUND');
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      const promoCodeRepo = transactionalEntityManager.getRepository(PromoCode);
+      const result = await promoCodeRepo.delete(id);
+
+      if (result.affected === 0) {
+        throw new NotFoundError('Promo code not found');
       }
-  
-      // Delete related records first to maintain referential integrity
-      await this.getApplicablePlanRepository().delete({ promoCodeId: id });
-      await this.getApplicableUserRepository().delete({ promoCodeId: id });
-      await this.getSubscriptionPromoCodeRepository().delete({ promoCodeId: id });
-  
-      // Delete the promo code
-      await this.getPromoCodeRepository().delete(id);
-  
-      // Invalidate all promo-related caches
-      await this.invalidatePromoCache(undefined, { status: undefined, search: undefined, sort: undefined });
-      await this.invalidateSinglePromoCache(id);
-      logger.info(`Deleted promo code with ID ${id} and related records, invalidated caches in Redis DB${this.redisDb}`);
-    } catch (error) {
-      if (error instanceof PromoCodeError) {
-        logger.error(`Error deleting promo code ${id}: ${error.message}`, error);
-        throw error;
-      }
-      logger.error(`Error deleting promo code ${id}:`, error);
-      throw new PromoCodeError(`Failed to delete promo code ${id}: ${error instanceof Error ? error.message : String(error)}`, 'DELETE_ERROR');
-    }
+
+      await this.invalidatePromoCache(id);
+      logger.info(`Deleted promo code with ID ${id}, invalidated caches.`);
+    });
   }
 
-  /**
-   * Add applicable plans to a promo code - Admin access
-   */
-  async addApplicablePlans(promoCodeId: string, planIds: string[]): Promise<PromoCodeApplicablePlan[]> {
-    try {
-      const entries = planIds.map(planId => ({
-        promoCodeId,
-        planId,
-      }));
-
-      const savedEntries = await this.getApplicablePlanRepository().save(entries);
-
-      // Invalidate caches since applicable plans affect promo code applicability
-      await this.invalidatePromoCache();
+  async addApplicablePlans(promoCodeId: string, planIds: string[]): Promise<void> {
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      await this._addApplicablePlans(transactionalEntityManager, promoCodeId, planIds);
       await this.invalidateSinglePromoCache(promoCodeId);
-      logger.info(`Added ${planIds.length} applicable plans to promo code ${promoCodeId}, invalidated caches in Redis DB${this.redisDb}`);
-
-      return savedEntries;
-    } catch (error) {
-      if (error instanceof PromoCodeError) {
-        logger.error(`Error adding applicable plans to promo code ${promoCodeId}: ${error.message}`, error);
-        throw error;
-      }
-      logger.error(`Error adding applicable plans to promo code ${promoCodeId}:`, error);
-      throw new PromoCodeError(`Failed to add applicable plans to promo code ${promoCodeId}: ${error instanceof Error ? error.message : String(error)}`, 'ADD_PLANS_ERROR');
-    }
+    });
   }
 
-  /**
-   * Add applicable users to a promo code - Admin access
-   */
-  async addApplicableUsers(promoCodeId: string, userIds: string[]): Promise<PromoCodeApplicableUser[]> {
-    try {
-      const entries = userIds.map(userId => ({
-        promoCodeId,
-        userId,
-      }));
+  private async _addApplicablePlans(entityManager: EntityManager, promoCodeId: string, planIds: string[]): Promise<void> {
+    const applicablePlanRepo = entityManager.getRepository(PromoCodeApplicablePlan);
+    const applicablePlans = planIds.map(planId => applicablePlanRepo.create({ promoCodeId, planId }));
+    await applicablePlanRepo.save(applicablePlans);
+  }
 
-      const savedEntries = await this.getApplicableUserRepository().save(entries);
-
-      // Invalidate caches since applicable users affect promo code applicability
-      await this.invalidatePromoCache();
+  async addApplicableUsers(promoCodeId: string, userIds: string[]): Promise<void> {
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      await this._addApplicableUsers(transactionalEntityManager, promoCodeId, userIds);
       await this.invalidateSinglePromoCache(promoCodeId);
-      logger.info(`Added ${userIds.length} applicable users to promo code ${promoCodeId}, invalidated caches in Redis DB${this.redisDb}`);
-
-      return savedEntries;
-    } catch (error) {
-      if (error instanceof PromoCodeError) {
-        logger.error(`Error adding applicable users to promo code ${promoCodeId}: ${error.message}`, error);
-        throw error;
-      }
-      logger.error(`Error adding applicable users to promo code ${promoCodeId}:`, error);
-      throw new PromoCodeError(`Failed to add applicable users to promo code ${promoCodeId}: ${error instanceof Error ? error.message : String(error)}`, 'ADD_USERS_ERROR');
-    }
+    });
   }
 
-  /**
-   * Validate a promo code for a specific user and plan
-   * Returns validation result and discount information
-   */
+  private async _addApplicableUsers(entityManager: EntityManager, promoCodeId: string, userIds: string[]): Promise<void> {
+    const applicableUserRepo = entityManager.getRepository(PromoCodeApplicableUser);
+    const applicableUsers = userIds.map(userId => applicableUserRepo.create({ promoCodeId, userId }));
+    await applicableUserRepo.save(applicableUsers);
+  }
+
   async validatePromoCode(code: string, userId: string, planId: string): Promise<{
     isValid: boolean;
     promoCode?: PromoCode;
     discountAmount?: number;
     message: string;
   }> {
-    try {
-      const cacheKey = `promo:validate:${userId}:${planId}:${code}`;
-      const fullCacheKey = `subscription:promos:${cacheKey}`;
-
-      // Try to get from cache first
-      const cachedResult = await promoCache.get<{
-        isValid: boolean;
-        promoCode?: PromoCode;
-        discountAmount?: number;
-        message: string;
-      }>(cacheKey);
-      if (cachedResult) {
-        logger.debug(`Cache hit for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-        return cachedResult;
-      }
-      logger.debug(`Cache miss for key: ${fullCacheKey} in Redis DB${this.redisDb}`);
-
-      // Find the promo code
-      const promoCode = await this.getPromoCodeRepository().findOne({
-        where: { code, isActive: true },
-      });
-
-      if (!promoCode) {
-        const result = { isValid: false, message: 'Invalid promo code' };
-        await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
-        logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
-        return result;
-      }
-
-      // Check if expired
-      if (promoCode.endDate && new Date() > new Date(promoCode.endDate)) {
-        const result = { isValid: false, message: 'Promo code has expired' };
-        await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
-        logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
-        return result;
-      }
-
-      // Check usage limit
-      if (promoCode.usageLimit && (promoCode.usageCount || 0) >= promoCode.usageLimit) {
-        const result = { isValid: false, message: 'Promo code usage limit reached' };
-        await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
-        logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
-        return result;
-      }
-
-      // Check applicable type
-      if (promoCode.applicableTo === 'specific_plans') {
-        const planMatch = await this.getApplicablePlanRepository().findOne({
-          where: { promoCodeId: promoCode.id, planId },
-        });
-
-        if (!planMatch) {
-          const result = { isValid: false, message: 'Promo code not applicable to this plan' };
-          await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
-          logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
-          return result;
-        }
-      }
-
-      if (promoCode.applicableTo === 'specific_users') {
-        const userMatch = await this.getApplicableUserRepository().findOne({
-          where: { promoCodeId: promoCode.id, userId },
-        });
-
-        if (!userMatch) {
-          const result = { isValid: false, message: 'Promo code not applicable to this user' };
-          await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
-          logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
-          return result;
-        }
-      }
-
-      // Check if first-time only
-      if (promoCode.isFirstTimeOnly) {
-        const previousUsage = await this.getSubscriptionPromoCodeRepository().findOne({
-          where: { promoCodeId: promoCode.id } as FindOptionsWhere<SubscriptionPromoCode>,
-        });
-
-        if (previousUsage) {
-          const result = { isValid: false, message: 'Promo code can only be used once per user' };
-          await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
-          logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
-          return result;
-        }
-      }
-
-      // Calculate discount
-      const plan = await this.getPlanRepository().findOne({ where: { id: planId } });
-      if (!plan) {
-        const result = { isValid: false, message: 'Invalid subscription plan' };
-        await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
-        logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
-        return result;
-      }
-
-      const discountAmount = this.calculateDiscount(promoCode, plan.price);
-      const result = {
-        isValid: true,
-        promoCode,
-        discountAmount,
-        message: 'Promo code applied successfully',
-      };
-
-      // Cache the result for 2 minutes
-      await promoCache.set(cacheKey, result, 60 * 2); // Cache for 2 minutes
-      logger.debug(`Cached validation result for key: ${fullCacheKey} with TTL 2 minutes`);
-
-      return result;
-    } catch (error) {
-      if (error instanceof PromoCodeError) {
-        logger.error(`Error validating promo code ${code}: ${error.message}`, error);
-        throw error;
-      }
-      logger.error(`Error validating promo code ${code}:`, error);
-      throw new PromoCodeError(`Failed to validate promo code ${code}: ${error instanceof Error ? error.message : String(error)}`, 'VALIDATION_ERROR');
+    const cacheKey = `promo_validation:${code}:${userId}:${planId}`;
+    const cachedResult = await promoCache.get<any>(cacheKey);
+    if (cachedResult) {
+      return cachedResult;
     }
+
+    const promoCode = await AppDataSource.getRepository(PromoCode).findOne({ where: { code } });
+    if (!promoCode) {
+      return { isValid: false, message: 'Promo code not found' };
+    }
+
+    const validationResult = await this.validationService.validatePromoCode(promoCode.id, userId, planId);
+    if (!validationResult.isValid) {
+      return { isValid: false, message: validationResult.message };
+    }
+
+    const plan = await AppDataSource.getRepository(SubscriptionPlan).findOne({ where: { id: planId } });
+    if (!plan) {
+      return { isValid: false, message: 'Invalid subscription plan' };
+    }
+
+    const discountAmount = this.calculateDiscount(promoCode, plan.price);
+    const result = {
+      isValid: true,
+      promoCode,
+      discountAmount,
+      message: 'Promo code applied successfully',
+    };
+
+    await promoCache.set(cacheKey, result, 60 * 2);
+    return result;
   }
 
-  /**
-   * Apply a promo code to a subscription
-   */
   async applyPromoCode(subscriptionId: string, userId: string, promoCodeId: string, discountAmount: number): Promise<SubscriptionPromoCode> {
-    try {
-      // Increment usage count
-      await this.getPromoCodeRepository().increment(
-        { id: promoCodeId },
-        'usageCount',
-        1
-      );
+    return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
+      const promoCodeRepo = transactionalEntityManager.getRepository(PromoCode);
+      const promoCode = await promoCodeRepo.findOne({ where: { id: promoCodeId } });
 
-      // Create subscription-promo code link
-      const subscriptionPromoCode = this.getSubscriptionPromoCodeRepository().create({
+      if (!promoCode) {
+        throw new NotFoundError('Promo code not found');
+      }
+
+      const validationResult = await this.validationService.validatePromoCode(promoCodeId, userId, subscriptionId);
+      if (!validationResult.isValid) {
+        throw new BadRequestError(validationResult.message);
+      }
+
+      await promoCodeRepo.increment({ id: promoCodeId }, 'usageCount', 1);
+
+      const subPromoCodeRepo = transactionalEntityManager.getRepository(SubscriptionPromoCode);
+      const subscriptionPromoCode = subPromoCodeRepo.create({
         promoCode: { id: promoCodeId } as PromoCode,
         discountAmount,
         appliedDate: new Date(),
         isActive: true,
       });
 
-      const savedPromoCode = await this.getSubscriptionPromoCodeRepository().save(subscriptionPromoCode);
+      const savedPromoCode = await subPromoCodeRepo.save(subscriptionPromoCode);
 
-      // Invalidate caches since usage count affects validation
-      await this.invalidatePromoCache();
-      await this.invalidateSinglePromoCache(promoCodeId);
-      logger.info(`Applied promo code ${promoCodeId} to subscription ${subscriptionId}, invalidated caches in Redis DB${this.redisDb}`);
+      await this.invalidatePromoCache(promoCodeId);
+      logger.info(`Applied promo code ${promoCodeId} to subscription ${subscriptionId}, invalidated caches.`);
 
       return savedPromoCode;
-    } catch (error) {
-      if (error instanceof PromoCodeError) {
-        logger.error(`Error applying promo code ${promoCodeId} to subscription ${subscriptionId}: ${error.message}`, error);
-        throw error;
-      }
-      logger.error(`Error applying promo code ${promoCodeId} to subscription ${subscriptionId}:`, error);
-      throw new PromoCodeError(`Failed to apply promo code ${promoCodeId} to subscription ${subscriptionId}: ${error instanceof Error ? error.message : String(error)}`, 'APPLY_ERROR');
-    }
+    });
   }
 
-  /**
-   * Calculate discount amount based on promo code type and plan price
-   */
   private calculateDiscount(promoCode: PromoCode, planPrice: number): number {
-    try {
-      if (promoCode.discountType === 'percentage') {
-        let discount = (planPrice * promoCode.discountValue) / 100;
-        if (promoCode.maxDiscountAmount) {
-          discount = Math.min(discount, promoCode.maxDiscountAmount);
-        }
-        return discount;
-      } else if (promoCode.discountType === 'fixed') {
-        return Math.min(promoCode.discountValue, planPrice);
+    if (promoCode.discountType === DiscountType.PERCENTAGE) {
+      let discount = (planPrice * promoCode.discountValue) / 100;
+      if (promoCode.maxDiscountAmount) {
+        discount = Math.min(discount, promoCode.maxDiscountAmount);
       }
-      throw new PromoCodeError(`Invalid discount type for promo code ${promoCode.code}`, 'INVALID_DISCOUNT_TYPE');
-    } catch (error) {
-      if (error instanceof PromoCodeError) {
-        logger.error(`Error calculating discount for promo code ${promoCode.code}: ${error.message}`, error);
-        throw error;
-      }
-      logger.error(`Error calculating discount for promo code ${promoCode.code}:`, error);
-      throw new PromoCodeError(`Failed to calculate discount for promo code ${promoCode.code}: ${error instanceof Error ? error.message : String(error)}`, 'CALCULATION_ERROR');
+      return discount;
+    } else if (promoCode.discountType === DiscountType.FIXED) {
+      return Math.min(promoCode.discountValue, planPrice);
     }
+    throw new BadRequestError(`Invalid discount type for promo code ${promoCode.code}`);
   }
 }
 
-export default new PromoCodeService();
+export const promoCodeService = new PromoCodeService();

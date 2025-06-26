@@ -111,7 +111,9 @@ import { App } from './App.entity';
 export enum BillingCycle {
   MONTHLY = 'monthly',
   QUARTERLY = 'quarterly',
-  YEARLY = 'yearly'
+  SEMI_ANNUAL = 'semi_annual',
+  ANNUAL = 'annual',
+  YEARLY = 'yearly' // Alias for annual
 }
 
 export enum PlanStatus {
@@ -161,7 +163,7 @@ export class SubscriptionPlan {
   @Column({
     type: 'enum',
     enum: PlanStatus,
-    default: PlanStatus.DRAFT
+    default: PlanStatus.ACTIVE
   })
   status!: PlanStatus;
 

@@ -35,6 +35,14 @@ export class App {
   @Column({ type: 'varchar' })
   website!: string;
 
+  @Column({ 
+    type: 'varchar', 
+    length: 7,
+    default: '#000000',
+    nullable: false
+  })
+  color!: string;
+
   @Column({ type: 'int', default: 0 })
   totalPlans!: number;
 
