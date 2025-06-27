@@ -113,51 +113,115 @@ export class SubscriptionPlanService {
   }
 
   /**
-   * Invalidate cache for all plans or a specific appId
+   * Invalidate cache for all plans and related data
    */
   private async invalidatePlanCache(): Promise<void> {
     try {
-      const pattern = 'plans:*';
-      const deletedCount = await planCache.deleteByPattern(pattern);
-      logger.info(`Invalidated ${deletedCount} plan caches using pattern '${pattern}' in Redis DB${this.redisDb}`);
+      const patterns = [
+        'plans:*',           // All plan listings
+        'plan:*',           // Individual plan caches
+        'apps:dropdown',     // Apps dropdown (affected by plan changes)
+        'subscription:*',    // Subscription data that might reference plans
+        'billing:*',         // Billing data that might reference plans
+        'cache:plans:*',     // Any other plan-related caches
+        'featured:plans',    // Featured plans cache if exists
+        'popular:plans'      // Popular plans cache if exists
+      ];
 
-      // Also invalidate the apps dropdown cache as plan changes might affect it
-      await planCache.del('apps:dropdown');
-      logger.debug(`Invalidated apps dropdown cache in Redis DB${this.redisDb}`);
+      let totalDeleted = 0;
+      const batchSize = 50; // Process 50 keys at a time
+
+      for (const pattern of patterns) {
+        try {
+          const deleted = await planCache.deleteByPattern(pattern, batchSize);
+          totalDeleted += deleted;
+          if (deleted > 0) {
+            logger.debug(`Invalidated ${deleted} cache keys for pattern '${pattern}' in Redis DB${this.redisDb}`);
+          }
+        } catch (error) {
+          logger.warn(`Failed to invalidate cache for pattern '${pattern}':`, {
+            error: error instanceof Error ? error.message : String(error)
+          });
+        }
+      }
+
+      logger.info(`Invalidated total ${totalDeleted} plan-related cache keys in Redis DB${this.redisDb}`);
     } catch (error: any) {
       logger.error(`Failed to invalidate plan cache in Redis DB${this.redisDb}:`, {
         error: error.message,
         stack: error.stack,
       });
+      // Don't re-throw to prevent operation failures due to cache issues
     }
   }
 
   /**
-   * Invalidate cache for a specific plan
+   * Invalidate cache for a specific plan and its related data
    */
   private async invalidateSinglePlanCache(planId: string): Promise<void> {
+    if (!planId) return;
+
     try {
-      // Invalidate all cache patterns related to this plan
-      const patterns: string[] = [
-        `plan:${planId}`, // Single plan details
-        `plans:filters:*:${planId}`, // Filtered lists containing this plan
-        `plans:page:*:${planId}`, // Pagination containing this plan
-        `subscriptions:*:plan:${planId}` // Subscription relationships
+      // Define all possible cache key patterns that might contain plan data
+      const patterns = [
+        `plan:${planId}`,                    // Single plan details
+        `plans:*:${planId}`,                 // Any plan listing containing this plan
+        `plans:filters:*:${planId}`,         // Filtered lists
+        `plans:page:*:${planId}`,            // Pagination
+        `subscriptions:*:plan:${planId}`,    // Subscription relationships
+        `billing:*:plan:${planId}`,          // Billing data
+        `cache:plans:${planId}`,             // Direct plan cache
+        `cache:plans:*:${planId}`,           // Nested plan caches
+        `featured:plans:${planId}`,          // If plan is featured
+        `popular:plans:${planId}`            // If plan is popular
       ];
 
       let totalDeleted = 0;
+      const batchSize = 50; // Process 50 keys at a time
+
       for (const pattern of patterns) {
-        const deletedCount = await planCache.deleteByPattern(pattern);
-        totalDeleted += deletedCount;
-        logger.debug(`Deleted ${deletedCount} cache keys for pattern: ${pattern} in Redis DB${this.redisDb}`);
+        try {
+          const deleted = await planCache.deleteByPattern(pattern, batchSize);
+          totalDeleted += deleted;
+          if (deleted > 0) {
+            logger.debug(`Invalidated ${deleted} cache keys for pattern '${pattern}' in Redis DB${this.redisDb}`);
+          }
+        } catch (error) {
+          logger.warn(`Failed to invalidate cache for pattern '${pattern}':`, {
+            error: error instanceof Error ? error.message : String(error),
+            planId
+          });
+        }
       }
 
-      logger.info(`Total invalidated ${totalDeleted} cache keys for plan ${planId} in Redis DB${this.redisDb}`);
+      // Also invalidate any related app caches if the plan has an appId
+      try {
+        const plan = await this.getPlanById(planId);
+        if (plan?.appId) {
+          const appPatterns = [
+            `app:${plan.appId}:plans`,
+            `apps:${plan.appId}:plans`,
+            `plans:app:${plan.appId}`,
+            `plans:app:${plan.appId}:*`
+          ];
+
+          for (const pattern of appPatterns) {
+            const deleted = await planCache.deleteByPattern(pattern, batchSize);
+            totalDeleted += deleted;
+          }
+        }
+      } catch (error) {
+        // Ignore errors when trying to get plan details for cache invalidation
+      }
+
+      logger.info(`Invalidated total ${totalDeleted} cache keys for plan ${planId} in Redis DB${this.redisDb}`);
     } catch (error: any) {
       logger.warn(`Failed to invalidate cache for plan ${planId} in Redis DB${this.redisDb}:`, {
         error: error.message,
         stack: error.stack,
+        planId
       });
+      // Don't re-throw to prevent operation failures due to cache issues
     }
   }
 
@@ -672,6 +736,44 @@ export class SubscriptionPlanService {
         logger.info(`Deleted feature ${featureId}, invalidated caches in Redis DB${this.redisDb}`);
       }
     });
+  }
+
+  /**
+   * Clear all plan-related caches (use with caution in production)
+   * This is a more thorough version that ensures all possible plan-related caches are cleared
+   */
+  async clearAllPlanCaches(): Promise<{ success: boolean; message: string }> {
+    try {
+      const patterns = [
+        'plans:*',
+        'plan:*',
+        'apps:dropdown',
+        'subscription:*:plan:*',
+        'billing:*:plan:*',
+        'cache:plans:*',
+        'featured:plans*',
+        'popular:plans*'
+      ];
+
+      let totalDeleted = 0;
+      for (const pattern of patterns) {
+        totalDeleted += await planCache.deleteByPattern(pattern, 100);
+      }
+
+      logger.info(`Cleared all plan caches, removed ${totalDeleted} keys`);
+      
+      return {
+        success: true,
+        message: `Successfully cleared ${totalDeleted} cache keys related to plans`
+      };
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      logger.error('Failed to clear plan caches:', { error: errorMessage });
+      return {
+        success: false,
+        message: `Failed to clear plan caches: ${errorMessage}`
+      };
+    }
   }
 }
 
