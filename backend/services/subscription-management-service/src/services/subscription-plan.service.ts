@@ -113,73 +113,49 @@ export class SubscriptionPlanService {
   }
 
   /**
-   * Invalidate cache for all plans and related data
+   * Invalidate cache for plan-related data
+   * @param planId Optional specific plan ID to invalidate
+   * @param appId Optional app ID to invalidate app-specific caches
    */
-  private async invalidatePlanCache(): Promise<void> {
+  private async invalidatePlanCache(planId?: string, appId?: string): Promise<void> {
     try {
       const patterns = [
-        'plans:*',           // All plan listings
-        'plan:*',           // Individual plan caches
-        'apps:dropdown',     // Apps dropdown (affected by plan changes)
-        'subscription:*',    // Subscription data that might reference plans
-        'billing:*',         // Billing data that might reference plans
-        'cache:plans:*',     // Any other plan-related caches
-        'featured:plans',    // Featured plans cache if exists
-        'popular:plans'      // Popular plans cache if exists
+        'plans:*',                  // All plan listings and filtered lists
+        'plan:*',                   // Individual plan caches
+        'subscription:*:plan:*',    // Subscription data referencing plans
+        'billing:*:plan:*',         // Billing data referencing plans
+        'cache:plans:*',            // Miscellaneous plan caches
+        'featured:plans*',          // Featured plans
+        'popular:plans*'            // Popular plans
       ];
 
-      let totalDeleted = 0;
-      const batchSize = 50; // Process 50 keys at a time
-
-      for (const pattern of patterns) {
-        try {
-          const deleted = await planCache.deleteByPattern(pattern, batchSize);
-          totalDeleted += deleted;
-          if (deleted > 0) {
-            logger.debug(`Invalidated ${deleted} cache keys for pattern '${pattern}' in Redis DB${this.redisDb}`);
-          }
-        } catch (error) {
-          logger.warn(`Failed to invalidate cache for pattern '${pattern}':`, {
-            error: error instanceof Error ? error.message : String(error)
-          });
-        }
+      // Add specific patterns for planId if provided
+      if (planId) {
+        patterns.push(
+          `plan:${planId}`,                    // Specific plan
+          `plans:*:${planId}`,                 // Listings containing this plan
+          `subscriptions:*:plan:${planId}`,    // Subscriptions for this plan
+          `billing:*:plan:${planId}`,          // Billing for this plan
+          `cache:plans:${planId}`              // Direct plan cache
+        );
       }
 
-      logger.info(`Invalidated total ${totalDeleted} plan-related cache keys in Redis DB${this.redisDb}`);
-    } catch (error: any) {
-      logger.error(`Failed to invalidate plan cache in Redis DB${this.redisDb}:`, {
-        error: error.message,
-        stack: error.stack,
-      });
-      // Don't re-throw to prevent operation failures due to cache issues
-    }
-  }
-
-  /**
-   * Invalidate cache for a specific plan and its related data
-   */
-  private async invalidateSinglePlanCache(planId: string): Promise<void> {
-    if (!planId) return;
-
-    try {
-      // Define all possible cache key patterns that might contain plan data
-      const patterns = [
-        `plan:${planId}`,                    // Single plan details
-        `plans:*:${planId}`,                 // Any plan listing containing this plan
-        `plans:filters:*:${planId}`,         // Filtered lists
-        `plans:page:*:${planId}`,            // Pagination
-        `subscriptions:*:plan:${planId}`,    // Subscription relationships
-        `billing:*:plan:${planId}`,          // Billing data
-        `cache:plans:${planId}`,             // Direct plan cache
-        `cache:plans:*:${planId}`,           // Nested plan caches
-        `featured:plans:${planId}`,          // If plan is featured
-        `popular:plans:${planId}`            // If plan is popular
-      ];
+      // Add app-specific patterns if appId is provided
+      if (appId) {
+        patterns.push(
+          `app:${appId}:plans`,     // App-specific plan lists
+          `apps:${appId}:plans`,    // App-specific plan caches
+          `plans:app:${appId}:*`    // Plans tied to this app
+        );
+      }
 
       let totalDeleted = 0;
-      const batchSize = 50; // Process 50 keys at a time
+      const batchSize = 50;
 
-      for (const pattern of patterns) {
+      // Use Set to avoid duplicate patterns
+      const uniquePatterns = [...new Set(patterns)];
+
+      for (const pattern of uniquePatterns) {
         try {
           const deleted = await planCache.deleteByPattern(pattern, batchSize);
           totalDeleted += deleted;
@@ -189,47 +165,25 @@ export class SubscriptionPlanService {
         } catch (error) {
           logger.warn(`Failed to invalidate cache for pattern '${pattern}':`, {
             error: error instanceof Error ? error.message : String(error),
-            planId
+            planId,
+            appId
           });
         }
       }
 
-      // Also invalidate any related app caches if the plan has an appId
-      try {
-        const plan = await this.getPlanById(planId);
-        if (plan?.appId) {
-          const appPatterns = [
-            `app:${plan.appId}:plans`,
-            `apps:${plan.appId}:plans`,
-            `plans:app:${plan.appId}`,
-            `plans:app:${plan.appId}:*`
-          ];
-
-          for (const pattern of appPatterns) {
-            const deleted = await planCache.deleteByPattern(pattern, batchSize);
-            totalDeleted += deleted;
-          }
-        }
-      } catch (error) {
-        // Ignore errors when trying to get plan details for cache invalidation
-      }
-
-      logger.info(`Invalidated total ${totalDeleted} cache keys for plan ${planId} in Redis DB${this.redisDb}`);
+      logger.info(`Invalidated total ${totalDeleted} plan-related cache keys in Redis DB${this.redisDb}${planId ? ` for plan ${planId}` : ''}${appId ? ` for app ${appId}` : ''}`);
     } catch (error: any) {
-      logger.warn(`Failed to invalidate cache for plan ${planId} in Redis DB${this.redisDb}:`, {
+      logger.warn(`Failed to invalidate plan cache in Redis DB${this.redisDb}:`, {
         error: error.message,
         stack: error.stack,
-        planId
+        planId,
+        appId
       });
-      // Don't re-throw to prevent operation failures due to cache issues
     }
   }
 
   /**
    * Get all subscription plans with pagination and filtering
-   * @param filters - Object containing filter parameters
-   * @param page - Page number for pagination
-   * @param limit - Number of items per page
    */
   async getAllPlans(
     filters: {
@@ -490,7 +444,7 @@ export class SubscriptionPlanService {
         savedPlan.features = savedFeatures;
 
         // Invalidate caches
-        await this.invalidatePlanCache();
+        await this.invalidatePlanCache(savedPlan.id, savedPlan.appId);
         logger.info(`Created new subscription plan with ID ${savedPlan.id}, invalidated caches in Redis DB${this.redisDb}`);
 
         return savedPlan;
@@ -550,7 +504,7 @@ export class SubscriptionPlanService {
           // Features to delete
           const featuresToDelete = existingFeatureIds.filter(fid => !incomingFeatureIds.includes(fid));
 
-          // Calculate final feature count for logging (no longer used for validation)
+          // Calculate final feature count for logging
           const finalFeatureCount = existingFeatureIds.length - featuresToDelete.length + features.filter(f => String(f.id).startsWith('temp-')).length;
           logger.debug(`Updating plan ${id} with ${finalFeatureCount} features`);
           if (featuresToDelete.length > 0) {
@@ -581,8 +535,7 @@ export class SubscriptionPlanService {
         }
 
         // Invalidate caches
-        await this.invalidatePlanCache();
-        await this.invalidateSinglePlanCache(id);
+        await this.invalidatePlanCache(id, planData.appId || plan.appId);
         logger.info(`Updated plan with ID ${id}, invalidated caches in Redis DB${this.redisDb}`);
 
         // Return the fully updated plan with its features
@@ -621,8 +574,7 @@ export class SubscriptionPlanService {
       });
 
       // Invalidate caches
-      await this.invalidatePlanCache();
-      await this.invalidateSinglePlanCache(id);
+      await this.invalidatePlanCache(id, plan.appId);
       logger.info(`Soft deleted plan with ID ${id}, invalidated caches in Redis DB${this.redisDb}`);
     });
   }
@@ -641,9 +593,8 @@ export class SubscriptionPlanService {
 
       await transactionalEntityManager.delete(SubscriptionPlan, { id });
 
-      // Invalidate all plan list caches and the specific plan cache
-      await this.invalidatePlanCache();
-      await this.invalidateSinglePlanCache(id);
+      // Invalidate caches
+      await this.invalidatePlanCache(id, plan.appId);
       logger.info(`Hard deleted plan with ID ${id}, invalidated caches in Redis DB${this.redisDb}`);
     });
   }
@@ -672,9 +623,8 @@ export class SubscriptionPlanService {
       const savedFeature = await transactionalEntityManager.save(feature);
       logger.debug(`Saved new feature with ID ${savedFeature.id} for plan ${planId}`);
 
-      // Invalidate caches since features are included in plan data
-      await this.invalidatePlanCache();
-      await this.invalidateSinglePlanCache(planId);
+      // Invalidate caches
+      await this.invalidatePlanCache(planId, plan.appId);
       logger.info(`Added feature to plan ${planId}, invalidated caches in Redis DB${this.redisDb}`);
 
       return savedFeature;
@@ -702,8 +652,7 @@ export class SubscriptionPlanService {
       if (updatedFeature) {
         const plan = await planRepository.findOne({ where: { id: updatedFeature.planId } });
         if (plan) {
-          await this.invalidatePlanCache();
-          await this.invalidateSinglePlanCache(plan.id);
+          await this.invalidatePlanCache(updatedFeature.planId, plan.appId);
           logger.info(`Updated feature ${featureId}, invalidated caches in Redis DB${this.redisDb}`);
         }
       }
@@ -731,8 +680,7 @@ export class SubscriptionPlanService {
       // Invalidate caches
       const plan = await planRepository.findOne({ where: { id: planId } });
       if (plan) {
-        await this.invalidatePlanCache();
-        await this.invalidateSinglePlanCache(plan.id);
+        await this.invalidatePlanCache(planId, plan.appId);
         logger.info(`Deleted feature ${featureId}, invalidated caches in Redis DB${this.redisDb}`);
       }
     });
@@ -740,7 +688,6 @@ export class SubscriptionPlanService {
 
   /**
    * Clear all plan-related caches (use with caution in production)
-   * This is a more thorough version that ensures all possible plan-related caches are cleared
    */
   async clearAllPlanCaches(): Promise<{ success: boolean; message: string }> {
     try {
