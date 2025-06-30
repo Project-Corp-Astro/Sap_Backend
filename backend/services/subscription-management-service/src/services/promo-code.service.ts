@@ -49,45 +49,134 @@ export class PromoCodeService {
     );
   }
 
-  private async invalidatePromoCache(promoCodeId?: string): Promise<void> {
+  /**
+   * Invalidate all promo code related caches
+   * @param promoCodeId Optional specific promo code ID to invalidate
+   * @returns Number of cache keys deleted
+   */
+  private async invalidatePromoCache(promoCodeId?: string): Promise<number> {
     try {
-      const client = promoCache.getClient();
-      const matchPattern = 'subscription:promos:all_promo_codes:*';
-      const keysToDelete: string[] = [];
-      let cursor = '0';
+      const patterns = [
+        'subscription:promos:all_promo_codes:*',
+        'promo_code:*',
+        'promo_validation:*',
+        'promo_search:*',
+        'promo_stats:*',
+        'promo_plans:*',
+        'promo_users:*'
+      ];
 
-      do {
-        const [nextCursor, keys] = await client.scan(cursor, 'MATCH', matchPattern, 'COUNT', '100');
-        cursor = nextCursor;
-        if (keys.length > 0) {
-          keysToDelete.push(...keys);
+      let totalDeleted = 0;
+      const batchSize = 100; // Process 100 keys at a time
+      
+      for (const pattern of patterns) {
+        try {
+          const deleted = await promoCache.deleteByPattern(pattern, batchSize);
+          totalDeleted += deleted;
+          
+          // Small delay between different patterns to prevent Redis from being overwhelmed
+          await new Promise(resolve => setTimeout(resolve, 10));
+        } catch (error) {
+          logger.error(`Error deleting cache pattern ${pattern}:`, error);
+          // Continue with next pattern even if one fails
         }
-      } while (cursor !== '0');
-
-      if (keysToDelete.length > 0) {
-        await client.del(keysToDelete);
       }
 
+      // Invalidate specific promo code cache if ID is provided
       if (promoCodeId) {
-        await this.invalidateSinglePromoCache(promoCodeId);
+        try {
+          const singleDeleted = await this.invalidateSinglePromoCache(promoCodeId);
+          totalDeleted += singleDeleted;
+        } catch (error) {
+          logger.error(`Error invalidating single promo cache for ID ${promoCodeId}:`, error);
+          throw error; // Re-throw to handle in the outer catch
+        }
       }
+
+      logger.info(`Invalidated ${totalDeleted} promo cache keys`);
+      return totalDeleted;
     } catch (error) {
-      logger.error('Error invalidating promo cache:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      logger.error('Error invalidating promo cache:', { error: errorMessage });
+      throw new Error(`Failed to invalidate promo cache: ${errorMessage}`);
     }
   }
 
-  private async invalidateSinglePromoCache(promoCodeId: string): Promise<void> {
-    try {
-      const cacheKey = `promo_code:${promoCodeId}`;
-      await promoCache.del(cacheKey);
+  /**
+   * Invalidate cache for a specific promo code
+   * @param promoCodeId The ID of the promo code to invalidate
+   * @returns Number of cache keys deleted
+   */
+  private async invalidateSinglePromoCache(promoCodeId: string): Promise<number> {
+    const patterns = [
+      `promo_code:${promoCodeId}`,
+      `promo_validation:${promoCodeId}:*`,
+      `promo_plans:${promoCodeId}:*`,
+      `promo_users:${promoCodeId}:*`,
+      `promo_stats:${promoCodeId}:*`
+    ];
 
-      const validationCacheKey = `promo_validation:${promoCodeId}:*`;
-      const keysToDelete = await promoCache.keys(validationCacheKey);
-      if (keysToDelete.length > 0) {
-        await promoCache.getClient().del(...keysToDelete);
+    let totalDeleted = 0;
+    const batchSize = 50; // Smaller batch size for single promo code
+    
+    for (const pattern of patterns) {
+      try {
+        const deleted = await promoCache.deleteByPattern(pattern, batchSize);
+        totalDeleted += deleted;
+      } catch (error) {
+        logger.error(`Error deleting cache pattern ${pattern} for promo ${promoCodeId}:`, error);
+        // Continue with next pattern even if one fails
       }
+    }
+
+    logger.info(`Invalidated ${totalDeleted} cache keys for promo code ${promoCodeId}`);
+    return totalDeleted;
+  }
+
+  /**
+   * Invalidate promo code search results cache
+   * @returns Number of cache keys deleted
+   */
+  async invalidatePromoSearchCache(): Promise<number> {
+    try {
+      const deleted = await promoCache.deleteByPattern('promo_search:*', 100);
+      logger.info(`Invalidated ${deleted} promo search cache keys`);
+      return deleted;
     } catch (error) {
-      logger.error(`Error invalidating single promo cache for ID ${promoCodeId}:`, error);
+      logger.error('Error invalidating promo search cache:', error);
+      throw new Error('Failed to invalidate promo search cache');
+    }
+  }
+
+  /**
+   * Invalidate promo code statistics cache
+   * @returns Number of cache keys deleted
+   */
+  async invalidatePromoStatsCache(): Promise<number> {
+    try {
+      const deleted = await promoCache.deleteByPattern('promo_stats:*', 100);
+      logger.info(`Invalidated ${deleted} promo stats cache keys`);
+      return deleted;
+    } catch (error) {
+      logger.error('Error invalidating promo stats cache:', error);
+      throw new Error('Failed to invalidate promo stats cache');
+    }
+  }
+
+  /**
+   * Invalidate cache for promo code plans
+   * @param promoCodeId The ID of the promo code
+   * @returns Number of cache keys deleted
+   */
+  async invalidatePromoPlansCache(promoCodeId: string): Promise<number> {
+    try {
+      const pattern = `promo_plans:${promoCodeId}:*`;
+      const deleted = await promoCache.deleteByPattern(pattern, 100);
+      logger.info(`Invalidated ${deleted} cache keys for promo code ${promoCodeId} plans`);
+      return deleted;
+    } catch (error) {
+      logger.error(`Error invalidating promo plans cache for ${promoCodeId}:`, error);
+      throw new Error('Failed to invalidate promo plans cache');
     }
   }
 
@@ -330,8 +419,8 @@ export class PromoCodeService {
         await this._addApplicableUsers(transactionalEntityManager, savedPromoCode.id, promoCodeData.applicableUsers.map(u => u.id));
       }
 
-      await this.invalidatePromoCache();
-      logger.info(`Created promo code with ID ${savedPromoCode.id}, invalidated cache.`);
+      const deletedCount = await this.invalidatePromoCache();
+      logger.info(`Created promo code with ID ${savedPromoCode.id}, invalidated ${deletedCount} cache keys.`);
 
       return savedPromoCode;
     });
@@ -389,8 +478,8 @@ export class PromoCodeService {
         }
       }
 
-      await this.invalidatePromoCache(id);
-      logger.info(`Updated promo code with ID ${id}, invalidated caches.`);
+      const deletedCount = await this.invalidatePromoCache(id);
+      logger.info(`Updated promo code with ID ${id}, invalidated ${deletedCount} cache keys.`);
 
       return updatedPromoCode;
     });
@@ -405,15 +494,16 @@ export class PromoCodeService {
         throw new NotFoundError('Promo code not found');
       }
 
-      await this.invalidatePromoCache(id);
-      logger.info(`Deleted promo code with ID ${id}, invalidated caches.`);
+      const deletedCount = await this.invalidatePromoCache(id);
+      logger.info(`Deleted promo code with ID ${id}, invalidated ${deletedCount} cache keys.`);
     });
   }
 
   async addApplicablePlans(promoCodeId: string, planIds: string[]): Promise<void> {
     return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
       await this._addApplicablePlans(transactionalEntityManager, promoCodeId, planIds);
-      await this.invalidateSinglePromoCache(promoCodeId);
+      const deletedCount = await this.invalidateSinglePromoCache(promoCodeId);
+      logger.info(`Added applicable plans to promo code ${promoCodeId}, invalidated ${deletedCount} cache keys.`);
     });
   }
 
@@ -426,7 +516,8 @@ export class PromoCodeService {
   async addApplicableUsers(promoCodeId: string, userIds: string[]): Promise<void> {
     return AppDataSource.manager.transaction(async (transactionalEntityManager) => {
       await this._addApplicableUsers(transactionalEntityManager, promoCodeId, userIds);
-      await this.invalidateSinglePromoCache(promoCodeId);
+      const deletedCount = await this.invalidateSinglePromoCache(promoCodeId);
+      logger.info(`Added applicable users to promo code ${promoCodeId}, invalidated ${deletedCount} cache keys.`);
     });
   }
 
@@ -501,8 +592,8 @@ export class PromoCodeService {
 
       const savedPromoCode = await subPromoCodeRepo.save(subscriptionPromoCode);
 
-      await this.invalidatePromoCache(promoCodeId);
-      logger.info(`Applied promo code ${promoCodeId} to subscription ${subscriptionId}, invalidated caches.`);
+      const deletedCount = await this.invalidatePromoCache(promoCodeId);
+      logger.info(`Applied promo code ${promoCodeId} to subscription ${subscriptionId}, invalidated ${deletedCount} cache keys.`);
 
       return savedPromoCode;
     });

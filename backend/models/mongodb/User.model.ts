@@ -176,6 +176,14 @@ const userSchema = new Schema<UserDocument>({
     enum: Object.values(UserRole),
     default: UserRole.USER 
   },
+  // Add application-specific roles and permissions
+  applicationRoles: [{
+    application: { type: String, required: true }, // 'superadmin', 'app1', 'app2'
+    role: { type: String, required: true },        // 'admin', 'manager', 'user'
+    permissions: [String]                          // Override permissions
+  }],
+    // Add to track permission changes
+    permissionVersion: { type: Number, default: 1 },
   permissions: [{ type: String }],
   isActive: { type: Boolean, default: true },
   isEmailVerified: { type: Boolean, default: false },

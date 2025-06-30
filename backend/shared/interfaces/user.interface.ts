@@ -185,7 +185,7 @@ export interface IUser {
   lastName: string;
   phoneNumber?: string;
   role: UserRole;
-  permissions?: string[];
+  // permissions?: string[];
   isActive: boolean;
   isEmailVerified?: boolean;
   lastLogin?: Date;
@@ -195,6 +195,8 @@ export interface IUser {
   preferences: UserPreferences;
   securityPreferences?: SecurityPreferences;
   devices?: UserDevice[];
+  applicationRoles?: Array<{ application: string; role: string; permissions: string[] }>;
+  permissionVersion?: number;
   
   // Astrology-specific properties
   astrologyProfile?: AstrologyUserProfile;
@@ -234,6 +236,13 @@ export interface UserDocument extends Document {
   preferences?: UserPreferences;
   securityPreferences?: SecurityPreferences;
   devices?: UserDevice[];
+  applicationRoles?: Array<{
+    application: string;
+    role: string;
+    permissions: string[];
+  }>;
+  permissionVersion?: number;
+
   
   // Astrology-specific properties
   astrologyProfile?: AstrologyUserProfile;
