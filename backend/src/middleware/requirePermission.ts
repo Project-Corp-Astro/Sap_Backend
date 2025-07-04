@@ -2,12 +2,13 @@ import { Request, Response, NextFunction } from 'express';
 import { Types } from 'mongoose';
 import { PermissionService } from '../../services/user-service/src/services/PermissionService';
 import { ForbiddenError, UnauthorizedError } from '../scripts/utils/errors';
+import { AuthUser } from '../../shared/types/auth-user'; // adjust path as needed
 
 // Define the user type to match what's in your auth middleware
-interface AuthUser {
-  _id: Types.ObjectId | string;
-  [key: string]: any;
-}
+// interface AuthUser {
+//   _id: Types.ObjectId | string;
+//   [key: string]: any;
+// }
 
 // Extend the Express Request type to include our user
 declare global {

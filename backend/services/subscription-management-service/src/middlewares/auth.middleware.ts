@@ -2,12 +2,14 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 import logger from '../utils/logger';
+import { AuthUser } from '../../../../shared/types/auth-user'; // adjust path as needed
 
 // Set the service name for logging
 const SERVICE_NAME = 'subscription-management-service';
 
 // JWT secret key - should be stored in environment variables in production
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+
 
 // Define JWT payload interface
 interface JwtPayload {
@@ -22,11 +24,7 @@ interface JwtPayload {
 declare global {
   namespace Express {
     interface Request {
-      user?: {
-        _id: string;
-        email: string;
-        rolePermissionIds: string[];
-      };
+      user?: AuthUser;
     }
   }
 }

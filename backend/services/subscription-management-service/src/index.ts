@@ -284,15 +284,20 @@ app.get('/swagger.json', (req: Request, res: Response) => {
   res.send(swaggerSpec);
 });
 
-// Error handling middleware
-app.use(errorHandler);
+// Regular route handlers should be registered before these
 
-// Not found handler - should be the last non-error middleware
+// 404 handler - must be after all other route handlers but before error handlers
 app.use((req: Request, res: Response) => {
   res.status(404).json({
     success: false,
     message: `Route ${req.originalUrl} not found`,
   });
+});
+
+// Error handling middleware - must have 4 parameters to be recognized as an error handler
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  // Delegate to the error handler
+  errorHandler(err, req, res, next);
 });
 
 // Start server

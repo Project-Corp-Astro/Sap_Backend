@@ -4,7 +4,7 @@ import mediaController from '../controllers/media.controller';
 import { authMiddleware } from '../middlewares/auth.middleware';
 import { MediaType, VideoProvider } from '../interfaces/media.interfaces';
 import { ContentStatus } from '../interfaces/content.interfaces';
-import { requirePermission } from 'src/middleware/requirePermission';
+import { requirePermission } from '../../../../src/middleware/requirePermission';
 
 const router: Router = express.Router();
 
