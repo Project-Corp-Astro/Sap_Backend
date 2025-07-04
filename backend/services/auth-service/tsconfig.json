@@ -7,6 +7,7 @@
     "baseUrl": "../../",
     "paths": {
       "@shared/*": ["shared/*"],
+      "@models/*": ["models/*"],
       "@corp-astro/shared-types": ["shared/types"],
       "@corp-astro/shared-types/*": ["shared/types/*"]
     },

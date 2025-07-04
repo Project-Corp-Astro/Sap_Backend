@@ -4,22 +4,23 @@ import crypto from 'crypto';
 import { authenticator } from 'otplib';
 import QRCode from 'qrcode';
 import User from '../models/User';
+import { IUser } from '../../../../shared/interfaces/user.interface';
 import { otpCache } from '../utils/redis';
 import emailService from '../../../../shared/utils/email';
 import logger from '../../../../shared/utils/logger';
-import { IUser } from '../../../../shared/interfaces/user.interface';
 import { asIUser } from '../utils/type-assertions';
 // JWT secret key - should be stored in environment variables in production
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '1h';
 const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'your-refresh-secret-key';
 const JWT_REFRESH_EXPIRES_IN = process.env.JWT_REFRESH_EXPIRES_IN || '7d';
-
+// Add this import at the top of the file with other imports
+import RolePermissionModel from '../../../../models/mongodb/RolePermission.model';
 // MFA settings
 const MFA_APP_NAME = process.env.MFA_APP_NAME || 'SAP Corp Astro';
 
 // Password reset settings
-const PASSWORD_RESET_EXPIRES = 90; // 5 minutes in seconds
+const PASSWORD_RESET_EXPIRES = 90; // 1 1/2 minutes in seconds
 const OTP_LENGTH = 4;
 
 // Login attempt settings
@@ -39,7 +40,7 @@ export interface UserData {
 export interface TokenPayload {
   userId: string;
   email?: string;
-  role?: string;
+  rolePermissionIds: string[];
   iat?: number;
   exp?: number;
 }
@@ -81,23 +82,27 @@ export const register = async (userData: UserData): Promise<any> => {
         throw new Error('Username already taken');
       }
     }
-    
-    // Create user instance with plain password
+
+    // Find the default 'user' role
+    const userRole = await RolePermissionModel.findOne({ 
+      role: 'user',
+      application: '*' 
+    });
+
+    if (!userRole) {
+      throw new Error('Default user role not found. Please contact support.');
+    }
+
+    // Create user with the 'user' role
     const user = new User({
       ...userData,
-      password: userData.password,
+      password: userData.password, // The pre-save hook will hash this
       isActive: true,
-      role: 'user'
+      roles: [{ role: userRole._id }]
     });
-    
-    // Log the password before saving (for debugging only - remove in production)
-    console.log('Registering password:', userData.password);
     
     // Save user with proper password handling
     await user.save();
-    
-    // Log the saved password hash (for debugging only - remove in production)
-    console.log('Saved password hash:', user.password);
     
     // Send welcome email
     try {
@@ -108,16 +113,19 @@ export const register = async (userData: UserData): Promise<any> => {
       // Don't throw error here as it shouldn't prevent registration
     }
 
-    // Return user without password
+    // Return user without sensitive data
     const userObject = user.toObject();
     delete userObject.password;
     
+    // Log successful registration
+    logger.info(`New user registered: ${user.email} with role '${userRole.role}'`);
+    
     return userObject;
   } catch (error) {
+    logger.error('Registration error:', error);
     throw error;
   }
 };
-
 /**
  * Authenticate a user and generate tokens
  * @param email - User email
@@ -156,8 +164,9 @@ export const login = async (email: string, password: string): Promise<AuthData> 
     user.lastLogin = new Date();
     await user.save();
     
-    // Generate tokens
-    const tokens = generateTokens(user);
+    // Convert to IUser and generate tokens
+    const userData = asIUser(user);
+    const tokens = generateTokens(userData);
     
     // Return user data without password
     const userObject = user.toObject();
@@ -184,7 +193,7 @@ export const generateTokens = (user: IUser): AuthTokens => {
     const payload: TokenPayload = {
       userId: user._id.toString(),
       email: user.email,
-      role: user.role
+      rolePermissionIds: user.roles.map(roleId => roleId.toString())
     };
     
     // Generate access token
@@ -227,11 +236,14 @@ export const refreshToken = async (refreshToken: string): Promise<{ accessToken:
       throw new Error('Invalid token or inactive user');
     }
     
+    // Convert to IUser
+    const userData = asIUser(user);
+    
     // Generate new access token
     const payload: TokenPayload = {
       userId: user._id.toString(),
       email: user.email,
-      role: user.role
+      rolePermissionIds: user.roles.map(roleId => roleId.toString())
     };
     
     const accessToken = jwt.sign(
@@ -285,7 +297,8 @@ export const getUserById = async (userId: string): Promise<IUser> => {
       throw new Error('User not found');
     }
     
-    return user;
+    // Convert to IUser
+    return asIUser(user);
   } catch (error) {
     throw error;
   }
@@ -327,7 +340,6 @@ export const setupMFA = async (userId: string): Promise<MFAData> => {
     throw error;
   }
 };
-
 /**
  * Verify MFA token
  * @param userId - User ID
@@ -632,14 +644,11 @@ export const resetPasswordWithOTP = async (email: string, newPassword: string): 
     // Clear login attempts
     user.loginAttempts = [];
     
-    // Save user without validation first to ensure password is hashed properly
+    // Save the user with the new password
     await user.save();
-    
-    // Then save with validation
-    const savedUser = await user.save({ validateBeforeSave: true });
 
-    // Invalidate all existing tokens
-    // This is done by updating passwordChangedAt
+    // The passwordChangedAt field will be updated by the pre-save hook
+    // which will automatically invalidate existing tokens
   } catch (error: any) {
     console.error('Password reset error:', error);
     // Add more specific error handling

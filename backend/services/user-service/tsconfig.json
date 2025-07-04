@@ -20,6 +20,6 @@
     "noImplicitThis": false,
     "strictPropertyInitialization": false
   },
-  "include": ["src/**/*", "../../shared/**/*"],
+  "include": ["src/**/*", "../../shared/**/*", "../../src/middleware/validators/role.validator.ts"],
   "exclude": ["node_modules", "**/*.test.ts"]
 }

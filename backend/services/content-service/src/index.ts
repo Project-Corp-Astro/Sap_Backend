@@ -10,9 +10,6 @@ import logger, { requestLogger, errorLogger } from './utils/logger';
 import { trackResponseTime, trackDatabasePerformance } from './middlewares/performance.middleware';
 import config from './config';
 import { redisUtils, contentCache, mediaCache, videoCache, categoryCache } from './utils/redis';
-
-// Logger is imported from ./utils/logger
-
 // Import routes
 import contentRoutes from './routes/content.routes';
 import mediaRoutes from './routes/media.routes';

@@ -14,9 +14,9 @@ import dbManager from './utils/DatabaseManager';
 import healthRoutes from './routes/health.routes';
 // Import route modules with explicit path resolution
 // TypeScript will resolve these imports correctly without extensions
-import authRoutes from '../routes/auth';
-import userRoutes from '../routes/users';
-import contentRoutes from '../routes/content';
+// import userRoutes from '../routes/users';
+// import contentRoutes from '../routes/content';
+import roleRoutes from '../services/user-service/src/routes/role.routes';
 
 // Create logger
 const logger = createServiceLogger('app');
@@ -50,16 +50,16 @@ app.use(morgan('combined'));
 // Routes
 app.use('/health', healthRoutes);
 
-// Use TypeScript route implementations
-try {
-  // Add type assertions to fix TypeScript errors with Express route handlers
-  app.use('/api/auth', authRoutes as express.Router);
-  app.use('/api/users', userRoutes as express.Router);
-  app.use('/api/content', contentRoutes as express.Router);
-  logger.info('Using TypeScript route implementations');
-} catch (error) {
-  logger.error('Error loading TypeScript routes', { error: (error as Error).message });
-}
+// // Use TypeScript route implementations
+// try {
+//   // Add type assertions to fix TypeScript errors with Express route handlers
+//   // app.use('/api/users', userRoutes as express.Router);
+//   // app.use('/api/content', contentRoutes as express.Router);
+ 
+//   logger.info('Using TypeScript route implementations');
+// } catch (error) {
+//   logger.error('Error loading TypeScript routes', { error: (error as Error).message });
+// }
 
 // Root route
 app.get('/', (req: Request, res: Response) => {
@@ -78,15 +78,50 @@ app.use((req: Request, res: Response) => {
   });
 });
 
-// Error handler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+
+// Error handling middleware
+const errorHandlerMiddleware = (err: any, req: Request, res: Response, next: NextFunction) => {
   logger.error('Unhandled error', { error: err.message, stack: err.stack });
   
-  res.status(500).json({
-    error: 'Internal Server Error',
-    message: process.env.NODE_ENV === 'production' ? 'An unexpected error occurred' : err.message
+  // If headers already sent, delegate to the default Express error handler
+  if (res.headersSent) {
+    return next(err);
+  }
+  
+  // Handle validation errors
+  if (err.name === 'ValidationError') {
+    res.status(400).json({
+      success: false,
+      error: {
+        message: 'Validation Error',
+        details: err.message,
+        ...(process.env.NODE_ENV !== 'production' && { stack: err.stack })
+      }
+    });
+    return;
+  }
+  
+  // Handle other errors
+  const statusCode = (err as any).statusCode || 500;
+  const errorMessage = err.message || 'Internal Server Error';
+  
+  res.status(statusCode).json({
+    success: false,
+    error: {
+      message: errorMessage,
+      ...(process.env.NODE_ENV !== 'production' && { 
+        details: errorMessage,
+        stack: err.stack 
+      })
+    }
   });
-});
+};
+
+
+
+
+// Apply general error handler
+app.use(errorHandlerMiddleware);
 
 // Graceful shutdown
 const gracefulShutdown = (signal: string) => {

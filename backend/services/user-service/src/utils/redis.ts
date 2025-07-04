@@ -1,18 +1,15 @@
-import { RedisCache, createServiceRedisClient, SERVICE_DB_MAPPING, RedisOptions } from '../../../../shared/utils/redis-manager';
+import { RedisCache, createServiceRedisClient, SERVICE_DB_MAPPING } from '../../../../shared/utils/redis-manager';
 import type { Redis as IORedis } from 'ioredis';
 import logger from '../../../../shared/utils/logger';
 import config from '../../../../shared/config';
 
-// Constants
 const SERVICE_NAME = 'user';
 
-// Create service-specific Redis clients by purpose
+// Create service-specific Redis clients
 export const defaultCache = new RedisCache(SERVICE_NAME, { keyPrefix: `${SERVICE_NAME}:default:` });
 export const userCache = new RedisCache(SERVICE_NAME, { keyPrefix: `${SERVICE_NAME}:users:` });
-export const permissionCache = new RedisCache(SERVICE_NAME, { keyPrefix: `${SERVICE_NAME}:permissions:` });
-export const roleCache = new RedisCache(SERVICE_NAME, { keyPrefix: `${SERVICE_NAME}:roles:` });
+export const rolePermissionCache = new RedisCache(SERVICE_NAME, { keyPrefix: `${SERVICE_NAME}:rolePermission:` });
 
-// Create standard Redis client instance
 const redisClient: IORedis = createServiceRedisClient(SERVICE_NAME, {
   host: config.get('redis.host', 'localhost'),
   port: parseInt(config.get('redis.port', '6379')),
@@ -23,7 +20,6 @@ const redisClient: IORedis = createServiceRedisClient(SERVICE_NAME, {
   enableReadyCheck: true,
 });
 
-// Connection event handlers
 redisClient.on('error', (error) => {
   logger.error('Redis client error:', { error: error.message });
 });
@@ -37,29 +33,15 @@ redisClient.on('reconnecting', () => {
   logger.info('Redis client reconnecting...');
 });
 
-// Log Redis database information
 logger.info(`User service using Redis database ${SERVICE_DB_MAPPING[SERVICE_NAME] || 2}`);
 
-/**
- * Enhanced Redis utilities for the User Service
- * - Uses service-isolated Redis databases
- * - Provides purpose-specific caching for different data types
- * - Includes fault tolerance and fallback mechanisms
- * - Tracks cache hit/miss statistics
- */
 interface RedisUtils {
   stats: {
     defaultCache: { hits: number; misses: number };
     userCache: { hits: number; misses: number };
-    permissionCache: { hits: number; misses: number };
-    roleCache: { hits: number; misses: number };
+    rolePermissionCache: { hits: number; misses: number };
   };
-  getStats: () => {
-    defaultCache: { hits: number; misses: number; hitRate: number };
-    userCache: { hits: number; misses: number; hitRate: number };
-    permissionCache: { hits: number; misses: number; hitRate: number };
-    roleCache: { hits: number; misses: number; hitRate: number };
-  };
+  getStats: () => any;
   set: (key: string, value: any, expiryInSeconds?: number) => Promise<'OK' | string>;
   get: <T = any>(key: string) => Promise<T | null>;
   del: (key: string) => Promise<number>;
@@ -68,20 +50,16 @@ interface RedisUtils {
   pingRedis: () => Promise<boolean>;
   cacheUser: (userId: string, userData: any, ttlSeconds?: number) => Promise<boolean>;
   getCachedUser: (userId: string) => Promise<any>;
-  cachePermission: (permissionId: string, permissionData: any, ttlSeconds?: number) => Promise<boolean>;
-  getCachedPermission: (permissionId: string) => Promise<any>;
-  cacheRole: (roleId: string, roleData: any, ttlSeconds?: number) => Promise<boolean>;
-  getCachedRole: (roleId: string) => Promise<any>;
+  cacheRolePermission: (rolePermissionId: string, data: any, ttlSeconds?: number) => Promise<boolean>;
+  getCachedRolePermission: (rolePermissionId: string) => Promise<any>;
   invalidateUserCache: (userId: string) => Promise<number>;
 }
 
 const redisUtils: RedisUtils = {
-  // Cache statistics
   stats: {
     defaultCache: { hits: 0, misses: 0 },
     userCache: { hits: 0, misses: 0 },
-    permissionCache: { hits: 0, misses: 0 },
-    roleCache: { hits: 0, misses: 0 }
+    rolePermissionCache: { hits: 0, misses: 0 }
   },
 
   getStats() {
@@ -94,13 +72,9 @@ const redisUtils: RedisUtils = {
         ...this.stats.userCache,
         hitRate: this.stats.userCache.hits / (this.stats.userCache.hits + this.stats.userCache.misses) || 0
       },
-      permissionCache: {
-        ...this.stats.permissionCache,
-        hitRate: this.stats.permissionCache.hits / (this.stats.permissionCache.hits + this.stats.permissionCache.misses) || 0
-      },
-      roleCache: {
-        ...this.stats.roleCache,
-        hitRate: this.stats.roleCache.hits / (this.stats.roleCache.hits + this.stats.roleCache.misses) || 0
+      rolePermissionCache: {
+        ...this.stats.rolePermissionCache,
+        hitRate: this.stats.rolePermissionCache.hits / (this.stats.rolePermissionCache.hits + this.stats.rolePermissionCache.misses) || 0
       }
     };
   },
@@ -208,14 +182,8 @@ const redisUtils: RedisUtils = {
       })
     );
     closePromises.push(
-      permissionCache.getClient().quit().catch(error => {
-        errors.push({ client: 'permission', error: (error as Error).message });
-        return '';
-      })
-    );
-    closePromises.push(
-      roleCache.getClient().quit().catch(error => {
-        errors.push({ client: 'role', error: (error as Error).message });
+      rolePermissionCache.getClient().quit().catch(error => {
+        errors.push({ client: 'rolePermission', error: (error as Error).message });
         return '';
       })
     );
@@ -276,48 +244,25 @@ const redisUtils: RedisUtils = {
     }
   },
 
-  async cachePermission(permissionId: string, permissionData: any, ttlSeconds: number = 3600): Promise<boolean> {
+  async cacheRolePermission(rolePermissionId: string, data: any, ttlSeconds: number = 3600): Promise<boolean> {
     try {
-      const cacheKey = `${permissionId}:permission`;
-      return await permissionCache.set(cacheKey, permissionData, ttlSeconds);
+      const cacheKey = `${rolePermissionId}:rolePermission`;
+      return await rolePermissionCache.set(cacheKey, data, ttlSeconds);
     } catch (error: unknown) {
-      logger.error(`Error caching permission ${permissionId}:`, { error: error instanceof Error ? error.message : String(error) });
+      logger.error(`Error caching rolePermission ${rolePermissionId}:`, { error: error instanceof Error ? error.message : String(error) });
       return false;
     }
   },
 
-  async getCachedPermission(permissionId: string): Promise<any> {
+  async getCachedRolePermission(rolePermissionId: string): Promise<any> {
     try {
-      const cacheKey = `${permissionId}:permission`;
-      const value = await permissionCache.get<any>(cacheKey);
-      this.stats.permissionCache[value ? 'hits' : 'misses']++;
+      const cacheKey = `${rolePermissionId}:rolePermission`;
+      const value = await rolePermissionCache.get<any>(cacheKey);
+      this.stats.rolePermissionCache[value ? 'hits' : 'misses']++;
       return value;
     } catch (error: unknown) {
-      this.stats.permissionCache.misses++;
-      logger.warn(`Error getting cached permission ${permissionId}:`, { error: error instanceof Error ? error.message : String(error) });
-      return null;
-    }
-  },
-
-  async cacheRole(roleId: string, roleData: any, ttlSeconds: number = 3600): Promise<boolean> {
-    try {
-      const cacheKey = `${roleId}:role`;
-      return await roleCache.set(cacheKey, roleData, ttlSeconds);
-    } catch (error: unknown) {
-      logger.error(`Error caching role ${roleId}:`, { error: error instanceof Error ? error.message : String(error) });
-      return false;
-    }
-  },
-
-  async getCachedRole(roleId: string): Promise<any> {
-    try {
-      const cacheKey = `${roleId}:role`;
-      const value = await roleCache.get<any>(cacheKey);
-      this.stats.roleCache[value ? 'hits' : 'misses']++;
-      return value;
-    } catch (error: unknown) {
-      this.stats.roleCache.misses++;
-      logger.warn(`Error getting cached role ${roleId}:`, { error: error instanceof Error ? error.message : String(error) });
+      this.stats.rolePermissionCache.misses++;
+      logger.warn(`Error getting cached rolePermission ${rolePermissionId}:`, { error: error instanceof Error ? error.message : String(error) });
       return null;
     }
   },
@@ -325,22 +270,10 @@ const redisUtils: RedisUtils = {
   async invalidateUserCache(userId: string): Promise<number> {
     try {
       const userPattern = `${userId}:user`;
-      const permissionPattern = `${userId}:permissions`;
-      const rolePattern = `${userId}:roles`;
-
-      const [userKeys, permissionKeys, roleKeys] = await Promise.all([
-        userCache.getClient().keys(userPattern),
-        permissionCache.getClient().keys(permissionPattern),
-        roleCache.getClient().keys(rolePattern)
-      ]);
-
-      const allKeys = [...userKeys, ...permissionKeys, ...roleKeys];
-      if (allKeys.length === 0) return 0;
-
-      const deletions = await Promise.all([
-        allKeys.length ? userCache.getClient().del(...allKeys) : Promise.resolve(0)
-      ]);
-      return deletions.reduce((sum, count) => sum + count, 0);
+      const userKeys = await userCache.getClient().keys(userPattern);
+      if (userKeys.length === 0) return 0;
+      const deletions = await userCache.getClient().del(...userKeys);
+      return deletions;
     } catch (error: unknown) {
       logger.warn(`Failed to invalidate cache for user ${userId}:`, { error: error instanceof Error ? error.message : String(error) });
       return 0;
@@ -348,12 +281,10 @@ const redisUtils: RedisUtils = {
   }
 };
 
-// Export the Redis utilities
 export default {
   redisClient,
   redisUtils,
   defaultCache,
   userCache,
-  permissionCache,
-  roleCache
+  rolePermissionCache
 };
