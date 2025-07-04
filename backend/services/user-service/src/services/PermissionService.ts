@@ -2,6 +2,13 @@ import UserModel from '../models/User';
 import RolePermissionModel from '../models/RolePermission.model';
 import { Types } from 'mongoose';
 
+interface Permission {
+  resource: string;
+  action: string;
+}
+
+type PermissionInput = string | Permission;
+
 export class PermissionService {
   /**
    * Check if a user has the required permission
@@ -75,7 +82,7 @@ export class PermissionService {
       for (const role of rolesToCheck) {
         // Normalize permissions to array of { resource, action } objects
         const normalizedPermissions = Array.isArray(role.permissions) 
-          ? role.permissions.map(p => {
+          ? role.permissions.map((p: PermissionInput): Permission => {
               if (typeof p === 'string') {
                 const [resource, action] = p.split(':');
                 return { resource, action };
@@ -85,12 +92,12 @@ export class PermissionService {
           : [];
 
         // Check if role has wildcard permission
-        if (normalizedPermissions.some(p => p.resource === '*' && p.action === '*')) {
+        if (normalizedPermissions.some((p: Permission) => p.resource === '*' && p.action === '*')) {
           return true;
         }
 
         // Check specific permission
-        if (normalizedPermissions.some(p => {
+        if (normalizedPermissions.some((p: Permission) => {
           return (p.resource === requiredResource || p.resource === '*') && 
                  (p.action === requiredAction || p.action === '*');
         })) {
@@ -170,7 +177,7 @@ export class PermissionService {
       
       // Normalize permissions
       const normalizedPermissions = Array.isArray(role.permissions) 
-        ? role.permissions.map(p => {
+        ? role.permissions.map((p: PermissionInput): Permission => {
             if (typeof p === 'string') {
               const [resource, action] = p.split(':');
               return { resource, action };
@@ -180,12 +187,12 @@ export class PermissionService {
         : [];
 
       // Check wildcard permission
-      if (normalizedPermissions.some(p => p.resource === '*' && p.action === '*')) {
+      if (normalizedPermissions.some((p: Permission) => p.resource === '*' && p.action === '*')) {
         return true;
       }
 
       // Check specific permission
-      return normalizedPermissions.some(p => {
+      return normalizedPermissions.some((p: Permission) => {
         return (p.resource === requiredResource || p.resource === '*') && 
                (p.action === requiredAction || p.action === '*');
       });

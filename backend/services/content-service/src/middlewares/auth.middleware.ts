@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 import { createServiceLogger } from '../utils/sharedLogger';
+import { AuthUser } from '../../../../shared/types/auth-user'; // adjust path as needed
 
 // Initialize logger
 const logger = createServiceLogger('auth-middleware');
@@ -22,11 +23,7 @@ interface JwtPayload {
 declare global {
   namespace Express {
     interface Request {
-      user?: {
-        _id: string;
-        email: string;
-        rolePermissionIds: string[];
-      };
+      user?: AuthUser;
     }
   }
 }

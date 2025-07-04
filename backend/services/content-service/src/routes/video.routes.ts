@@ -3,7 +3,7 @@
 import { Router, RequestHandler } from 'express';
 import videoController from '../controllers/video.controller';
 import { authMiddleware } from '../middlewares/auth.middleware';
-import { requirePermission } from 'src/middleware/requirePermission';
+import { requirePermission } from '../../../../src/middleware/requirePermission';
 
 const router = Router();
 

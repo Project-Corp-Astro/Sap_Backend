@@ -1,4 +1,5 @@
 import Video from '../models/Video';
+import { RequestUser } from '../interfaces/shared-types';
 import {
   VideoDocument,
   CreateVideoInput,
@@ -158,9 +159,21 @@ class VideoService {
     return video;
   }
 
-  async updateVideo(id: string, updateData: UpdateVideoInput): Promise<VideoDocument | null> {
+  async updateVideo(id: string, updateData: UpdateVideoInput, user: RequestUser): Promise<VideoDocument | null> {
     const video = await Video.findById(id);
     if (!video) return null;
+
+    // Check if user is the author or has admin role
+    if (video.author && typeof video.author === 'object' && 'id' in video.author) {
+      const isAuthor = video.author.id.toString() === user._id.toString();
+      const isAdmin = user.rolePermissionIds?.some(permission => 
+        permission.includes('admin') || permission.includes('content:admin')
+      );
+
+      if (!isAuthor && !isAdmin) {
+        throw new Error('You can only update your own videos');
+      }
+    }
 
     if (updateData.title && updateData.title !== video.title) {
       const newSlug = slugify(updateData.title, { lower: true, strict: true });
@@ -168,11 +181,15 @@ class VideoService {
       updateData.slug = existing ? `${newSlug}-${Math.random().toString(36).substring(2, 7)}` : newSlug;
     }
 
-    if (updateData.status === 'published' && !video.publishedAt) {
-      updateData.publishedAt = new Date();
-    }
+    const updatePayload = {
+      ...updateData,
+      // Set publishedAt if this is a new publish
+      ...(updateData.status === 'published' && !video.publishedAt ? { publishedAt: new Date() } : {}),
+      // Always update the updatedAt timestamp
+      updatedAt: new Date()
+    };
 
-    const updatedVideo = await Video.findByIdAndUpdate(id, { $set: updateData }, { new: true });
+    const updatedVideo = await Video.findByIdAndUpdate(id, { $set: updatePayload }, { new: true });
     if (!updatedVideo) return null;
 
     // Update caches
@@ -205,9 +222,21 @@ class VideoService {
     return updatedVideo;
   }
 
-  async deleteVideo(id: string): Promise<VideoDocument | null> {
+  async deleteVideo(id: string, user: RequestUser): Promise<VideoDocument | null> {
     const video = await Video.findById(id);
     if (!video) return null;
+
+    // Check if user is the author or has admin role
+    if (video.author && typeof video.author === 'object' && 'id' in video.author) {
+      const isAuthor = video.author.id.toString() === user._id.toString();
+      const isAdmin = user.rolePermissionIds?.some(permission => 
+        permission.includes('admin') || permission.includes('content:admin')
+      );
+
+      if (!isAuthor && !isAdmin) {
+        throw new Error('You can only delete your own videos');
+      }
+    }
 
     await Video.findByIdAndDelete(id);
 

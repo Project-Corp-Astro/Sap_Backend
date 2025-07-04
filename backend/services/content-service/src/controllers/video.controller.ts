@@ -2,6 +2,7 @@
 
 import { Request, Response, NextFunction } from 'express';
 import videoService from '../services/video.service';
+import { RequestUser } from '../interfaces/shared-types';
 import {
   CreateVideoInput,
   UpdateVideoInput,
@@ -18,10 +19,14 @@ class VideoController {
         return res.status(400).json({ success: false, message: 'Title, description, and URL are required', error: 'ValidationError' });
       }
 
-      const user = req.user as { firstName: string; userId: string; email: string; role: string };
+      const user = req.user as RequestUser;
+      if (!user) {
+        return res.status(401).json({ success: false, message: 'Authentication required' });
+      }
+
       videoData.author = {
-        id: user.userId,
-        name: 'goutham',
+        id: user._id.toString(),
+        name: user.username || user.email.split('@')[0],
         email: user.email
       };
 
@@ -90,12 +95,22 @@ class VideoController {
 
   async updateVideo(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
-      const video = await videoService.updateVideo(req.params.id, req.body);
+      const user = req.user as RequestUser;
+      if (!user) {
+        return res.status(401).json({ success: false, message: 'Authentication required' });
+      }
+
+      const video = await videoService.updateVideo(req.params.id, req.body, user);
       if (!video) return res.status(404).json({ success: false, message: 'Video not found' });
       return res.status(200).json({ success: true, message: 'Video updated', data: video });
     } catch (error) {
-      if (error instanceof Error && error.message.includes('Validation Error')) {
-        return res.status(400).json({ success: false, message: error.message, error: 'ValidationError' });
+      if (error instanceof Error) {
+        if (error.message.includes('Validation Error')) {
+          return res.status(400).json({ success: false, message: error.message, error: 'ValidationError' });
+        }
+        if (error.message.includes('You can only update your own videos')) {
+          return res.status(403).json({ success: false, message: error.message });
+        }
       }
       next(error);
     }
@@ -103,10 +118,18 @@ class VideoController {
 
   async deleteVideo(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
-      const video = await videoService.deleteVideo(req.params.id);
+      const user = req.user as RequestUser;
+      if (!user) {
+        return res.status(401).json({ success: false, message: 'Authentication required' });
+      }
+
+      const video = await videoService.deleteVideo(req.params.id, user);
       if (!video) return res.status(404).json({ success: false, message: 'Video not found' });
       return res.status(200).json({ success: true, message: 'Video deleted', data: { id: req.params.id } });
     } catch (error) {
+      if (error instanceof Error && error.message.includes('You can only delete your own videos')) {
+        return res.status(403).json({ success: false, message: error.message });
+      }
       next(error);
     }
   }

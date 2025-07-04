@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction, Router } from 'express';
 import * as userController from '../controllers/user.controller';
 import { authMiddleware } from '../middlewares/auth.middleware';
-import { requirePermission } from 'src/middleware/requirePermission';
+import { requirePermission } from '../../../../src/middleware/requirePermission';
 
 // Export controllers for testing purposes
 export { userController };

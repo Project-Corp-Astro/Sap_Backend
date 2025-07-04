@@ -4,6 +4,7 @@ import { Request, Response, NextFunction } from 'express';
 import * as contentService from '../services/content.service';
 import { createServiceLogger } from '../utils/sharedLogger';
 import { ContentStatus, ContentType } from '@corp-astro/shared-types';
+import { RequestUser } from '../interfaces/shared-types';
 
 const logger = createServiceLogger('content-controller');
 
@@ -11,18 +12,28 @@ class ContentController {
   async createContent(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const contentData = req.body;
-      const { user } = req;
+      const user = req.user as RequestUser;
 
-      if (!user) return res.status(401).json({ success: false, message: 'Authentication required' });
+      if (!user) {
+        return res.status(401).json({ success: false, message: 'Authentication required' });
+      }
 
       const requiredFields = ['title', 'description', 'body', 'category'];
       const missingFields = requiredFields.filter(field => !contentData[field]);
       if (missingFields.length > 0) {
-        return res.status(400).json({ success: false, message: 'Required fields missing', missingFields });
+        return res.status(400).json({ 
+          success: false, 
+          message: 'Required fields missing', 
+          missingFields 
+        });
       }
 
       const content = await contentService.createContent(contentData, user);
-      return res.status(201).json({ success: true, message: 'Content created successfully', data: content });
+      return res.status(201).json({ 
+        success: true, 
+        message: 'Content created successfully', 
+        data: content 
+      });
     } catch (error) {
       logger.error('Error in createContent', { error: (error as Error).message });
       return next(error);
@@ -78,10 +89,19 @@ class ContentController {
   async updateContent(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const { contentId } = req.params;
-      const { user } = req;
+      const user = req.user as RequestUser;
       const updateData = req.body;
+      
+      if (!user) {
+        return res.status(401).json({ success: false, message: 'Authentication required' });
+      }
+
       const updated = await contentService.updateContent(contentId, updateData, user);
-      return res.status(200).json({ success: true, message: 'Content updated successfully', data: updated });
+      return res.status(200).json({ 
+        success: true, 
+        message: 'Content updated successfully', 
+        data: updated 
+      });
     } catch (error) {
       logger.error('Error in updateContent', { error: (error as Error).message });
       return next(error);
@@ -91,9 +111,17 @@ class ContentController {
   async deleteContent(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       const { contentId } = req.params;
-      const { user } = req;
+      const user = req.user as RequestUser;
+      
+      if (!user) {
+        return res.status(401).json({ success: false, message: 'Authentication required' });
+      }
+
       await contentService.deleteContent(contentId, user);
-      return res.status(200).json({ success: true, message: 'Content deleted successfully' });
+      return res.status(200).json({ 
+        success: true, 
+        message: 'Content deleted successfully' 
+      });
     } catch (error) {
       logger.error('Error in deleteContent', { error: (error as Error).message });
       return next(error);

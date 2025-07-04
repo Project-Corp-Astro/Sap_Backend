@@ -387,19 +387,29 @@ export async function getTopContent(req: Request, res: Response, next: NextFunct
       .select('_id title slug viewCount likeCount shareCount author publishedAt');
 
     // Format top content
-    const formattedData: TopContentItem[] = topContent.map((item) => ({
-      id: item._id.toString(),
-      title: item.title,
-      slug: item.slug,
-      views: item.viewCount || 0,
-      engagement: item.likeCount || 0,
-      shares: (item as any).shareCount || 0,
-      author: {
-        id: item.author.id,
-        name: item.author.name,
-      },
-      publishedAt: item.publishedAt ? item.publishedAt.toISOString() : '',
-    }));
+    const formattedData: TopContentItem[] = topContent.map((item) => {
+      // Handle case where author is a string ID or an Author object
+      const authorInfo = typeof item.author === 'string' 
+        ? { id: item.author, name: 'Unknown Author' }
+        : { 
+            id: item.author?.id || 'unknown', 
+            name: item.author?.name || 'Unknown Author' 
+          };
+
+      return {
+        id: item._id.toString(),
+        title: item.title,
+        slug: item.slug,
+        views: item.viewCount || 0,
+        engagement: item.likeCount || 0,
+        shares: (item as any).shareCount || 0,
+        author: {
+          id: authorInfo.id,
+          name: authorInfo.name,
+        },
+        publishedAt: item.publishedAt ? item.publishedAt.toISOString() : '',
+      };
+    });
 
     res.status(200).json({
       success: true,

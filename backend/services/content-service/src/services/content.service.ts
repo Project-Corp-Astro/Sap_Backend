@@ -16,13 +16,24 @@ export const createContent = async (
   contentData: Partial<ExtendedContent>,
   user: RequestUser
 ): Promise<ContentDocument> => {
-  contentData.author = {
-    id: user.userId,
-    name: user.email.split('@')[0],
+  if (!user) {
+    throw new Error('User must be authenticated to create content');
+  }
+
+  // Ensure author is properly set from the authenticated user
+  const author = {
+    id: user._id.toString(),
+    name: user.username || user.email.split('@')[0],
     email: user.email
   };
-
+  
+  contentData.author = author;
   contentData.status = contentData.status || ContentStatus.DRAFT;
+  
+  // Set creation and update timestamps
+  const now = new Date();
+  contentData.createdAt = now;
+  contentData.updatedAt = now;
 
   if (!contentData.slug && contentData.title) {
     contentData.slug = contentData.title
@@ -133,6 +144,19 @@ export const updateContent = async (
   const content = await Content.findById(id);
   if (!content) throw new Error('Content not found');
 
+  // Only allow the author or admin to update content
+  if (typeof content.author !== 'string' && 'id' in content.author) {
+    const isAuthor = content.author.id === user._id.toString();
+    const isAdmin = user.rolePermissionIds?.some(permission => 
+      permission.includes('admin') || permission.includes('content:admin')
+    );
+
+    if (!isAuthor && !isAdmin) {
+      throw new Error('You can only update your own content');
+    }
+  }
+
+  // Update the content with new data
   Object.assign(content, updateData);
   
   // Update slug if title changes
@@ -144,6 +168,9 @@ export const updateContent = async (
       .replace(/-+/g, '-')
       .trim();
   }
+  
+  // Always update the updatedAt timestamp
+  content.updatedAt = new Date();
 
   const updated = await content.save();
 
@@ -164,6 +191,18 @@ export const updateContent = async (
 export const deleteContent = async (id: string, user: RequestUser): Promise<ContentDocument> => {
   const content = await Content.findById(id);
   if (!content) throw new Error('Content not found');
+
+  // Only allow the author or admin to delete content
+  if (typeof content.author !== 'string' && 'id' in content.author) {
+    const isAuthor = content.author.id === user._id.toString();
+    const isAdmin = user.rolePermissionIds?.some(permission => 
+      permission.includes('admin') || permission.includes('content:admin')
+    );
+
+    if (!isAuthor && !isAdmin) {
+      throw new Error('You can only delete your own content');
+    }
+  }
 
   await content.deleteOne();
 

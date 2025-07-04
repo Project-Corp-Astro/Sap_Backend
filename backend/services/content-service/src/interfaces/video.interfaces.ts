@@ -82,33 +82,8 @@ export interface CreateVideoInput {
 }
 
 // Video input for updating an existing video
-export interface UpdateVideoInput {
-  title?: string;
-  description?: string;
-  slug?: string;
-  url?: string;
-  thumbnailUrl?: string;
-  duration?: number;
-  fileSize?: number;
-  resolution?: {
-    width: number;
-    height: number;
-  };
-  format?: string;
-  category?: string;
-  tags?: string[];
-  status?: 'draft' | 'published' | 'archived' | 'pending_review' | 'rejected';
-  publishedAt?: Date;
-  videoProvider?: 'youtube' | 'vimeo' | 'internal' | 'other';
-  videoId?: string;
-  transcript?: string;
-  captions?: {
-    language: string;
-    url: string;
-  }[];
-  isPrivate?: boolean;
-  isDownloadable?: boolean;
-  isEmbeddable?: boolean;
+export interface UpdateVideoInput extends Partial<IVideo> {
+  updatedAt?: Date;
 }
 
 // Video filter options

@@ -1,16 +1,17 @@
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 import { Content, ContentType, ContentStatus, User } from '@corp-astro/shared-types';
 import { ZodiacSign, AstrologyContentType } from './astrology.interfaces';
+import { AuthUser } from '../../../../shared/types/auth-user';
 
 /**
  * Extended Content interface that includes backend-specific properties
  */
-export interface ExtendedContent extends Content {
+export interface ExtendedContent extends Omit<Content, 'author'> {
   slug: string;
   category: string;
   tags?: string[];
   featuredImage?: string;
-  author: Author;
+  author: Author | string; // Allow both Author object and string ID for flexibility
   archivedAt?: Date;
   viewCount?: number;
   likeCount?: number;
@@ -33,8 +34,9 @@ export interface ExtendedContent extends Content {
   relatedSigns?: ZodiacSign[];
   scheduledAt?: Date;
   
-  createdAt?: Date;
-  updatedAt?: Date;
+  // These fields are required in the base Content interface
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 /**
@@ -61,10 +63,18 @@ export interface RevisionHistoryEntry {
 /**
  * Content document interface for Mongoose
  */
-export interface ContentDocument extends ExtendedContent, Document {
-  _id: string;
+interface ContentDocumentBase extends ExtendedContent, Document {
+  _id: Types.ObjectId;
+  id: string;
   revisionHistory?: RevisionHistoryEntry[];
 }
+
+// This ensures TypeScript understands the Mongoose document methods
+export type ContentDocument = ContentDocumentBase & {
+  save: () => Promise<ContentDocument>;
+  toObject: (options?: any) => any;
+  toJSON: (options?: any) => any;
+};
 
 /**
  * Category interface
@@ -115,12 +125,9 @@ export interface ContentFilter {
 
 /**
  * User interface for request objects
+ * Extends the shared AuthUser type for content service specific needs
  */
-export interface RequestUser {
-  userId: string;
-  email: string;
-  role: string;
-  isSpecialist?: boolean;
-  businessIds?: string[];
-  subscriptionTier?: string;
+export interface RequestUser extends Omit<AuthUser, 'id' | 'role'> {
+  _id: Types.ObjectId | string;
+ 
 }
