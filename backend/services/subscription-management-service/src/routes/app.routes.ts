@@ -1,20 +1,18 @@
 import express from 'express';
-import appSubscriptionController from '../controllers/app/subscription.controller';
-import authMiddleware from '../middlewares/auth.middleware';
+import { AppSubscriptionController } from '../controllers/app/subscription.controller';
+import { authMiddleware } from '../middlewares/auth.middleware';
 
 const router = express.Router();
+const appSubscriptionController = new AppSubscriptionController();
 
-// Apply authentication to all routes
-router.use(authMiddleware.authenticate);
+// Apply authentication middleware to routes that require user authentication
+router.use(authMiddleware);
 
-// App-specific subscription routes
-router.get('/apps/:appId/plans', appSubscriptionController.getAvailablePlans);
-router.get('/apps/:appId/subscriptions', appSubscriptionController.getUserSubscription);
-router.post('/apps/:appId/subscriptions', appSubscriptionController.createSubscription);
-router.post('/apps/:appId/validate-promo-code', appSubscriptionController.validatePromoCode);
-router.post('/subscriptions/:subscriptionId/cancel', appSubscriptionController.cancelSubscription);
-
-// App dropdown route
-
+// Subscription routes
+router.get('/app/:appId/plans', appSubscriptionController.getAvailablePlans);
+router.get('/app/:appId/user', appSubscriptionController.getUserSubscription);
+router.post('/app/:appId/subscribe', appSubscriptionController.createSubscription);
+router.post('/app/:appId/subscription/:subscriptionId/cancel', appSubscriptionController.cancelSubscription);
+router.post('/app/:appId/promo-code/validate', appSubscriptionController.validatePromoCode);
 
 export default router;

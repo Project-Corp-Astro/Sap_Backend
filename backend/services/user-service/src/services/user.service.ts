@@ -14,7 +14,7 @@ import {
 } from '../interfaces/shared-types';
 import { UserRole, Permission } from '@corp-astro/shared-types';
 import redis from '../utils/redis';
-import permissionService from './permission.service';
+// import permissionService from './permission.service';
 
 const { redisUtils, userCache } = redis;
 const logger = userServiceLogger;
@@ -44,76 +44,76 @@ class UserService {
     });
   }
 
-  async createUser(userData: Partial<UserDocument>): Promise<UserDocument> {
-    try {
-      const cacheKey = `user:check:${userData.email}`;
-      try {
-        const cachedCheck = await redisUtils.get(cacheKey);
-        redisUtils.stats.defaultCache[cachedCheck ? 'hits' : 'misses']++;
-        if (cachedCheck?.email === userData.email) {
-          throw new Error('Email already in use');
-        }
-      } catch (error) {
-        redisUtils.stats.defaultCache.misses++;
-        logger.warn(`Error checking cache for email ${userData.email}: ${error instanceof Error ? error.message : String(error)}`);
-      }
+  // async createUser(userData: Partial<UserDocument>): Promise<UserDocument> {
+  //   try {
+  //     const cacheKey = `user:check:${userData.email}`;
+  //     try {
+  //       const cachedCheck = await redisUtils.get(cacheKey);
+  //       redisUtils.stats.defaultCache[cachedCheck ? 'hits' : 'misses']++;
+  //       if (cachedCheck?.email === userData.email) {
+  //         throw new Error('Email already in use');
+  //       }
+  //     } catch (error) {
+  //       redisUtils.stats.defaultCache.misses++;
+  //       logger.warn(`Error checking cache for email ${userData.email}: ${error instanceof Error ? error.message : String(error)}`);
+  //     }
 
-      const existingUser = await trackDatabaseOperation<UserDocument | null>('findUserByEmail', async () =>
-        User.findOne({ email: userData.email })
-      );
-      if (existingUser) {
-        try {
-          await redisUtils.set(cacheKey, { email: existingUser.email }, 300);
-        } catch (cacheError) {
-          logger.warn(`Error caching email check: ${cacheError instanceof Error ? cacheError.message : String(cacheError)}`);
-        }
-        throw new Error('Email already in use');
-      }
+  //     const existingUser = await trackDatabaseOperation<UserDocument | null>('findUserByEmail', async () =>
+  //       User.findOne({ email: userData.email })
+  //     );
+  //     if (existingUser) {
+  //       try {
+  //         await redisUtils.set(cacheKey, { email: existingUser.email }, 300);
+  //       } catch (cacheError) {
+  //         logger.warn(`Error caching email check: ${cacheError instanceof Error ? cacheError.message : String(cacheError)}`);
+  //       }
+  //       throw new Error('Email already in use');
+  //     }
 
-      const user = new User({
-        ...userData,
-        role: userData.role ?? UserRole.USER,
-        password: userData.password ? await bcrypt.hash(userData.password, 10) : await bcrypt.hash('Temp123!', 10),
-        preferences: userData.preferences ?? {
-          theme: 'system',
-          notifications: { email: true, push: true }
-        },
-        securityPreferences: userData.securityPreferences ?? {
-          twoFactorEnabled: false,
-          loginNotifications: true,
-          activityAlerts: true
-        },
-        isActive: true,
-        isMfaEnabled: false
-      });
+  //     const user = new User({
+  //       ...userData,
+  //       role: userData.role ?? UserRole.USER,
+  //       password: userData.password ? await bcrypt.hash(userData.password, 10) : await bcrypt.hash('Temp123!', 10),
+  //       preferences: userData.preferences ?? {
+  //         theme: 'system',
+  //         notifications: { email: true, push: true }
+  //       },
+  //       securityPreferences: userData.securityPreferences ?? {
+  //         twoFactorEnabled: false,
+  //         loginNotifications: true,
+  //         activityAlerts: true
+  //       },
+  //       isActive: true,
+  //       isMfaEnabled: false
+  //     });
 
-      await trackDatabaseOperation('saveUser', async () => user.save());
+  //     await trackDatabaseOperation('saveUser', async () => user.save());
 
-      // Invalidate caches
-      try {
-        const listKeys = await userCache.getClient().keys('users:list:*');
-        if (listKeys.length > 0) {
-          await userCache.getClient().del(...listKeys);
-          logger.info(`Cleared ${listKeys.length} user list cache entries`);
-        }
-        await redisUtils.del(cacheKey);
-      } catch (cacheError) {
-        logger.warn(`Error invalidating caches: ${cacheError instanceof Error ? cacheError.message : String(cacheError)}`);
-      }
+  //     // Invalidate caches
+  //     try {
+  //       const listKeys = await userCache.getClient().keys('users:list:*');
+  //       if (listKeys.length > 0) {
+  //         await userCache.getClient().del(...listKeys);
+  //         logger.info(`Cleared ${listKeys.length} user list cache entries`);
+  //       }
+  //       await redisUtils.del(cacheKey);
+  //     } catch (cacheError) {
+  //       logger.warn(`Error invalidating caches: ${cacheError instanceof Error ? cacheError.message : String(cacheError)}`);
+  //     }
 
-      // Cache the new user
-      try {
-        await redisUtils.cacheUser(user._id.toString(), user, 3600);
-      } catch (cacheError) {
-        logger.warn(`Error caching user ${user._id}: ${cacheError instanceof Error ? cacheError.message : String(cacheError)}`);
-      }
+  //     // Cache the new user
+  //     try {
+  //       await redisUtils.cacheUser(user._id.toString(), user, 3600);
+  //     } catch (cacheError) {
+  //       logger.warn(`Error caching user ${user._id}: ${cacheError instanceof Error ? cacheError.message : String(cacheError)}`);
+  //     }
 
-      return user;
-    } catch (error) {
-      logger.error('Error creating user:', { error: (error as Error).message });
-      throw error;
-    }
-  }
+  //     return user;
+  //   } catch (error) {
+  //     logger.error('Error creating user:', { error: (error as Error).message });
+  //     throw error;
+  //   }
+  // }
 
   async clearUsersCache(): Promise<void> {
     try {
@@ -304,72 +304,6 @@ class UserService {
     }
   }
 
-  async updateUserPermissions(userId: string, permissions: string[]): Promise<UserDocument> {
-    try {
-      if (!Array.isArray(permissions)) {
-        throw new Error('Permissions must be an array');
-      }
-
-      const validPermissions = await permissionService.getAllPermissions();
-      const validPermissionIds = validPermissions.map(p => p.id);
-      const invalidPermissions = permissions.filter(perm => !validPermissionIds.includes(perm));
-      if (invalidPermissions.length > 0) {
-        throw new Error(`Invalid permissions: ${invalidPermissions.join(', ')}`);
-      }
-
-      const user = await trackDatabaseOperation<UserDocument | null>('updateUserPermissions', async () =>
-        User.findByIdAndUpdate(userId, { $set: { permissions } }, { new: true }).exec()
-      );
-      if (!user) {
-        throw new Error('User not found');
-      }
-
-      await this.logUserActivity(userId, ActivityType.PERMISSIONS_UPDATE, 'User permissions updated', {
-        permissionsCount: permissions.length,
-        permissions
-      });
-
-      // Invalidate caches
-      try {
-        await redisUtils.invalidateUserCache(userId);
-        const listKeys = await userCache.getClient().keys('users:list:*');
-        if (listKeys.length > 0) {
-          await userCache.getClient().del(...listKeys);
-          logger.info(`Cleared ${listKeys.length} user list cache entries`);
-        }
-      } catch (cacheError) {
-        logger.warn(`Error invalidating caches: ${cacheError instanceof Error ? cacheError.message : String(cacheError)}`);
-      }
-
-      // Cache the updated user
-      try {
-        await redisUtils.cacheUser(userId, user, 3600);
-      } catch (cacheError) {
-        logger.warn(`Error caching user ${userId}: ${cacheError instanceof Error ? cacheError.message : String(cacheError)}`);
-      }
-
-      return user;
-    } catch (error) {
-      logger.error('Error updating user permissions:', { error: (error as Error).message, userId });
-      throw error;
-    }
-  }
-
-  async getAllPermissions(): Promise<Permission[]> {
-    try {
-      const permissions = await permissionService.getAllPermissions();
-      return permissions.map(p => ({
-        id: p.id,
-        name: p.name,
-        description: p.description,
-        resource: p.resource,
-        action: p.action as 'delete' | 'update' | 'create' | 'read' | 'manage'
-      }));
-    } catch (error) {
-      logger.error('Error getting all permissions:', { error: (error as Error).message });
-      throw error;
-    }
-  }
 
   async deleteUser(userId: string): Promise<UserDocument> {
     try {
@@ -443,6 +377,7 @@ class UserService {
         profileImage: profileData.profileImage,
         preferences: profileData.preferences
       };
+    
       Object.keys(allowed).forEach(k => allowed[k] === undefined && delete allowed[k]);
 
       const updatedUser = await trackDatabaseOperation<UserDocument | null>('updateProfile', async () =>

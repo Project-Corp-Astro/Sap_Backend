@@ -1,56 +1,53 @@
 import { Router } from 'express';
-import roleController from '../controllers/role.controller';
-import { authenticate } from '../middleware/auth';
-import { requirePermission } from '../middleware/permissions';
+import { RoleController } from '../controllers/role.controller';
+import { requirePermission } from '../../../../src/middleware/requirePermission';
+import { asyncHandler } from '../../../../src/middleware/validation.middleware';
+import { authMiddleware } from '../middlewares/auth.middleware';
 
 const router = Router();
 
-// Get all roles
-router.get(
-  '/roles',
-  authenticate,
-  requirePermission('system.view'),
-  roleController.getAllRoles
-);
+router.use(asyncHandler(authMiddleware));
 
-// Get role by ID
-router.get(
-  '/roles/:id',
-  authenticate,
-  requirePermission('system.view'),
-  roleController.getRoleById
-);
-
-// Create a new role (admin only)
+// Create a new role with permissions
 router.post(
-  '/roles',
-  authenticate,
-  requirePermission('system.manage_roles'),
-  roleController.createRole
+  '/',
+  requirePermission('role:create', { application: 'system' }),
+  asyncHandler(RoleController.createRole)
 );
 
-// Update a role (admin only)
+// Update role permissions
 router.put(
-  '/roles/:id',
-  authenticate,
-  requirePermission('system.manage_roles'),
-  roleController.updateRole
+  '/:roleId/permissions',
+  requirePermission('role:update', { application: 'system' }),
+  asyncHandler(RoleController.updateRolePermissions)
 );
 
-// Update role permissions (admin only)
-router.put(
-  '/roles/:id/permissions',
-  authenticate,
-  requirePermission('system.manage_roles'),
-  roleController.updateRolePermissions
+// Assign role to user
+router.post(
+  '/assign',
+  requirePermission('user:assign', { application: 'system' }),
+  asyncHandler(RoleController.assignRoleToUser)
 );
 
-// Delete a role (admin only)
+// List all roles (optionally filtered by application)
+router.get(
+  '/',
+  requirePermission('role:read', { application: 'system' }),
+  asyncHandler(RoleController.listRoles)
+);
+
+// Get role details
+router.get(
+  '/:roleId',
+  requirePermission('role:read', { application: 'system' }),
+  asyncHandler(RoleController.getRole)
+);
+
+// Delete a role
 router.delete(
-  '/roles/:id',
-  authenticate,
-  requirePermission('system.manage_roles'),
-  roleController.deleteRole
+  '/:roleId',
+  requirePermission('role:delete', { application: 'system' }),
+  asyncHandler(RoleController.deleteRole)
 );
 
 export default router;

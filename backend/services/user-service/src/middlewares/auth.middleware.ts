@@ -45,14 +45,16 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
     // Verify token
     const decoded = jwt.verify(token, JWT_SECRET) as JwtPayload;
     
-    // Attach user info to request
-    // We're just setting the minimum required properties here
-    // The actual user document will be fetched in the controller if needed
+    // Attach user info to request with only the data we have in the token
     (req as any).user = {
       _id: decoded.userId,
       email: decoded.email,
-      role: decoded.role
+      rolePermissionIds: decoded.rolePermissionIds || []
     };
+    
+    // Log the decoded token for debugging
+    console.log('Decoded JWT:', JSON.stringify(decoded, null, 2));
+    console.log('Attached user to request:', (req as any).user);
     
     next();
   } catch (error) {
@@ -63,29 +65,4 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
       message: 'Invalid or expired token'
     });
   }
-};
-
-/**
- * Role-based authorization middleware
- * @param roles - Array of allowed roles
- */
-export const roleAuthorization = (roles: string[]) => {
-  return (req: Request, res: Response, next: NextFunction): Response | void => {
-    if (!req.user) {
-      return res.status(401).json({
-        success: false,
-        message: 'User not authenticated'
-      });
-    }
-
-    // @ts-ignore - User type doesn't have role property in TypeScript definitions
-    if (!roles.includes(req.user.role)) {
-      return res.status(403).json({
-        success: false,
-        message: 'Unauthorized: Insufficient permissions'
-      });
-    }
-
-    next();
-  };
 };

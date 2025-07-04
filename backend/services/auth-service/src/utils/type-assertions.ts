@@ -1,9 +1,10 @@
-import { IUser, UserDocument } from '../../../../shared/interfaces/user.interface';
+import { IUser } from '../../../../shared/interfaces/user.interface';
+import { IUserDocument } from '../../../../models/mongodb/User.model';
 
 /**
  * Helper function to cast UserDocument to IUser for TypeScript compatibility
  */
-export function asIUser(user: UserDocument | any): IUser {
+export function asIUser(user: IUserDocument | any): IUser {
   return user as IUser;
 }
 
@@ -21,7 +22,6 @@ export interface TokenPayload {
   userId: string;
   email: string;
   role: string;
-  permissions?: string[];
 }
 
 /**

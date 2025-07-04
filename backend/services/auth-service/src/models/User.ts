@@ -1,14 +1,51 @@
-import mongoose, { Schema, Model } from 'mongoose';
+import mongoose, { Schema, Model, Document, Types } from 'mongoose';
 import bcrypt from 'bcrypt';
 import { encryptionPlugin, decrypt } from '../../../../shared/utils/encryption';
+import { IUser, IUserPreferences } from '../../../../shared/interfaces/user.interface';
+
+// Extend the IUser interface to include Mongoose Document properties
+export interface IUserDocument extends Omit<IUser, '_id'>, Document {
+  _id: Types.ObjectId;
+  comparePassword(candidatePassword: string): Promise<boolean>;
+  fullName: string; // Virtual field
+  isModified(field: string): boolean;
+  save(): Promise<this>;
+  password: string;
+  passwordLastChanged?: Date;
+  passwordReset?: {
+    token: string;
+    expires: Date;
+  };
+  loginAttempts: any[]; // Using any[] to match the array operations in the code
+  lockUntil?: number;
+  accountLocked?: boolean;
+  accountLockedUntil?: Date;
+  passwordChangedAt?: Date;
+  securityPreferences?: {
+    passwordExpiryDays: number;
+    mfaEnabled: boolean;
+    mfaType: string;
+  };
+  mfaSecret?: string;
+  mfaEnabled: boolean;
+  mfaRecoveryCodes?: string[];
+  mfaBackupCodes?: string[];
+  isAccountLocked(): boolean;
+  shouldChangePassword(): boolean;
+  generateMfaSecret(): Promise<{ secret: string; uri: string; }>;
+  verifyMfaToken(token: string): Promise<boolean>;
+  generateMfaBackupCodes(): Promise<string[]>;
+}
+
+
+
+// Import other interfaces from auth.interfaces
 import { 
-  UserDocument, 
-  IUser, 
-  UserRole, 
-  UserAddress, 
+  UserRole as AuthUserRole, 
+  UserAddress as AuthUserAddress, 
   OAuthProfile, 
   MFAType, 
-  UserPreferences, 
+  UserPreferences as AuthUserPreferences, 
   SecurityPreferences,
   LoginAttempt,
   MFASettings,
@@ -46,13 +83,9 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
-  role: {
-    type: String,
-    enum: Object.values(UserRole),
-    default: UserRole.USER
-  },
-  permissions: [{
-    type: String
+  roles: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'RolePermission'
   }],
   isActive: {
     type: Boolean,
@@ -113,6 +146,23 @@ const userSchema = new Schema({
     },
     lastVerified: Date
   },
+  // MFA settings
+  mfaEnabled: {
+    type: Boolean,
+    default: false
+  },
+  mfaSecret: {
+    type: String,
+    select: false
+  },
+  mfaRecoveryCodes: [{
+    type: String,
+    select: false
+  }],
+  mfaBackupCodes: [{
+    type: String,
+    select: false
+  }],
   // Security features
   isEmailVerified: {
     type: Boolean,
@@ -225,7 +275,7 @@ userSchema.pre('save', async function(next) {
   try {
     const salt = await bcrypt.genSalt(10);
     // Use type assertion to access the password property
-    const userDoc = this as unknown as UserDocument;
+    const userDoc = this as unknown as IUserDocument;
     userDoc.password = await bcrypt.hash(userDoc.password, salt);
     
     // Update password change date
@@ -292,7 +342,7 @@ userSchema.methods.shouldChangePassword = function(): boolean {
 };
 
 // Add pre-save middleware to ensure password is properly hashed
-userSchema.pre('save', async function(this: UserDocument, next) {
+userSchema.pre('save', async function(this: IUserDocument, next) {
   // Only hash password if it's modified
   if (this.isModified('password')) {
     // Get the current password value
@@ -337,7 +387,6 @@ userSchema.pre('save', async function(this: UserDocument, next) {
 userSchema.plugin(encryptionPlugin);
 
 // Create and export the User model
-// Use type assertion to avoid TypeScript errors
-const User = mongoose.model('User', userSchema) as Model<UserDocument>;
+const User = mongoose.model<IUserDocument>('User', userSchema);
 
 export default User;

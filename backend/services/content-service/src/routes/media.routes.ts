@@ -1,25 +1,32 @@
 import express, { Router, RequestHandler } from 'express';
 import { check } from 'express-validator';
 import mediaController from '../controllers/media.controller';
-import { authMiddleware, roleAuthorization } from '../middlewares/auth.middleware';
+import { authMiddleware } from '../middlewares/auth.middleware';
 import { MediaType, VideoProvider } from '../interfaces/media.interfaces';
 import { ContentStatus } from '../interfaces/content.interfaces';
+import { requirePermission } from 'src/middleware/requirePermission';
 
 const router: Router = express.Router();
+
+router.use(authMiddleware as RequestHandler);
+router.use( requirePermission('media:manage', { application: 'cms' }),)
 
 /**
  * @route GET /api/media
  * @desc Get all media with pagination and filtering
  * @access Public
  */
-router.get('/', mediaController.getAllMedia as RequestHandler);
+router.get('/', 
+ 
+  mediaController.getAllMedia as RequestHandler);
 
 /**
  * @route GET /api/media/search
  * @desc Search media using Elasticsearch
  * @access Public
  */
-router.get('/search', mediaController.searchMedia as RequestHandler);
+router.get('/search',
+  mediaController.searchMedia as RequestHandler);
 
 /**
  * @route POST /api/media
@@ -28,8 +35,6 @@ router.get('/search', mediaController.searchMedia as RequestHandler);
  */
 router.post(
   '/',
-  authMiddleware as RequestHandler,
-  roleAuthorization(['admin', 'content_manager']) as RequestHandler,
   [
     check('title', 'Title is required').notEmpty(),
     check('description', 'Description is required').notEmpty(),
@@ -68,8 +73,7 @@ router.get('/:mediaId', mediaController.getMediaById as RequestHandler);
  */
 router.put(
   '/:mediaId',
-  authMiddleware as RequestHandler,
-  roleAuthorization(['admin', 'content_manager']) as RequestHandler,
+
   [
     check('title').optional().notEmpty().withMessage('Title must not be empty if provided'),
     check('description').optional().notEmpty().withMessage('Description must not be empty if provided'),
@@ -88,8 +92,6 @@ router.put(
  */
 router.delete(
   '/:mediaId',
-  authMiddleware as RequestHandler,
-  roleAuthorization(['admin', 'content_manager']) as RequestHandler,
   mediaController.deleteMedia as RequestHandler
 );
 
@@ -100,8 +102,6 @@ router.delete(
  */
 router.patch(
   '/:mediaId/status',
-  authMiddleware as RequestHandler,
-  roleAuthorization(['admin', 'content_manager']) as RequestHandler,
   [
     check('status', `Status must be one of: ${Object.values(ContentStatus).join(', ')}`).isIn(Object.values(ContentStatus)),
   ],

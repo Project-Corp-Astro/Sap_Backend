@@ -253,7 +253,6 @@ export interface JwtPayload {
   userId: string;
   email: string;
   role: string;
-  permissions?: string[];
   mfaVerified?: boolean;
   iat?: number;
   exp?: number;

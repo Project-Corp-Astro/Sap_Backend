@@ -4,7 +4,6 @@
  * This utility provides a direct connection to MongoDB without the query monitoring
  * that's causing the "queryStats" error in the main database connection.
  */
-
 import mongoose from 'mongoose';
 import { createServiceLogger } from '../../shared/utils/logger';
 
